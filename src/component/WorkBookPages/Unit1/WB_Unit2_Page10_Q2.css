@@ -1,0 +1,13 @@
+@media(max-width:900px){
+.Q2WB{
+
+    margin-left: 0px;
+}
+
+
+}
+.Q2WB {
+  max-width: 800px;   /* عرض مريح للقراءة */
+  margin: 0 auto;     /* التوسيط الحقيقي */
+  line-height: 2;
+}

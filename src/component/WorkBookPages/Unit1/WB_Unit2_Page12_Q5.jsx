@@ -1,0 +1,206 @@
+import React, { useState } from "react";
+import ValidationAlert from "../../Popup/ValidationAlert";
+import "./WB_Unit1_Page6_Q5.css";
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
+
+const Page5_Q2_SAppeler = () => {
+  // === STATE ===
+  const [answers, setAnswers] = useState({});
+  const [score, setScore] = useState(null);
+  const [answerStatus, setAnswerStatus] = useState({});
+
+  // === الأسئلة مع الفراغات ____
+  const questions = {
+    a: "Comment ça va____",
+    b: "Quelle est ta matière préférée____",
+    c: "J’ai dix-neuf ans____",
+    d: "Est-ce que tu aimes l’école____",
+    e: "J’aime l’histoire____",
+    f: "J’ai beaucoup d’amies____",
+    g: "Quelle est la matière que tu détestes____",
+    h: "Comment vous appelez-vous____",
+    i: "Au revoir. À bientôt____",
+    j: "Qu’est-ce qu’il y a dans ta trousse____",
+    k: "Combien de livres as-tu____",
+    l: "J’ai une leçon de graphisme____",
+  };
+
+  // === الإجابات النموذجية
+  const correctAnswers = {
+    a: "Ça va bien",
+    b: "Le français",
+    c: "19",
+    d: "Oui, j’aime l’école",
+    e: "L’histoire",
+    f: "Beaucoup",
+    g: "Les mathématiques",
+    h: "Je m’appelle Marie",
+    i: "Au revoir",
+    j: "Un stylo, un cahier",
+    k: "Trois",
+    l: "Oui",
+  };
+
+  // ✅ HANDLE CHANGE
+  const handleChange = (key, value) => {
+    setAnswers(prev => ({ ...prev, [key]: value }));
+    setAnswerStatus(prev => ({ ...prev, [key]: "" }));
+  };
+
+  // ✅ CHECK ANSWERS
+  const checkAnswer = () => {
+    const newStatus = {};
+    let correctCount = 0;
+    let incomplete = false;
+
+    Object.keys(correctAnswers).forEach(key => {
+      const val = answers[key]?.trim();
+      if (!val) incomplete = true;
+
+      const isCorrect = val?.toLowerCase() === correctAnswers[key].toLowerCase();
+      newStatus[key] = isCorrect ? "correct" : "wrong";
+      if (isCorrect) correctCount++;
+    });
+
+    setAnswerStatus(newStatus);
+
+    const total = Object.keys(correctAnswers).length;
+
+    if (incomplete) {
+      ValidationAlert.info(
+        "Incomplete",
+        "Please fill in all fields.",
+        `${correctCount}/${total}`
+      );
+      setScore(null);
+      return;
+    }
+
+    setScore({ correct: correctCount, total });
+
+    if (correctCount === total) {
+      ValidationAlert.success(
+        "Excellent!",
+        "You got all answers right!",
+        `${correctCount}/${total}`
+      );
+    } else if (correctCount === 0) {
+      ValidationAlert.error(
+        "Try Again!",
+        "All answers are incorrect.",
+        `${correctCount}/${total}`
+      );
+    } else {
+      ValidationAlert.error(
+        "Almost there!",
+        `You got ${correctCount} out of ${total} correct.`,
+        `${correctCount}/${total}`
+      );
+    }
+  };
+
+  // ✅ SHOW ANSWERS
+  const showAnswerFunc = () => {
+    setAnswers({ ...correctAnswers });
+
+    const newStatus = {};
+    Object.keys(correctAnswers).forEach(key => {
+      newStatus[key] = "correct";
+    });
+    setAnswerStatus(newStatus);
+
+    const total = Object.keys(correctAnswers).length;
+    setScore({ correct: total, total });
+
+    ValidationAlert.success(
+      "Answers shown",
+      "All correct answers have been filled in.",
+      `${total}/${total}`
+    );
+  };
+
+  // ✅ RESET
+  const resetExercise = () => {
+    const emptyAnswers = {};
+    const emptyStatus = {};
+    Object.keys(correctAnswers).forEach(key => {
+      emptyAnswers[key] = "";
+      emptyStatus[key] = "";
+    });
+    setAnswers(emptyAnswers);
+    setAnswerStatus(emptyStatus);
+    setScore(null);
+  };
+
+  // ✅ INPUT STYLE
+  const getInputStyle = (key) => {
+    if (answerStatus[key] === "correct") return { backgroundColor: "#d4f4dd" };
+    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" };
+    return {};
+  };
+
+  return (
+    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+         <header
+className="header-title-page1 w-full text-left mb-4"
+  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+      >
+        <span style={{backgroundColor:"#de4484"}} className="ex-A">2</span> <span style={{color:"black"}} className="number-of-q">5</span>
+
+Écris le point d’interrogation quand c’est nécessaire.
+      </header>
+
+      {/* ✅ QUESTIONS في عمودين */}
+      <div className="page5Q5" >
+        {/* العمود الأول */}
+        <div className="inputs-column" style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {Object.keys(questions).slice(0, 6).map((key, index) => (
+            <div className="input-group" key={key}>
+              <label>
+                <strong style={{ fontSize: "20px" }}>{String.fromCharCode(97 + index)} </strong>
+                {questions[key].split("____")[0]}
+                <input
+                  type="text"
+                  value={answers[key] || ""}
+                  onChange={(e) => handleChange(key, e.target.value)}
+                  style={{ width: "150px", margin: "0 5px", ...getInputStyle(key) }}
+                />
+                {questions[key].split("____")[1]}
+              </label>
+            </div>
+          ))}
+        </div>
+
+        {/* العمود الثاني */}
+        <div className="inputs-column" style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {Object.keys(questions).slice(6, 12).map((key, index) => (
+            <div className="input-group" key={key}>
+              <label>
+                <strong style={{ fontSize: "20px" }}>{String.fromCharCode(97 + 6 + index)} </strong>
+                {questions[key].split("____")[0]}
+                <input
+                  type="text"
+                  value={answers[key] || ""}
+                  onChange={(e) => handleChange(key, e.target.value)}
+                  style={{ width: "150px", margin: "0 5px", ...getInputStyle(key) }}
+                />
+                {questions[key].split("____")[1]}
+              </label>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {score && <ScoreCardEnhanced score={score} />}
+
+      {/* Action Buttons */}
+      <div className="action-buttons-container flex gap-4">
+        <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
+        <button onClick={showAnswerFunc} className="show-answer-btn">Afficher la réponse</button>
+        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
+      </div>
+    </div>
+  );
+};
+
+export default Page5_Q2_SAppeler;

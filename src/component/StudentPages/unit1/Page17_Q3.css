@@ -1,0 +1,81 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  gap: 30%;
+  padding: 30px;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+}
+
+
+.table-container {
+  position: relative;
+}
+
+/* الخط الفاصل */
+.table-container::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 2px;
+
+  background: black;
+  transform: translateX(-50%);
+
+}
+
+
+/* عمود */
+.table-column1 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+ 
+
+  /* Glass Effect */
+
+
+
+}
+
+/* الحقول */
+.table-input1 {
+  width: 160px;
+  padding: 10px 12px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+
+
+border-bottom: black solid 2px;
+
+
+  color: #333;
+
+  transition: all 0.25s ease;
+}
+
+/* عند التركيز */
+.table-input1:focus {
+  outline: none;
+  border-color: #7b3fe4;
+  background: transparent;
+  box-shadow: 0 0 0 2px rgba(123, 63, 228, 0.3);
+}
+
+/* الحقول الثابتة */
+.table-input1[readonly] {
+
+  color: #444;
+  cursor: not-allowed;
+  font-weight: bold;
+}
+.table-input1 input{
+
+  border-bottom: 2px black solid;
+}
