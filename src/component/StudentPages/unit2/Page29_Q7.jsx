@@ -1,31 +1,18 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; 
-
-
+import "./Page29_Q7.css";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
   0: "b",
-  1: "d",
-  2: "h",
-  3: "e",
-  4: "g",
-  5: "a",
-  6: "f",
-  7: "j",
-  8: "c",
-  9: "i",
+  1: "a",
+
 };
 
 const Page5_Q1_CleanAudio = () => {
   const [inputs, setInputs] = useState({});
   const [score, setScore] = useState(null);
-
-
-
-
-
 
   const checkAnswer = () => {
     let correctCount = 0;
@@ -59,12 +46,7 @@ const Page5_Q1_CleanAudio = () => {
   const resetExercise = () => {
     setInputs({});
     setScore(null);
-
   };
-
-
-
-  /* 🔴 مواقع الـ inputs فوق الصورة */
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
@@ -81,24 +63,39 @@ const Page5_Q1_CleanAudio = () => {
         }}
       >
         <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">1</span>{" "}
-        Écoute, répète et place dans l’ordre.
+        <span className="number-of-q">7</span>{" "}
+        Lis et devine à qui appartient le sac à dos.
       </header>
 
-  
+      {/* div الصورة الأولى */}
+      <div className="image-background29 image-A">
+        <input 
+          type="text" 
+          className="image-input" 
+          value={inputs[0] || ""} 
+          onChange={(e) => setInputs({...inputs, 0: e.target.value})}
+        />
+      </div>
+
+      {/* div الصورة الثانية */}
+      <div className="image-background29 image-B">
+        <input 
+          type="text" 
+          className="image-input" 
+          value={inputs[1] || ""} 
+          onChange={(e) => setInputs({...inputs, 1: e.target.value})}
+        />
+      </div>
 
       {score && <ScoreCardEnhanced score={score} />}
-
-      {/* Exercise */}
-
 
       {/* Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">
-         Recommencer ↻
+          Recommencer ↻
         </button>
         <button onClick={showAnswerFunc} className="show-answer-btn">
-         Afficher la réponse
+          Afficher la réponse
         </button>
         <button onClick={checkAnswer} className="check-button2">
           Vérifier la réponse✓

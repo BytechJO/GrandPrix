@@ -155,8 +155,8 @@ const resetExercise = () => {
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span  style={{ backgroundColor: "#df4f89" }} className="ex-A">C</span> <span style={{color:"black"}} className="number-of-q">4</span>
-Écoute encore une fois et réponds aux questions.      </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">2</span>
+ Dis qui parle.    </header>
 
       {/* ✅ QUESTIONS */}
       <div className="page5Q3" style={{marginLeft:"43%"}}>

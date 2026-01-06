@@ -1,25 +1,17 @@
-.p14q4 {
+.p14q429 {
   width: 100%;
-  min-height: 600px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative; /* مهم ليتمركز inputs مطلقًا داخلها */
 }
 
-.inputsp14 {
-  width: 800px;  /* حجم البطاقة */
-  height: 500px;
-  background-image: url('../../../assets/unit1/sectionD/P14Q4+5.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative; /* مهم ليكون المرجع للـ absolute */
-}
+
 .inputsp29 {
   width: 800px;  /* حجم البطاقة */
-  height: 500px;
-  background-image: url('../../../assets/unite2pages/svg/U2P46-02.svg');
+  height: 200px;
+  background-image: url('../../../assets/unite2pages/U2P46-02.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -30,39 +22,51 @@ width: 40%;
 padding: 6px;
 background-color: aliceblue;
 }
-.input1 {
+.input129 {
   position: absolute;
-  top: 26%;   /* المسافة من الأعلى */
-  left: 16%; /* المسافة من اليسار */
+  top: 12%;   /* المسافة من الأعلى */
+  left: 18%; /* المسافة من اليسار */
   width: 200px;
 }
 
-.input2 {
+.input229 {
   position: absolute;
-  top: 35%;
-  left: 19%;
+  top: 25%;
+  left: 20%;
   width: 200px;
 }
 
-.input3 {
+.input329 {
   position: absolute;
-  top: 45%;
-  left: 15%;
+  top: 37%;
+  left: 17%;
   width: 200px;
 }
 
-.input4 {
+.input429 {
   position: absolute;
-  top: 54%;
-  left: 26%;
+  top: 50%;
+  left: 24%;
   width: 200px;
 }
 
-.input5 {
+.input529 {
   position: absolute;
   top: 70%;
   left: 100px;
   width: 10%;
   height: 20%;
 
+}
+.input629{
+  position: absolute;
+  top: 62%;
+  left: 32%;
+  width: 200px;
+}
+.input729{
+  position: absolute;
+  top: 75%;
+  left: 32%;
+  width: 200px;
 }

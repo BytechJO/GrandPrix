@@ -1,40 +1,69 @@
 import React, { useState, useRef } from "react";
-import imgBackground from "../../../assets/unite2pages/svg/page31Q1.svg";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/P17Q1.mp3";
+import imgBackground from "../../../assets/unite2pages/svg/U2P31EXE1.png";
+import { FaPlay, FaPause } from "react-icons/fa";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-
+import "../unit1/Page17_Q1.css"
 /* 🔴 القائمة */
 const numbersList = [
-  { id: "a", label: "Je suis sud-africain(e)." },
-  { id: "b", label: "Je suis canadien(ne)." },
-  { id: "c", label: "Je suis indien(ne)." },
-  { id: "d", label: "Je suis américain(e)." },
-  { id: "e", label: "Je suis finlandais(e)." },
-  { id: "f", label: "Je suis australien(ne)." },
-  { id: "g", label: "Je suis australien(ne)." },
-  { id: "h", label: "Je suis australien(ne)." },
-  { id: "i", label: "Je suis australien(ne)." },
-  { id: "j", label: "Je suis australien(ne)." },
+  { id: "a", label: "Un feutre" },
+  { id: "b", label: "Une fenêtre" },
+  { id: "c", label: "Une chaise" },
+  { id: "d", label: "Une porte" },
+  { id: "e", label: "Un bureau" },
+  { id: "f", label: "Un CD" },
+  { id: "g", label: "Un classeur" },
+  { id: "h", label: "Un tableau blanc" },
+  { id: "i", label: "Un effaceur" },
 ];
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
   0: "b",
-  1: "d",
-  2: "h",
-  3: "e",
-  4: "g",
-  5: "a",
+  1: "h",
+  2: "e",
+  3: "c",
+  4: "i",
+  5: "f",
   6: "f",
-  7: "j",
-  8: "c",
+  7: "g",
+  8: "d",
   9: "i",
 };
 
-const Page5_Q1_CleanAudio = () => {
+/* 🔴 مواقع الـ inputs */
+const inputPositions = [
+  { id: 0, className: "input-q3-0" },
+  { id: 1, className: "input-q3-1" },
+  { id: 2, className: "input-q3-2" },
+  { id: 3, className: "input-q3-3" },
+  { id: 4, className: "input-q3-4" },
+  { id: 5, className: "input-q3-5" },
+  { id: 6, className: "input-q3-6" },
+  { id: 7, className: "input-q3-8" },
+  { id: 8, className: "input-q3-9" },
+];
+
+const Page5_Q1_CleanAudio2 = () => {
   const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [inputs, setInputs] = useState({});
   const [score, setScore] = useState(null);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
 
   const resetAudio = () => {
     if (audioRef.current) {
@@ -45,9 +74,8 @@ const Page5_Q1_CleanAudio = () => {
     }
   };
 
-  /* 🔴 تحديث الـ input */
   const handleInputChange = (index, value) => {
-    if (/^[A-Za-z]?$/.test(value)) {
+    if (/^[a-jA-J]?$/.test(value)) {
       setInputs({ ...inputs, [index]: value.toLowerCase() });
     }
   };
@@ -62,20 +90,11 @@ const Page5_Q1_CleanAudio = () => {
     setScore({ correct: correctCount, total });
 
     if (correctCount === total) {
-      ValidationAlert.success(
-        `Excellent! (${correctCount}/${total})`,
-        "All answers correct!"
-      );
+      ValidationAlert.success(`Excellent! (${correctCount}/${total})`, "All answers correct!");
     } else if (correctCount === 0) {
-      ValidationAlert.error(
-        `All answers incorrect (${correctCount}/${total})`,
-        "Try again!"
-      );
+      ValidationAlert.error(`All answers incorrect (${correctCount}/${total})`, "Try again!");
     } else {
-      ValidationAlert.error(
-        `You got ${correctCount} out of ${total} correct.`,
-        "Almost there!"
-      );
+      ValidationAlert.error(`You got ${correctCount} out of ${total} correct.`, "Almost there!");
     }
   };
 
@@ -87,24 +106,10 @@ const Page5_Q1_CleanAudio = () => {
     resetAudio();
   };
 
-  /* 🔴 مواقع الـ inputs فوق الصورة */
-  const inputPositions = [
-    { id: 0, top: "30%", left: "16%" },
-    { id: 1, top: "45%", left: "22%" },
-    { id: 2, top: "69%", left: "33%" },
-    { id: 3, top: "30%", left: "47%" },
-    { id: 4, top: "42%", left: "43%" },
-    { id: 5, top: "76%", left: "47%" },
-    { id: 6, top: "75%", left: "70%" },
-    { id: 7, top: "50%", left: "70%" },
-    { id: 8, top: "52%", left: "58%" },
-    { id: 9, top: "30%", left: "75%" },
-  ];
-
   return (
-    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
+    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-      <header
+        <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -114,115 +119,46 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>
-          B
-        </span>
-        <span className="number-of-q">1</span> Liste les mots masculins et
-        féminins de l'exercice 1. Ensuite, mets chaque mot au pluriel.
+        <span className="ex-A" style={{ backgroundColor: "#73C8D2" }}>D</span>{" "}
+        <span className="number-of-q">1</span>{" "}
+        Écoute, répète et place dans l’ordre.
       </header>
+
+    
 
       {score && <ScoreCardEnhanced score={score} />}
 
-      {/* Exercise */}
-      <div
-        className="exercise-container"
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100vh",
-          gap: "20px",
-          overflow: "hidden",
-        }}
-      >
-        {/* القائمة على اليسار */}
-        <div
-          className="numbers-list"
-          style={{
-            width: "25%",
-            overflowY: "auto",
-          }}
-        >
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "10px",
-            }}
-          >
+      <div className="exercise-container">
+        <div className="numbers-list">
+          <ul>
             {numbersList.map((item) => {
-              // 🔹 أي حرف مطابق لـ item.id يصبح أزرق
-              const isUsed = Object.values(inputs).some(
-                (val) => val === item.id
-              );
+              const isUsed = Object.values(inputs).some((val) => val === item.id);
               return (
-                <li
-                  key={item.id}
-                  style={{
-                    backgroundColor: "#f2f2f2",
-                    padding: "8px 10px",
-                    borderRadius: "6px",
-                    display: "flex",
-                    gap: "8px",
-                    fontWeight: "bold",
-                    color: isUsed ? "blue" : "black",
-                  }}
-                >
-                  <span>{item.id}.</span>
-                  <span>{item.label}</span>
+                <li key={item.id} className={isUsed ? "used" : ""}>
+                  <span className="itemId">{item.id}.</span>
+                  <span className="itemText">{item.label}</span>
                 </li>
               );
             })}
           </ul>
         </div>
 
-        {/* الصورة على اليمين */}
-        <div
-          className="image2-container"
-          style={{
-            position: "relative",
-            flexGrow: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={imgBackground}
-            alt="Exercise"
-            style={{
-              width: "70%",
-              height: "20%",
-            }}
-          />
-
+        <div className="image-container">
+          <img src={imgBackground} alt="Exercise" />
           {inputPositions.map((pos) => (
             <input
               key={pos.id}
               type="text"
               maxLength="1"
-              className="number-input"
               value={inputs[pos.id] || ""}
               onChange={(e) => handleInputChange(pos.id, e.target.value)}
-              style={{
-                position: "absolute",
-                top: pos.top,
-                left: pos.left,
-                width: "3%",
-                height: "5%",
-                textAlign: "center",
-                fontSize: "18px",
-                border: "2px solid #f48684",
-                backgroundColor: "white",
-              }}
+              className={`input-pos ${pos.className}`}
+               style={{width:"4%", height:"6%", borderRadius:"50%", backgroundColor:"white"}}
             />
           ))}
         </div>
       </div>
 
-      {/* Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">
           Recommencer ↻
@@ -238,4 +174,4 @@ const Page5_Q1_CleanAudio = () => {
   );
 };
 
-export default Page5_Q1_CleanAudio;
+export default Page5_Q1_CleanAudio2;

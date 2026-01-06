@@ -1,0 +1,37 @@
+.image-background29 {
+  position: relative; /* لوضع input فوق الديف */
+  width: 100%;
+  max-width: 700px;
+  height: 200px; /* تكبير الديف */
+  background-position: center;
+  background-size: cover; /* تغطي الديف بالكامل */
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  z-index: 0;
+  border-radius: 8px; /* اختياري لتجميل الحواف */
+}
+
+/* الخلفيات المختلفة لكل div */
+.image-A {
+  background-image: url("../../../assets/unite2pages/svg/U2P29EXE1-a.svg");
+}
+
+.image-B {
+  background-image: url("../../../assets/unite2pages/svg/U2P29EXE1-b.svg");
+}
+
+/* input فوق الصورة على اليمين */
+.image-input {
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  width: 8%; /* تكبير المربع حسب رغبتك */
+  height: 30px;
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  z-index: 10;
+}

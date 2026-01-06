@@ -1,0 +1,92 @@
+/* ====== WRAPPER ====== */
+.exercise-wrapper {
+ 
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+}
+
+/* ====== TITLE ====== */
+
+
+/* ====== TABLE AREA ====== */
+.schedule-table {
+  background: #bfe6ef;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: inset 0 0 0 6px #6fbfcb;
+   width: 65%;
+}
+
+/* ====== ROWS ====== */
+.row {
+  display: grid;
+  grid-template-columns: 150px repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* ====== HEADER ====== */
+.row.header {
+  margin-bottom: 20px;
+}
+
+.row.header .cell {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ====== CELLS ====== */
+.cell {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 10px 12px;
+  text-align: center;
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.05),
+    inset 0 3px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ====== TIME COLUMN ====== */
+.cell.time {
+  background: transparent;
+  box-shadow: none;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* ====== INPUTS ====== */
+.cell input {
+  width: 100%;
+  border-bottom: 2px solid black;
+  outline: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: white; /* افتراضي */
+}
+
+/* ====== INPUT FOCUS ====== */
+.cell input:focus {
+  outline: none;
+}
+
+/* ====== INPUT CLASSES FOR CHECKING ANSWERS ====== */
+.cell input.input-cell-default {
+  background-color: white;
+}
+
+.cell input.input-cell-correct {
+  background-color: #d4edda !important; /* أخضر فاتح */
+}
+
+.cell input.input-cell-incorrect {
+  background-color: #f8d7da !important; /* أحمر فاتح */
+}
+
+/* ====== SPACES ====== */
+
+
+/* ====== BUTTONS ====== */
+
+

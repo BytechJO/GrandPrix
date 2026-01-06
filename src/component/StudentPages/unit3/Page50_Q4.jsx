@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/1.mp3";
 import ValidationAlert from "../../Popup/ValidationAlert";
+import img1 from "../../../assets/unite3pages/svg/Page50Q4.svg"
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
@@ -54,23 +55,18 @@ const Page5_Q1_CleanAudio = () => {
   return (
     <div className="page-wrapper1 flex flex-col items-center gap-8 p-4">
       {/* العنوان */}
-      <header
+<header
         className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
+        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span style={{ backgroundColor: "#73C8D2" }} className="ex-A">
-          c
-        </span>
-        <span className="number-of-q">7</span> Entoure la bonne réponse.
-      </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">4</span>
+ Écoute et entoure la bonne réponse.   </header>
+
 
       {/* التمرين */}
-      <div className="exercise-choices w-full max-w-4xl">
+      <div className="exercise-choices w-full max-w-2xl">
+
+        
         {[
           {
             id: "a",
@@ -243,6 +239,19 @@ const Page5_Q1_CleanAudio = () => {
             )}
           </div>
         ))}
+                 <div className="exercise-image50" >
+    <img
+      src={img1}
+      alt="Illustration"
+      style={{
+        maxWidth: "400px",
+        height: "auto",
+        display: "block",
+        borderRadius: "8px",
+        
+      }}
+    />
+    </div>
       </div>
 
       <div className="spaces"></div>

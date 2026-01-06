@@ -83,7 +83,7 @@ const correctAnswers = {
           `${correctCount}/${total}`
         );
       } else {
-        ValidationAlert.warning(
+        ValidationAlert.error(
           "Some answers are incorrect",
           `You got ${correctCount} out of ${total} correct.`,
           `${correctCount}/${total}`

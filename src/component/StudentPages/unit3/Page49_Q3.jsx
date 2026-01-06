@@ -144,12 +144,13 @@ const resetExercise = () => {
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
 
       {/* Question Header */}
- <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+<header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">11</span>Lis et écris l’information manquante.
-      </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">3</span>
+  Complète les phrases en utilisant les
+mots proposés.    </header>
 
       {/* ✅ Q11 WORD BANK */}
       <div className="q11-word-bank" style={{paddingRight:"20px"}}>

@@ -133,24 +133,12 @@ const updateCaption = (currentTime) => {
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-      <header
+   <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
+        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span style={{ backgroundColor: "#73C8D2" }} className="ex-A">
-          A
-        </span>{" "}
-        <span style={{ color: "black" }} className="number-of-q">
-          1
-        </span>{" "}
-        Écoute, répète et place dans l'ordre.
-      </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">1</span>
+ Écoute et place dans l’ordre. Puis lis.   </header>
 
       {/* ================= Audio Player ================= */}
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
