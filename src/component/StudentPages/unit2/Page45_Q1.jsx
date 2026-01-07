@@ -3,7 +3,7 @@ import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/U1SAQ5
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import img1 from "../../../assets/unit1/sectionD/P23Q1.svg";
+import img1 from "../../../assets/unite2pages/svg/P45Q1.svg";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 

@@ -71,7 +71,7 @@ const Page5_Q1_CleanAudio = () => {
       <div className="image-background29 image-A">
         <input 
           type="text" 
-          className="image-input" 
+          className="image-input29" 
           value={inputs[0] || ""} 
           onChange={(e) => setInputs({...inputs, 0: e.target.value})}
         />
@@ -81,7 +81,7 @@ const Page5_Q1_CleanAudio = () => {
       <div className="image-background29 image-B">
         <input 
           type="text" 
-          className="image-input" 
+          className="image-input29" 
           value={inputs[1] || ""} 
           onChange={(e) => setInputs({...inputs, 1: e.target.value})}
         />

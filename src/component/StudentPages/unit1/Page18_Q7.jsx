@@ -262,7 +262,7 @@ const Page5_Q1_CleanAudio = () => {
           </Droppable>
         </div>
       </DragDropContext>
-
+<div className="spaces"></div>
       {/* Score & Buttons */}
       {score && <ScoreCardEnhanced score={score} />}
       <div className="action-buttons-container flex gap-4 mt-4">

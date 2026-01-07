@@ -17,48 +17,48 @@
   position: relative; /* مهم ليكون المرجع للـ absolute */
 }
 .inputsp29 {
-  width: 800px;  /* حجم البطاقة */
+  width: 800px;  
   height: 500px;
   background-image: url('../../../assets/unite2pages/svg/U2P46-02.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative; /* مهم ليكون المرجع للـ absolute */
+  position: relative; 
 }
 .inputsp14 input{
 width: 40%;
 padding: 6px;
 background-color: aliceblue;
 }
-.input1 {
+.input114 {
   position: absolute;
   top: 26%;   /* المسافة من الأعلى */
   left: 16%; /* المسافة من اليسار */
   width: 200px;
 }
 
-.input2 {
+.input214 {
   position: absolute;
   top: 35%;
   left: 19%;
   width: 200px;
 }
 
-.input3 {
+.input314 {
   position: absolute;
   top: 45%;
   left: 15%;
   width: 200px;
 }
 
-.input4 {
+.input414 {
   position: absolute;
   top: 54%;
   left: 26%;
   width: 200px;
 }
 
-.input5 {
+.input514 {
   position: absolute;
   top: 70%;
   left: 100px;

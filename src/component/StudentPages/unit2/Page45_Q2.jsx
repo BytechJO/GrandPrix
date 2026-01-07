@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import img1 from "../../../assets/unite2pages/svg/U2P46.svg"
+import img2 from "../../../assets/unite2pages/svg/P46Q1-01.svg"
+import img3 from "../../../assets/unite2pages/svg/P46Q1-02.svg"
 
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
 
@@ -150,16 +152,19 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-  <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+   <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">1</span> <span style={{color:"black"}} className="number-of-q">3</span>Réécris les phrases en utilisant un pronom sujet.
+        <span style={{ backgroundColor: "#2c8ac9", color: "#df4f89" }} className="ex-A">DELF </span>
+        <span style={{ color: "black" }} className="number-of-q">2</span>
+      Lis les petits messages et réponds aux questions. Chaque réponse correcte vaut 2 points.
       </header>
-<div className="imgpage45" style={{width:"100%", display:"flex"}} >
+<div className="imgpage45" style={{width:"100%", display:"flex", justifyContent:"center"}} >
 
-  <img src={img1} alt="" style={{width:"50%", height:"20%"}} />
-  <img src={img1} alt="" style={{width:"50%", height:"20%"}} />
+  <img src={img1} alt="" style={{width:"40%", height:"20%"}} />
+  <img src={img3} alt="" style={{width:"20%", height:"15%"}} />
+  <img src={img2} alt="" style={{width:"20%", height:"15%"}} />
 
 </div>
       {/* ✅ QUESTIONS */}

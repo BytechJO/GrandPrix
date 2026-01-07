@@ -272,12 +272,12 @@ const Page5_Q1_CleanAudio = () => {
 
       <div className="p14q4">
         <div className="inputsp14">
-          <input type="text" className="input1" value={input1} onChange={(e) => setInput1(e.target.value)} placeholder="Nom" />
-          <input type="text" className="input2" value={input2} onChange={(e) => setInput2(e.target.value)} placeholder="Prénom" />
-          <input type="text" className="input3" value={input3} onChange={(e) => setInput3(e.target.value)} placeholder="Âge" />
-          <input type="text" className="input4" value={input4} onChange={(e) => setInput4(e.target.value)} placeholder="N° d’étudiant" />
+          <input type="text" className="input114" value={input1} onChange={(e) => setInput1(e.target.value)} placeholder="Nom" />
+          <input type="text" className="input214" value={input2} onChange={(e) => setInput2(e.target.value)} placeholder="Prénom" />
+          <input type="text" className="input314" value={input3} onChange={(e) => setInput3(e.target.value)} placeholder="Âge" />
+          <input type="text" className="input414" value={input4} onChange={(e) => setInput4(e.target.value)} placeholder="N° d’étudiant" />
           {/* الانبوت الخامس توقيع فقط */}
-          <div className="input5" style={{ border: "1px solid #ccc", width: "300px", height: "100px", marginTop: "10px" }}>
+          <div className="input514" style={{ border: "1px solid #ccc", width: "300px", height: "100px", marginTop: "10px" }}>
             <canvas
               ref={canvasRef}
               width={300}
