@@ -85,7 +85,7 @@ const Page5 = ({ openPopup }) => {
                 width="20"
                 height="20"
                 viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 51 })}
+                onClick={() => openPopup("exercise", { startIndex: 54 })}
                 // className="click-icon-page8-1 hover:scale-110 transition"
                 style={{ overflow: "visible" }}
               >
@@ -102,13 +102,13 @@ const Page5 = ({ openPopup }) => {
             </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"50.0%",left:"69%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"46.0%",left:"90%"  }}
             >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 52 })}
+                onClick={() => openPopup("exercise", { startIndex: 55 })}
                 // className="click-icon-page8-1 hover:scale-110 transition"
                 style={{ overflow: "visible" }}
               >

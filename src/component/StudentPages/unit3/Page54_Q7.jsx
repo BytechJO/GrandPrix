@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import ValidationAlert from "../../Popup/ValidationAlert";
 
+
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
 
@@ -10,20 +11,16 @@ const Page5_Q1_CleanAudio = () => {
   const [current, setCurrent] = useState(0);
 
   // ✅ QUESTIONS DATA (من Q7 كما هي)
-   const sentences = [
-    { id: "a", text: "La conversation est entre deux garçons." },
-    { id: "b", text: "C'est le deuxième jour de Michelle dans sa nouvelle école." },
-    { id: "c", text: "Elle veut parler de ses amies." },
-    { id: "d", text: "Dans la salle de classe, il y a six fenêtres et deuxportes." },
-    { id: "e", text: "Il y a aussi vingt tables et vingt stylos." },
-    { id: "f", text: "Il y a beaucoup de fenêtres et des classeurs." },
-    { id: "g", text: "Il y a aussi beaucoup de crayons de couleurs differentes." },
-    { id: "h", text: "Chloé lui pose des questions sur sa salle declasse." },
-    { id: "i", text: "Sa nouvelle amie s’appelle Emma." },
-
+  const sentences = [
+    { id: "a", text: "Il y a une lettre pour Antoine." },
+    { id: "b", text: "Il y a une invitation pour un anniversaire." },
+    { id: "c", text: "La lettre cite 5 filières." },
+    { id: "d", text: "Cet événement commence à 6 h 45." },
+    { id: "e", text: "Antoine est au lycée." },
+    { id: "f", text: "Ces journées de l’orientation aident lesenfants à choisir leur passion." },
   ];
 
-  const correctAnswers = ["f"];
+  const correctAnswers = ["a", "d", "e","f"];
 
   const [checked, setChecked] = useState({});
   const [showFeedback, setShowFeedback] = useState(false);
@@ -146,18 +143,17 @@ const Page5_Q1_CleanAudio = () => {
   return (
     <div className="page-wrapper1 flex flex-col items-center gap-8 p-4">
       {/* العنوان */}
-   <header
+        <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">4</span>
-   Vrai (✔️ ) ou faux (✖️) ?  </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">B</span> <span style={{color:"black"}} className="number-of-q">1</span>Vrai (✔️ ) ou faux (✖️) ? </header>
 
 
 
       {/* ✅ QUESTIONS LIST */}
-      <div className="questions-list-container">
-        <div className="questions-grid ml-20">
+      <div className="questions-list-container" >
+        <div className="questions-grid " style={{width:"70%", marginLeft:"15%"}} >
           {sentences.map((sentence) => {
             const correct = correctAnswers.includes(sentence.id);
             const userAnswer = checked[sentence.id]; // true = Vrai, false = Faux
@@ -178,7 +174,7 @@ const Page5_Q1_CleanAudio = () => {
                 key={sentence.id}
                 className={`question-card ${feedbackState} ${isAnswered ? "answered" : ""}`}
               >
-                <div className="question-content ">
+                <div className="question-content">
                   <div className="question-id">{sentence.id})</div>
                   <div className="question-text">{sentence.text}</div>
                 </div>

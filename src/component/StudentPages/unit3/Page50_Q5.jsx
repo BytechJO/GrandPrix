@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import ValidationAlert from "../../Popup/ValidationAlert";
+import "./Page50_Q5.css"; // سنقوم بإضافة ملف CSS
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
@@ -10,20 +11,18 @@ const Page5_Q1_CleanAudio = () => {
   const [current, setCurrent] = useState(0);
 
   // ✅ QUESTIONS DATA (من Q7 كما هي)
-   const sentences = [
-    { id: "a", text: "La conversation est entre deux garçons." },
-    { id: "b", text: "C'est le deuxième jour de Michelle dans sa nouvelle école." },
-    { id: "c", text: "Elle veut parler de ses amies." },
-    { id: "d", text: "Dans la salle de classe, il y a six fenêtres et deuxportes." },
-    { id: "e", text: "Il y a aussi vingt tables et vingt stylos." },
-    { id: "f", text: "Il y a beaucoup de fenêtres et des classeurs." },
-    { id: "g", text: "Il y a aussi beaucoup de crayons de couleurs differentes." },
-    { id: "h", text: "Chloé lui pose des questions sur sa salle declasse." },
-    { id: "i", text: "Sa nouvelle amie s’appelle Emma." },
-
+  const sentences = [
+    { id: "a", text: "Ray et sa mère parlent à la maison." },
+    { id: "b", text: "Son frère va arriver à Marseille." },
+    { id: "c", text: "Ray est à la gare." },
+    { id: "d", text: "Le train arrive à 5 h 15 du soir." },
+    { id: "e", text: "Ray est très heureux de voir son ami." },
+    { id: "f", text: "Son ami s’appelle Daniel." },
+    { id: "g", text: "Daniel est triste de voir Ray." },
+    { id: "h", text: "Ils vont au restaurant." },
   ];
 
-  const correctAnswers = ["f"];
+  const correctAnswers = ["c", "e", "f"];
 
   const [checked, setChecked] = useState({});
   const [showFeedback, setShowFeedback] = useState(false);
@@ -150,14 +149,14 @@ const Page5_Q1_CleanAudio = () => {
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">4</span>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">5</span>
    Vrai (✔️ ) ou faux (✖️) ?  </header>
 
 
 
       {/* ✅ QUESTIONS LIST */}
       <div className="questions-list-container">
-        <div className="questions-grid ml-20">
+        <div className="questions-grid">
           {sentences.map((sentence) => {
             const correct = correctAnswers.includes(sentence.id);
             const userAnswer = checked[sentence.id]; // true = Vrai, false = Faux
@@ -178,7 +177,7 @@ const Page5_Q1_CleanAudio = () => {
                 key={sentence.id}
                 className={`question-card ${feedbackState} ${isAnswered ? "answered" : ""}`}
               >
-                <div className="question-content ">
+                <div className="question-content">
                   <div className="question-id">{sentence.id})</div>
                   <div className="question-text">{sentence.text}</div>
                 </div>

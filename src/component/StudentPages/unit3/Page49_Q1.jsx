@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/1.mp3";
-import img4 from "../../../assets/unit1/imgs/QU1/Q1/12.svg";
-import img3 from "../../../assets/unit1/imgs/QU1/Q1/13.svg";
-import img2 from "../../../assets/unit1/imgs/QU1/Q1/14.svg";
-import img1 from "../../../assets/unit1/imgs/QU1/Q1/15.svg";
+import img1 from "../../../assets/unite3pages/svg/page491.svg";
+import img2 from "../../../assets/unite3pages/svg/page492.svg";
+import img3 from "../../../assets/unite3pages/svg/page493.svg";
+import img4 from "../../../assets/unite3pages/svg/page494.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -17,10 +17,12 @@ const images = [
   { id: "d", src: img4, label: "D" },
 ];
 
+// تعديل correctAnswers ليشمل الحقول الجديدة للصورة 3
 const correctAnswers = {
-  a: "c",
-  b: "b",
-  c: "a",
+  a: "a",
+  b: "c",
+  c1: "e", // الإجابة الأولى للصورة 3
+  c2: "b", // الإجابة الثانية للصورة 3
   d: "d",
 };
 
@@ -81,21 +83,15 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const checkAnswer = () => {
-    // حساب عدد الإجابات الصحيحة
     let correctCount = 0;
     Object.keys(correctAnswers).forEach((id) => {
-      if (
-        (answers[id] || "").toLowerCase() === correctAnswers[id].toLowerCase()
-      ) {
+      if ((answers[id] || "").toLowerCase() === correctAnswers[id].toLowerCase()) {
         correctCount++;
       }
     });
     const total = Object.keys(correctAnswers).length;
-
-    // تحديث الـ ScoreCard بعد التحقق
     setScore({ correct: correctCount, total });
 
-    // عرض التنبيهات حسب النتيجة
     if (correctCount === total) {
       ValidationAlert.success(
         `You got all answers right! (${total})`,
@@ -121,24 +117,21 @@ const Page5_Q1_CleanAudio = () => {
     resetAudio();
   };
 
-const updateCaption = (currentTime) => {
-  const index = captions.findIndex(
-    (cap) => currentTime >= cap.start && currentTime <= cap.end
-  );
-
-  setActiveIndex(index !== -1 ? index : null);
-};
-
+  const updateCaption = (currentTime) => {
+    const index = captions.findIndex(
+      (cap) => currentTime >= cap.start && currentTime <= cap.end
+    );
+    setActiveIndex(index !== -1 ? index : null);
+  };
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-   <header
+      <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">1</span>
- Écoute et place dans l’ordre. Puis lis.   </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">1</span> Écoute et place dans l’ordre. Puis lis.   </header>
 
       {/* ================= Audio Player ================= */}
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
@@ -245,11 +238,12 @@ const updateCaption = (currentTime) => {
           </div>
         </div>
       </div>
+
       {/* Score Card */}
       {score && <ScoreCardEnhanced score={score} />}
 
       {/* Exercise Images */}
-      {/* <div className="exercise-images grid grid-cols-2 gap-6">
+      <div className="exercise-images grid grid-cols-2 gap-6">
         {images.map((img) => (
           <div key={img.id} className="flex flex-col items-center gap-2">
             <img
@@ -257,26 +251,51 @@ const updateCaption = (currentTime) => {
               alt={`Image ${img.label}`}
               className="w-32 h-32 object-contain"
             />
-            <input
-              type="text"
-              maxLength="1"
-              placeholder="a/b/c/d"
-              value={answers[img.id] || ""}
-              onChange={(e) => handleInputChange(img.id, e.target.value)}
-              className="q5-input border rounded p-1 w-18 text-center"
-            />
+
+            {/* إذا كانت الصورة رقم 3 أضف حقلين */}
+            {img.id === "c" ? (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  maxLength="1"
+                  placeholder="a/b/c/d"
+                  value={answers[`${img.id}1`] || ""}
+                  onChange={(e) =>
+                    handleInputChange(`${img.id}1`, e.target.value)
+                  }
+                  className="q5-input border rounded p-1 w-10 text-center"
+                />
+                <input
+                  type="text"
+                  maxLength="1"
+                  placeholder="a/b/c/d"
+                  value={answers[`${img.id}2`] || ""}
+                  onChange={(e) =>
+                    handleInputChange(`${img.id}2`, e.target.value)
+                  }
+                  className="q5-input border rounded p-1 w-10 text-center"
+                />
+              </div>
+            ) : (
+              <input
+                type="text"
+                maxLength="1"
+                placeholder="a/b/c/d"
+                value={answers[img.id] || ""}
+                onChange={(e) => handleInputChange(img.id, e.target.value)}
+                className="q5-input border rounded p-1 w-18 text-center"
+              />
+            )}
           </div>
         ))}
-      </div> */}
+      </div>
+
       <div className="spaces"></div>
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">
           Recommencer ↻
         </button>
-        <button
-          onClick={showAnswerFunc}
-          className="show-answer-btn swal-continue"
-        >
+        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">
           Afficher la réponse
         </button>
         <button onClick={checkAnswer} className="check-button2">

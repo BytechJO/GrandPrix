@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/1.mp3";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import img1 from "../../../assets/unite3pages/svg/Page50Q4.svg"
-
+import "./Page50_Q4.css"
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
 

@@ -1,15 +1,16 @@
 import React, { useState, useRef } from "react";
-import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import ValidationAlert from "../../Popup/ValidationAlert";
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
 
- const [score, setScore] = useState(null); 
+  const [score, setScore] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   // ✅ QUESTIONS DATA (من Q7 كما هي)
-  const sentences = [
+ const sentences = [
     { id: "a", text: "Ce texte parle de deux garçons." },
     { id: "b", text: "Le premier garçon s’appelle Thomas." },
     { id: "c", text: "Thomas se prépare pour l’école." },
@@ -58,179 +59,205 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   // ✅ CHECK ANSWER
- // ✅ CHECK ANSWER (موحد مع نفس الفاليديشن)
-const checkAnswer = () => {
-  let correctCount = 0;
-  let incomplete = false;
+  const checkAnswer = () => {
+    let correctCount = 0;
+    let incomplete = false;
 
-  sentences.forEach((s) => {
-    // ⛔ لم يتم اختيار إجابة
-    if (checked[s.id] === undefined) {
-      incomplete = true;
-      return;
+    sentences.forEach((s) => {
+      // ⛔ لم يتم اختيار إجابة
+      if (checked[s.id] === undefined) {
+        incomplete = true;
+        return;
+      }
+
+      const isCorrect = correctAnswers.includes(s.id);
+
+      if (
+        (checked[s.id] && isCorrect) ||
+        (!checked[s.id] && !isCorrect)
+      ) {
+        correctCount++;
+      }
+    });
+
+    setShowFeedback(true);
+
+    const total = sentences.length;
+
+    // ✅ تحديث السكور (نفس الكارد)
+    setScore({ correct: correctCount, total });
+
+    if (incomplete) {
+      ValidationAlert.info(
+        "Incomplete",
+        "Some answers are missing.",
+        `${correctCount}/${total}`
+      );
+    } else if (correctCount === total) {
+      ValidationAlert.success(
+        "Good Job!",
+        "You got all answers right!",
+        `${correctCount}/${total}`
+      );
+    } else if (correctCount === 0) {
+      ValidationAlert.info(
+        "Try Again!",
+        "All answers are incorrect.",
+        `${correctCount}/${total}`
+      );
+    } else {
+      ValidationAlert.error(
+        "Almost There!",
+        "Some answers are incorrect.",
+        `${correctCount}/${total}`
+      );
     }
-
-    const isCorrect = correctAnswers.includes(s.id);
-
-    if (
-      (checked[s.id] && isCorrect) ||
-      (!checked[s.id] && !isCorrect)
-    ) {
-      correctCount++;
-    }
-  });
-
-  setShowFeedback(true);
-
-  const total = sentences.length;
-
-  // ✅ تحديث السكور (نفس الكارد)
-  setScore({ correct: correctCount, total });
-
-  if (incomplete) {
-    ValidationAlert.info(
-      "Incomplete",
-      "Some answers are missing.",
-      `${correctCount}/${total}`
-    );
-  } 
-  else if (correctCount === total) {
-    ValidationAlert.success(
-      "Good Job!",
-      "You got all answers right!",
-      `${correctCount}/${total}`
-    );
-  } 
-  else if (correctCount === 0) {
-    ValidationAlert.info(
-      "Try Again!",
-      "All answers are incorrect.",
-      `${correctCount}/${total}`
-    );
-  } 
-  else {
-    ValidationAlert.error(
-      "Almost There!",
-      "Some answers are incorrect.",
-      `${correctCount}/${total}`
-    );
-  }
-};
-
+  };
 
   // ✅ SHOW ANSWER
-const showCorrectAnswer = () => {
-  const correctMap = {};
+  const showCorrectAnswer = () => {
+    const correctMap = {};
 
-  sentences.forEach((s) => {
-    correctMap[s.id] = correctAnswers.includes(s.id);
-  });
+    sentences.forEach((s) => {
+      correctMap[s.id] = correctAnswers.includes(s.id);
+    });
 
-  setChecked(correctMap);
-  setShowFeedback(true);
+    setChecked(correctMap);
+    setShowFeedback(true);
 
-  ValidationAlert.info(
-    "Answers Shown",
-    "Correct sentences are checked.",
-    ""
-  );
-};
-
+    ValidationAlert.success(
+      "Answers Shown",
+      "Correct sentences are checked.",
+      ""
+    );
+  };
 
   // ✅ RESET
-const resetExercise = () => {
-  setChecked({});
-  setShowFeedback(false);
-  resetAudio();
+  const resetExercise = () => {
+    setChecked({});
+    setShowFeedback(false);
+    resetAudio();
 
-  if (ValidationAlert && typeof ValidationAlert.close === "function") {
-    ValidationAlert.close();
-  }
-};
-
+    if (ValidationAlert && typeof ValidationAlert.close === "function") {
+      ValidationAlert.close();
+    }
+  };
 
   return (
-    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-  <header
+    <div className="page-wrapper1 flex flex-col items-center gap-8 p-4">
+      {/* العنوان */}
+   <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
+        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">8</span>{" "}
-   Vrai (✔️ ) ou faux (✖️) ?
-      </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">4</span>
+   Vrai (✔️ ) ou faux (✖️) ?  </header>
+
 
 
       {/* ✅ QUESTIONS LIST */}
-{/* ✅ QUESTIONS LIST - Vrai / Faux */}
-<div className="q7-card">
-  <div className="q7-sentences-list">
-    {sentences.map((sentence) => {
-      const correct = correctAnswers.includes(sentence.id);
-      const userAnswer = checked[sentence.id]; // true = Vrai, false = Faux
+      <div className="questions-list-container ml-20">
+        <div className="questions-grid">
+          {sentences.map((sentence) => {
+            const correct = correctAnswers.includes(sentence.id);
+            const userAnswer = checked[sentence.id]; // true = Vrai, false = Faux
+            const isAnswered = userAnswer !== undefined;
+            
+            // تحديد حالة الجواب للتغذية الراجعة
+            let feedbackState = "";
+            if (showFeedback) {
+              if (userAnswer === correct) {
+                feedbackState = "correct";
+              } else {
+                feedbackState = "incorrect";
+              }
+            }
 
-      return (
-        <div
-          key={sentence.id}
-          className={`q7-sentence-item ${showFeedback ? (userAnswer === correct ? "correct" : "incorrect") : ""}`}
-        >
-          <div className="q7-sentence-text">
-            <span className="q7-sentence-id">{sentence.id})</span>
-            <span className="q7-sentence-content">{sentence.text}</span>
-          </div>
+            return (
+              <div
+                key={sentence.id}
+                className={`question-card ml-20 ${feedbackState} ${isAnswered ? "answered" : ""}`}
+                style={{width:"60%", marginLeft:"30%"}}
+              >
+                <div className="question-content " >
+                  <div className="question-id">{sentence.id})</div>
+                  <div className="question-text">{sentence.text}</div>
+                </div>
 
-          {/* Vrai / Faux Buttons */}
-          <div className="vrai-faux-buttons">
-            <button
-              className={`vrai-btn ${userAnswer === true ? "selected" : ""}`}
-              onClick={() => !showFeedback && setChecked(prev => ({ ...prev, [sentence.id]: true }))}
-            >
-             ✔️
-            </button>
-            <button
-              className={`faux-btn ${userAnswer === false ? "selected" : ""}`}
-              onClick={() => !showFeedback && setChecked(prev => ({ ...prev, [sentence.id]: false }))}
-            >
-             ✖️
-            </button>
-          </div>
+                {/* أزرار Vrai/Faux */}
+                <div className="answer-buttons-container">
+                  <button
+                    className={`answer-button vrai-button ${
+                      userAnswer === true ? "selected" : ""
+                    } ${showFeedback && correct ? "correct-highlight" : ""}`}
+                    onClick={() =>
+                      !showFeedback &&
+                      setChecked((prev) => ({ ...prev, [sentence.id]: true }))
+                    }
+                    disabled={showFeedback}
+                  >
+                    <span className="button-icon">✔️</span>
+                    <span className="button-text">Vrai</span>
+                    {showFeedback && correct && (
+                      <span className="feedback-indicator">✓</span>
+                    )}
+                  </button>
+                  <button
+                    className={`answer-button faux-button ${
+                      userAnswer === false ? "selected" : ""
+                    } ${showFeedback && !correct ? "correct-highlight" : ""}`}
+                    onClick={() =>
+                      !showFeedback &&
+                      setChecked((prev) => ({ ...prev, [sentence.id]: false }))
+                    }
+                    disabled={showFeedback}
+                  >
+                    <span className="button-icon">✖️</span>
+                    <span className="button-text">Faux</span>
+                    {showFeedback && !correct && (
+                      <span className="feedback-indicator">✓</span>
+                    )}
+                  </button>
+                </div>
 
-          {/* Feedback */}
-          {showFeedback && (
-            <span className="feedback-icon">
-          
-            </span>
-          )}
+                {/* Feedback message */}
+                {showFeedback && (
+                  <div className="feedback-message">
+                    {userAnswer === correct ? (
+                      <span className="correct-feedback">Correct !</span>
+                    ) : (
+                      <span className="incorrect-feedback">
+                        Incorrect. La réponse correcte est{" "}
+                        <strong>{correct ? "Vrai" : "Faux"}</strong>
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
-</div>
+      </div>
 
-{score && <ScoreCardEnhanced score={score} />}
+      {/* بطاقة النتيجة */}
+      {score && (
+        <div className="score-card-container">
+          <ScoreCardEnhanced score={score} />
+        </div>
+      )}
 
-      {/* Action Buttons */}
-      <div className="action-buttons-container">
+   <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">
-        Recommencer ↻
+          Recommencer ↻
         </button>
-        <button
-          onClick={showCorrectAnswer}
-          className="show-answer-btn swal-continue"
-        >
-        Afficher la réponse
+        <button onClick={showCorrectAnswer} className="show-answer-btn">
+          Afficher la réponse
         </button>
         <button onClick={checkAnswer} className="check-button2">
-        Vérifier la réponse✓
+          Vérifier la réponse ✓
         </button>
       </div>
-      <div className="spaces"></div>
+   
     </div>
   );
 };

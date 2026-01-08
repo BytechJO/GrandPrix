@@ -62,6 +62,21 @@ import Page49_Q1 from "./unit3/Page49_Q1";
 import Page49_Q2 from "./unit3/Page49_Q2";
 import Page49_Q3 from "./unit3/Page49_Q3";
 import Page50_Q4 from "./unit3/Page50_Q4";
+import Page50_Q5 from "./unit3/Page50_Q5";
+import Page50_Q6 from "./unit3/Page50_Q6";
+import Page51_Q8 from "./unit3/Page51_Q8";
+import Page53_Q1 from "./unit3/Page53_Q1";
+import Page54_Q5 from "./unit3/Page54_Q5";
+import Page54_Q6 from "./unit3/Page54_Q6";
+import Page54_Q7 from "./unit3/Page54_Q7";
+import Page55_Q10 from "./unit3/Page55_Q10";
+import Page57_Q1 from "./unit3/Page57_Q1";
+import Page57_Q2 from "./unit3/Page57_Q2";
+import Page58_Q5 from "./unit3/Page58_Q5";
+import Page58_Q6 from "./unit3/Page58_Q6";
+import Page58_Q7 from "./unit3/Page58_Q7";
+import Page58_Q8 from "./unit3/Page58_Q8";
+import Page59_Q10 from "./unit3/Page59_Q10";
 
 
 export const lessons = [
@@ -119,12 +134,28 @@ export const lessons = [
  { component: Page44_Q3, unit: 2 },
  { component: Page45_Q1, unit: 2 },
  { component: Page45_Q2, unit: 2 },
- { component: Page46_Q1, unit: 2 },
-// UNIT 2 MAIN
+ { component: Page46_Q1, unit: 2 ,lastOfUnit: true},
+// UNIT 3 MAIN
  { component: Page49_Q1, unit: 3 },
  { component: Page49_Q2, unit: 3 },
  { component: Page49_Q3, unit: 3 },
  { component: Page50_Q4, unit: 3 },
+ { component: Page50_Q5, unit: 3 },
+ { component: Page50_Q6, unit: 3 },
+ { component: Page51_Q8, unit: 3 },
+ { component: Page53_Q1, unit: 3 },
+ { component: Page54_Q5, unit: 3 },
+ { component: Page54_Q6, unit: 3 },
+ { component: Page54_Q7, unit: 3 },
+ { component: Page55_Q10, unit: 3 },
+ { component: Page57_Q1, unit: 3 },
+ { component: Page57_Q2, unit: 3 },
+ { component: Page58_Q5, unit: 3 },
+ { component: Page58_Q6, unit: 3 },
+ { component: Page58_Q7, unit: 3 },
+ { component: Page58_Q8, unit: 3 },
+ { component: Page59_Q10, unit: 3 },
+ 
 
 
   // // REVIEW
