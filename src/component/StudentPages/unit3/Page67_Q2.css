@@ -1,0 +1,85 @@
+/* Page67_Q2.css */
+
+/* === حاوية السؤال والخيارات === */
+.qcm-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.qcm-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* === حاوية الصور === */
+.image-options-container {
+  display: flex;
+  flex-wrap: nowrap; /* الصور بجانب بعضها */
+  justify-content: center;
+}
+
+/* === كل خيار صورة === */
+.image-option-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 0 0 auto; /* منع التمدد */
+}
+
+/* الصورة نفسها */
+.image-option1 img {
+  width: 100%;  /* نفس العرض لكل الصور */
+  height: 150px; /* نفس الارتفاع لكل الصور */
+  object-fit: cover; /* تغطية كاملة مع قص جزء من الصورة إذا لزم */
+ 
+  transition: all 0.3s ease;
+}
+
+.image-option1 img:hover {
+  border-color: #5e74b7;
+  transform: scale(1.05);
+}
+
+/* مؤشر التحديد */
+.selection-indicator {
+  position: absolute;
+  inset: 0;
+  border: 4px solid #5e74b7;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* لون الخلفية للصحيح والخطأ بعد التحقق */
+.correct img {
+  border-color: #28a745 !important; /* أخضر */
+}
+
+.wrong img {
+  border-color: #dc3545 !important; /* أحمر */
+}
+
+/* تسمية كل خيار */
+.option-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+/* === استجابة الشاشات الصغيرة === */
+@media (max-width: 768px) {
+  .image-option1 img {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-option1 img {
+    width: 120px;
+    height: 80px;
+  }
+}

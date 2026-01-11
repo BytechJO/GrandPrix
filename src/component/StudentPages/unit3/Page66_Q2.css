@@ -1,0 +1,65 @@
+
+
+/* === النص مع الفراغات === */
+.page66Q2-text-container66 {
+  width: 100%;
+  max-width: 900px;
+  font-size: 1.3rem;
+  line-height: 2;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+}
+
+/* === الفراغات === */
+.blank-wrapper {
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
+.blank-select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  min-width: 70px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.blank-select:focus {
+  outline: none;
+  border-color: #5e74b7;
+  box-shadow: 0 0 5px rgba(94, 116, 183, 0.5);
+}
+
+
+
+/* === تحسين الاستجابة === */
+@media (max-width: 768px) {
+  .page66Q2-text-container {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+
+  .blank-select {
+    min-width: 60px;
+    font-size: 0.95rem;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .page66Q2-text-container {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .blank-select {
+    min-width: 50px;
+    font-size: 0.9rem;
+  }
+}

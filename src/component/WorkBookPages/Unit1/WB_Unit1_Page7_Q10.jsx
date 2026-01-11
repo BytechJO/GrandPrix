@@ -169,7 +169,7 @@ className="header-title-page1 w-full text-left mb-4"
       </header>
 
       {/* Questions Grid */}
-      <div className="questions-grid w-full max-w-3xl">
+      <div className="questions-grid10 w-full max-w-3xl">
         {sentences.map((sentence, index) => (
           <div
             key={sentence.id}
