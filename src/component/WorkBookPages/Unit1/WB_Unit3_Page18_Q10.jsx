@@ -1,0 +1,228 @@
+import React, { useState, useRef } from "react";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/1.mp3";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+import { TbMessageCircle } from "react-icons/tb";
+import ValidationAlert from "../../Popup/ValidationAlert";
+import "./WB_Unit1_Page6_Q6.css";
+import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
+
+const Page5_Q1_CleanAudio = () => {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [showSettings, setShowSettings] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const [score, setScore] = useState(null);
+
+  const [answers, setAnswers] = useState({});
+  const [answerStatus, setAnswerStatus] = useState({});
+  const [checked, setChecked] = useState(false);
+
+const correctAnswers = {
+  a: "vos",
+  b: "votre",
+  c: "ton",
+  d: "notre",  // fine
+  e: "Leurs",  // إذا كنت ستختار الحرف الكبير
+  f: "mon",
+  g: "sa",     // إذا ستختار "sa" وليس "Son"
+  h: "Ses",    // حسب الخيار
+};
+
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
+  };
+
+  // ✅ CHECK ANSWER
+  const checkAnswer = () => {
+    const newStatus = {};
+    let correctCount = 0;
+    let incomplete = false;
+
+    Object.keys(correctAnswers).forEach((key) => {
+      const val = answers[key]?.trim();
+      if (!val) incomplete = true;
+
+      const isCorrect = val === correctAnswers[key];
+      newStatus[key] = isCorrect ? "correct" : "wrong";
+
+      if (isCorrect) correctCount++;
+    });
+
+    setAnswerStatus(newStatus);
+    setChecked(true);
+
+    const total = Object.keys(correctAnswers).length;
+
+    if (incomplete) {
+      ValidationAlert.info(
+        "Incomplete",
+        "Please fill in all fields.",
+        `${correctCount}/${total}`
+      );
+      setScore(null);
+    } else {
+      setScore({ correct: correctCount, total });
+
+      if (correctCount === total) {
+        ValidationAlert.success(
+          "Excellent!",
+          "You got all answers right!",
+          `${correctCount}/${total}`
+        );
+      } else if (correctCount === 0) {
+        ValidationAlert.error(
+          "Try Again!",
+          "All answers are incorrect.",
+          `${correctCount}/${total}`
+        );
+      } else {
+        ValidationAlert.error(
+          "Almost there!",
+          `You got ${correctCount} out of ${total} correct.`,
+          `${correctCount}/${total}`
+        );
+      }
+    }
+  };
+
+  // ✅ SHOW ANSWER
+  const showAnswerFunc = () => {
+    setAnswers({ ...correctAnswers });
+
+    const newStatus = {};
+    Object.keys(correctAnswers).forEach((key) => {
+      newStatus[key] = "correct";
+    });
+    setAnswerStatus(newStatus);
+    setChecked(true);
+
+    const total = Object.keys(correctAnswers).length;
+    setScore({ correct: total, total });
+
+    ValidationAlert.success(
+      "Answers shown",
+      "All correct answers have been filled in.",
+      `${total}/${total}`
+    );
+  };
+
+  // ✅ RESET
+  const resetExercise = () => {
+    const emptyAnswers = {};
+    const emptyStatus = {};
+    Object.keys(correctAnswers).forEach((key) => {
+      emptyAnswers[key] = "";
+      emptyStatus[key] = "";
+    });
+
+    setAnswers(emptyAnswers);
+    setAnswerStatus(emptyStatus);
+    setChecked(false);
+    setScore(null);
+    resetAudio();
+  };
+
+  return (
+    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+     <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
+      >
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
+        <span className="number-of-q">10</span>
+        Entoure l’adjectif possessif qui convient.
+      </header>
+
+
+      <div className="exercise-choices w-full max-w-4xl">
+        {[
+          { id: "a", text: "Madame, montrez-moi ___________ papiers.", options: ["vos", "votre"] },
+          { id: "b", text: "Excusez-moi, est-ce que c’est________stylo ?", options: ["votre", "vos"] },
+          { id: "c", text: "Lola, j’ai reçu________________invitation.", options: ["ton", "ta"] },
+          { id: "d", text: "____________famille n’est pas grande.", options: ["Nos", "notre"] },
+          { id: "e", text: "_______________parents s’appellent Lucie et Robert.", options: ["Leurs", "leur"] },
+          { id: "f", text: "C’est l’ami de______________ frère.", options: ["mon", "ma"] },
+          { id: "g", text: "______________soeur a quinze ans.", options: ["Son", "sa"] },
+          { id: "h", text: "______________ grands-parents ont soixante-quatre ans.", options: ["Ses", "son"] },
+        ].map((q) => (
+          <div key={q.id} className="question-row">
+            <strong>{q.id}.</strong> {q.text}
+
+            {q.options.map((opt) => {
+              const isSelected = answers[q.id] === opt;
+              const isCorrect = checked && answerStatus[q.id] === "correct" && isSelected;
+              const isWrong = checked && answerStatus[q.id] === "wrong" && isSelected;
+
+              return (
+                <label
+                  key={opt}
+                  className={`choice-label 
+                    ${isCorrect ? "correct" : ""}
+                    ${isWrong ? "wrong" : ""}
+                  `}
+                >
+                  <input
+                    type="radio"
+                    name={q.id}
+                    value={opt}
+                    checked={isSelected}
+                    onChange={(e) =>
+                      setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))
+                    }
+                    disabled={checked}
+                  />
+                  {opt}
+                </label>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+
+      {score && <ScoreCardEnhanced score={score} />}
+
+      <div className="spaces"></div>
+
+      <div className="action-buttons-container">
+        <button onClick={resetExercise} className="try-again-button">
+          Recommencer ↻
+        </button>
+        <button onClick={showAnswerFunc} className="show-answer-btn">
+         Afficher la réponse
+        </button>
+        <button onClick={checkAnswer} className="check-button2">
+         Vérifier la réponse✓
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Page5_Q1_CleanAudio;

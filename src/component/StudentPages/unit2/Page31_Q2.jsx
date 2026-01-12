@@ -334,7 +334,7 @@ const Page5_Q1_CleanAudio = () => {
           B
         </span>
         <span className="number-of-q">2</span> Liste les mots masculins et
-        féminins de l'exercice 1. Ensuite, mets chaque mot au pluriel.
+        féminins de l'exercice 1. <br /> Ensuite, mets chaque mot au pluriel.
       </header>
 
 

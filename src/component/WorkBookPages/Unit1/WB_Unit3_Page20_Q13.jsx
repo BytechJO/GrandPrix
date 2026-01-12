@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import img1 from "../../../assets/unite2pages/svg/U2P41EXE5.svg";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-import "./Page35_Q2.css"
+
 const Page5_Q1_CleanAudio = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-  a: "",
+    a: "",
     b: "",
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
   const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
@@ -26,40 +21,35 @@ const Page5_Q1_CleanAudio = () => {
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
 
   // === الإجابات النموذجية ===
   const correctAnswers = {
-    a: "Elle s’appelle Ella.",
-    b: "Ella parle de deux nouveaux clubs.",
-    c: "Le sport est important parce qu’il apprend lesstratégies et le travail d’équipe, permet être enforme et en bonne santé.",
-    d: "Il propose les cours de rugby, de basketball, defootball, de natation, de gymnastique et de course àpied.",
-    e: "Ils sont exigeants et stricts. Ils ont beaucoupd’expérience",
-    f: "Les gens qui sont créatifs, imaginatifs avec des idéesoriginales.",
-    g: "Il propose les cours de la peinture, de sculpture,d’artisanat, de photographie, de design",
-    h: "Tu peux apprendre à t'exprimer dans le cours dephotographie.",
-    i: "Tu peux apprendre les couleurs et les techniquesanciennes dans le cours de sculpture.",
- 
+    a: "Mon père est pompier",
+    b: "Leurs parents sont pilotes",
+    c: "L’ami de mon oncle est un excellent policier",
+    d: "La tante de Lucie est médecin",
+    e: "Mon frère jumeau est ingénieur",
+    f: "Ta grand-mère est une athlète connue",
+    g: "L’amie de mon père est chef",
+    h: "Votre soeur est une excellent avocate",
+    
+   
   };
 
   // === النصوص الأصلية للأسئلة ===
-const questions = {
-  a: "Comment s’appelle la fille qui parle ?",
-  b: "De quoi parle-t-elle ?",
-  c: "Pourquoi le sport est-il important ? Relèveses idées.",
-  d: "Quels cours le club sportif propose-t-il ?",
-  e:"Est-ce que les professeurs sont exigeants etrofessionnels ?",
-  f:"Qui peut s'inscrire au club des arts ?",
-  g:"Quels cours le club des arts propose-t-il ?",
-  h:"Qu’est-ce que tu peux apprendre dans leours de photographie ?",
-  i:"Qu’est-ce que tu peux apprendre dans lecours de sculpture ?",
-};
-
+  const questions = {
+    a: "mon / père / pompier.",
+    b: "leurs / parents / pilotes.",
+    c: "mon / de / oncle / excellent / l’ami / policier",
+    d: "tante / Lucie / la / médecin / de.",
+    e: "jumeau / frère / ingénieur / mon.",
+    f: "grand / - / athlète / mère / connue / ta.",
+    g: "l’amie / de / chef / père / mon.",
+    h: "avocate / soeur / excellente / votre.",
+    
+  };
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
@@ -165,7 +155,8 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-    <header
+   {/* Header */}
+       <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -175,34 +166,30 @@ const resetExercise = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>D</span>
-        <span className="number-of-q">6</span>
-    Réponds aux questions suivantes.
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
+        <span className="number-of-q">1</span>
+       Écris les phrases en utilisant le verbe « être ». Réfléchis si tu as le besoin de <br />
+l’article ou non.
       </header>
-<div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>
-      {/* ✅ QUESTIONS */}
-     <div className="page5Q3">
-  {Object.keys(questions).map((key, index) => (
-  <div className="input-group" key={key}>
-    <label style={{ whiteSpace: "pre-line" }}>
-      <strong style={{ fontSize: "25px" }}>
-        {String.fromCharCode(97 + index)}{" "}
-      </strong>
-      {questions[key]}
-    </label>
 
-      <input
-        type="text"
-        value={answers[key]}
-        onChange={(e) => handleChange(key, e.target.value)}
-style={{ ...getInputStyle(key), width: "50%" }}
-        
-      />
-    </div>
-  ))}
-</div>
-<div className="spaces"></div>
+      {/* ✅ QUESTIONS */}
+      <div className="page5Q3" style={{marginLeft:"43%"}}>
+        {Object.keys(questions).map((key, index) => (
+          <div className="input-group" key={key}>
+            <label>
+              <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>{questions[key]}
+            </label>
+            <input
+              type="text"
+              value={answers[key]}
+              onChange={(e) => handleChange(key, e.target.value)}
+              style={getInputStyle(key)}
+            />
+          </div>
+        ))}
+      </div>
    {score && <ScoreCardEnhanced score={score} />}
+   <div className="spaces"></div>
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>

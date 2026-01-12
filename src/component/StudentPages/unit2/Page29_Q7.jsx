@@ -52,7 +52,7 @@ const Page5_Q1_CleanAudio = () => {
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
 
       {/* Header */}
-      <header
+         <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -64,7 +64,7 @@ const Page5_Q1_CleanAudio = () => {
       >
         <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
         <span className="number-of-q">7</span>{" "}
-        Lis et devine à qui appartient le sac à dos.
+      Lis et devine à qui appartient le sac à dos.
       </header>
 
       {/* div الصورة الأولى */}

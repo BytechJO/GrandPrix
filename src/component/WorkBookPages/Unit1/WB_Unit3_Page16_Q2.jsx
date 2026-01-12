@@ -9,19 +9,14 @@ import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
-  0: "dans",
-  1: "sur",
-  2: "dans",
-  3: "dans",
-  4: "sur",
-  5: "dans",
-  6: "dans",
-  7: "derrière",
-  8: "sur",
-  9: "sous",
-  10: "derrière",
-  11: "devant",
-  12: "derrière",
+  0: "Ce sont les grands-parents de ma mère",
+  1: "C’est le téléphone de mon père",
+  2: "Ce sont les livres de mon frère",
+  3: "C’est la maison de mon oncle",
+  4: "C’est la voiture de ma tante",
+  5: "C’est le chat de ma cousine",
+  6: "C’est l’ordinateur portable de mon cousin",
+
 };
 
 const Page5_Q1_CleanAudio = () => {
@@ -169,9 +164,9 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>D</span>
-        <span className="number-of-q">2</span>{" "}
-        Où est la souris ?
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
+        <span className="number-of-q">2</span>
+        Écris à qui appartiennent ces objets.
       </header>
 
     
@@ -179,9 +174,7 @@ const Page5_Q1_CleanAudio = () => {
       {score && <ScoreCardEnhanced score={score} />}
 
       {/* Exercise Container */}
-      <div className="page28q4-exercise-container w-full max-w-6xl flex flex-col lg:flex-row gap-2" style={{
-
-     justifyContent: "center", marginRight:"5%" }}>
+      <div className="page28q4-exercise-container w-full max-w-6xl flex flex-col lg:flex-row gap-8">
         {/* Dialogue */}
         <div className="page28q4-dialogue-section lg:w-2/3">
           <div className="page28q4-dialogue-exercise w-full bg-white p-8 rounded-xl">
@@ -190,155 +183,83 @@ const Page5_Q1_CleanAudio = () => {
               {/* Ligne 1 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">a</span>
-                <span className="text">La souris est</span>
+                <span className="text">Ce sont</span>
                 <input
                   type="text"
                   value={inputs[0] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                  style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">le placard.</span>
+                
               </div>
               {/* Ligne 2 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">b</span>
-                <span className="text">La souris est</span>
+                <span className="text">C’est le</span>
                 <input
                   type="text"
                   value={inputs[1] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">le placard.</span>
+               
               </div>
               {/* Ligne 3 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">c</span>
-                <span className="text">La souris est</span>
+                <span className="text">Ce</span>
                 <input
                   type="text"
                   value={inputs[2] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">l’évier</span>
+              
               </div>
               {/* Ligne 4 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">d</span>
-                <span className="text">La souris est</span>
+               
                 <input
                   type="text"
                   value={inputs[3] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">la casserole.</span>
+                <span className="text">mon oncle.</span>
               </div>
               {/* Ligne 5 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">e</span>
-                <span className="text">La souris est </span>
+                <span className="text">C’est</span>
                 <input
                   type="text"
                   value={inputs[4] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">le fromage.</span>
+                
               </div>
               {/* Ligne 6 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">f</span>
-                <span className="text">La souris est </span>
                 <input
                   type="text"
                   value={inputs[5] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">le tiroir.</span>
+                
               </div>
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold  min-w-[40px]">g</span>
-                <span className="text">La souris est </span>
                 <input
                   type="text"
                   value={inputs[6] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
+                 style={{borderBottom:"2px black solid",marginLeft:"5px", width:"60%"}}
                 />
-                <span className="text">la tasse.</span>
               </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">h</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[7] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">la tasse.</span>
-              </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">i</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[8] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">la chaise.</span>
-              </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">j</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[9] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">la chaise.</span>
-              </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">k</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[10] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">le sel.</span>
-              </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">l</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[11] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">le chat.</span>
-              </div>
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold  min-w-[40px]">m</span>
-                <span className="text">La souris est </span>
-                <input
-                  type="text"
-                  value={inputs[12] || ""}
-                  onChange={(e) => handleInputChange(0, e.target.value)}
-                  style={{borderBottom:"2px black solid",marginLeft:"5px"}}
-                />
-                <span className="text">la porte.</span>
-              </div>
-
-    
-
             </div>
           </div>
         </div>

@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import img1 from "../../../assets/unite2pages/svg/U2P41EXE5.svg";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-import "./Page35_Q2.css"
-const Page5_Q1_CleanAudio = () => {
+
+const Page5_Q2_SAppeler = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-  a: "",
+    a: "",
     b: "",
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
-  const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
+  const [score, setScore] = useState(null);
 
   // ✅ حالة لون الإجابات
   const [answerStatus, setAnswerStatus] = useState({
@@ -26,50 +21,43 @@ const Page5_Q1_CleanAudio = () => {
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
 
   // === الإجابات النموذجية ===
   const correctAnswers = {
-    a: "Elle s’appelle Ella.",
-    b: "Ella parle de deux nouveaux clubs.",
-    c: "Le sport est important parce qu’il apprend lesstratégies et le travail d’équipe, permet être enforme et en bonne santé.",
-    d: "Il propose les cours de rugby, de basketball, defootball, de natation, de gymnastique et de course àpied.",
-    e: "Ils sont exigeants et stricts. Ils ont beaucoupd’expérience",
-    f: "Les gens qui sont créatifs, imaginatifs avec des idéesoriginales.",
-    g: "Il propose les cours de la peinture, de sculpture,d’artisanat, de photographie, de design",
-    h: "Tu peux apprendre à t'exprimer dans le cours dephotographie.",
-    i: "Tu peux apprendre les couleurs et les techniquesanciennes dans le cours de sculpture.",
- 
+    a: "s’appelle",
+    b: "s’appellent",
+    c: "m’appelle",
+    d: "appelez-vous",
+    e: "nous appelons",
+    f: "s’appellent",
   };
 
-  // === النصوص الأصلية للأسئلة ===
-const questions = {
-  a: "Comment s’appelle la fille qui parle ?",
-  b: "De quoi parle-t-elle ?",
-  c: "Pourquoi le sport est-il important ? Relèveses idées.",
-  d: "Quels cours le club sportif propose-t-il ?",
-  e:"Est-ce que les professeurs sont exigeants etrofessionnels ?",
-  f:"Qui peut s'inscrire au club des arts ?",
-  g:"Quels cours le club des arts propose-t-il ?",
-  h:"Qu’est-ce que tu peux apprendre dans leours de photographie ?",
-  i:"Qu’est-ce que tu peux apprendre dans lecours de sculpture ?",
-};
-
+  // === النصوص الأصلية للأسئلة مع الفراغات ____
+  const questions = {
+    a: "C’est la chambre de ____ parents.",
+    b: "Peux-tu donner ____ livre ?",
+    c: "Ce sont les filles de Lisa et Daniel. Ce sont____ filles.",
+    d: "Ana m’a proposé d’aller au Brésil. Je veux accepter ____  proposition.",
+    e: "Mes grands-parents ont un appartement, mais____  appartement n’est pas grand. ",
+    f: "Monsieur, vous pouvez prendre ____ lunettes.",
+    g: "Nous avons besoin de ____ chambres.",
+    h: "Je n’aime pas les maths, mais ____ ami n’aime pas l’anglais.",
+    i: " ____ ville est magnifique.",
+    j: "C’est l’oncle d’Alice et Belle. C’est____ oncle.",
+    k: "C’est la tante de Henry. C’est ____ tante.",
+    l: "Est-ce que ____ cousine habite à Marseille ?",
+  };
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
     setAnswers(prev => ({ ...prev, [key]: value }));
-    // إعادة ضبط لون الخلفية عند الكتابة
+    // إعادة ضبط اللون عند الكتابة
     setAnswerStatus(prev => ({ ...prev, [key]: "" }));
   };
 
   // ✅ CHECK ANSWER
- // ✅ CHECK ANSWER
 const checkAnswer = () => {
   const newStatus = {};
   let correctCount = 0;
@@ -90,7 +78,7 @@ const checkAnswer = () => {
   const total = Object.keys(correctAnswers).length;
 
   if (incomplete) {
-    ValidationAlert.error(
+    ValidationAlert.info(
       "Incomplete",
       "Please fill in all fields.",
       `${correctCount}/${total}`
@@ -123,7 +111,7 @@ const checkAnswer = () => {
 
 // ✅ SHOW ANSWER
 const showAnswerFunc = () => {
-  setAnswers(correctAnswers);
+  setAnswers({ ...correctAnswers });
 
   const newStatus = {};
   Object.keys(correctAnswers).forEach(key => {
@@ -159,13 +147,14 @@ const resetExercise = () => {
   // ✅ دالة لتحديد لون الخلفية حسب الحالة
   const getInputStyle = (key) => {
     if (answerStatus[key] === "correct") return { backgroundColor: "#d4f4dd" }; // أخضر فاتح
-    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" };   // أحمر فاتح
+    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" }; // أحمر فاتح
     return {};
   };
 
   return (
-       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-    <header
+    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+ {/* Header */}
+       <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -175,42 +164,42 @@ const resetExercise = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>D</span>
-        <span className="number-of-q">6</span>
-    Réponds aux questions suivantes.
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
+        <span className="number-of-q">11</span>
+       Complète avec l’adjectif possessif qui convient.
       </header>
-<div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>
-      {/* ✅ QUESTIONS */}
-     <div className="page5Q3">
-  {Object.keys(questions).map((key, index) => (
-  <div className="input-group" key={key}>
-    <label style={{ whiteSpace: "pre-line" }}>
-      <strong style={{ fontSize: "25px" }}>
-        {String.fromCharCode(97 + index)}{" "}
-      </strong>
-      {questions[key]}
-    </label>
 
-      <input
-        type="text"
-        value={answers[key]}
-        onChange={(e) => handleChange(key, e.target.value)}
-style={{ ...getInputStyle(key), width: "50%" }}
-        
-      />
-    </div>
-  ))}
-</div>
+      {/* ✅ QUESTIONS */}
+      <div className="page5Q5" style={{marginLeft:"13%"}}>
+        <div className="inputs-column" style={{width:"100%"}}>
+          {Object.keys(questions).map((key, index) => (
+            <div className="input-group" key={key}>
+              <label>
+                <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>
+                {questions[key].split("____")[0]}
+                <input
+                  type="text"
+                  value={answers[key]}
+                  onChange={(e) => handleChange(key, e.target.value)}
+                  style={{ width: "130px", margin: "0 5px", ...getInputStyle(key) }}
+                />
+                {questions[key].split("____")[1]}
+              </label>
+            </div>
+          ))}
+        </div>
+      </div>
+      {score && <ScoreCardEnhanced score={score} />}
 <div className="spaces"></div>
-   {score && <ScoreCardEnhanced score={score} />}
+<div className="spaces"></div>
       {/* Action Buttons */}
-      <div className="action-buttons-container">
+      <div className="action-buttons-container flex gap-4">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
-        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">Afficher la réponse</button>
+        <button onClick={showAnswerFunc} className="show-answer-btn">Afficher la réponse</button>
         <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
       </div>
     </div>
   );
 };
 
-export default Page5_Q1_CleanAudio;
+export default Page5_Q2_SAppeler;

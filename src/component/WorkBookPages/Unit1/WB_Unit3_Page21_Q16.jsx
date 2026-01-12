@@ -9,11 +9,18 @@ import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/SecBQ4.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
-  0: "m’appelle",
-  1: "la fenêtre.",
-  2: "Merci.",
-  3: "Comment ça va ",
-  4: "as besoin de",
+  0: "sur",
+  1: "derrière",
+  2: "sous",
+  3: "dans",
+  4: "sur",
+  5: "à côté des",
+  6: "sur",
+  7: "sur",
+  8: "dans",
+  9: "dans",
+  10: "sur",
+  11: "sous",
  
 };
 
@@ -147,9 +154,9 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   return (
-    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
+ <div className="page-wrapper1 flex flex-col items-center justify-center gap-3 p-4">      {/* Header */}
       {/* Header */}
-      <header
+       <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -159,108 +166,13 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>
-          B
-        </span>
-        <span className="number-of-q">4</span> Écoute et écris l’information manquante.
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
+        <span className="number-of-q">16</span>
+       Où sont les objets ?
       </header>
 
       {score && <ScoreCardEnhanced score={score} />}
-   <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-            <div className="audio-popup-read" style={{ width: "30%" }}>
-              <div className="audio-inner player-ui">
-                <audio
-                  ref={audioRef}
-                  src={CD6_Pg8_Instruction1_AdultLady}
-                  onTimeUpdate={(e) => {
-                    const time = e.target.currentTime;
-                    setCurrent(time);
-                    updateCaption(time);
-                  }}
-                  onLoadedMetadata={(e) => setDuration(e.target.duration)}
-                />
-                <div className="top-row">
-                  <span className="audio-time">
-                    {new Date(current * 1000).toISOString().substring(14, 19)}
-                  </span>
-                  <input
-                    type="range"
-                    className="audio-slider"
-                    min="0"
-                    max={duration}
-                    value={current}
-                    onChange={(e) => {
-                      audioRef.current.currentTime = e.target.value;
-                      updateCaption(Number(e.target.value));
-                    }}
-                    style={{
-                      background: `linear-gradient(to right, #430f68 ${(current / duration) * 100}%, #d9d9d9ff ${(current / duration) * 100}%)`,
-                    }}
-                  />
-                  <span className="audio-time">
-                    {new Date(duration * 1000).toISOString().substring(14, 19)}
-                  </span>
-                </div>
-    
-                <div className="bottom-row flex justify-between items-center">
-                  {/* Captions */}
-                  <div
-                    className={`round-btn ${showCaption ? "active" : ""}`}
-                    style={{ position: "relative" }}
-                    onClick={() => setShowCaption(!showCaption)}
-                  >
-                    <TbMessageCircle size={36} />
-                    <div
-                      className={`caption-inPopup ${showCaption ? "show" : ""}`}
-                      style={{ top: "100%", left: "10%" }}
-                    >
-                      {captions.map((cap, i) => (
-                        <p
-                          key={i}
-                          id={`caption-${i}`}
-                          className={`caption-inPopup-line2 ${activeIndex === i ? "active" : ""}`}
-                        >
-                          {cap.text}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-    
-                  {/* Play/Pause */}
-                  <button className="play-btn2" onClick={togglePlay}>
-                    {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
-                  </button>
-    
-                  {/* Settings */}
-                  <div className="settings-wrapper">
-                    <button
-                      className={`round-btn ${showSettings ? "active" : ""}`}
-                      onClick={() => setShowSettings(!showSettings)}
-                    >
-                      <IoMdSettings size={36} />
-                    </button>
-                    {showSettings && (
-                      <div className="settings-popup">
-                        <label>Volume</label>
-                        <input
-                          id="V"
-                          type="range"
-                          min="0"
-                          max="1"
-                          step="0.05"
-                          value={volume}
-                          onChange={(e) => {
-                            setVolume(e.target.value);
-                            audioRef.current.volume = e.target.value;
-                          }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
       {/* Exercise Container */}
 <div
   className="exercise-container5 w-full max-w-4xl flex flex-row"
@@ -269,132 +181,208 @@ const Page5_Q1_CleanAudio = () => {
     gap: "40px",              // المسافة بين الأعمدة
     margin: "0 auto",         // لضمان التوسيط
   }}
->         {/* الحوار على اليسار */}
+>        {/* الحوار على اليسار */}
 <div className="dialogue-section flex-1 min-w-0">
           <div className="dialogue-exercise w-full bg-white p-8 rounded-xl ">
             <div className="dialogue-text space-y-1">
               {/* Ligne 1 */}
               <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-pink-600 min-w-[80px]">
-                  Marie :
+                <span className="speaker font-bold  min-w-[80px]">
+                  a-
                 </span>
-                <span className="text">Bonjour, madame Bouton. Je</span>
+                <span className="text">Les livres sont</span>
                 <input
                   type="text"
                   value={inputs[0] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  className="missing-word-input ml-2 px-3 py-1 border-b-2 border-pink-300 focus:outline-none focus:border-blue-500 w-48"
+                  style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
                 />
-                <span className="text">Marie. Je suis </span>
+                <span className="text">l’étagère.</span>
                 <br />
               </div>
 
-              {/* Ligne 2 */}
-              <div className="dialogue-line flex items-start">
-                <span className="text">une nouvelle élève.</span>
 
-                <span className="text"> ?</span>
-              </div>
 
-              {/* Ligne 3 */}
+
               <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-blue-600 min-w-[80px]">
-                  Mme Bouton :
+                <span className="speaker font-bold  min-w-[80px]">
+                  b-
                 </span>
-                <span className="text">
-                  Bonjour, Marie. Bienvenue dans ma classe. Tout le monde, c’est
-                  Marie, votre nouvelle camarade.
-                </span>
-              </div>
-              <span>La classe : Bonjour, Marie.</span>
-              {/* Ligne 4 */}
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-blue-600 min-w-[80px]">
-             Mme Bouton :
-                </span>
-            
-                <span className="text">
-                 Assieds-toi près de
-                </span>
-                        <input
+                <span className="text">La petite voiture est</span>
+                <input
                   type="text"
                   value={inputs[1] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  className="missing-word-input ml-2 px-3 py-1 border-b-2 border-blue-300 focus:outline-none focus:border-blue-500 w-48"
+                  style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
                 />
+                <span className="text">la maison.</span>
+                <br />
               </div>
 
-              {/* Ligne 5 */}
+
+
+
               <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-pink-600 min-w-[80px]">
-                  Marie :
+                <span className="speaker font-bold  min-w-[80px]">
+                  c-
                 </span>
-                         <input
+                <span className="text">La chaise est</span>
+                <input
                   type="text"
                   value={inputs[2] || ""}
                   onChange={(e) => handleInputChange(0, e.target.value)}
-                  className="missing-word-input ml-2 px-3 py-1 border-b-2 border-pink-300 focus:outline-none focus:border-blue-500 w-48"
+                  style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
                 />
+                <span className="text">la table.</span>
+                <br />
+              </div>
+
+
+           
+
+             
+
+              {/* Ligne 5 */}
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold  min-w-[80px]">
+                d-
+                </span>
+                   <span className="text">
+                Les crayons sont
+                </span>
+                         <input
+                  type="text"
+                  value={inputs[3] || ""}
+                  onChange={(e) => handleInputChange(0, e.target.value)}
+                  style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                    <span className="text">
+                la boîte.
+                </span>
+                 
+              </div>
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold  min-w-[80px]">
+                e-
+                </span>
+                   <span className="text">
+              La boîte est
+                </span>
+                         <input
+                  type="text"
+                  value={inputs[4] || ""}
+                  onChange={(e) => handleInputChange(0, e.target.value)}
+                  style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                    <span className="text">
+              la table.
+                </span>   
               </div>
 
            
 
-              {/* Ligne 7 */}
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-blue-600 min-w-[80px]">
-                 Mme Bouton :
-                </span>
-                <span className="text">Alors, nous... . </span>
-               
-               
-              </div>
-                <span className="text"> (à sa table)</span>
+          
+              
               {/* Ligne 8 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold text-blue-900 min-w-[80px]">
-                  Chloé :
+                 f-
                 </span>
-                <span className="text">Psst… Salut, Marie. Je m’appelle Chloé. </span>
+                <span className="text">La petite voiture est</span>
                 <br />
                 <input
                   type="text"
-                  value={inputs[3] || ""}
+                  value={inputs[5] || ""}
                   onChange={(e) => handleInputChange(4, e.target.value)}
-                  className="missing-word-input ml-2 px-3 py-1 border-b-2 border-blue-300 focus:outline-none focus:border-pink-500 w-48"
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
                 />
-             
+                             <span className="text">des crayons</span>
+
               </div>
 
               {/* Ligne 9 */}
               <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-pink-600 min-w-[80px]">
-                 Marie
+                <span className="speaker font-bold  min-w-[80px]">
+                 g-
                 </span>
-                <span className="text">Salut ! Ça va pas mal.</span>
+                <span className="text">Le robot est </span>
+                   <input
+                  type="text"
+                  value={inputs [6] || ""}
+                  onChange={(e) => handleInputChange(5, e.target.value)}
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                <span className="text">la boîte.</span>
               </div>
 
               {/* Ligne 10 */}
               <div className="dialogue-line flex items-start">
                 <span className="speaker font-bold text-blue-900 min-w-[80px]">
-               Chloé
+                  h-
                 </span>
-                <span className="text">Si tu</span>
+                <span className="text">Les images sont</span>
                 <input
                   type="text"
-                  value={inputs [4] || ""}
+                  value={inputs [7] || ""}
                   onChange={(e) => handleInputChange(5, e.target.value)}
-                  className="missing-word-input ml-2 px-3 py-1 border-b-2 border-blue-300 focus:outline-none focus:border-pink-500 w-40"
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
                 />
-                <span className="text">quelque chose,demande-moi. Ok ?</span>
+                <span className="text">le mur.</span>
+              </div>
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold text-blue-900 min-w-[80px]">
+                  i-
+                </span>
+                <span className="text">La chaussette est</span>
+                <input
+                  type="text"
+                  value={inputs [8] || ""}
+                  onChange={(e) => handleInputChange(5, e.target.value)}
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                <span className="text">la boîte.</span>
+              </div>
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold text-blue-900 min-w-[80px]">
+                  j-
+                </span>
+                <span className="text">Le sac à dos est</span>
+                <input
+                  type="text"
+                  value={inputs [9] || ""}
+                  onChange={(e) => handleInputChange(5, e.target.value)}
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                <span className="text">le placard.</span>
+              </div>
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold text-blue-900 min-w-[80px]">
+                  k-
+                </span>
+                <span className="text">La lampe est</span>
+                <input
+                  type="text"
+                  value={inputs [10] || ""}
+                  onChange={(e) => handleInputChange(5, e.target.value)}
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                <span className="text">la table de chevet.</span>
+              </div>
+              <div className="dialogue-line flex items-start">
+                <span className="speaker font-bold text-blue-900 min-w-[80px]">
+                  l-
+                </span>
+                <span className="text">Le ballon est</span>
+                <input
+                  type="text"
+                  value={inputs [11] || ""}
+                  onChange={(e) => handleInputChange(5, e.target.value)}
+               style={{borderBottom:"2px solid black ", marginLeft:"5px"}}
+                />
+                <span className="text">la chaise.</span>
               </div>
 
-              {/* Ligne 11 */}
-              <div className="dialogue-line flex items-start">
-                <span className="speaker font-bold text-pink-600 min-w-[80px]">
-                  Marie :
-                </span>
-                <span className="text">Merci.</span>
-              </div>
+            
 
           
           
@@ -414,7 +402,7 @@ const Page5_Q1_CleanAudio = () => {
           </div>
         </div>
       </div>
-<div className="spaces"></div>
+
       {/* Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">

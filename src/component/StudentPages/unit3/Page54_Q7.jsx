@@ -1,57 +1,42 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import ValidationAlert from "../../Popup/ValidationAlert";
-
+import "./Page50_Q5.css";
 
 const Page5_Q1_CleanAudio = () => {
-  const audioRef = useRef(null);
-
   const [score, setScore] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  // ✅ QUESTIONS DATA (من Q7 كما هي)
-  const sentences = [
-    { id: "a", text: "Il y a une lettre pour Antoine." },
-    { id: "b", text: "Il y a une invitation pour un anniversaire." },
-    { id: "c", text: "La lettre cite 5 filières." },
-    { id: "d", text: "Cet événement commence à 6 h 45." },
-    { id: "e", text: "Antoine est au lycée." },
-    { id: "f", text: "Ces journées de l’orientation aident lesenfants à choisir leur passion." },
-  ];
+const sentences = [
+  { id: "a", text: "Il y a une lettre pour Antoine." },
+  { id: "b", text: "Il y a une invitation pour un anniversaire." },
+  { id: "c", text: "La lettre cite 5 filières." },
+  { id: "d", text: "Cet événement commence à 6 h 45." },
+  { id: "e", text: "Antoine est au lycée." },
+  {
+    id: "f",
+    text: (
+      <>
+        Ces journées de l’orientation aident
+        <br />
+        les enfants à choisir leur passion.
+      </>
+    ),
+  },
+];
+
 
   const correctAnswers = ["a", "d", "e","f"];
 
   const [checked, setChecked] = useState({});
   const [showFeedback, setShowFeedback] = useState(false);
 
-  const togglePlay = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (audio.paused) {
-      audio.play();
-      setIsPlaying(true);
-    } else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const resetAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.pause();
-      setIsPlaying(false);
-      setCurrent(0);
-    }
-  };
-
   // ✅ TOGGLE CHECK
-  const toggleCheck = (id) => {
+  const toggleCheck = (id, value) => {
     if (showFeedback) return;
     setChecked((prev) => ({
       ...prev,
-      [id]: !prev[id],
+      [id]: value,
     }));
   };
 
@@ -68,20 +53,15 @@ const Page5_Q1_CleanAudio = () => {
       }
 
       const isCorrect = correctAnswers.includes(s.id);
-
-      if (
-        (checked[s.id] && isCorrect) ||
-        (!checked[s.id] && !isCorrect)
-      ) {
+      if (checked[s.id] === isCorrect) {
         correctCount++;
       }
     });
 
     setShowFeedback(true);
-
     const total = sentences.length;
 
-    // ✅ تحديث السكور (نفس الكارد)
+    // ✅ تحديث السكور
     setScore({ correct: correctCount, total });
 
     if (incomplete) {
@@ -92,20 +72,20 @@ const Page5_Q1_CleanAudio = () => {
       );
     } else if (correctCount === total) {
       ValidationAlert.success(
-        "Good Job!",
-        "You got all answers right!",
+        "Excellent!",
+        "Toutes vos réponses sont correctes!",
         `${correctCount}/${total}`
       );
     } else if (correctCount === 0) {
       ValidationAlert.info(
-        "Try Again!",
-        "All answers are incorrect.",
+        "Essayez encore!",
+        "Toutes les réponses sont incorrectes.",
         `${correctCount}/${total}`
       );
     } else {
       ValidationAlert.error(
-        "Almost There!",
-        "Some answers are incorrect.",
+        "Presque!",
+        "Certaines réponses sont incorrectes.",
         `${correctCount}/${total}`
       );
     }
@@ -114,145 +94,108 @@ const Page5_Q1_CleanAudio = () => {
   // ✅ SHOW ANSWER
   const showCorrectAnswer = () => {
     const correctMap = {};
-
     sentences.forEach((s) => {
       correctMap[s.id] = correctAnswers.includes(s.id);
     });
-
     setChecked(correctMap);
     setShowFeedback(true);
-
-    ValidationAlert.success(
-      "Answers Shown",
-      "Correct sentences are checked.",
-      ""
-    );
+    ValidationAlert.success("Réponses affichées", "Les bonnes réponses sont cochées.", "");
   };
 
   // ✅ RESET
   const resetExercise = () => {
     setChecked({});
     setShowFeedback(false);
-    resetAudio();
-
+    setScore(null);
     if (ValidationAlert && typeof ValidationAlert.close === "function") {
       ValidationAlert.close();
     }
   };
 
   return (
-    <div className="page-wrapper1 flex flex-col items-center gap-8 p-4">
-      {/* العنوان */}
-        <header
+  <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+      {/* العنوان الرئيسي */}
+           <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">B</span> <span style={{color:"black"}} className="number-of-q">1</span>Vrai (✔️ ) ou faux (✖️) ? </header>
+        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">B</span> <span style={{color:"black"}} className="number-of-q">7</span>
+Vrai (✔️ ) ou faux ( ✖️) ?</header>
 
+      {/* ✅ QUESTIONS LIST - تخطيط شبكي */}
+      <div className="page50Q5-questions-grid">
+        {sentences.map((sentence) => {
+          const correct = correctAnswers.includes(sentence.id);
+          const userAnswer = checked[sentence.id];
+          const isAnswered = userAnswer !== undefined;
+          
+          let feedbackState = "";
+          if (showFeedback) {
+            feedbackState = userAnswer === correct ? "correct" : "incorrect";
+          }
 
-
-      {/* ✅ QUESTIONS LIST */}
-      <div className="questions-list-container" >
-        <div className="questions-grid " style={{width:"70%", marginLeft:"15%"}} >
-          {sentences.map((sentence) => {
-            const correct = correctAnswers.includes(sentence.id);
-            const userAnswer = checked[sentence.id]; // true = Vrai, false = Faux
-            const isAnswered = userAnswer !== undefined;
-            
-            // تحديد حالة الجواب للتغذية الراجعة
-            let feedbackState = "";
-            if (showFeedback) {
-              if (userAnswer === correct) {
-                feedbackState = "correct";
-              } else {
-                feedbackState = "incorrect";
-              }
-            }
-
-            return (
-              <div
-                key={sentence.id}
-                className={`question-card ${feedbackState} ${isAnswered ? "answered" : ""}`}
-              >
-                <div className="question-content">
-                  <div className="question-id">{sentence.id})</div>
-                  <div className="question-text">{sentence.text}</div>
-                </div>
-
-                {/* أزرار Vrai/Faux */}
-                <div className="answer-buttons-container">
-                  <button
-                    className={`answer-button vrai-button ${
-                      userAnswer === true ? "selected" : ""
-                    } ${showFeedback && correct ? "correct-highlight" : ""}`}
-                    onClick={() =>
-                      !showFeedback &&
-                      setChecked((prev) => ({ ...prev, [sentence.id]: true }))
-                    }
-                    disabled={showFeedback}
-                  >
-                    <span className="button-icon">✔️</span>
-                    <span className="button-text">Vrai</span>
-                    {showFeedback && correct && (
-                      <span className="feedback-indicator">✓</span>
-                    )}
-                  </button>
-                  <button
-                    className={`answer-button faux-button ${
-                      userAnswer === false ? "selected" : ""
-                    } ${showFeedback && !correct ? "correct-highlight" : ""}`}
-                    onClick={() =>
-                      !showFeedback &&
-                      setChecked((prev) => ({ ...prev, [sentence.id]: false }))
-                    }
-                    disabled={showFeedback}
-                  >
-                    <span className="button-icon">✖️</span>
-                    <span className="button-text">Faux</span>
-                    {showFeedback && !correct && (
-                      <span className="feedback-indicator">✓</span>
-                    )}
-                  </button>
-                </div>
-
-                {/* Feedback message */}
-                {showFeedback && (
-                  <div className="feedback-message">
-                    {userAnswer === correct ? (
-                      <span className="correct-feedback">Correct !</span>
-                    ) : (
-                      <span className="incorrect-feedback">
-                        Incorrect. La réponse correcte est{" "}
-                        <strong>{correct ? "Vrai" : "Faux"}</strong>
-                      </span>
-                    )}
-                  </div>
-                )}
+          return (
+            <div
+              key={sentence.id}
+              className={`page50Q5-question-card ${feedbackState} ${isAnswered ? "answered" : ""}`}
+            >
+              <div className="page50Q5-question-header">
+                <div className="page50Q5-question-id">{sentence.id})</div>
+                <div className="page50Q5-question-text">{sentence.text}</div>
               </div>
-            );
-          })}
-        </div>
+
+              {/* أزرار Vrai/Faux */}
+              <div className="page50Q5-answer-buttons">
+                <button
+                  className={`page50Q5-answer-button page50Q5-vrai-button ${userAnswer === true ? "selected" : ""} ${showFeedback && correct ? "correct-highlight" : ""}`}
+                  onClick={() => toggleCheck(sentence.id, true)}
+                  disabled={showFeedback}
+                >
+                  <span className="page50Q5-button-icon">✔️</span>
+                  <span className="page50Q5-button-text">Vrai</span>
+                 
+                </button>
+                <button
+                  className={`page50Q5-answer-button page50Q5-faux-button ${userAnswer === false ? "selected" : ""} ${showFeedback && !correct ? "correct-highlight" : ""}`}
+                  onClick={() => toggleCheck(sentence.id, false)}
+                  disabled={showFeedback}
+                >
+                  <span className="page50Q5-button-icon">✖️</span>
+                  <span className="page50Q5-button-text">Faux</span>
+                 
+                </button>
+              </div>
+
+              {/* Feedback message */}
+              {showFeedback && (
+                <div className="page50Q5-feedback-message">
+                  {userAnswer === correct ? (
+                    <span className="page50Q5-correct-feedback"></span>
+                  ) : (
+                    <span className="page50Q5-incorrect-feedback">
+                      Incorrect. La réponse correcte est <strong>{correct ? "Vrai" : "Faux"}</strong>
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* بطاقة النتيجة */}
       {score && (
-        <div className="score-card-container">
+        <div className="page50Q5-score-container">
           <ScoreCardEnhanced score={score} />
         </div>
       )}
 
-   <div className="action-buttons-container">
-        <button onClick={resetExercise} className="try-again-button">
-          Recommencer ↻
-        </button>
-        <button onClick={showCorrectAnswer} className="show-answer-btn">
-          Afficher la réponse
-        </button>
-        <button onClick={checkAnswer} className="check-button2">
-          Vérifier la réponse ✓
-        </button>
+      {/* أزرار التحكم */}
+          <div className="action-buttons-container flex gap-4">
+        <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
+        <button onClick={showCorrectAnswer} className="show-answer-btn">Afficher la réponse</button>
+        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
       </div>
-   
     </div>
   );
 };
