@@ -3,8 +3,9 @@ import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import "./WB_Unit4_Page24_Q7.css"
 /* 🔴 استيراد الصور */
-import img1 from "../../../assets/workpages/svg/24/svg/a.svg";
+
 import img2 from "../../../assets/workpages/svg/24/svg/b.svg";
+import img1 from "../../../assets/workpages/svg/24/svg/a.svg";
 import img3 from "../../../assets/workpages/svg/24/svg/c.svg";
 import img4 from "../../../assets/workpages/svg/24/svg/d.svg";
 import img5 from "../../../assets/workpages/svg/24/svg/e.svg";
