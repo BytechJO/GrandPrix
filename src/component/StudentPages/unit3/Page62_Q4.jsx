@@ -5,7 +5,7 @@ import img1 from "../../../assets/unite3pages/svg/Page62Q4.png";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SdQ4.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -45,48 +45,32 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-    { start: 5.2, end: 6.5, text: "Grand Prix A1" },
-    { start: 6.5, end: 8.5, text: "Unité 2 À" },
-    { start: 8.5, end: 10.3, text: "l'école Section" },
-    { start: 10.3, end: 12.1, text: "A Se préparer" },
-    { start: 12.1, end: 13.4, text: "Exercice" },
-    { start: 13.4, end: 14.8, text: "4 Écoute" },
-    { start: 14.8, end: 15.8, text: "et écris" },
-    { start: 15.8, end: 16.5, text: "l'information" },
-    { start: 16.5, end: 17.3, text: "manquante." },
-    { start: 19.0, end: 20.8, text: "Salut ma chérie," },
-    { start: 20.8, end: 22.6, text: "comment ça va ?" },
-    { start: 22.6, end: 23.7, text: "Bonjour maman," },
-    { start: 23.7, end: 24.4, text: "ça va bien." },
-    { start: 25.4, end: 25.9, text: "Tu es prête" },
-    { start: 25.9, end: 27.7, text: "pour l'école ?" },
-    { start: 27.7, end: 28.6, text: "Oui, mais j'ai" },
-    { start: 28.6, end: 29.1, text: "besoin de" },
-    { start: 29.1, end: 29.4, text: "quelques" },
-    { start: 29.4, end: 29.9, text: "fournitures" },
-    { start: 29.9, end: 30.5, text: "scolaires." },
-    { start: 31.6, end: 32.3, text: "Bon, allons" },
-    { start: 32.3, end: 32.9, text: "au magasin." },
-    { start: 35.0, end: 35.8, text: "Alors, de quoi" },
-    { start: 35.8, end: 37.7, text: "as-tu besoin ?" },
-    { start: 37.7, end: 38.4, text: "J'ai besoin" },
-    { start: 38.4, end: 39.0, text: "de crayons" },
-    { start: 39.0, end: 39.7, text: "de couleurs." },
-    { start: 40.5, end: 42.0, text: "Et ?" },
-    { start: 42.0, end: 42.8, text: "J'ai besoin" },
-    { start: 42.8, end: 43.6, text: "d'un cahier." },
-    { start: 44.2, end: 45.4, text: "As-tu besoin" },
-    { start: 45.4, end: 47.1, text: "d'un stylo ?" },
-    { start: 47.1, end: 48.3, text: "Non, j'ai déjà" },
-    { start: 48.3, end: 49.5, text: "un stylo, mais" },
-    { start: 49.5, end: 50.2, text: "j'ai besoin d'un" },
-    { start: 50.2, end: 51.1, text: "compas et d'une" },
-    { start: 51.1, end: 51.6, text: "trousse." },
-    { start: 52.8, end: 54.5, text: "C'est tout ?" },
-    { start: 54.5, end: 55.4, text: "Oui, c'est tout" },
-    { start: 55.4, end: 55.9, text: "ce dont j'ai" },
-    { start: 55.9, end: 56.5, text: "besoin pour" },
-    { start: 56.5, end: 56.9, text: "le moment." },
+    { start: 5.47, end: 6.6, text: "GrandPrixA1" },
+  { start: 7.7, end: 8.2, text: "unité 3," },
+  { start: 8.45, end: 9.53, text: "sous le même toit," },
+  { start: 10.17, end: 11.0, text: "section D," },
+  { start: 11.5, end: 13.5, text: "où ?" },
+  { start: 13.5, end: 14.5, text: "Exercice 4." },
+  { start: 15.0, end: 17.9, text: "Écoute et écris l'information manquante." },
+  {
+    start: 20.3,
+    end: 23.9,
+    text: "Ray est en retard à son cours de football et il ne trouve pas ses affaires.",
+  },
+  { start: 26.13, end: 26.49, text: "Maman," },
+  { start: 26.49, end: 28.49, text: "je suis en retard et je ne trouve rien." },
+  { start: 28.8, end: 30.2, text: "Est-ce que tu as rangé ma chambre ?" },
+  { start: 31.5, end: 31.7, text: "Oui," },
+  { start: 31.7, end: 33.5, text: "parce que ta chambre était en désordre." },
+  { start: 34.9, end: 36.3, text: "Je ne trouve pas mes chaussures." },
+  { start: 37.4, end: 38.6, text: "Elles sont sous ton lit." },
+  { start: 39.7, end: 41.8, text: "Et mes chaussettes ?" },
+  { start: 41.8, end: 43.0, text: "Elles sont dans ton tiroir." },
+  { start: 44.3, end: 44.5, text: "Bon" },
+  { start: 44.8, end: 46.0, text: "je ne trouve pas mon maillot." },
+  { start: 47.13, end: 48.4, text: "Il est dans ton armoire." },
+  { start: 48.4, end: 49.9, text: "Merci," },
+  { start: 49.9, end: 50.8, text: "à plus tard !" },
   ];
 
   const updateCaption = (time) => {

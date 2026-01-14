@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/ScQ4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SDQ5.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
@@ -20,16 +20,20 @@ const Page5_Q1_CleanAudio = () => {
   
   const [score, setScore] = useState(null);
  const captions = [
-  { start:5.0, end: 6.87, text: "Grand Prix A1" },
-  { start:7.23, end: 8.13, text: "unité 1" },
-  { start:8.51, end: 9.43, text: "se présenter" },
-  { start:9.99, end: 10.91, text: "Section C" },
-  { start:11.53, end: 12.07, text: "mon âge" },
-  { start:12.99, end: 13.91, text: "Exercice 4" },
-  { start:14.72, end: 16.81, text: "écoute et entoure les erreurs" },
-  { start:19.17, end: 20.70, text: "Je m'appelle Jean-Pierre," },
-  { start:21.17, end: 21.85, text: "j'ai 16 ans." },
-  { start:22.59, end: 30.61, text: "Mon numéro d'étudiant est le 95738640." },
+{ start: 5.47, end: 6.6, text: "GrandPrixA1" },
+  { start: 7.7, end: 8.2, text: "unité 3," },
+  { start: 8.45, end: 9.53, text: "sous le même toit," },
+  { start: 10.17, end: 11.0, text: "section D," },
+  { start: 11.5, end: 12.9, text: "OU." },
+  { start: 13.2, end: 14.5, text: "Exercice 5." },
+  { start: 14.8, end: 15.4, text: "Écoute," },
+  { start: 15.8, end: 17.8, text: "trouve et entoure les objets." },
+  { start: 19.97, end: 22.3, text: "La règle est derrière l'ordinateur portable." },
+  { start: 23.3, end: 25.2, text: "Le stylo est sous le carnet." },
+  { start: 26.4, end: 28.9, text: "La gomme est entre le carnet et la tasse de café." },
+  { start: 29.9, end: 32.7, text: "La paire de ciseaux est devant l'ordinateur portable." },
+  { start: 33.7, end: 35.6, text: "Les punaises sont sur les feuilles." },
+  { start: 36.6, end: 38.3, text: "Le crayon est dans la tasse." },
 
 
   ];

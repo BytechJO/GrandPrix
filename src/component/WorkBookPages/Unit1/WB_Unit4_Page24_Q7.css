@@ -1,0 +1,348 @@
+/* Page24.css - التصميم مع البوب اب */
+
+.page24-wrapper1 {
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+
+}
+
+
+.page24-example-container {
+  background-color: #e8f5e9;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 20px auto 30px;
+  max-width: 600px;
+  text-align: center;
+  border: 2px solid #c8e6c9;
+}
+
+.page24-example-text {
+  font-size: 18px;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+/* القسم الرئيسي */
+.page24-main-section {
+  background-color: white;
+  padding: 50px;
+ 
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+/* حاوية الأسئلة */
+.page24-questions-container {
+  padding-right: 30px;
+  border-right: 2px solid #eaeaea;
+}
+
+.page24-questions-title {
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #4caf50;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.page24-questions-list {
+  padding: 10px;
+}
+
+.page24-question-item {
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+}
+
+
+
+.page24-question-letter {
+  font-size: 20px;
+  min-width: 28px;
+  text-align: center;
+  background-color: #ff5252;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  display: inline-block;
+}
+
+.page24-question-text {
+  font-size: 15px;
+  color: #333;
+  flex-grow: 1;
+  font-weight: 500;
+}
+
+.page24-question-input {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+  width: 100px !important;
+  color: #1976d2;
+  border-bottom: 2px black solid;
+}
+
+.page24-question-input:focus {
+  outline: none;
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+
+
+/* زر عرض الصور */
+.page24-show-images-btn-container {
+  margin-top: 30px;
+}
+
+.page24-show-images-btn {
+  font-size: 18px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.page24-show-images-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+  background-color: #1976d2 !important;
+}
+
+/* جدول التطابق */
+.page24-match-container {
+  padding-left: 0px;
+}
+
+.page24-match-title {
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ff9800;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.page24-match-table {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.page24-match-header {
+  color: #5d4037;
+  font-size: 18px;
+  background-color: #f5f5f5;
+  padding: 12px 0;
+}
+
+.page24-match-body {
+  padding: 10px 5px;
+}
+
+.page24-match-row {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.page24-match-row:hover {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+.page24-match-row:last-child {
+  border-bottom: none;
+}
+
+.page24-match-letter {
+  color: #1565c0;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.page24-match-input {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: white;
+  border: 2px solid #bdbdbd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  height: 45px;
+  color: #1976d2;
+}
+
+.page24-match-input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  outline: none;
+  background-color: #f1f8e9;
+}
+
+.page24-match-input::placeholder {
+  color: #ccc;
+  font-weight: normal;
+}
+
+/* البوب اب للصور */
+.page24-images-popup-overlay {
+  z-index: 1000;
+  animation: page24-fadeIn 0.3s ease;
+}
+
+@keyframes page24-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page24-images-popup-container {
+  animation: page24-slideIn 0.4s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes page24-slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page24-popup-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.page24-popup-title {
+  color: white !important;
+  font-size: 24px;
+}
+
+.page24-close-popup-btn {
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.page24-close-popup-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.page24-popup-content {
+  background-color: #f8f9fa;
+}
+
+.page24-popup-row {
+  margin-bottom: 40px;
+}
+
+.page24-popup-image-item {
+  transition: all 0.3s ease;
+}
+
+.page24-popup-image-item:hover {
+  transform: translateY(-8px);
+}
+
+.page24-popup-image-frame {
+  border-width: 4px !important;
+  transition: all 0.4s ease;
+}
+
+.page24-popup-image {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.page24-popup-image-item:hover .page24-popup-image {
+  transform: scale(1.05);
+}
+
+.page24-popup-image-letter {
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-align: center;
+}
+
+.page24-popup-match-info {
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.page24-popup-footer {
+  background-color: #f8f9fa;
+}
+
+.page24-close-popup-bottom-btn {
+  transition: all 0.3s ease;
+  padding: 10px 30px;
+  font-size: 16px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page24-main-section {
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .page24-questions-container {
+    border-right: none;
+    border-bottom: 2px solid #eaeaea;
+    padding-right: 0;
+    padding-bottom: 30px;
+  }
+  
+  .page24-match-container {
+    padding-left: 0;
+  }
+  
+  .page24-popup-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page24-header-title-page1 {
+    margin-left: 0 !important;
+    font-size: 20px;
+  }
+  
+  .page24-popup-image {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+
+  
+
+}
+

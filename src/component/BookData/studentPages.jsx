@@ -80,6 +80,31 @@ import Page66 from "../StudentPages/unit3/Page66"
 import Page67 from "../StudentPages/unit3/Page67"
 import Page68 from "../StudentPages/unit3/Page68"
 import Page69 from "../StudentPages/unit3/Page69"
+// ========================================================================
+//                             unit4
+// ======================================================================== 
+import Page70 from "../StudentPages/unit4/Page70"
+import Page71 from "../StudentPages/unit4/Page71"
+import Page72 from "../StudentPages/unit4/Page72"
+import Page73 from "../StudentPages/unit4/Page73"
+import Page74 from "../StudentPages/unit4/Page74"
+import Page75 from "../StudentPages/unit4/Page75"
+import Page76 from "../StudentPages/unit4/Page76"
+import Page77 from "../StudentPages/unit4/Page77"
+import Page78 from "../StudentPages/unit4/Page78"
+import Page79 from "../StudentPages/unit4/Page79"
+import Page80 from "../StudentPages/unit4/Page80"
+import Page81 from "../StudentPages/unit4/Page81"
+import Page82 from "../StudentPages/unit4/Page82"
+import Page83 from "../StudentPages/unit4/Page83"
+import Page84 from "../StudentPages/unit4/Page84"
+import Page85 from "../StudentPages/unit4/Page85"
+import Page86 from "../StudentPages/unit4/Page86"
+import Page87 from "../StudentPages/unit4/Page87"
+import Page88 from "../StudentPages/unit4/Page88"
+import Page89 from "../StudentPages/unit4/Page89"
+import Page90 from "../StudentPages/unit4/Page90"
+import Page91 from "../StudentPages/unit4/Page91"
 
 export const studentPages = (openPopup, goToUnit) =>  [
   <Page1 />,
@@ -151,6 +176,30 @@ export const studentPages = (openPopup, goToUnit) =>  [
   <Page67 openPopup={openPopup}/>,
   <Page68 openPopup={openPopup}/>,
   <Page69 openPopup={openPopup}/>,
+  <Page70 openPopup={openPopup}/>,
+  <Page71 openPopup={openPopup}/>,
+  <Page72 openPopup={openPopup}/>,
+  <Page73 openPopup={openPopup}/>,
+  <Page74 openPopup={openPopup}/>,
+  <Page75 openPopup={openPopup}/>,
+  <Page76 openPopup={openPopup}/>,
+  <Page77 openPopup={openPopup}/>,
+  <Page78 openPopup={openPopup}/>,
+  <Page79 openPopup={openPopup}/>,
+  <Page80 openPopup={openPopup}/>,
+  <Page81 openPopup={openPopup}/>,
+  <Page82 openPopup={openPopup}/>,
+  <Page83 openPopup={openPopup}/>,
+  <Page84 openPopup={openPopup}/>,
+  <Page85 openPopup={openPopup}/>,
+  <Page86 openPopup={openPopup}/>,
+  <Page87 openPopup={openPopup}/>,
+  <Page88 openPopup={openPopup}/>,
+  <Page89 openPopup={openPopup}/>,
+  <Page90 openPopup={openPopup}/>,
+  <Page91 openPopup={openPopup}/>,
+ 
+
 
 
 ];

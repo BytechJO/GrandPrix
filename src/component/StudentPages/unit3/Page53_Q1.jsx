@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/SecBQ1.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SBQ2.mp3";
 import imgBackground from "../../../assets/unite3pages/svg/page53Q1.svg";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
@@ -64,23 +64,36 @@ const Page5_Q1_CleanAudio2 = () => {
   };
   const captions = [
 
-{start:5.0 ,end:6.7, text:"Grand prix A1,"},
-{start:6.7 ,end:8.0, text:"unité 2,"},
-{start:8.0 ,end:8.7, text:"à l'école."},
-{start:9.6 ,end:11.4, text:"Section B. Qu'est-ce que"},
-{start:11.4 ,end:12.8, text:"c'est ?"},
-{start:12.8 ,end:13.8, text:"Exercice 1."},
-{start:14.6 ,end:16.1, text:"Écoute, répète"},
-{start:16.1 ,end:17.1, text:"et place"},
-{start:17.1 ,end:17.7, text:"dans l'ordre."},
-{start:19.8 ,end:20.8, text:"Un feutre."},
-{start:22.0 ,end:22.8, text:"Une fenêtre."},
-{start:24.6 ,end:25.6, text:"Une chaise."},
-{start:27.3 ,end:28.3, text:"Une porte."},
-{start:30.2 ,end:30.9, text:"Un bureau."},
-{start:32.6 ,end:33.5, text:"Un CD."},
-{start:35.6 ,end:38.8, text:"un classeur, un"},
-{start:38.8 ,end:39.5, text:"tableau blanc,"},
+ { start:5.6 , end: 6.4, text: "Grand prix" },
+  { start:6.4 , end: 8.6, text: "A1, unité 3." },
+  { start:9.3 , end: 10.0, text: "Sous le même" },
+  { start:10.0 , end: 10.3, text: "toit." },
+  { start:11.3 , end: 12.1, text: "Section B." },
+  { start:12.6 , end: 14.0, text: "Mon rêve est..." },
+  { start:14.8 , end: 16.6, text: "Exercice 2." },
+  { start:16.6 , end: 17.7, text: "Écoute et mets" },
+  { start:17.7 , end: 18.6, text: "en relation les" },
+  { start:18.6 , end: 19.5, text: "professions et" },
+  { start:19.5 , end: 20.8, text: "leurs images." },
+  { start:22.8 , end: 23.8, text: "Le top 5 des" },
+  { start:23.8 , end: 24.4, text: "professions de" },
+  { start:24.4 , end: 26.5, text: "rêve des ados." },
+  { start:26.5 , end: 27.3, text: "Une fille veut" },
+  { start:27.3 , end: 28.0, text: "souvent être" },
+  { start:28.9 , end: 30.1, text: "a avocate" },
+  { start:32.2 , end: 35.9, text: "b médecin, c" },
+  { start:35.9 , end: 37.8, text: "scientifique," },
+  { start:39.0 , end: 39.6, text: "d " },
+  { start:39.6 , end: 42.4, text: "chef, e" },
+  { start:42.4 , end: 43.1, text: "professeur." },
+  { start:45.1 , end: 45.9, text: "Un garçon veut" },
+  { start:45.9 , end: 46.3, text: "souvent" },
+  { start:46.3 , end: 46.5, text: "être" },
+  { start:47.7 , end: 51.5, text: "a : athlète, b :" },
+  { start:51.5 , end: 54.7, text: "pompier, c :" },
+  { start:54.7 , end: 55.4, text: "ingénieur," },
+  { start:57.5 , end: 61.2, text: "d pilote, e :" },
+  { start:61.3 , end: 62.3, text: "policier" },
 
 
   ];
