@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import "./WB_Unit1_Page6_Q5.css";
-import img1 from "../../../assets/workpages/Q5wb.png";
+import img1 from "../../../assets/unite4pages/SVG/73Q6.png";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-
-const Page5_Q2_SAppeler = () => {
+const Page5_Q1_CleanAudio = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-    a: "",
+  a: "",
     b: "",
     c: "",
     d: "",
     e: "",
     f: "",
-    g: ""
+    g: "",
+    h: "",
+    i: ""
+
   });
   const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
@@ -25,39 +26,45 @@ const Page5_Q2_SAppeler = () => {
     d: "",
     e: "",
     f: "",
-    g: ""
+    g: "",
+  
+
   });
 
   // === الإجابات النموذجية ===
   const correctAnswers = {
-    a: "e",
-    b: "ent",
-    c: "ons",
-    d: "ez",
-    e: "e",
-    f: "e",
-    g: "ent"
+    a: "La ligne bleue du métro passe par la station La Rose.",
+    b: "La ligne rouge du métro passe par la station Bougainville. La ligne jaune du tram passe par la station Bougainville.",
+    c: "La ligne bleue du métro passe par la station La Blancarde. La ligne orange du tram passe par la station La Blancarde. La ligne verte du tram passe par la station La Blancarde.",
+    d: "La ligne bleue du métro passe par la station Gare St. Charles. La ligne rouge du métro passe par la station Gare St. Charles.",
+    e: "La ligne bleue du métro passe par la station Castellane. La ligne rouge du métro passe par la station Castellane. La ligne jaune du tram passe par la station Castellane.",
+    f: "La ligne verte du tram passe par la station Les Caillols.",
+    g: "La ligne verte du tram passe par la station Noailles.La ligne rouge du métro passe par la station Noailles.",
+   
+ 
   };
 
-  // === النصوص الأصلية للأسئلة مع الفراغات ____
-  const questions = {
-    a: "Il s’appell ____ Yuan.",
-    b: "Elles s’appell ____ Julie et Camille.",
-    c: "Nous nous appel ____ Max et Jean.",
-    d: "Comment vous appel ____ -vous ?",
-    e: "Comment s’appell ____ ton ami ?",
-    f: "Elle s’appell ____ Ana.",
-    g: "Ils s’appell ____ Olivier et Luc."
+  // === النصوص الأصلية للأسئلة ===
+ const questions = {
+    a: "La Rose.",
+    b: "Bougainville. ",
+    c: "La Blancarde.",
+    d: "Gare St. Charles.",
+    e: "Castellane.",
+    f: "Les Caillols.",
+    g: "Noailles.",
   };
+
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
     setAnswers(prev => ({ ...prev, [key]: value }));
-    // إعادة ضبط اللون عند الكتابة
+    // إعادة ضبط لون الخلفية عند الكتابة
     setAnswerStatus(prev => ({ ...prev, [key]: "" }));
   };
 
-// ✅ CHECK ANSWER
+  // ✅ CHECK ANSWER
+ // ✅ CHECK ANSWER
 const checkAnswer = () => {
   const newStatus = {};
   let correctCount = 0;
@@ -78,7 +85,7 @@ const checkAnswer = () => {
   const total = Object.keys(correctAnswers).length;
 
   if (incomplete) {
-    ValidationAlert.info(
+    ValidationAlert.error(
       "Incomplete",
       "Please fill in all fields.",
       `${correctCount}/${total}`
@@ -111,7 +118,7 @@ const checkAnswer = () => {
 
 // ✅ SHOW ANSWER
 const showAnswerFunc = () => {
-  setAnswers({ ...correctAnswers });
+  setAnswers(correctAnswers);
 
   const newStatus = {};
   Object.keys(correctAnswers).forEach(key => {
@@ -152,43 +159,56 @@ const resetExercise = () => {
   };
 
   return (
-    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-  <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+    <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">1</span> <span style={{color:"black"}} className="number-of-q">5</span>
- Complète avec la terminaison du verbe « s’appeler » au présent.
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
+        <span style={{ color: "black" }} className="number-of-q">6</span>
+Réponds aux questions.      </header>
 
-      </header>
-
-      {/* ✅ QUESTIONS */}
-   <div className="page5Q5" style={{marginLeft:"13%"}}>
-        <div className="inputs-column500">
-          {Object.keys(questions).map((key, index) => (
-            <div className="input-group" key={key}>
-              <label>
-                <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>
-                {questions[key].split("____")[0]}
-                <input
-                  type="text"
-                  value={answers[key]}
-                  onChange={(e) => handleChange(key, e.target.value)}
-                  style={{ width: "50px", margin: "0 5px", ...getInputStyle(key) }}
-                />
-                {questions[key].split("____")[1]}
-              </label>
-            </div>
-          ))}
-        </div>
-   {score && <ScoreCardEnhanced score={score} />}
-
-        {/* عمود الصورة على اليمين */}
-        <div className="imgQ5wb">
-          <img src={img1} alt="Illustration" st/>
-        </div>
+<div
+        className="clip"
+        style={{
+          background: "#3fadb7c6",
+          color: "white",
+          fontSize: "15px",
+          padding: "10px 100px",
+          marginRight: "10%",
+          clipPath: "polygon(5% 0%, 98% 0%, 100% 100%, 0% 100%)",
+        }}
+      >
+        <p>
+         <span style={{fontSize:"20px"}}>Example:</span> <br />
+         La ligne <span style={{color:"green", fontWeight:"500px"}}>bleue</span> du <span style={{color:"green", fontWeight:"500px"}}>métro</span>  <br />
+         passe par <span style={{color:"green", fontWeight:"500px"}}>la station La Rose.</span> 
+        </p>
       </div>
 
+      {/* ✅ QUESTIONS */}
+     <div className="page5Q3" style={{marginLeft:"40%"}}>
+  {Object.keys(questions).map((key, index) => (
+  <div className="input-group" key={key}>
+    <label style={{ whiteSpace: "pre-line" }}>
+      <strong style={{ fontSize: "25px" }}>
+        {String.fromCharCode(97 + index)}{" "}
+      </strong>
+      {questions[key]}
+    </label>
+
+      <textarea
+        type="text"
+        value={answers[key]}
+        onChange={(e) => handleChange(key, e.target.value)}
+style={{ ...getInputStyle(key), width: "50%",   resize: "none", borderBottom:"2px solid black"}}
+        
+      />
+    </div>
+  ))}
+</div>
+<div className="spaces"></div>
+   {score && <ScoreCardEnhanced score={score} />}
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
@@ -199,4 +219,4 @@ className="header-title-page1 w-full text-left mb-4"
   );
 };
 
-export default Page5_Q2_SAppeler;
+export default Page5_Q1_CleanAudio;

@@ -164,7 +164,7 @@ Complète les phrases avec le verbe « s’appeler ».
       </header>
 
       {/* ✅ QUESTIONS */}
-        <div className="page22Q1" style={{marginLeft:"13%"}}>
+        <div className="page22Q1" style={{marginLeft:"0%"}}>
         <div className="inputs-column">
           {Object.keys(questions).map((key, index) => (
             <div className="input-group" key={key}>

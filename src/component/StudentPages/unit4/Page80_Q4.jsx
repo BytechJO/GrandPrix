@@ -1,58 +1,48 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import "./WB_Unit1_Page6_Q5.css";
+import img1 from "../../../assets/unite4pages/SVG/73Q6.png";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-
-const Page5_Q2_SAppeler = () => {
+const Page5_Q1_CleanAudio = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    e: "",
-    f: ""
+  a: ""
+
+  
+
   });
-  const [score, setScore] = useState(null);
+  const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
   // ✅ حالة لون الإجابات
   const [answerStatus, setAnswerStatus] = useState({
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    e: "",
-    f: ""
+    a: ""
+  
+
   });
 
   // === الإجابات النموذجية ===
   const correctAnswers = {
-    a: "s’appelle",
-    b: "s’appellent",
-    c: "m’appelle",
-    d: "appelez-vous",
-    e: "nous appelons",
-    f: "s’appellent",
+    a: "La ligne bleue du métro passe par la station La Rose.",
+
+   
+ 
   };
 
-  // === النصوص الأصلية للأسئلة مع الفراغات ____
-  const questions = {
-    a: "Mon professeur ____ monsieur Lucas.",
-    b: "Mes amies ____ Chloé et Vivien",
-    c: "Je ____ Henry.",
-    d: "Comment vous ____  ?",
-    e: "Nous ____  Robert et Marc.? ",
-    f: "Mes parents ____ monsieur et madame Garnier",
+  // === النصوص الأصلية للأسئلة ===
+ const questions = {
+    a: "La Rose.",
+  
   };
+
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
     setAnswers(prev => ({ ...prev, [key]: value }));
-    // إعادة ضبط اللون عند الكتابة
+    // إعادة ضبط لون الخلفية عند الكتابة
     setAnswerStatus(prev => ({ ...prev, [key]: "" }));
   };
 
   // ✅ CHECK ANSWER
+ // ✅ CHECK ANSWER
 const checkAnswer = () => {
   const newStatus = {};
   let correctCount = 0;
@@ -73,7 +63,7 @@ const checkAnswer = () => {
   const total = Object.keys(correctAnswers).length;
 
   if (incomplete) {
-    ValidationAlert.info(
+    ValidationAlert.error(
       "Incomplete",
       "Please fill in all fields.",
       `${correctCount}/${total}`
@@ -106,7 +96,7 @@ const checkAnswer = () => {
 
 // ✅ SHOW ANSWER
 const showAnswerFunc = () => {
-  setAnswers({ ...correctAnswers });
+  setAnswers(correctAnswers);
 
   const newStatus = {};
   Object.keys(correctAnswers).forEach(key => {
@@ -142,51 +132,64 @@ const resetExercise = () => {
   // ✅ دالة لتحديد لون الخلفية حسب الحالة
   const getInputStyle = (key) => {
     if (answerStatus[key] === "correct") return { backgroundColor: "#d4f4dd" }; // أخضر فاتح
-    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" }; // أحمر فاتح
+    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" };   // أحمر فاتح
     return {};
   };
 
   return (
-    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-  <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+    <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">1</span> <span style={{color:"black"}} className="number-of-q">7</span>
-Écris la forme du verbe « s’appeler » au présent.
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
+        <span style={{ color: "black" }} className="number-of-q">6</span>
+Écoute et réponds à la question.    </header>
 
-      </header>
+<div
+        className="clip"
+        style={{
+          background: "#3fadb7c6",
+          color: "white",
+          fontSize: "15px",
+          padding: "10px 100px",
+          marginRight: "10%",
+          clipPath: "polygon(5% 0%, 98% 0%, 100% 100%, 0% 100%)",
+        }}
+      >
+        <p style={{fontSize:"20px"}}>
+          
+       Henri est à Briançon pour faire du ski. Il doit retrouver son ami dans le
+centre commercial.
+        </p>
+      </div>
 
       {/* ✅ QUESTIONS */}
-      <div className="page5Q5" style={{marginLeft:"13%"}}>
-        <div className="inputs-column500">
-          {Object.keys(questions).map((key, index) => (
-            <div className="input-group" key={key}>
-              <label>
-                <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>
-                {questions[key].split("____")[0]}
-                <input
-                  type="text"
-                  value={answers[key]}
-                  onChange={(e) => handleChange(key, e.target.value)}
-                  style={{ width: "130px", margin: "0 5px", ...getInputStyle(key) }}
-                />
-                {questions[key].split("____")[1]}
-              </label>
-            </div>
-          ))}
-        </div>
-      </div>
-      {score && <ScoreCardEnhanced score={score} />}
+     <div className="page5Q3" style={{marginLeft:"40%"}}>
+  {Object.keys(questions).map((key, index) => (
+  <div className="input-group" key={key}>
+   
 
+      <input
+        type="text"
+        value={answers[key]}
+        onChange={(e) => handleChange(key, e.target.value)}
+style={{ ...getInputStyle(key), width: "50%", borderBottom:"2px solid black"}}
+        
+      />
+    </div>
+  ))}
+</div>
+<div className="spaces"></div>
+   {score && <ScoreCardEnhanced score={score} />}
       {/* Action Buttons */}
-      <div className="action-buttons-container flex gap-4">
+      <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
-        <button onClick={showAnswerFunc} className="show-answer-btn">Afficher la réponse</button>
+        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">Afficher la réponse</button>
         <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
       </div>
     </div>
   );
 };
 
-export default Page5_Q2_SAppeler;
+export default Page5_Q1_CleanAudio;

@@ -33,17 +33,18 @@ const Page5_Q2_SAppeler = () => {
   };
 
   // ================= QUESTIONS =================
-  const questions = {
-    a: "a- Les lits sont ____ la chambre.",
-    b: "b- Où sont les chaussettes de Daniel ?",
-    c: "Elles sont ____ l’étagère et ____ le tiroir.",
-    d: "c- Les crayons de Ray sont ____ la tasse, mais les",
-    e: "crayons de Daniel sont ____ l’étagère.",
-    f: "d- Les livres de Ray sont ____ l’étagère, mais les livres",
-    g: "de Daniel sont ____ la table de chevet.",
-    h: "e- L’oreiller de Daniel est ____ son lit et son t-shirt est",
-    i: "____ le lit."
-  };
+ const questions = {
+  a: { label: "a-", text: "Les lits sont ____ la chambre." },
+  b: { label: "b-", text: "Où sont les chaussettes de Daniel ?" },
+  c: { label: "c-", text: "Elles sont ____ l’étagère et ____ le tiroir." },
+  d: { label: "d-", text: "Les crayons de Ray sont ____ la tasse, mais les" },
+  e: { label: "e-", text: "crayons de Daniel sont ____ l’étagère." },
+  f: { label: "f-", text: "Les livres de Ray sont ____ l’étagère, mais les livres" },
+  g: { label: "g-", text: "de Daniel sont ____ la table de chevet." },
+  h: { label: "h-", text: "L’oreiller de Daniel est ____ son lit et son t-shirt est" },
+  i: { label: "i-", text: "____ le lit." }
+};
+
 
   // ================= HANDLERS =================
   const handleChange = (key, value) => {
@@ -131,55 +132,57 @@ const Page5_Q2_SAppeler = () => {
       </header>
 
       {/* ================= QUESTIONS ================= */}
-      <div className="page22Q1" style={{marginLeft:"13%"}}>
+      <div className="page22Q1" style={{marginLeft:"0%"}}>
         <div className="inputs-column">
-          {Object.entries(questions).map(([key, text], index) => {
-            const blanks = text.match(/____/g)?.length || 0;
-            const parts = text.split("____");
+        {Object.entries(questions).map(([key, q]) => {
+  const blanks = q.text.match(/____/g)?.length || 0;
+  const parts = q.text.split("____");
 
-            return (
-              <div className="input-group" key={key}>
+  return (
+    <div className="input-group" key={key}>
+      <strong style={{ marginRight: "6px" }}>{q.label}</strong>
 
-                {/* 🔹 b بدون input */}
-                {blanks === 0 && <span>{text}</span>}
+      {/* بدون input */}
+      {blanks === 0 && <span>{q.text}</span>}
 
-                {/* 🔹 input واحد */}
-                {blanks === 1 && (
-                  <>
-                    {parts[0]}
-                    <input
-                      type="text"
-                      value={answers[key] || ""}
-                      onChange={e => handleChange(key, e.target.value)}
-                      style={{ width: "180px", margin: "0 5px", ...getInputStyle(key) }}
-                    />
-                    {parts[1]}
-                  </>
-                )}
+      {/* input واحد */}
+      {blanks === 1 && (
+        <>
+          {parts[0]}
+          <input
+            type="text"
+            value={answers[key] || ""}
+            onChange={e => handleChange(key, e.target.value)}
+            style={{ width: "180px", margin: "0 5px", ...getInputStyle(key) }}
+          />
+          {parts[1]}
+        </>
+      )}
 
-                {/* 🔹 input اثنان (c) */}
-                {blanks === 2 && (
-                  <>
-                    {parts[0]}
-                    <input
-                      type="text"
-                      value={answers[`${key}1`] || ""}
-                      onChange={e => handleChange(`${key}1`, e.target.value)}
-                      style={{ width: "160px", margin: "0 5px", ...getInputStyle(`${key}1`) }}
-                    />
-                    {parts[1]}
-                    <input
-                      type="text"
-                      value={answers[`${key}2`] || ""}
-                      onChange={e => handleChange(`${key}2`, e.target.value)}
-                      style={{ width: "160px", margin: "0 5px", ...getInputStyle(`${key}2`) }}
-                    />
-                    {parts[2]}
-                  </>
-                )}
-              </div>
-            );
-          })}
+      {/* inputان */}
+      {blanks === 2 && (
+        <>
+          {parts[0]}
+          <input
+            type="text"
+            value={answers[`${key}1`] || ""}
+            onChange={e => handleChange(`${key}1`, e.target.value)}
+            style={{ width: "160px", margin: "0 5px", ...getInputStyle(`${key}1`) }}
+          />
+          {parts[1]}
+          <input
+            type="text"
+            value={answers[`${key}2`] || ""}
+            onChange={e => handleChange(`${key}2`, e.target.value)}
+            style={{ width: "160px", margin: "0 5px", ...getInputStyle(`${key}2`) }}
+          />
+          {parts[2]}
+        </>
+      )}
+    </div>
+  );
+})}
+
         </div>
       </div>
 

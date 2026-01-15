@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import "./WB_Unit1_Page6_Q5.css";
-import img1 from "../../../assets/workpages/Q5wb.png";
+import img1 from "../../../assets/unite4pages/SVG/73Q6.png";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-
-const Page5_Q2_SAppeler = () => {
+const Page5_Q1_CleanAudio = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-    a: "",
+  a: "",
     b: "",
     c: "",
     d: "",
     e: "",
     f: "",
-    g: ""
+    g: "",
+    h: "",
+    i: ""
+
   });
   const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
@@ -25,39 +26,49 @@ const Page5_Q2_SAppeler = () => {
     d: "",
     e: "",
     f: "",
-    g: ""
+    g: "",
+    h: "",
+    i: ""
+
   });
 
   // === الإجابات النموذجية ===
   const correctAnswers = {
-    a: "e",
-    b: "ent",
-    c: "ons",
-    d: "ez",
-    e: "e",
-    f: "e",
-    g: "ent"
+    a: "Elle s’appelle comme ça parce qu’à l’époque médiévale, la dynastie d’Orange est née dans cette ville.",
+    b: "Les principaux monuments de la ville d’Orange datent de la civilisation romaine.",
+    c: "Ce sont l ‘Arc de Triomphe et le Théâtre Antique.",
+    d: "Le Théâtre Antique est spécial parce que c’est le seul théâtre romain d’Europe à avoir conservé son mur de scène.",
+    e: "Le « diamant noir » est la truffe.",
+    f: "Les réponses sont libres, mais l’idée principal est qu elle est che.",
+    g: "On produit les truffes et l’huile d’olive provençale.",
+    h: "Il y a beaucoup d’événements, comme un festival de jazz, un festival de cinéma, sous les étoiles dans le théâtre antique, le marché d’Orange.",
+    i: "Les réponses sont libres.",
+ 
   };
 
-  // === النصوص الأصلية للأسئلة مع الفراغات ____
-  const questions = {
-    a: "Il s’appell ____ Yuan.",
-    b: "Elles s’appell ____ Julie et Camille.",
-    c: "Nous nous appel ____ Max et Jean.",
-    d: "Comment vous appel ____ -vous ?",
-    e: "Comment s’appell ____ ton ami ?",
-    f: "Elle s’appell ____ Ana.",
-    g: "Ils s’appell ____ Olivier et Luc."
-  };
+  // === النصوص الأصلية للأسئلة ===
+const questions = {
+  a: "Pourquoi Orange est appelée la « Cité des Princes » ?",
+  b: "De quelle civilisation date les principaux monuments de la ville d’Orange ?",
+  c: "Quelles sont les monuments de cette ville ?",
+  d: "Pourquoi le théâtre antique est spécial ?",
+  e:"Qu’est-ce que le « diamant noir » ?",
+  f:"Selon toi, pourquoi appelle-t-on la truffe le « diamant noir » ?",
+  g:"Qu’est-ce qu’on produit dans cette ville ?",
+  h:"Quels sont les évènements de cette ville ?",
+  i:"Est-ce que ton pays produit quelque chose ?",
+};
+
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
     setAnswers(prev => ({ ...prev, [key]: value }));
-    // إعادة ضبط اللون عند الكتابة
+    // إعادة ضبط لون الخلفية عند الكتابة
     setAnswerStatus(prev => ({ ...prev, [key]: "" }));
   };
 
-// ✅ CHECK ANSWER
+  // ✅ CHECK ANSWER
+ // ✅ CHECK ANSWER
 const checkAnswer = () => {
   const newStatus = {};
   let correctCount = 0;
@@ -78,7 +89,7 @@ const checkAnswer = () => {
   const total = Object.keys(correctAnswers).length;
 
   if (incomplete) {
-    ValidationAlert.info(
+    ValidationAlert.error(
       "Incomplete",
       "Please fill in all fields.",
       `${correctCount}/${total}`
@@ -111,7 +122,7 @@ const checkAnswer = () => {
 
 // ✅ SHOW ANSWER
 const showAnswerFunc = () => {
-  setAnswers({ ...correctAnswers });
+  setAnswers(correctAnswers);
 
   const newStatus = {};
   Object.keys(correctAnswers).forEach(key => {
@@ -152,43 +163,38 @@ const resetExercise = () => {
   };
 
   return (
-    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-  <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
+    <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">1</span> <span style={{color:"black"}} className="number-of-q">5</span>
- Complète avec la terminaison du verbe « s’appeler » au présent.
-
-      </header>
-
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
+        <span style={{ color: "black" }} className="number-of-q">6</span>
+Réponds aux questions.      </header>
+<div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>
       {/* ✅ QUESTIONS */}
-   <div className="page5Q5" style={{marginLeft:"13%"}}>
-        <div className="inputs-column500">
-          {Object.keys(questions).map((key, index) => (
-            <div className="input-group" key={key}>
-              <label>
-                <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>
-                {questions[key].split("____")[0]}
-                <input
-                  type="text"
-                  value={answers[key]}
-                  onChange={(e) => handleChange(key, e.target.value)}
-                  style={{ width: "50px", margin: "0 5px", ...getInputStyle(key) }}
-                />
-                {questions[key].split("____")[1]}
-              </label>
-            </div>
-          ))}
-        </div>
+     <div className="page5Q3" style={{marginLeft:"40%"}}>
+  {Object.keys(questions).map((key, index) => (
+  <div className="input-group" key={key}>
+    <label style={{ whiteSpace: "pre-line" }}>
+      <strong style={{ fontSize: "25px" }}>
+        {String.fromCharCode(97 + index)}{" "}
+      </strong>
+      {questions[key]}
+    </label>
+
+      <input
+        type="text"
+        value={answers[key]}
+        onChange={(e) => handleChange(key, e.target.value)}
+style={{ ...getInputStyle(key), width: "76%" }}
+        
+      />
+    </div>
+  ))}
+</div>
+<div className="spaces"></div>
    {score && <ScoreCardEnhanced score={score} />}
-
-        {/* عمود الصورة على اليمين */}
-        <div className="imgQ5wb">
-          <img src={img1} alt="Illustration" st/>
-        </div>
-      </div>
-
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
@@ -199,4 +205,4 @@ className="header-title-page1 w-full text-left mb-4"
   );
 };
 
-export default Page5_Q2_SAppeler;
+export default Page5_Q1_CleanAudio;
