@@ -138,13 +138,14 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-    <header
+  <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
-        <span style={{ color: "black" }} className="number-of-q">6</span>
-Écoute et réponds à la question.    </header>
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">C</span>
+        <span style={{ color: "black" }} className="number-of-q">4</span>
+     Écoute et réponds à la question.
+      </header>
 
 <div
         className="clip"

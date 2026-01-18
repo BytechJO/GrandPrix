@@ -9,7 +9,7 @@ import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
-
+import 'animate.css';
 import "./CSSPAGE/Q5U1.css";
 const images = [
   { id: "a", src: img1, label: "A" },
@@ -155,7 +155,7 @@ const updateCaption = (currentTime) => {
 
       {/* ================= Audio Player ================= */}
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <div className="audio-popup-read" style={{ width: "30%" }}>
+        <div className=" audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">
             <audio
               ref={audioRef}

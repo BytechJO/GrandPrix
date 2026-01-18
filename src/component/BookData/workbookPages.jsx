@@ -26,6 +26,12 @@ import WB_Unit3_Page24 from "../WorkBookPages/Unit1/WB_Unit4_Page24";
 import WB_Unit3_Page25 from "../WorkBookPages/Unit1/WB_Unit4_Page25";
 import WB_Unit3_Page26 from "../WorkBookPages/Unit1/WB_Unit4_Page26";
 import WB_Unit3_Page27 from "../WorkBookPages/Unit1/WB_Unit4_Page27";
+import WB_Unit5_Page28 from "../WorkBookPages/Unit5/WB_Unit5_Page28";
+import WB_Unit5_Page29 from "../WorkBookPages/Unit5/WB_Unit5_Page29";
+import WB_Unit5_Page30 from "../WorkBookPages/Unit5/WB_Unit5_Page30";
+import WB_Unit5_Page31 from "../WorkBookPages/Unit5/WB_Unit5_Page31";
+import WB_Unit5_Page32 from "../WorkBookPages/Unit5/WB_Unit5_Page32";
+import WB_Unit5_Page33 from "../WorkBookPages/Unit5/WB_Unit5_Page33";
 
 
 export const workbookPages = (openPopup) => [
@@ -57,6 +63,12 @@ export const workbookPages = (openPopup) => [
   <WB_Unit3_Page25 openPopup={openPopup} />,
   <WB_Unit3_Page26 openPopup={openPopup} />,
   <WB_Unit3_Page27 openPopup={openPopup} />,
+  <WB_Unit5_Page28 openPopup={openPopup} />,
+  <WB_Unit5_Page29 openPopup={openPopup} />,
+  <WB_Unit5_Page30 openPopup={openPopup} />,
+  <WB_Unit5_Page31 openPopup={openPopup} />,
+  <WB_Unit5_Page32 openPopup={openPopup} />,
+  <WB_Unit5_Page33 openPopup={openPopup} />,
 
 
  

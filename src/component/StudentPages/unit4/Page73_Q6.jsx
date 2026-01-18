@@ -168,7 +168,7 @@ const resetExercise = () => {
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">A</span>
         <span style={{ color: "black" }} className="number-of-q">6</span>
 Réponds aux questions.      </header>
 <div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>

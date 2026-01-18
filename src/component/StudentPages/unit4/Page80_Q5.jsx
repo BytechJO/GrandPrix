@@ -106,19 +106,13 @@ const sentences = [
   return (
   <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* العنوان الرئيسي */}
-          <header
+       <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">8</span>{" "}
-       Vrai (✔️ ) ou faux ( ✖️) ?
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">C</span>
+        <span style={{ color: "black" }} className="number-of-q">5</span>
+     Vrai (✔️ ) ou faux ( ✖️) ?
       </header>
 
       {/* ✅ QUESTIONS LIST - تخطيط شبكي */}

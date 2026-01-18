@@ -203,12 +203,14 @@ Léo : C’est ça, tu as raison. Allons-y. `;
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-            <header
+         <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">C</span> <span style={{color:"black"}} className="number-of-q">4</span>Écoute et entoure la bonne réponse</header>
-
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">B</span>
+        <span style={{ color: "black" }} className="number-of-q">4</span>
+     Écoute et entoure la bonne réponse.
+      </header>
 
       <div
         className="clip"

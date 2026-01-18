@@ -41,7 +41,7 @@ const Page5 = ({ openPopup }) => {
                 width="20"
                 height="20"
                 viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 88 })}
+                onClick={() => openPopup("exercise", { startIndex: 103 })}
                 // className="click-icon-page8-1 hover:scale-110 transition"
                 style={{ overflow: "visible" }}
               >

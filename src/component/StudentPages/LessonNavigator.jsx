@@ -17,7 +17,7 @@ const CurrentLesson = lesson?.component;
       Swal.fire({
         html: `
           <div class="custom-popup-content">
-            <h2 style="font-size:25px;color=black">Congratulations! You've finished all the exercises of Unit🎉</br>Do you want to continue to the review exercises?</h2>
+            <h2 style="font-size:25px;color=black">Félicitations ! Vous avez terminé tous les exercices 🎉 Souhaitez-vous passer à l'unité suivante ?</h2>
           </div>
         `,
         imageWidth: 200,
@@ -48,9 +48,7 @@ const CurrentLesson = lesson?.component;
       Swal.fire({
         html: `
           <div class="custom-popup-content">
-            <h2 style="font-size:25px;color=black">Félicitations! Vous avez terminé tous les exercices🎉
-
-Souhaitez-vous recommencer depuis le début? ${
+            <h2 style="font-size:25px;color=black">Félicitations ! Vous avez terminé tous les exercices 🎉 Souhaitez-vous passer à l'unité suivante ? ${
               lesson.unit + 1
             } exercises?</h2>
           </div>
@@ -84,9 +82,7 @@ Souhaitez-vous recommencer depuis le début? ${
       Swal.fire({
         html: `
           <div class="custom-popup-content">
-            <h2 style="font-size:25px;color=black">Félicitations! Vous avez terminé tous les exercices🎉
-
-Souhaitez-vous recommencer depuis le début?</h2>
+            <h2 style="font-size:25px;color=black">Félicitations ! Vous avez terminé tous les exercices 🎉 Souhaitez-vous passer à l'unité suivante ?</h2>
           </div>
         `,
         imageWidth: 200,

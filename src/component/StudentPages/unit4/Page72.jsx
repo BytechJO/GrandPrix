@@ -1,6 +1,6 @@
 import React from "react";
 import page_1 from "../../../assets/unite4pages/72.png"
-import page5_CD2 from "../../../assets/unit1/SoundU1/1.mp3";
+import page5_CD2 from "../../../assets/U4Audio/U4Q4.mp3";
 import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
@@ -33,7 +33,25 @@ const Page5 = ({ openPopup }) => {
 
       {/* زر الصوت الأول */}
      
-      
+             <div
+        id="CD-1-page5"
+        className="headset-icon-CD-page5 hover:scale-110 transition"
+        style={{
+          position: "absolute",
+          top: "38%", // عدّل حسب مكان الزر
+          left: "2%", // عدّل حسب مكان الزر
+          cursor: "pointer",
+          width: "50px", height: "50px",
+       
+        }}
+        onClick={() =>
+          openPopup(
+            "audio",
+            <AudioWithCaption src={page5_CD2}  captions={captionsExample} />
+          )
+        }
+      >
+      </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
               style={{ overflow: "visible" , position:"absolute",top:"41.9%",left:"46.5%"  }}

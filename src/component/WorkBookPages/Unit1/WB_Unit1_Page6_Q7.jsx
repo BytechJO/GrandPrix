@@ -159,7 +159,7 @@ className="header-title-page1 w-full text-left mb-4"
 
       {/* ✅ QUESTIONS */}
       <div className="page5Q5" style={{marginLeft:"13%"}}>
-        <div className="inputs-column500">
+        <div className="inputs-column">
           {Object.keys(questions).map((key, index) => (
             <div className="input-group" key={key}>
               <label>

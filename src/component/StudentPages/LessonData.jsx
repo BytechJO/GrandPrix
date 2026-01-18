@@ -111,6 +111,26 @@ import Page80_Q3 from "./unit4/Page80_Q3";
 import Page80_Q4 from "./unit4/Page80_Q4";
 import Page80_Q5 from "./unit4/Page80_Q5";
 import Page80_Q6 from "./unit4/Page80_Q6";
+import Page81_Q9 from "./unit4/Page81_Q9";
+
+import Page83_Q1 from "./unit4/Page83_Q1";
+import Page83_Q2 from "./unit4/Page83_Q2";
+import Page84_Q3 from "./unit4/Page84_Q3";
+import Page84_Q4 from "./unit4/Page84_Q4";
+import Page85_Q6 from "./unit4/Page85_Q6";
+import Page88_Q1 from "./unit4/Page88_Q1";
+import Page88_Q2 from "./unit4/Page88_Q2";
+import Page88_Q3 from "./unit4/Page88_Q3";
+import Page89_Q1 from "./unit4/Page89_Q1";
+import Page89_Q2 from "./unit4/Page89_Q2";
+import Page89_Q3 from "./unit4/Page89_Q3";
+import Page89_Q4 from "./unit4/Page89_Q4";
+import Page89_Q5 from "./unit4/Page89_Q5";
+import Page90_Q1 from "./unit4/Page90_Q1";
+import Page90_Q2 from "./unit4/Page90_Q2";
+import Page90_Q3 from "./unit4/Page90_Q3";
+import Page90_Q4 from "./unit4/Page90_Q4";
+import Page90_Q5 from "./unit4/Page90_Q5";
 
 
 
@@ -210,7 +230,7 @@ export const lessons = [
  { component: Page68_Q2, unit: 3 },
  { component: Page68_Q3, unit: 3 },
  { component: Page68_Q4, unit: 3 },
- { component: Page68_Q5, unit: 3 },
+ { component: Page68_Q5, unit: 3 ,lastOfUnit:true },
  { component: Page71_Q1, unit: 3 },
  { component: Page72_Q4, unit: 3 },
  { component: Page73_Q6, unit: 3 },
@@ -226,6 +246,25 @@ export const lessons = [
  { component: Page80_Q4, unit: 3 },
  { component: Page80_Q5, unit: 3 },
  { component: Page80_Q6, unit: 3 },
+ { component: Page81_Q9, unit: 3 },
+ { component: Page83_Q1, unit: 3 },
+ { component: Page83_Q2, unit: 3 },
+ { component: Page84_Q3, unit: 3 },
+ { component: Page84_Q4, unit: 3 },
+ { component: Page85_Q6, unit: 3 },
+ { component: Page88_Q1, unit: 3 },
+ { component: Page88_Q2, unit: 3 },
+ { component: Page88_Q3, unit: 3 },
+ { component: Page89_Q1, unit: 3 },
+ { component: Page89_Q2, unit: 3 },
+ { component: Page89_Q3, unit: 3 },
+ { component: Page89_Q4, unit: 3 },
+ { component: Page89_Q5, unit: 3 },
+ { component: Page90_Q1, unit: 3 },
+ { component: Page90_Q2, unit: 3 },
+ { component: Page90_Q3, unit: 3 },
+ { component: Page90_Q4, unit: 3 },
+ { component: Page90_Q5, unit: 3 },
  
 
 

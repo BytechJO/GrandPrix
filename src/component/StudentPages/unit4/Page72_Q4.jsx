@@ -110,7 +110,7 @@ const Page5_Q1_CleanAudio = () => {
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">4</span>
+        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">A</span>
         <span style={{ color: "black" }} className="number-of-q">4</span>
      Écoute et entoure la bonne réponse.
       </header>
