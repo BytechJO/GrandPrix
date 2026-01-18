@@ -5,9 +5,9 @@ import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img3 from "../../../assets/unite4pages/svg/891.svg"
-import img2 from "../../../assets/unite4pages/svg/892.svg"
-import img1 from "../../../assets/unite4pages/svg/893.svg"
+import img3 from "../../../assets/unite4pages/SVG/891.svg"
+import img2 from "../../../assets/unite4pages/SVG/892.svg"
+import img1 from "../../../assets/unite4pages/SVG/893.svg"
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
   const [score, setScore] = useState(null);
