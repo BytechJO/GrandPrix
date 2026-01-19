@@ -14,13 +14,13 @@ const WB_Unit1_Page1 = ({openPopup}) => {
  {/* زر التمرين 2 */}
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"15%",left:"35%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"6.5%",left:"71%"  }}
       >
         <svg
           width="22"
           height="22"
           viewBox="0 0 90 90"
-          onClick={() => openPopup("exercise", { startIndex: 0})}
+          onClick={() => openPopup("exercise", { startIndex: 60})}
           style={{ overflow: "visible" }}
         >
           <image

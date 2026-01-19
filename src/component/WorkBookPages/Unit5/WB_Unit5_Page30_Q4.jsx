@@ -9,32 +9,36 @@ const Page28Q1 = () => {
   // ✅ الإجابات الصحيحة
   const correctAnswers = {
     a: {
-      answer: `Il y a de la limonade.
-Il y a du beurre.
-Il y a de la salade de fruits.
-Il y a du fromage.
-Il y a du pain.`,
+      answer: `Il n’y a pas de 
+Il y a des 
+Il y a des 
+Il n’y a pas de 
+Il n’y a pas de 
+Il n’y a pas de `,
       type: "phrase"
     },
     b: {
-      answer: `Il y a du lait.
-Il y a du beurre.
-Il y a du miel.
-Il y a de la confiture.
-Il y a du pain.
-Il y a du thé.
-Il y a des croissants.
-Il y a des céréales.`,
+      answer: `Il n’y a pas de
+Il y a du
+Il y a des
+Il n’y a pas de
+Il n’y a pas de
+Il y a du
+Il n’y a pas de`,
       type: "phrase"
     },
     c: {
-      answer: `Il y a de l’eau minérale.
-Il y a du poulet.
-Il y a de la salade.
-Il y a du riz.`,
+      answer: `Il y a du
+Il n’y a pas d’
+Il n’y a pas de
+Il y a des
+Il n’y a pas d’
+Il n’y a pas de
+Il y a du`,
       type: "phrase"
     }
   };
+
 
   const words = Object.keys(correctAnswers);
   const [score, setScore] = useState(null);
@@ -44,6 +48,14 @@ Il y a du riz.`,
     )
   );
   const [answerStatus, setAnswerStatus] = useState({});
+
+  // ✅ المصفوفة الجديدة للسبان
+ const [spans, setSpans] = useState({
+  a: ["fraises.", "tomates", "haricots verts.", "poisson.", "riz.","potage."],
+  b: ["viande.", "poisson.", "tomates.", "pâtes.", "jus orange.", "citron.", "banane."],
+  c: ["pain.", "oeufs.", "pomme de terre.", "saucisses.","eau minérale.","concombre.","jus orange."]
+});
+
 
   const handleChange = (word, index, value) => {
     const updated = [...answers[word]];
@@ -129,6 +141,8 @@ Il y a du riz.`,
     );
     setAnswerStatus({});
     setScore(null);
+    // إعادة تعيين السبان
+   
   };
 
   // الكروت
@@ -151,8 +165,8 @@ Il y a du riz.`,
         }}
       >
         <span className="ex-A" style={{ backgroundColor: "#f38180" }}>5</span>
-        <span className="number-of-q">3</span>{" "}
-        Qu'est-ce qu'il y a pour le :
+        <span className="number-of-q">4</span>{" "}
+        Observe les photos, écris ce qu’il y a et ce qu’il n’y a pas.
       </header>
 
       {score && <ScoreCardEnhanced score={score} />}
@@ -177,27 +191,37 @@ Il y a du riz.`,
                 <h3 className="text-lg font-bold text-gray-800">{card.title}</h3>
 
                 {correctAnswers[card.id].answer.split("\n").map((_, index) => (
-                  <input
-                    key={index}
-                    type="text"
-                    style={{borderBottom:"2px solid black", flexDirection:"column", display:"flex", width:"100%"}}
-                    value={answers[card.id][index]}
-                    onChange={(e) => handleChange(card.id, index, e.target.value)}
-                    className={`   text-lg ${
-                      answerStatus[card.id]?.[index] === "correct"
-                        ? "border-green-500 bg-green-50"
-                        : answerStatus[card.id]?.[index] === "wrong"
-                        ? "border-red-500 bg-red-50"
-                        : "border-gray-300"
-                    }`}
-                  />
+   <div key={index} className="flex items-center gap-2">
+  <input
+    type="text"
+    style={{
+      borderBottom: "2px solid black",
+      flexGrow: 1,       // يأخذ كل المساحة المتاحة تقريبًا
+      minWidth: "150px"  // يمكنك تعديل هذا حسب الحاجة
+    }}
+    value={answers[card.id][index]}
+    onChange={(e) => handleChange(card.id, index, e.target.value)}
+    className={`text-lg ${
+      answerStatus[card.id]?.[index] === "correct"
+        ? "border-green-500 bg-green-50"
+        : answerStatus[card.id]?.[index] === "wrong"
+        ? "border-red-500 bg-red-50"
+        : "border-gray-300"
+    }`}
+  />
+  <span className="custom-span text-black-800">
+    {spans[card.id][index]}
+  </span>
+</div>
+
+
                 ))}
               </div>
             </div>
           </div>
         ))}
       </div>
-<div className="spaces"></div>
+      <div className="spaces"></div>
       {/* الأزرار */}
       <div className="action-buttons-container">
         <button onClick={reset} className="try-again-button">Recommencer ↻</button>

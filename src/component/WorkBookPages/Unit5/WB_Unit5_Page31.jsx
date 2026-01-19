@@ -14,13 +14,57 @@ const WB_Unit1_Page1 = ({openPopup}) => {
  {/* زر التمرين 2 */}
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"15%",left:"35%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"6.5%",left:"59%"  }}
       >
         <svg
           width="22"
           height="22"
           viewBox="0 0 90 90"
-          onClick={() => openPopup("exercise", { startIndex: 0})}
+          onClick={() => openPopup("exercise", { startIndex: 61})}
+          style={{ overflow: "visible" }}
+        >
+          <image
+            className="svg-img"
+            href={arrowBtn}
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid meet"
+          />
+        </svg>
+      </div>
+      <div
+        className="wb-unit1-p3-q2 hover:scale-110 transition"
+      style={{ overflow: "visible" , position:"absolute",top:"37.5%",left:"35%"  }}
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 90 90"
+          onClick={() => openPopup("exercise", { startIndex: 62})}
+          style={{ overflow: "visible" }}
+        >
+          <image
+            className="svg-img"
+            href={arrowBtn}
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid meet"
+          />
+        </svg>
+      </div>
+      <div
+        className="wb-unit1-p3-q2 hover:scale-110 transition"
+      style={{ overflow: "visible" , position:"absolute",top:"66.9%",left:"35%"  }}
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 90 90"
+          onClick={() => openPopup("exercise", { startIndex: 63})}
           style={{ overflow: "visible" }}
         >
           <image

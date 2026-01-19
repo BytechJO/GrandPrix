@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
 
 const Page28Q1 = () => {
   const correctAnswers = {
@@ -29,6 +30,7 @@ const Page28Q1 = () => {
   };
 
   const words = Object.keys(correctAnswers);
+  const [score, setScore] = useState(null);
 
   const [answers, setAnswers] = useState(
     Object.fromEntries(words.map(w => [w, ""]))
@@ -38,79 +40,89 @@ const Page28Q1 = () => {
     setAnswers({ ...answers, [word]: value });
   };
 
- const checkAnswer = () => {
-    const newStatus = {};
-    let correctCount = 0;
-    let incomplete = false;
+const checkAnswer = () => {
+  const newStatus = {};
+  let correctCount = 0;
+  let incomplete = false;
 
-    words.forEach(w => {
-      const val = answers[w]?.trim();
+  words.forEach(w => {
+    const val = answers[w]?.trim();
+    if (!val) incomplete = true;
 
-      if (!val) incomplete = true;
+    const isCorrect =
+      val?.toLowerCase() === correctAnswers[w].answer.toLowerCase();
 
-      const isCorrect =
-        val?.toLowerCase() === correctAnswers[w].answer.toLowerCase();
+    newStatus[w] = isCorrect ? "correct" : "wrong";
+    if (isCorrect) correctCount++;
+  });
 
-      newStatus[w] = isCorrect ? "correct" : "wrong";
-      if (isCorrect) correctCount++;
-    });
+  setAnswerStatus(newStatus);
 
-    setAnswerStatus(newStatus);
+  const total = words.length;
 
-    const total = words.length;
+  // ✅ تحديث السكور
+  setScore({
+    correct: correctCount,
+    total,
+    details: ` ${correctCount}/${total} correct`
+  });
 
-    if (incomplete) {
-      ValidationAlert.error(
-        "Incomplete",
-        "Please fill in all fields.",
-        `${correctCount}/${total}`
-      );
-    } else if (correctCount === total) {
-      ValidationAlert.success(
-        "Excellent!",
-        "You got all answers right!",
-        `${correctCount}/${total}`
-      );
-    } else if (correctCount === 0) {
-      ValidationAlert.error(
-        "Try Again!",
-        "All answers are incorrect.",
-        `${correctCount}/${total}`
-      );
-    } else {
-      ValidationAlert.error(
-        "Almost there!",
-        `You got ${correctCount} out of ${total} correct.`,
-        `${correctCount}/${total}`
-      );
-    }
-  };
+  if (incomplete) {
+    ValidationAlert.error(
+      "Incomplete",
+      "Please fill in all fields.",
+      `${correctCount}/${total}`
+    );
+  } else if (correctCount === total) {
+    ValidationAlert.success(
+      "Excellent!",
+      "You got all answers right!",
+      `${correctCount}/${total}`
+    );
+  } else {
+    ValidationAlert.error(
+      "Almost there!",
+      `You got ${correctCount} out of ${total} correct.`,
+      `${correctCount}/${total}`
+    );
+  }
+};
+
 
   // ✅ SHOW ANSWERS
-  const showAnswers = () => {
-    const filled = {};
-    const status = {};
+ const showAnswers = () => {
+  const filled = {};
+  const status = {};
 
-    words.forEach(w => {
-      filled[w] = correctAnswers[w].answer;
-      status[w] = "correct";
-    });
+  words.forEach(w => {
+    filled[w] = correctAnswers[w].answer;
+    status[w] = "correct";
+  });
 
-    setAnswers(filled);
-    setAnswerStatus(status);
+  setAnswers(filled);
+  setAnswerStatus(status);
 
-    ValidationAlert.success(
-      "Answers shown",
-      "All correct answers have been filled in.",
-      `${words.length}/${words.length}`
-    );
-  };
+  // ✅ سكور كامل
+  setScore({
+    correct: words.length,
+    total: words.length,
+    details: "All answers shown"
+  });
+
+  ValidationAlert.success(
+    "Answers shown",
+    "All correct answers have been filled in.",
+    `${words.length}/${words.length}`
+  );
+};
 
   // ✅ RESET
-  const reset = () => {
-    setAnswers(Object.fromEntries(words.map(w => [w, ""])));
-    setAnswerStatus({});
-  };
+ const reset = () => {
+  setAnswers(Object.fromEntries(words.map(w => [w, ""])));
+  setAnswerStatus({});
+  setScore(null); // ✅ تصفير السكور
+};
+
 
 
   const byType = type =>
@@ -137,11 +149,11 @@ const [answerStatus, setAnswerStatus] = useState({});
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>C</span>
-        <span className="number-of-q">2</span>{" "}
-   Devine les matières scolaires présentées. Quelles sont les deux matières qui ne sont <br />
-pas mentionnées ?
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>5</span>
+        <span className="number-of-q">1</span>
+Complète en ajoutant l’article qui convient.
       </header>
+{score && <ScoreCardEnhanced score={score} />}
 
       {/* 🔵 مربع الخيارات */}
       <div

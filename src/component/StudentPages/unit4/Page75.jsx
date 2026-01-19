@@ -5,22 +5,29 @@ import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
 const captionsExample = [
-  { start:5.0 , end: 7.0, text: "GrandPrixA1" },
-  { start: 7.3, end: 8.3, text: "unité 1," },
-  { start: 8.3, end: 9.6, text: " seprésenter. " },
-  { start: 10.2, end: 11.2, text: " SectionA " },
-  { start: 13.1, end: 14.2, text: " Exercice1 " },
-  { start: 14.8, end: 15.3, text: " Écoute " },
-  { start: 15.8, end: 17.9, text: " répète et place dans l'ordre. " },
-  { start: 20.4, end: 21.2, text: " Bonjour Loïc." },
-  { start: 22.7, end: 23.5, text: " Bonjour Théo." },
-  { start: 25.5, end: 26.3, text: "Salut Amélie" },
-  { start: 27.8, end: 28.1, text: "Salut Emma" },
-  { start: 30.4, end: 31.5, text: "Bonjour Madame Rose" },
-  { start: 32.8, end: 33.7, text: "Bonjour Madame Lucas." },
-  { start: 35.4, end: 36.1, text: "Bonjour Monsieur Henry." },
-  { start: 38.7, end: 39.4, text: "Au revoir Tom" },
-  { start: 40.7, end: 41.4, text: "Au revoir Adam." },
+  { start:5.79 , end: 6.97, text: "Grand Prix A1," },
+  { start:7.39 , end: 8.41, text: "unité 4," },
+  { start:8.83 , end: 9.23, text: "en ville." },
+  { start:10.0 , end: 10.8, text: "Section B." },
+  { start:11.52 , end: 12.19, text: "Marseille," },
+  { start:12.64 , end: 13.9, text: "une ville formidable." },
+  { start:15.7 , end: 15.9, text: "Exercice 1." },
+  { start:16.8 , end: 18.6, text: "Écoute et observe." },
+  { start:20.8 , end: 21.4, text: "En bus," },
+  { start:21.6 , end: 22.3, text: "en tramway," },
+  { start:22.3 , end: 23.3, text: "en métro," },
+  { start:23.2 , end: 25.0, text: "les transports en commun sont pratiques." },
+  { start:26.3 , end: 26.9, text: "En avion," },
+  { start:26.9 , end: 27.7, text: "c'est rapide." },
+  { start:27.7 , end: 29.4, text: "En voiture," },
+  { start:29.4 , end: 30.4, text: "c'est facile." },
+  { start:31.4 , end: 32.0, text: "À vélo," },
+  { start:32.2 , end: 33.8, text: "c'est bon pour faire de l'exercice." },
+  { start:35.0 , end: 35.4, text: "À pied," },
+  { start:35.4 , end: 36.4, text: "avec tes amis," },
+  { start:36.4 , end: 37.19, text: "c'est formidable." },
+
+
   
 ];
 

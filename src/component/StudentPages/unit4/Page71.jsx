@@ -5,22 +5,29 @@ import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
 const captionsExample = [
-  { start:5.0 , end: 7.0, text: "GrandPrixA1" },
-  { start: 7.3, end: 8.3, text: "unité 1," },
-  { start: 8.3, end: 9.6, text: " seprésenter. " },
-  { start: 10.2, end: 11.2, text: " SectionA " },
-  { start: 13.1, end: 14.2, text: " Exercice1 " },
-  { start: 14.8, end: 15.3, text: " Écoute " },
-  { start: 15.8, end: 17.9, text: " répète et place dans l'ordre. " },
-  { start: 20.4, end: 21.2, text: " Bonjour Loïc." },
-  { start: 22.7, end: 23.5, text: " Bonjour Théo." },
-  { start: 25.5, end: 26.3, text: "Salut Amélie" },
-  { start: 27.8, end: 28.1, text: "Salut Emma" },
-  { start: 30.4, end: 31.5, text: "Bonjour Madame Rose" },
-  { start: 32.8, end: 33.7, text: "Bonjour Madame Lucas." },
-  { start: 35.4, end: 36.1, text: "Bonjour Monsieur Henry." },
-  { start: 38.7, end: 39.4, text: "Au revoir Tom" },
-  { start: 40.7, end: 41.4, text: "Au revoir Adam." },
+  { start:5.9 , end: 7.12, text: "Grand Prix A1," },
+  { start:7.7 , end: 8.47, text: "unité 4," },
+  { start:9.11 , end: 9.61, text: "en ville," },
+  { start:10.5 , end: 11.31, text: "section A," },
+  { start:11.87 , end: 12.53, text: "Provence," },
+  { start:12.9 , end: 14.19, text: "le goût de la France." },
+  { start:15.1 , end: 16.25, text: "Exercice 1." },
+  { start:17.3 , end: 17.8, text: "Écoute," },
+  { start:18.3 , end: 19.9, text: "observe et écris." },
+  { start:22.2 , end: 23.0, text: "Je m'appelle Marc." },
+  { start:23.3 , end: 26.0, text: "J'habite dans une ferme dans un village près d'Orange." },
+  { start:27.3 , end: 28.3, text: "Je m'appelle Marie" },
+  { start:28.5 , end: 31.15, text: "J'habite à la montagne dans la ville de Briançon" },
+  { start:32.5 , end: 33.7, text: "Je m'appelle Belle." },
+  { start:34.0 , end: 35.9, text: "J'habite ici à Marseille." },
+  { start:36.3 , end: 38.6, text: "J'habite dans une maison de ville." },
+  { start:39.8 , end: 40.9, text: "Je m'appelle Antoine." },
+  { start:41.44 , end: 43.4, text: "J'habite ici sur l'île d'Hier." },
+  { start:44.8 , end: 45.8, text: "Je m'appelle Jacques." },
+  { start:46.15 , end: 46.9, text: "J'habite à Cannes" },
+  { start:47.3 , end: 48.5, text: "C'est un port en Provence." },
+ 
+
   
 ];
 
