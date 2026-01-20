@@ -6,23 +6,42 @@ import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
 const captionsExample = [
-  { start:5.0 , end: 7.0, text: "GrandPrixA1" },
-  { start: 7.3, end: 8.3, text: "unité 1," },
-  { start: 8.3, end: 9.6, text: " seprésenter. " },
-  { start: 10.2, end: 11.2, text: " SectionA " },
-  { start: 13.1, end: 14.2, text: " Exercice1 " },
-  { start: 14.8, end: 15.3, text: " Écoute " },
-  { start: 15.8, end: 17.9, text: " répète et place dans l'ordre. " },
-  { start: 20.4, end: 21.2, text: " Bonjour Loïc." },
-  { start: 22.7, end: 23.5, text: " Bonjour Théo." },
-  { start: 25.5, end: 26.3, text: "Salut Amélie" },
-  { start: 27.8, end: 28.1, text: "Salut Emma" },
-  { start: 30.4, end: 31.5, text: "Bonjour Madame Rose" },
-  { start: 32.8, end: 33.7, text: "Bonjour Madame Lucas." },
-  { start: 35.4, end: 36.1, text: "Bonjour Monsieur Henry." },
-  { start: 38.7, end: 39.4, text: "Au revoir Tom" },
-  { start: 40.7, end: 41.4, text: "Au revoir Adam." },
-  
+  { start:5.18 , end: 6.38, text: "Rempris A1," },
+  { start:6.85 , end: 8.02, text: "unité 4," },
+  { start:8.38 , end: 8.80, text: "en ville." },
+  { start:9.63 , end: 10.28, text: "Section D." },
+  { start:11.13 , end: 11.34, text: "Cannes," },
+  { start:11.97 , end: 13.32, text: "une ville de cinéma." },
+  { start:14.21 , end: 15.10, text: "Exercice 1." },
+  { start:16.09 , end: 16.62, text: "Écoute," },
+  { start:17.18 , end: 19.14, text: "répète et place dans l'ordre." },
+  { start:19.74 , end: 19.76, text: "A" },
+  { start:21.76 , end: 22.98, text: "Passe devant." },
+  { start:23.02 , end: 24.0, text: "B" },
+  { start:25.64 , end: 26.46, text: "Tourne à gauche." },
+  { start:26.48 , end: 26.52, text: "C" },
+  { start:29.31 , end: 30.22, text: "Traverse la rue." },
+  { start:30.22 , end: 30.30, text: "D" },
+  { start:32.90 , end: 33.78, text: "Continue tout droit." },
+  { start:35.88 , end: 36.12, text: "E" },
+  { start:36.54 , end: 37.18, text: "Tourne à droite." },
+  { start:39.33 , end: 39.68, text: "F" },
+  { start:40.06 , end: 41.96, text: "L'hôpital est au coin de" },
+ 
+];
+const captionsExample2 = [
+  { start:5.18 , end: 6.36, text: "Rempris A1," },
+  { start:6.85 , end: 8.02, text: "unité 4," },
+  { start:8.40 , end: 8.82, text: "en ville." },
+  { start:9.36 , end: 10.28, text: "Section D." },
+  { start:11.13 , end: 11.36, text: "Cannes," },
+  { start:11.98 , end: 13.18, text: "une ville de cinéma." },
+  { start:13.98 , end: 15.02, text: "Exercice 2." },
+  { start:15.45 , end: 17.04, text: "Écoute et écris." },
+  { start:19.14 , end: 20.74, text: "Ella est au poste de police." },
+  { start:21.21 , end: 22.71, text: "Elle veut aller au supermarché." },
+  { start:23.74 , end: 26.40, text: "Marc est au parc et il veut aller au restaurant." },
+
 ];
 
 const Page5 = ({ openPopup }) => {
@@ -68,7 +87,7 @@ const Page5 = ({ openPopup }) => {
         onClick={() =>
           openPopup(
             "audio",
-            <AudioWithCaption src={page5_CD3}  captions={captionsExample} />
+            <AudioWithCaption src={page5_CD3}  captions={captionsExample2} />
           )
         }
       >

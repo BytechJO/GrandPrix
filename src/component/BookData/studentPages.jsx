@@ -105,6 +105,32 @@ import Page88 from "../StudentPages/unit4/Page88"
 import Page89 from "../StudentPages/unit4/Page89"
 import Page90 from "../StudentPages/unit4/Page90"
 import Page91 from "../StudentPages/unit4/Page91"
+// ========================================================================
+//                             unit5
+// ======================================================================== 
+import Page92 from "../StudentPages/unit5/Page92"
+import Page93 from "../StudentPages/unit5/Page93"
+import Page94 from "../StudentPages/unit5/Page94"
+import Page95 from "../StudentPages/unit5/Page95"
+import Page96 from "../StudentPages/unit5/Page96"
+import Page97 from "../StudentPages/unit5/Page97"
+import Page98 from "../StudentPages/unit5/Page98"
+import Page99 from "../StudentPages/unit5/Page99"
+import Page100 from "../StudentPages/unit5/Page100"
+import Page101 from "../StudentPages/unit5/Page101"
+import Page102 from "../StudentPages/unit5/Page102"
+import Page103 from "../StudentPages/unit5/Page103"
+import Page104 from "../StudentPages/unit5/Page104"
+import Page105 from "../StudentPages/unit5/Page105"
+import Page106 from "../StudentPages/unit5/Page106"
+import Page107 from "../StudentPages/unit5/Page107"
+import Page108 from "../StudentPages/unit5/Page108"
+import Page109 from "../StudentPages/unit5/Page109"
+import Page110 from "../StudentPages/unit5/Page110"
+import Page111 from "../StudentPages/unit5/Page111"
+import Page112 from "../StudentPages/unit5/Page112"
+import Page113 from "../StudentPages/unit5/Page113"
+
 
 export const studentPages = (openPopup, goToUnit) =>  [
   <Page1 />,
@@ -198,6 +224,28 @@ export const studentPages = (openPopup, goToUnit) =>  [
   <Page89 openPopup={openPopup}/>,
   <Page90 openPopup={openPopup}/>,
   <Page91 openPopup={openPopup}/>,
+  <Page92 openPopup={openPopup}/>,
+  <Page93 openPopup={openPopup}/>,
+  <Page94 openPopup={openPopup}/>,
+  <Page95 openPopup={openPopup}/>,
+  <Page96 openPopup={openPopup}/>,
+  <Page97 openPopup={openPopup}/>,
+  <Page98 openPopup={openPopup}/>,
+  <Page99 openPopup={openPopup}/>,
+  <Page100 openPopup={openPopup}/>,
+  <Page101 openPopup={openPopup}/>,
+  <Page102 openPopup={openPopup}/>,
+  <Page103 openPopup={openPopup}/>,
+  <Page104 openPopup={openPopup}/>,
+  <Page105 openPopup={openPopup}/>,
+  <Page106 openPopup={openPopup}/>,
+  <Page107 openPopup={openPopup}/>,
+  <Page108 openPopup={openPopup}/>,
+  <Page109 openPopup={openPopup}/>,
+  <Page110 openPopup={openPopup}/>,
+  <Page111 openPopup={openPopup}/>,
+  <Page112 openPopup={openPopup}/>,
+  <Page113 openPopup={openPopup}/>,
  
 
 

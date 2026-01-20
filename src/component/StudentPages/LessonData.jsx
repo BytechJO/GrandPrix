@@ -131,6 +131,13 @@ import Page90_Q2 from "./unit4/Page90_Q2";
 import Page90_Q3 from "./unit4/Page90_Q3";
 import Page90_Q4 from "./unit4/Page90_Q4";
 import Page90_Q5 from "./unit4/Page90_Q5";
+import Page93_Q1 from "./unit5/Page93_Q1";
+import Page93_Q2 from "./unit5/Page93_Q2";
+import Page93_Q3 from "./unit5/Page93_Q3";
+import Page93_Q4 from "./unit5/Page93_Q4";
+import Page94_Q5 from "./unit5/Page94_Q5";
+import Page95_Q9 from "./unit5/Page95_Q9";
+import Page95_Q10 from "./unit5/Page95_Q10";
 
 
 
@@ -264,7 +271,15 @@ export const lessons = [
  { component: Page90_Q2, unit: 3 },
  { component: Page90_Q3, unit: 3 },
  { component: Page90_Q4, unit: 3 },
- { component: Page90_Q5, unit: 3 },
+ { component: Page90_Q5, unit: 3 , lastOfUnit:true},
+ { component: Page93_Q1, unit: 3 },
+ { component: Page93_Q2, unit: 3 },
+ { component: Page93_Q3, unit: 3 },
+ { component: Page93_Q4, unit: 3 },
+ { component: Page94_Q5, unit: 3 },
+ { component: Page95_Q9, unit: 3 },
+ { component: Page95_Q10, unit: 3 },
+
  
 
 
