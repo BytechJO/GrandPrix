@@ -1,0 +1,27 @@
+/* Page80_Q3.css */
+
+
+
+.color-box {
+  transition: transform 0.3s ease;
+}
+
+.color-box:hover {
+  transform: translateY(-5px);
+}
+
+.upper-dots-container, .lower-dots-container {
+  opacity: 0.7;
+}
+
+
+
+/* تأثيرات للخطوط المتصلة */
+line {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  transition: stroke-width 0.2s ease;
+}
+
+line:hover {
+  stroke-width: 4;
+}

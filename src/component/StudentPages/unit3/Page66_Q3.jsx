@@ -1,25 +1,42 @@
 import React, { useState, useRef } from "react";
-import ValidationAlert from "../../Popup/ValidationAlert";
-import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/U1SAQ5.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
+import ValidationAlert from "../../Popup/ValidationAlert";
+import "../unit1/CSSPAGE/Q5U1.css";
+import img1 from "../../../assets/unite3pages/svg/P66-01.png";
+import img2 from "../../../assets/unite3pages/svg/P66-02.png";
+import img3 from "../../../assets/unite3pages/svg/P66-03.png";
+import img4 from "../../../assets/unite3pages/svg/P66-04.png";
+import img5 from "../../../assets/unite3pages/svg/P66-05.png";
+
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2ScQ4.mp3";
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
-  const [inputs, setInputs] = useState({});
   const [isPlaying, setIsPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
   const [showSettings, setShowSettings] = useState(false);
-  const [showCaption, setShowCaption] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [volume, setVolume] = useState(1);
+  const [score, setScore] = useState(null);
+
+  // ✅ INPUT STATES
+  const [answers, setAnswers] = useState(["", "", "", "", ""]);
+
+  // ✅ CORRECT ANSWERS
+  const correctAnswers = [
+    "est policier",
+    "est avocate",
+    "est pompier",
+    "Il est scientifique",
+    "est chef"
+  ];
+
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-
     if (audio.paused) {
       audio.play();
       setIsPlaying(true);
@@ -28,60 +45,7 @@ const Page5_Q1_CleanAudio = () => {
       setIsPlaying(false);
     }
   };
-  const captions = [
-    { start: 5.2, end: 8.3, text: "Grand prix A1, unité 2," },
-    { start: 8.3, end: 9.7, text: "à l'école," },
-    { start: 9.7, end: 11.4, text: "section C." },
-    { start: 11.4, end: 15.4, text: "Lundi, c'est exercice 4." },
-    { start: 15.4, end: 17.5, text: "Écoute encore une fois et" },
-    { start: 17.5, end: 19.3, text: "réponds aux questions." },
-    { start: 19.3, end: 21.6, text: "Bonjour Jenna," },
-    { start: 21.6, end: 23.4, text: "comment ça va ?" },
-    { start: 23.4, end: 25.4, text: "Salut Carole, ça va bien ?" },
-    { start: 25.4, end: 26.1, text: "Merci," },
-    { start: 26.1, end: 28.5, text: "et toi ? Bien." },
-    { start: 28.5, end: 29.5, text: "Tu as vu notre emploi" },
-    { start: 29.5, end: 31.3, text: "du temps ? Non," },
-    { start: 31.3, end: 33.1, text: "on peut aller voir ?" },
-    { start: 33.1, end: 33.9, text: "Oui, bien sûr." },
-    { start: 35.6, end: 36.3, text: "Nous n'avons pas beaucoup" },
-    { start: 36.3, end: 37.8, text: "de leçons de technologie." },
-    { start: 37.8, end: 39.0, text: "J'aime beaucoup le prof." },
-    { start: 39.0, end: 41.0, text: "Oui, c'est vrai." },
-    { start: 41.0, end: 42.2, text: "Nous avons maths chaque" },
-    { start: 42.2, end: 43.7, text: "jour, sauf le mercredi." },
-    { start: 43.7, end: 45.0, text: "Le prof de maths pose" },
-    { start: 45.0, end: 46.1, text: "beaucoup de questions." },
-    { start: 46.1, end: 47.2, text: "J'aime ça." },
-    { start: 47.2, end: 48.7, text: "Ah mon Dieu," },
-    { start: 48.7, end: 49.5, text: "combien de cours d'anglais" },
-    { start: 49.5, end: 51.5, text: "? Un, deux, trois." },
-    { start: 51.5, end: 52.5, text: "Magnifique," },
-    { start: 52.5, end: 53.8, text: "c'est ma matière préférée." },
-    { start: 53.8, end: 54.8, text: "Quelle est ta matière" },
-    { start: 54.8, end: 55.8, text: "préférée ?" },
-    { start: 55.8, end: 57.5, text: "Ma matière préférée," },
-    { start: 57.5, end: 58.4, text: "c'est l'art." },
-    { start: 58.4, end: 59.7, text: "Mais malheureusement," },
-    { start: 59.7, end: 60.0, text: "nous n'avons pas beaucoup" },
-    { start: 60.0, end: 61.0, text: "de cours." },
-    { start: 61.0, end: 63.0, text: "Nous avons aussi des." },
-    { start: 63.0, end: 63.8, text: "Cours de physique." },
-    { start: 63.8, end: 65.1, text: "D'Eps et de SVT." },
-    { start: 65.1, end: 66.1, text: "Qu'est-ce que c'est" },
-    { start: 66.1, end: 68.5, text: "l'SVT ? SVT," },
-    { start: 68.5, end: 69.7, text: "ça veut dire Science de" },
-    { start: 69.7, end: 71.3, text: "la Vie et de la Terre." },
-    { start: 71.3, end: 73.3, text: "Ah mon Dieu !" },
-    { start: 73.3, end: 74.1, text: "Nous avons les nouvelles" },
-    { start: 74.1, end: 76.5, text: "leçons d'espagnol ! Oui." },
-  ];
-  const updateCaption = (time) => {
-    const index = captions.findIndex(
-      (cap) => time >= cap.start && time <= cap.end
-    );
-    setActiveIndex(index !== -1 ? index : null);
-  };
+
   const resetAudio = () => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
@@ -90,174 +54,103 @@ const Page5_Q1_CleanAudio = () => {
       setCurrent(0);
     }
   };
-  // === STATE ===
-  const [answers, setAnswers] = useState({
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    e: "",
-    f: "",
-  });
-  const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
-  // ✅ حالة لون الإجابات
-  const [answerStatus, setAnswerStatus] = useState({
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: "",
-    j: "",
-  });
-    
-  // === الإجابات النموذجية ===
-  const correctAnswers = {
-    a: "Est-ce que tu as une grande famille ?",
-    b: "Mon petit frère s’appelle Robert",
-    c: "Ce livre est intéressant . ",
-    d: "J'ai un novel ordinateur portable .",
-    e: "Mon père a quarante et un ans .",
-    f: "Est-ce que tu as une grande soeur ?",
- 
-  };
-
-  // === النصوص الأصلية للأسئلة ===
-  const questions = {
-     a: "famille / tu / - / ce / as / Est / ? / grande / que / une",
-    b: "petit / Robert / frère /. / Mon / s’appelle",
-    c: ". / est / Ce / intéressant / livre",
-    d: "ai / un / portable /. / J / nouvel / ‘/ ordinateur",
-    e: "quarante / Mon / et / père / ans /. / un / a",
-    f: "tu / - / que / grande / ce / soeur / Est / une / ? / as",
-  };
-
-  // ✅ HANDLE CHANGE
-  const handleChange = (key, value) => {
-    setAnswers((prev) => ({ ...prev, [key]: value }));
-    // إعادة ضبط لون الخلفية عند الكتابة
-    setAnswerStatus((prev) => ({ ...prev, [key]: "" }));
-  };
-
-  // ✅ CHECK ANSWER
-  // ✅ CHECK ANSWER
   const checkAnswer = () => {
-    const newStatus = {};
     let correctCount = 0;
-    let incomplete = false;
-
-    Object.keys(correctAnswers).forEach((key) => {
-      const val = answers[key]?.trim();
-      if (!val) incomplete = true;
-
-      const isCorrect = val === correctAnswers[key];
-      newStatus[key] = isCorrect ? "correct" : "wrong";
-
-      if (isCorrect) correctCount++;
+    answers.forEach((ans, i) => {
+      if (ans.trim() === correctAnswers[i]) correctCount++;
     });
 
-    setAnswerStatus(newStatus);
+    setScore({ correct: correctCount, total: correctAnswers.length });
 
-    const total = Object.keys(correctAnswers).length;
-
-    if (incomplete) {
-      ValidationAlert.error(
-        "Incomplete",
-        "Please fill in all fields.",
-        `${correctCount}/${total}`
+    if (correctCount === correctAnswers.length) {
+      ValidationAlert.success(
+        `Excellent! (${correctCount}/${correctAnswers.length})`,
+        "All answers are correct!"
       );
-      setScore(null); // منع ظهور ScoreCard
+    } else if (correctCount === 0) {
+      ValidationAlert.error(
+        `All answers are incorrect. (${correctCount}/${correctAnswers.length})`,
+        "Try again!"
+      );
     } else {
-      setScore({ correct: correctCount, total });
-
-      if (correctCount === total) {
-        ValidationAlert.success(
-          "Excellent!",
-          "You got all answers right!",
-          `${correctCount}/${total}`
-        );
-      } else if (correctCount === 0) {
-        ValidationAlert.error(
-          "Try Again!",
-          "All answers are incorrect.",
-          `${correctCount}/${total}`
-        );
-      } else {
-        ValidationAlert.error(
-          "Almost there!",
-          `You got ${correctCount} out of ${total} correct.`,
-          `${correctCount}/${total}`
-        );
-      }
+      ValidationAlert.error(
+        `You got ${correctCount} out of ${correctAnswers.length} correct.`,
+        "Almost there!"
+      );
     }
   };
 
-  // ✅ SHOW ANSWER
   const showAnswerFunc = () => {
-    setAnswers(correctAnswers);
-
-    const newStatus = {};
-    Object.keys(correctAnswers).forEach((key) => {
-      newStatus[key] = "correct";
-    });
-    setAnswerStatus(newStatus);
-
-    const total = Object.keys(correctAnswers).length;
-    setScore({ correct: total, total });
-
+    setAnswers([...correctAnswers]);
+    setScore({ correct: correctAnswers.length, total: correctAnswers.length });
     ValidationAlert.success(
       "Answers shown",
-      "All correct answers have been filled in.",
-      `${total}/${total}`
+      "The correct answers have been placed.",
+      `${correctAnswers.length}/${correctAnswers.length}`
     );
   };
 
-  // ✅ RESET
   const resetExercise = () => {
-    const emptyAnswers = {};
-    const emptyStatus = {};
-    Object.keys(correctAnswers).forEach((key) => {
-      emptyAnswers[key] = "";
-      emptyStatus[key] = "";
-    });
-
-    setAnswers(emptyAnswers);
-    setAnswerStatus(emptyStatus);
-    setScore(null); // إعادة تعيين ScoreCard
+    setAnswers(["", "", "", "", ""]);
+    setScore(null);
     resetAudio();
   };
 
-  // ✅ دالة لتحديد لون الخلفية حسب الحالة
-  const getInputStyle = (key) => {
-    if (answerStatus[key] === "correct") return { backgroundColor: "#d4f4dd" }; // أخضر فاتح
-    if (answerStatus[key] === "wrong") return { backgroundColor: "#f8d7da" }; // أحمر فاتح
-    return {};
+  const handleInputChange = (index, value) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
   };
+const labels = [
+  "ll",
+  "Elle",
+  "ll",
+  "Elle",
+  "ll"
+];
 
   return (
-    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-           <header
+    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
+    <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">8</span>Est-ce que c’est la famille de Ray ou de Daniel ? </header>
-    
-      
+        <span style={{ backgroundColor: "#eaaa52", color: "#3fadb7" }} className="ex-A">Grammaire </span>
+        <span style={{ color: "black" }} className="number-of-q">3</span>
+       Écris l’âge de chaque personne. Utilise le verbe « avoir »
+      </header>
+
+   
       {score && <ScoreCardEnhanced score={score} />}
-      <div className="spaces"></div>
+
+      {/* Questions */}
+      <div className="q6-body">
+        {[img1, img2, img3, img4, img5].map((img, i) => (
+          <div key={i} className="q5-character-group">
+            <img src={img} alt={`Character ${i + 1}`} className="q5-character-img" style={{ height: "30%", width: "50%" }} />
+            <span className="q5-label">
+  {labels[i]}
+</span>
+
+<input
+  type="text"
+  value={answers[i]}
+  onChange={(e) => handleInputChange(i, e.target.value)}
+  className="q5-input"
+  style={{ height: "50%", width: "70%" }}
+/>
+
+          </div>
+        ))}
+      </div>
+
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">
-          Recommencer ↻
+         Recommencer ↻
         </button>
-        <button
-          onClick={showAnswerFunc}
-          className="show-answer-btn swal-continue"
-        >
+        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">
           Afficher la réponse
         </button>
         <button onClick={checkAnswer} className="check-button2">

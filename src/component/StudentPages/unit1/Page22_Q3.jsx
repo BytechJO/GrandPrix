@@ -101,7 +101,13 @@ const Page5_Q1_CleanAudio = () => {
     newAnswers[index] = value;
     setAnswers(newAnswers);
   };
-
+const labels = [
+  "j'",
+  "Nous",
+  "Elle",
+  "ll",
+  "Elles"
+];
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
     <header
@@ -121,13 +127,18 @@ const Page5_Q1_CleanAudio = () => {
         {[img1, img2, img3, img4, img5].map((img, i) => (
           <div key={i} className="q5-character-group">
             <img src={img} alt={`Character ${i + 1}`} className="q5-character-img" style={{ height: "50%", width: "70%" }} />
-            <input
-              type="text"
-              value={answers[i]}
-              onChange={(e) => handleInputChange(i, e.target.value)}
-              className="q5-input"
-              style={{ height: "50%", width: "70%" }}
-            />
+          <span className="q5-label">
+  {labels[i]}
+</span>
+
+<input
+  type="text"
+  value={answers[i]}
+  onChange={(e) => handleInputChange(i, e.target.value)}
+  className="q5-input"
+  style={{ height: "50%", width: "70%" }}
+/>
+
           </div>
         ))}
       </div>

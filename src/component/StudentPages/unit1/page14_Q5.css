@@ -25,6 +25,36 @@
   background-position: center;
   position: relative; 
 }
+.inputsp54 {
+  width: 1000px;  
+  height: 500px;
+  background-image: url('../../../assets/unite3pages/svg/P54.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin-top: 0%;
+}
+.inputs55q10 {
+  width: 1000px;  
+  height: 500px;
+  background-image: url('../../../assets/unite3pages/svg/P55.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin-top: 0%;
+}
+.inputsp80 {
+  width: 1000px;  
+  height: 500px;
+  background-image: url('../../../assets/unite4pages/SVG/P80.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin-top: 0%;
+}
 .inputsp14 input{
 width: 40%;
 padding: 6px;
@@ -65,4 +95,165 @@ background-color: aliceblue;
   width: 10%;
   height: 20%;
 
+}
+
+.input154{
+  position: absolute;
+  top: 39%;
+  left: 54%;
+  width: 200px;
+  border-bottom: 2px solid black;
+}
+.input254{
+  position: absolute;
+  top: 45%;
+  left: 52%;
+  width: 200px;
+  border-bottom: 2px solid black;
+}
+.input354{
+  position: absolute;
+  top: 50%;
+  left: 46%;
+  width: 200px;
+  border-bottom: 2px solid black;
+}
+.input454{
+  position: absolute;
+  top: 55%;
+  left: 44%;
+  width: 100px;
+  border-bottom: 2px solid black;
+}
+.input654{
+  position: absolute;
+  top: 55%;
+  left: 57%;
+  width: 100px;
+  border-bottom: 2px solid black;
+}
+
+
+
+.span154{
+  position: absolute;
+  top: 45%;
+  left: 46%;
+  width: 200px;
+
+}
+.span254{
+  position: absolute;
+  top: 50%;
+  left: 43.5%;
+  width: 100px;
+
+}
+.span354{
+  position: absolute;
+  top: 55.5%;
+  left: 55%;
+  width: 100px;
+
+}
+.span454{
+  position: absolute;
+  top: 55.5%;
+  left: 68%;
+  width: 100px;
+}
+.span754{
+  position: absolute;
+  top: 55.5%;
+  left: 81%;
+  width: 100px;
+}
+.input754{
+position: absolute;
+  top: 55%;
+  left: 70%;
+  width: 100px;
+  border-bottom: 2px solid black;
+
+}
+.input854{
+position: absolute;
+  top: 55%;
+  left: 83%;
+  width: 100px;
+  border-bottom: 2px solid black;
+
+}
+.input954{
+position: absolute;
+  top: 60%;
+  left: 45%;
+  width: 400px;
+  border-bottom: 2px solid black;
+
+}
+.inputpage55Q101{
+
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+.inputpage55Q102{
+
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+.inputpage55Q103{
+
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+.inputpage55Q104{
+
+  position: absolute;
+  top: 55%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+.inputpage55Q105{
+
+  position: absolute;
+  top: 67%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+.inputpage55Q106{
+
+  position: absolute;
+  top: 80%;
+  left: 15%;
+  width: 150px;
+  border-bottom: 2px solid black;
+}
+
+.input801{
+  position: absolute;
+  top: 65%;
+  left: 70%;
+  width: 200px;
+background-color: aqua;
+text-align: center;
+}
+.input802{
+  position: absolute;
+  top: 65%;
+  left: 28%;
+  width: 200px;
+  background-color: aqua;
+text-align: center;
 }

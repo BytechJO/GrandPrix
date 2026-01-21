@@ -5,16 +5,16 @@ import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/unite3pages/svg/1.png"
-import img2 from "../../../assets/unite3pages/svg/2.png"
-import img3 from "../../../assets/unite3pages/svg/3.png"
-import img4 from "../../../assets/unite3pages/svg/4.png"
+import img4 from "../../../assets/unite3pages/svg/P67-01.png"
+import img3 from "../../../assets/unite3pages/svg/P67-02.png"
+import img2 from "../../../assets/unite3pages/svg/P67-03.png"
+import img1 from "../../../assets/unite3pages/svg/P67-04.png"
 import "./Page67_Q2.css"
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
   const [score, setScore] = useState(null);
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
-  const correctAnswer = "patric";
+  const correctAnswer = "pol";
 
   const checkAnswer = () => {
     if (!answer) {
@@ -85,7 +85,7 @@ const Page5_Q1_CleanAudio = () => {
 
       <div className="qcm-container">
         <div className="qcm-column">
-          <p className="question-title">Comment se sent Pierre ?</p>
+          <p className="question-title">Qui vient rendre visite à Robert ?</p>
           
           <div className="image-options-container flex gap-6 mt-6">
             {options.map((option) => (
