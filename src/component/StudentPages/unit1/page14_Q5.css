@@ -55,6 +55,16 @@
   position: relative; 
   margin-top: 0%;
 }
+.p98q6 {
+  width: 1000px;  
+  height: 500px;
+  background-image: url('../../../assets/unite5pages/SVG/page98Q6.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin-top: 0%;
+}
 .inputsp14 input{
 width: 40%;
 padding: 6px;
@@ -256,4 +266,31 @@ text-align: center;
   width: 200px;
   background-color: aqua;
 text-align: center;
+}
+.input98Q1{
+ position: absolute;
+  top: 65%;
+  left: 25%;
+  width: 300px;
+  height: 50px;
+font-size: 25px;
+
+}
+.input98Q2{
+ position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 300px;
+  height: 50px;
+font-size: 25px;
+
+}
+.input98Q3{
+ position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 300px;
+  height: 50px;
+font-size: 25px;
+
 }

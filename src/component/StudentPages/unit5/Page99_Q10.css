@@ -1,0 +1,11 @@
+.exercise-main-container{
+
+    margin-left: 20%;
+}
+@media(max-width:1025px)
+{
+.exercise-main-container{
+
+    margin-left: 0%;
+}
+}

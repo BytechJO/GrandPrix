@@ -32,46 +32,16 @@ const Page5 = ({ openPopup }) => {
       <img src={page_1} alt="Page 5" style={{ display: "block", width: "100%" }} />
 
       {/* زر الصوت الأول */}
-     
-      
+    
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"12.6%",left:"6.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"6.9%",left:"50.5%"  }}
             >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 117 })}
-                // className="click-icon-page8-1 hover:scale-110 transition"
-                style={{ overflow: "visible" }}
-              >
-                <image
-                  href={arrowBtn}
-                  x="0"
-                  y="0"
-                  
-                  width="100%"
-                  height="100%"
-                  preserveAspectRatio="xMidYMid meet"
-                />
-              </svg>
-            </div>
- 
-      
-   
- 
-
-   
-        <div
-            className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"19.6%",left:"6.5%"  }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 118 })}
+                onClick={() => openPopup("exercise", { startIndex: 137 })}
                 // className="click-icon-page8-1 hover:scale-110 transition"
                 style={{ overflow: "visible" }}
               >
@@ -88,59 +58,13 @@ const Page5 = ({ openPopup }) => {
             </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"25.9%",left:"6.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"47.0%",left:"35.5%"  }}
             >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 119 })}
-                // className="click-icon-page8-1 hover:scale-110 transition"
-                style={{ overflow: "visible" }}
-              >
-                <image
-                  href={arrowBtn}
-                  x="0"
-                  y="0"
-                  
-                  width="100%"
-                  height="100%"
-                  preserveAspectRatio="xMidYMid meet"
-                />
-              </svg>
-            </div>
-        <div
-            className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"31.9%",left:"6.5%"  }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 120 })}
-                // className="click-icon-page8-1 hover:scale-110 transition"
-                style={{ overflow: "visible" }}
-              >
-                <image
-                  href={arrowBtn}
-                  x="0"
-                  y="0"
-                  
-                  width="100%"
-                  height="100%"
-                  preserveAspectRatio="xMidYMid meet"
-                />
-              </svg>
-            </div>
-        <div
-            className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"50.0%",left:"23.5%"  }}
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 90 90"
-                onClick={() => openPopup("exercise", { startIndex: 121 })}
+                onClick={() => openPopup("exercise", { startIndex: 138 })}
                 // className="click-icon-page8-1 hover:scale-110 transition"
                 style={{ overflow: "visible" }}
               >
