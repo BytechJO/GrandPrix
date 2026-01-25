@@ -88,190 +88,157 @@ const Page5_Q1_CleanAudio = () => {
     }
   };
 
-  /* ================= CONFIGURATION ================= */
+  /* ================= STATE ================= */
   const TOTAL_ROWS = 4;
-  const PERSONS = ["Léon", "Marie", "Pierre", "Bette"];
-  const mealTypes = ["Comme entrée", "Comme plat", "Comme boisson", "Comme dessert"];
 
-  /* ================= FIXED CELLS - الخانات المملوءة في الصورة ================= */
+  const [rows, setRows] = useState(
+    Array(TOTAL_ROWS).fill().map(() => ({
+      leon: "",
+      marie: "",
+      pierre: "",
+      bette: ""
+    }))
+  );
+
+  /* ================= FIXED CELLS (الخانات المعبأة مسبقاً) ================= */
   const fixedValues = [
     { 
-      Léon: "des rouleaux de fruits de mer", 
-      Marie: "une salade verte", 
-      Pierre: null,  // فارغ في الصورة
-      Bette: null    // فارغ في الصورة
+      leon: ".", 
+      marie: "", 
+      pierre: "", 
+      bette: "." 
     },
     { 
-      Léon: "des pâtes", 
-      Marie: "de la ratatouille", 
-      Pierre: null,  // فارغ في الصورة
-      Bette: null    // فارغ في الصورة
+      leon: "", 
+      marie: ".", 
+      pierre: "", 
+      bette: "." 
     },
     { 
-      Léon: "du jus d'orange", 
-      Marie: "de l'eau minérale", 
-      Pierre: "du jus de raisin et puis, café noir", 
-      Bette: "un café au lait" 
+      leon: "", 
+      marie: "", 
+      pierre: "", 
+      bette: "" 
     },
     { 
-      Léon: null,  // فارغ في الصورة
-      Marie: null, // فارغ في الصورة
-      Pierre: null, // فارغ في الصورة
-      Bette: "une crème brulée" 
+      leon: ".", 
+      marie: ".", 
+      pierre: ".", 
+      bette: "" 
     },
   ];
 
-  /* ================= CORRECT ANSWERS للخانات الفارغة فقط ================= */
+  /* ================= CORRECT ANSWERS (للخانات الفارغة فقط) ================= */
+  // هذه إجابات افتراضية بناءً على السياق، يمكنك تعديلها بعد الاستماع للصوت
   const correctAnswers = [
     { 
-      Léon: null,  // ثابت - مملوء
-      Marie: null, // ثابت - مملوء
-      Pierre: "",  // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
-      Bette: ""    // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
+      leon: "", 
+      marie: "des rouleaux de fruits de mer",  // ثابت
+      pierre: "une salade verte",  // ثابت
+      bette: "" 
     },
     { 
-      Léon: null,  // ثابت - مملوء
-      Marie: null, // ثابت - مملوء
-      Pierre: "",  // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
-      Bette: ""    // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
+      leon: "des pâtes",  // ثابت
+      marie: "", 
+      pierre: "de la ratatouille", 
+      bette: "" 
     },
     { 
-      Léon: null,  // ثابت - مملوء
-      Marie: null, // ثابت - مملوء
-      Pierre: null, // ثابت - مملوء
-      Bette: null  // ثابت - مملوء
+      leon: "du jus d’orange",  // ثابت
+      marie: "de l’eau minérale",  // ثابت
+      pierre: "du jus de raisin et puis, café noir",  // ثابت
+      bette: "un café au lait"  // ثابت
     },
     { 
-      Léon: "",    // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
-      Marie: "",   // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
-      Pierre: "",  // فارغ - يجب أن يستمع الطالب ويكتب الإجابة
-      Bette: null  // ثابت - مملوء
+      leon: "gâteau", 
+      marie: "tarte", 
+      pierre: "glace", 
+      bette: "une crème brulée"  // ثابت
     },
   ];
 
-  /* ================= STATE - فقط للخانات الفارغة ================= */
-  // نبدأ بجدول فارغ للخانات الفارغة فقط
-  const initialRows = [
-    { Léon: "", Marie: "", Pierre: "", Bette: "" }, // entrée - Pierre وBette فارغان
-    { Léon: "", Marie: "", Pierre: "", Bette: "" }, // plat - Pierre وBette فارغان
-    { Léon: "", Marie: "", Pierre: "", Bette: "" }, // boisson - جميعها مملوءة
-    { Léon: "", Marie: "", Pierre: "", Bette: "" }, // dessert - Léon وMarie وPierre فارغة
-  ];
-
-  const [rows, setRows] = useState(initialRows);
-
-  /* ================= HANDLE CHANGE - للخانات الفارغة فقط ================= */
-  const handleChange = (rowIndex, person, value) => {
-    // نغير فقط الخانات الفارغة في الصورة
-    if (fixedValues[rowIndex][person] === null) {
-      const updated = [...rows];
-      updated[rowIndex][person] = value;
-      setRows(updated);
-    }
-  };
-
-  /* ================= GET DISPLAY VALUE ================= */
-  const getDisplayValue = (rowIndex, person) => {
-    // إذا كانت الخانة مملوءة في الصورة، نعرض القيمة الثابتة
-    if (fixedValues[rowIndex][person] !== null) {
-      return fixedValues[rowIndex][person];
-    }
-    // إذا كانت الخانة فارغة في الصورة، نعرض ما كتبه المستخدم
-    return rows[rowIndex][person];
+  /* ================= HANDLE CHANGE ================= */
+  const handleChange = (rowIndex, field, value) => {
+    const updated = [...rows];
+    updated[rowIndex][field] = value;
+    setRows(updated);
   };
 
   /* ================= CHECK ANSWER ================= */
   const checkAnswer = () => {
     let correctCount = 0;
-    let totalCount = 0;
+    let total = 0;
 
-    console.log("=== بداية التصحيح ===");
+    // 🔍 التحقق من التعبئة (الخانات غير الثابتة فقط)
+    const hasEmpty = rows.some((row, i) =>
+      Object.keys(row).some(
+        key => fixedValues[i][key] === "" && !row[key].trim()
+      )
+    );
 
-    // فقط الخانات الفارغة في الصورة يجب أن تكون مملوءة
-    const emptyCells = [];
-    
-    PERSONS.forEach(person => {
-      fixedValues.forEach((row, rowIndex) => {
-        // إذا كانت الخانة فارغة في الصورة
-        if (fixedValues[rowIndex][person] === null) {
-          totalCount++; // نحسبها في المجموع الكلي
-          
-          const userAnswer = rows[rowIndex][person].trim();
-          const correctAnswer = correctAnswers[rowIndex][person];
-          
-          console.log(`[${mealTypes[rowIndex]}][${person}]:`);
-          console.log(`  - المستخدم: "${userAnswer}"`);
-          console.log(`  - الصحيحة: "${correctAnswer}"`);
-          
-          if (userAnswer === "" || userAnswer === null) {
-            emptyCells.push(`${person} - ${mealTypes[rowIndex]}`);
-          } else if (correctAnswer && userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-            correctCount++;
-            console.log(`  - نتيجة: صحيحة ✓`);
-          } else {
-            console.log(`  - نتيجة: خاطئة ✗`);
-          }
-        } else {
-          // الخانة مملوءة في الصورة - نحتسبها كصحيحة
-          totalCount++;
+    if (hasEmpty) {
+      ValidationAlert.info("Attention!", "Veuillez remplir toutes les cases.");
+      return;
+    }
+
+    // ✅ التصحيح
+    rows.forEach((row, i) => {
+      Object.keys(row).forEach(key => {
+        total++;
+
+        if (fixedValues[i][key] !== "") {
+          correctCount++; // خانة ثابتة = صحيحة (غير فارغة في fixedValues)
+        } else if (
+          row[key].trim().toLowerCase() ===
+          correctAnswers[i][key].toLowerCase()
+        ) {
           correctCount++;
-          console.log(`[${mealTypes[rowIndex]}][${person}]: مملوءة في الصورة - صحيحة تلقائياً ✓`);
         }
       });
     });
 
-    // التحقق من الخانات الفارغة
-    if (emptyCells.length > 0) {
-      ValidationAlert.info(
-        "Attention!", 
-        `Veuillez remplir les cases suivantes:\n${emptyCells.join('\n')}`
-      );
-      return;
-    }
+    const color =
+      correctCount === total ? "green" :
+        correctCount === 0 ? "red" : "orange";
 
-    // عرض النتيجة
-    const score = Math.round((correctCount / totalCount) * 100);
-    const color = score === 100 ? "green" : score === 0 ? "red" : "orange";
-    
     const msg = `
       <div style="font-size:20px;text-align:center">
         <span style="color:${color};font-weight:bold">
-          Score : ${correctCount} / ${totalCount} (${score}%)
+          Score : ${correctCount} / ${total}
         </span>
       </div>
     `;
 
-    if (score === 100) {
-      ValidationAlert.success("Félicitations! " + msg);
-    } else if (score === 0) {
-      ValidationAlert.error("Essaie encore! " + msg);
-    } else {
-      ValidationAlert.warning("Presque! " + msg);
-    }
+    if (correctCount === total) ValidationAlert.success(msg);
+    else if (correctCount === 0) ValidationAlert.error(msg);
+    else ValidationAlert.warning(msg);
   };
 
   /* ================= SHOW ANSWERS ================= */
   const showAnswerFunc = () => {
-    // نعرض الإجابات الصحيحة للخانات الفارغة فقط
-    const newRows = [...rows];
-    
-    newRows.forEach((row, rowIndex) => {
-      PERSONS.forEach(person => {
-        // إذا كانت الخانة فارغة في الصورة ولها إجابة صحيحة
-        if (fixedValues[rowIndex][person] === null && correctAnswers[rowIndex][person]) {
-          newRows[rowIndex][person] = correctAnswers[rowIndex][person];
+    // تعبئة فقط الخلايا الفارغة (التي يجب على الطالب ملؤها)
+    const filledRows = rows.map((row, rowIndex) => {
+      const newRow = { ...row };
+      Object.keys(newRow).forEach(key => {
+        if (fixedValues[rowIndex][key] === "") {
+          newRow[key] = correctAnswers[rowIndex][key];
         }
       });
+      return newRow;
     });
-    
-    setRows(newRows);
+    setRows(filledRows);
   };
 
   /* ================= RESET ================= */
   const resetExercise = () => {
-    // نعيد تعيين الخانات الفارغة فقط
-    const newRows = [...initialRows];
-    setRows(newRows);
+    setRows(
+      Array(TOTAL_ROWS).fill().map(() => ({
+        leon: "",
+        marie: "",
+        pierre: "",
+        bette: ""
+      }))
+    );
     resetAudio();
   };
 
@@ -395,40 +362,45 @@ const Page5_Q1_CleanAudio = () => {
           <thead>
             <tr className="nationality-table-header">
               <th></th>
-              {PERSONS.map((person, index) => (
-                <th key={index}>{person}</th>
-              ))}
+              <th>Léon</th>
+              <th>Marie</th>
+              <th>Pierre</th>
+              <th>Bette</th>
             </tr>
           </thead>
 
           <tbody>
-            {mealTypes.map((mealType, rowIndex) => (
+            {rows.map((row, rowIndex) => (
               <tr key={rowIndex}>
-                <td className="nationality-table-cell meal-type-cell">
-                  {mealType}
+                {/* Row Header */}
+                <td className="nationality-table-cell fixed-cell">
+                  {rowIndex === 0 && "Comme entrée"}
+                  {rowIndex === 1 && "Comme plat"}
+                  {rowIndex === 2 && "Comme boisson"}
+                  {rowIndex === 3 && "Comme dessert"}
                 </td>
-                {PERSONS.map((person, colIndex) => {
-                  const isFixed = fixedValues[rowIndex][person] !== null;
-                  const displayValue = getDisplayValue(rowIndex, person);
-                  
+
+                {/* Input Cells */}
+                {["leon", "marie", "pierre", "bette"].map((col) => {
+                  const isFixed = fixedValues[rowIndex][col] !== "";
                   return (
-                    <td key={colIndex} className="nationality-table-cell">
-                      <input
-                        className="nationality-table-input"
-                        value={displayValue}
-                        readOnly={isFixed}
-                        onChange={(e) =>
-                          !isFixed && handleChange(rowIndex, person, e.target.value)
-                        }
-                        placeholder={isFixed ? "" : "Écris ici..."}
-                        style={{
-                          backgroundColor: isFixed ? "#f8f9fa" : "white",
-                          color: isFixed ? "#495057" : "#212529",
-                          fontWeight: isFixed ? "500" : "400",
-                          border: isFixed ? "2px solid #dee2e6" : "2px solid #adb5bd",
-                          cursor: isFixed ? "default" : "text"
-                        }}
-                      />
+                    <td key={col} className="nationality-table-cell">
+                      {isFixed ? (
+                        // خلية ثابتة (غير قابلة للتعديل)
+                        <div className="nationality-table-fixed">
+                          {fixedValues[rowIndex][col]}
+                        </div>
+                      ) : (
+                        // خلية قابلة للكتابة
+                        <input
+                          className="nationality-table-input"
+                          value={row[col]}
+                          onChange={(e) =>
+                            handleChange(rowIndex, col, e.target.value)
+                          }
+                          placeholder="Écrivez ici"
+                        />
+                      )}
                     </td>
                   );
                 })}

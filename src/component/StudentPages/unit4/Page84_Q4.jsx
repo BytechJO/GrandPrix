@@ -1,630 +1,574 @@
 import React, { useState, useRef, useEffect } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import background from "../../../assets/unite4pages/SVG/P84-2.svg";
+import img1 from "../../../assets/unite4pages/SVG/P84Q4-1.svg";
+import img2 from "../../../assets/unite4pages/SVG/P84Q4-2.svg";
 
-import { FaPlay, FaPause } from "react-icons/fa";
-import { IoMdSettings } from "react-icons/io";
-import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
-
-/* 🔴 الإجابات الصحيحة */
-const correctAnswers = {
-  0: "tout droit",
-  1: "gauche",
-  2: "traversez",
-  3: "au coin de",
-  4: "à droite",
-  5: "tout droit",
-  6: "devant",
-  7: "traversez",
+/* 🔴 المسارات الصحيحة مع منطقة مسموحة لكل نقطة */
+const correctPaths = {
+  left: [
+    { x: 0.1, y: 0.55, radius: 0.05 },   // منطقة بداية
+    { x: 0.55, y: 0.55, radius: 0.05 },  // منطقة وسط
+    { x: 0.55, y: 0.65, radius: 0.05 },  // منطقة نهاية
+  ],
+  
+  right: [
+    { x: 0.9, y: 0.44, radius: 0.05 },   // منطقة بداية
+    { x: 0.56, y: 0.44, radius: 0.05 },  // منطقة وسط
+    { x: 0.56, y: 0.47, radius: 0.05 },  // منطقة نهاية
+  ],
 };
 
-// إحداثيات الخطوط الصحيحة (يجب تعديلها بناءً على صورتك)
-const CORRECT_LINES = [
-  [
-    { x: 100, y: 150 },  // نقطة البداية للخط الأول
-    { x: 300, y: 150 },  // نقطة النهاية للخط الأول
-  ],
-  [
-    { x: 300, y: 150 },  // نقطة البداية للخط الثاني
-    { x: 300, y: 350 },  // نقطة النهاية للخط الثاني
-  ]
-];
+// 🔧 إعدادات أكثر مرونة
+const CHECK_CONFIG = {
+  POINT_THRESHOLD: 0.08,      // الحد الأقصى للبعد عن نقطة التحكم
+  PATH_THRESHOLD: 0.12,       // الحد الأقصى للبعد عن المسار بين النقاط
+  MIN_POINTS: 5,              // الحد الأدنى لنقاط الرسم
+  SMOOTHING_FACTOR: 3,        // عامل التبسيط
+  DEBUG_MODE: true,           // وضع التصحيح لرؤية النقاط
+};
 
 const Page5_Q1_CleanAudio = () => {
-  const audioRef = useRef(null);
-  const canvasRef = useRef(null);
-  const containerRef = useRef(null);
-  const [lines, setLines] = useState([]);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [currentLine, setCurrentLine] = useState([]);
-  const [imageSize, setImageSize] = useState({ width: 800, height: 600 });
+  const canvasLeftRef = useRef(null);
+  const canvasRightRef = useRef(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 500, height: 500 });
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const [showSettings, setShowSettings] = useState(false);
-  const [showCaption, setShowCaption] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [inputs, setInputs] = useState({});
+  const [drawing, setDrawing] = useState(false);
+  const [paths, setPaths] = useState({ left: [], right: [] });
   const [score, setScore] = useState(null);
-  const [lineError, setLineError] = useState(null);
+  const [currentSide, setCurrentSide] = useState(null);
+  const [debugPoints, setDebugPoints] = useState({ left: [], right: [] });
 
-  // تحميل الصورة وضبط حجمها
+  // 🔧 معالجة حجم Canvas
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      const maxWidth = 800;
-      const maxHeight = 600;
-      
-      let width = img.width;
-      let height = img.height;
-      
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
+    const updateCanvasSize = () => {
+      const imgElements = document.querySelectorAll('img[alt="map1"], img[alt="map2"]');
+      if (imgElements.length > 0) {
+        const rect = imgElements[0].getBoundingClientRect();
+        setCanvasSize({
+          width: Math.floor(rect.width),
+          height: Math.floor(rect.height)
+        });
       }
-      if (height > maxHeight) {
-        width = (width * maxHeight) / height;
-        height = maxHeight;
-      }
-      
-      setImageSize({ width, height });
-      initializeCanvas(width, height);
     };
-    img.src = background;
+
+    updateCanvasSize();
+    window.addEventListener('resize', updateCanvasSize);
+    
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach(img => {
+      img.onload = updateCanvasSize;
+    });
+
+    return () => {
+      window.removeEventListener('resize', updateCanvasSize);
+    };
   }, []);
 
-  // تهيئة Canvas
-  const initializeCanvas = (width, height) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    canvas.width = width;
-    canvas.height = height;
-    
+  // 🎨 إعداد Canvas
+  const setupCanvas = (canvas) => {
     const ctx = canvas.getContext('2d');
-    const img = new Image();
+    const dpr = window.devicePixelRatio || 1;
     
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, width, height);
-      redrawLines(ctx);
-    };
-    
-    img.src = background;
-  };
-
-  // إعادة رسم جميع الخطوط
-  const redrawLines = (ctx) => {
-    lines.forEach(line => {
-      if (line.length > 1) {
-        ctx.beginPath();
-        ctx.moveTo(line[0].x, line[0].y);
-        
-        for (let i = 1; i < line.length; i++) {
-          ctx.lineTo(line[i].x, line[i].y);
-        }
-        
-        ctx.strokeStyle = lineError ? '#FF0000' : '#0000FF';
-        ctx.lineWidth = 4;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.stroke();
-      }
-    });
-  };
-
-  // بدء الرسم
-  const startDrawing = (e) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
     const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
     
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
-
-    setIsDrawing(true);
-    setCurrentLine([{ x, y }]);
-    setLineError(null);
-  };
-
-  // أثناء الرسم
-  const draw = (e) => {
-    if (!isDrawing) return;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
-
-    const newLine = [...currentLine, { x, y }];
-    setCurrentLine(newLine);
-
-    const ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    ctx.moveTo(currentLine[currentLine.length - 1].x, currentLine[currentLine.length - 1].y);
-    ctx.lineTo(x, y);
-    ctx.strokeStyle = '#0000FF';
+    ctx.scale(dpr, dpr);
     ctx.lineWidth = 4;
-    ctx.lineCap = 'round';
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#d32f2f";
+    
+    return ctx;
+  };
+
+  /* 📌 دالة للحصول على الإحداثيات */
+  const getXY = (canvas, e) => {
+    const rect = canvas.getBoundingClientRect();
+    
+    let clientX, clientY;
+    
+    if (e.touches && e.touches.length > 0) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    
+    // تحويل إلى إحداثيات نسبية (0-1)
+    const x = (clientX - rect.left) / rect.width;
+    const y = (clientY - rect.top) / rect.height;
+    
+    return { 
+      x, y, 
+      rawX: clientX - rect.left, 
+      rawY: clientY - rect.top,
+      pixelX: (clientX - rect.left) * (window.devicePixelRatio || 1),
+      pixelY: (clientY - rect.top) * (window.devicePixelRatio || 1)
+    };
+  };
+
+  /* 🎨 البدء في الرسم */
+  const startDraw = (side, e) => {
+    e.preventDefault();
+    setDrawing(true);
+    setCurrentSide(side);
+    
+    const canvas = side === "left" ? canvasLeftRef.current : canvasRightRef.current;
+    const ctx = canvas.getContext("2d");
+    const { rawX, rawY, x, y } = getXY(canvas, e);
+    
+    ctx.beginPath();
+    ctx.moveTo(rawX, rawY);
+    
+    // بدء المسار الجديد
+    const newPath = [{ x, y }];
+    setPaths((prev) => ({
+      ...prev,
+      [side]: newPath
+    }));
+    
+    // إذا كان وضع التصحيح فعالاً، أضف نقطة تصحيح
+    if (CHECK_CONFIG.DEBUG_MODE) {
+      setDebugPoints((prev) => ({
+        ...prev,
+        [side]: [...(prev[side] || []), { x, y, type: 'start' }]
+      }));
+    }
+    
+    draw(side, e);
+  };
+
+  const endDraw = () => {
+    setDrawing(false);
+    setCurrentSide(null);
+  };
+
+  const draw = (side, e) => {
+    if (!drawing || currentSide !== side) return;
+
+    const canvas = side === "left" ? canvasLeftRef.current : canvasRightRef.current;
+    const ctx = canvas.getContext("2d");
+    const { rawX, rawY, x, y } = getXY(canvas, e);
+
+    ctx.lineTo(rawX, rawY);
     ctx.stroke();
-  };
 
-  // إنهاء الرسم
-  const stopDrawing = () => {
-    if (!isDrawing) return;
+    // إضافة النقطة إلى المسار
+    setPaths((prev) => ({
+      ...prev,
+      [side]: [...prev[side], { x, y }]
+    }));
 
-    setIsDrawing(false);
-    if (currentLine.length > 1) {
-      const newLines = [...lines, currentLine];
-      setLines(newLines);
+    // إذا كان وضع التصحيح فعالاً، أضف نقطة تصحيح
+    if (CHECK_CONFIG.DEBUG_MODE) {
+      setDebugPoints((prev) => ({
+        ...prev,
+        [side]: [...(prev[side] || []), { x, y, type: 'path' }]
+      }));
     }
-    setCurrentLine([]);
+
+    if (e.touches) e.preventDefault();
   };
 
-  // التحقق من صحة الخطوط
-  const checkLines = () => {
-    if (lines.length === 0) {
-      setLineError("يرجى رسم خطين على الأقل");
-      markLinesAsIncorrect();
+  /* 🧠 التحقق من المسار بشكل أكثر ذكاءً */
+  const checkPath = (userPath, correctPath, side) => {
+    if (userPath.length < CHECK_CONFIG.MIN_POINTS) {
+      console.log(`[${side}] المسار قصير جداً: ${userPath.length} نقاط فقط`);
       return false;
     }
 
-    const drawnSegments = lines.map(line => {
-      if (line.length < 2) return null;
-      return {
-        start: line[0],
-        end: line[line.length - 1]
-      };
-    }).filter(Boolean);
+    console.log(`[${side}] التحقق من المسار...`);
+    console.log(`[${side}] نقاط المستخدم:`, userPath.length);
+    console.log(`[${side}] نقاط المسار الصحيح:`, correctPath);
 
-    if (drawnSegments.length < 2) {
-      setLineError("يرجى رسم خطين مستقيمين على الأقل");
-      markLinesAsIncorrect();
-      return false;
-    }
-
-    let isCorrect = true;
+    // 1. التحقق من نقاط التحكم الرئيسية (يجب المرور بالقرب منها)
+    const controlPointsStatus = [];
     
-    for (let i = 0; i < Math.min(drawnSegments.length, CORRECT_LINES.length); i++) {
-      const drawn = drawnSegments[i];
-      const correct = CORRECT_LINES[i];
+    for (let i = 0; i < correctPath.length; i++) {
+      const targetPoint = correctPath[i];
+      let minDistance = Infinity;
+      let closestPoint = null;
       
-      const startDistance = Math.sqrt(
-        Math.pow(drawn.start.x - correct[0].x, 2) + 
-        Math.pow(drawn.start.y - correct[0].y, 2)
-      );
-      
-      const endDistance = Math.sqrt(
-        Math.pow(drawn.end.x - correct[1].x, 2) + 
-        Math.pow(drawn.end.y - correct[1].y, 2)
-      );
-
-      if (startDistance > 50 || endDistance > 50) {
-        isCorrect = false;
-        break;
-      }
-    }
-
-    if (!isCorrect) {
-      setLineError("الخط غير صحيح! حاول مرة أخرى.");
-      markLinesAsIncorrect();
-      return false;
-    }
-
-    setLineError(null);
-    return true;
-  };
-
-  // تعليم الخطوط كخاطئة (باللون الأحمر)
-  const markLinesAsIncorrect = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    const img = new Image();
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      
-      lines.forEach(line => {
-        if (line.length > 1) {
-          ctx.beginPath();
-          ctx.moveTo(line[0].x, line[0].y);
-          
-          for (let i = 1; i < line.length; i++) {
-            ctx.lineTo(line[i].x, line[i].y);
-          }
-          
-          ctx.strokeStyle = '#FF0000';
-          ctx.lineWidth = 4;
-          ctx.lineCap = 'round';
-          ctx.stroke();
+      // البحث عن أقرب نقطة في مسار المستخدم
+      for (const userPoint of userPath) {
+        const distance = Math.sqrt(
+          Math.pow(userPoint.x - targetPoint.x, 2) + 
+          Math.pow(userPoint.y - targetPoint.y, 2)
+        );
+        
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestPoint = userPoint;
         }
+      }
+      
+      const isNear = minDistance <= targetPoint.radius;
+      controlPointsStatus.push({
+        point: i + 1,
+        required: targetPoint,
+        closest: closestPoint,
+        distance: minDistance,
+        isNear: isNear
       });
-    };
-    img.src = background;
+      
+      console.log(`[${side}] النقطة ${i + 1}: المسافة = ${minDistance.toFixed(3)} (مطلوب: < ${targetPoint.radius})`);
+      
+      // إذا كانت نقطة البداية أو النهاية ليست قريبة، فشل فوراً
+      if ((i === 0 || i === correctPath.length - 1) && !isNear) {
+        console.log(`[${side}] نقطة ${i === 0 ? 'البداية' : 'النهاية'} بعيدة جداً`);
+        return false;
+      }
+    }
+
+    // 2. التحقق من التسلسل (يجب المرور على النقاط بالترتيب)
+    let currentTargetIndex = 0;
+    let pointsInSequence = 0;
+    
+    for (const userPoint of userPath) {
+      const targetPoint = correctPath[currentTargetIndex];
+      const distance = Math.sqrt(
+        Math.pow(userPoint.x - targetPoint.x, 2) + 
+        Math.pow(userPoint.y - targetPoint.y, 2)
+      );
+      
+      if (distance <= targetPoint.radius) {
+        pointsInSequence++;
+        // إذا كانت هذه ليست النقطة الأخيرة، انتقل للنقطة التالية
+        if (currentTargetIndex < correctPath.length - 1) {
+          currentTargetIndex++;
+        }
+      }
+    }
+    
+    // يجب المرور على جميع نقاط التحكم بالترتيب
+    const allPointsVisited = pointsInSequence >= correctPath.length;
+    console.log(`[${side}] النقاط في التسلسل: ${pointsInSequence}/${correctPath.length}`);
+    
+    // 3. حساب نسبة النقاط القريبة من المسار
+    let pointsNearPath = 0;
+    const simplifiedPath = [];
+    const step = Math.max(1, Math.floor(userPath.length / CHECK_CONFIG.SMOOTHING_FACTOR));
+    
+    for (let i = 0; i < userPath.length; i += step) {
+      simplifiedPath.push(userPath[i]);
+    }
+    
+    for (const userPoint of simplifiedPath) {
+      let isNearAnyPoint = false;
+      
+      // التحقق من القرب من أي نقطة في المسار الصحيح
+      for (const targetPoint of correctPath) {
+        const distance = Math.sqrt(
+          Math.pow(userPoint.x - targetPoint.x, 2) + 
+          Math.pow(userPoint.y - targetPoint.y, 2)
+        );
+        
+        if (distance <= CHECK_CONFIG.PATH_THRESHOLD) {
+          isNearAnyPoint = true;
+          break;
+        }
+      }
+      
+      // التحقق من القرب من الخطوط بين النقاط
+      if (!isNearAnyPoint) {
+        for (let i = 0; i < correctPath.length - 1; i++) {
+          const p1 = correctPath[i];
+          const p2 = correctPath[i + 1];
+          
+          // حساب المسافة من النقطة إلى الخط
+          const distance = distanceToLineSegment(
+            userPoint, p1, p2
+          );
+          
+          if (distance <= CHECK_CONFIG.PATH_THRESHOLD) {
+            isNearAnyPoint = true;
+            break;
+          }
+        }
+      }
+      
+      if (isNearAnyPoint) {
+        pointsNearPath++;
+      }
+    }
+    
+    const ratio = pointsNearPath / simplifiedPath.length;
+    console.log(`[${side}] نسبة النقاط على المسار: ${(ratio * 100).toFixed(1)}%`);
+    
+    // 4. الشروط النهائية
+    const result = allPointsVisited && ratio >= 0.5;
+    console.log(`[${side}] النتيجة: ${result ? 'صحيح ✓' : 'خطأ ✗'}`);
+    
+    return result;
   };
 
-  // مسح جميع الخطوط
-  const clearLines = () => {
-    setLines([]);
-    setLineError(null);
+  /* 📏 دالة مساعدة: حساب المسافة من نقطة إلى قطعة خط */
+  const distanceToLineSegment = (point, lineStart, lineEnd) => {
+    const A = point.x - lineStart.x;
+    const B = point.y - lineStart.y;
+    const C = lineEnd.x - lineStart.x;
+    const D = lineEnd.y - lineStart.y;
+
+    const dot = A * C + B * D;
+    const lenSq = C * C + D * D;
+    let param = -1;
+    
+    if (lenSq !== 0) {
+      param = dot / lenSq;
+    }
+
+    let xx, yy;
+
+    if (param < 0) {
+      xx = lineStart.x;
+      yy = lineStart.y;
+    } else if (param > 1) {
+      xx = lineEnd.x;
+      yy = lineEnd.y;
+    } else {
+      xx = lineStart.x + param * C;
+      yy = lineStart.y + param * D;
+    }
+
+    const dx = point.x - xx;
+    const dy = point.y - yy;
+    
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  /* 📊 التحقق من الإجابة مع عرض تفاصيل */
+  const checkAnswer = () => {
+    console.clear();
+    console.log("=== بدء التحقق ===");
+    
+    const leftCorrect = checkPath(paths.left, correctPaths.left, "left");
+    const rightCorrect = checkPath(paths.right, correctPaths.right, "right");
+
+    const correctCount = [leftCorrect, rightCorrect].filter(Boolean).length;
+    setScore({ correct: correctCount, total: 2 });
+
+    // عرض النقاط للمساعدة في التصحيح
+    if (CHECK_CONFIG.DEBUG_MODE) {
+      console.log("نقاط المسار الأيسر:", paths.left);
+      console.log("نقاط المسار الأيمن:", paths.right);
+    }
+
+    if (correctCount === 2) {
+      ValidationAlert.success("Excellent!", "Tous les chemins sont corrects");
+    } else if (correctCount === 1) {
+      ValidationAlert.error("Partiellement correct", "Un seul chemin est correct");
+    } else {
+      ValidationAlert.error(
+        "0/2",
+        "Vérifiez que vous passez par tous les points dans l'ordre"
+      );
+    }
+  };
+
+  /* 👁️ عرض الإجابة الصحيحة مع المناطق المسموحة */
+  const drawCorrectPath = (side, canvasRef, path) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
+    
+    const ctx = canvas.getContext("2d");
+    const rect = canvas.getBoundingClientRect();
+    
+    // مسح Canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    const img = new Image();
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    };
-    img.src = background;
-  };
-
-  const togglePlay = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (audio.paused) {
-      audio.play();
-      setIsPlaying(true);
-    } else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const captions = [
-    { start: 5.2, end: 6.5, text: "Grand Prix A1" },
-    { start: 6.5, end: 8.5, text: "Unité 2 À" },
-    { start: 8.5, end: 10.3, text: "l'école Section" },
-    { start: 10.3, end: 12.1, text: "A Se préparer" },
-    { start: 12.1, end: 13.4, text: "Exercice" },
-    { start: 13.4, end: 14.8, text: "4 Écoute" },
-    { start: 14.8, end: 15.8, text: "et écris" },
-    { start: 15.8, end: 16.5, text: "l'information" },
-    { start: 16.5, end: 17.3, text: "manquante." },
-    { start: 19.0, end: 20.8, text: "Salut ma chérie," },
-    { start: 20.8, end: 22.6, text: "comment ça va ?" },
-    { start: 22.6, end: 23.7, text: "Bonjour maman," },
-    { start: 23.7, end: 24.4, text: "ça va bien." },
-    { start: 25.4, end: 25.9, text: "Tu es prête" },
-    { start: 25.9, end: 27.7, text: "pour l'école ?" },
-    { start: 27.7, end: 28.6, text: "Oui, mais j'ai" },
-    { start: 28.6, end: 29.1, text: "besoin de" },
-    { start: 29.1, end: 29.4, text: "quelques" },
-    { start: 29.4, end: 29.9, text: "fournitures" },
-    { start: 29.9, end: 30.5, text: "scolaires." },
-    { start: 31.6, end: 32.3, text: "Bon, allons" },
-    { start: 32.3, end: 32.9, text: "au magasin." },
-    { start: 35.0, end: 35.8, text: "Alors, de quoi" },
-    { start: 35.8, end: 37.7, text: "as-tu besoin ?" },
-    { start: 37.7, end: 38.4, text: "J'ai besoin" },
-    { start: 38.4, end: 39.0, text: "de crayons" },
-    { start: 39.0, end: 39.7, text: "de couleurs." },
-    { start: 40.5, end: 42.0, text: "Et ?" },
-    { start: 42.0, end: 42.8, text: "J'ai besoin" },
-    { start: 42.8, end: 43.6, text: "d'un cahier." },
-    { start: 44.2, end: 45.4, text: "As-tu besoin" },
-    { start: 45.4, end: 47.1, text: "d'un stylo ?" },
-    { start: 47.1, end: 48.3, text: "Non, j'ai déjà" },
-    { start: 48.3, end: 49.5, text: "un stylo, mais" },
-    { start: 49.5, end: 50.2, text: "j'ai besoin d'un" },
-    { start: 50.2, end: 51.1, text: "compas et d'une" },
-    { start: 51.1, end: 51.6, text: "trousse." },
-    { start: 52.8, end: 54.5, text: "C'est tout ?" },
-    { start: 54.5, end: 55.4, text: "Oui, c'est tout" },
-    { start: 55.4, end: 55.9, text: "ce dont j'ai" },
-    { start: 55.9, end: 56.5, text: "besoin pour" },
-    { start: 56.5, end: 56.9, text: "le moment." },
-  ];
-
-  const updateCaption = (time) => {
-    const index = captions.findIndex(
-      (cap) => time >= cap.start && time <= cap.end
-    );
-    setActiveIndex(index !== -1 ? index : null);
-  };
-
-  const handleInputChange = (index, value) => {
-    setInputs({
-      ...inputs,
-      [index]: value,
-    });
-  };
-
-  const normalizeString = (str) => {
-    return str
-      .toLowerCase()
-      .trim()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-  };
-
-  const checkAnswer = () => {
-    // التحقق من الخطوط أولاً
-    const linesCorrect = checkLines();
+    // إعادة إعداد Canvas
+    setupCanvas(canvas);
     
-    if (!linesCorrect) {
-      // إذا كانت الخطوط غير صحيحة، لا نتحقق من النصوص
-      ValidationAlert.error(
-        "الخطوط غير صحيحة!",
-        "يرجى تصحيح الخطوط أولاً ثم المحاولة مرة أخرى."
-      );
-      return;
-    }
-
-    let correctCount = 0;
-
-    Object.keys(correctAnswers).forEach((key) => {
-      const userAnswer = inputs[key] ? normalizeString(inputs[key]) : "";
-      const correctAnswer = normalizeString(correctAnswers[key]);
-
-      if (userAnswer === correctAnswer) {
-        correctCount++;
+    // رسم المناطق المسموحة (دوائر)
+    path.forEach((p, i) => {
+      const actualX = p.x * rect.width;
+      const actualY = p.y * rect.height;
+      const radius = p.radius * rect.width;
+      
+      ctx.beginPath();
+      ctx.fillStyle = i === 0 ? "rgba(76, 175, 80, 0.2)" : 
+                     i === path.length - 1 ? "rgba(244, 67, 54, 0.2)" : 
+                     "rgba(255, 152, 0, 0.2)";
+      ctx.arc(actualX, actualY, radius, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // رسم حدود الدوائر
+      ctx.beginPath();
+      ctx.strokeStyle = i === 0 ? "#4caf50" : 
+                       i === path.length - 1 ? "#f44336" : 
+                       "#ff9800";
+      ctx.lineWidth = 2;
+      ctx.arc(actualX, actualY, radius, 0, Math.PI * 2);
+      ctx.stroke();
+    });
+    
+    // رسم المسار الصحيح
+    ctx.beginPath();
+    ctx.strokeStyle = "#2e7d32";
+    ctx.lineWidth = 4;
+    
+    path.forEach((p, i) => {
+      const actualX = p.x * rect.width;
+      const actualY = p.y * rect.height;
+      
+      if (i === 0) {
+        ctx.moveTo(actualX, actualY);
+      } else {
+        ctx.lineTo(actualX, actualY);
       }
     });
-
-    const total = Object.keys(correctAnswers).length;
-    setScore({ correct: correctCount, total });
-
-    if (correctCount === total) {
-      ValidationAlert.success(
-        `ممتاز! (${correctCount}/${total})`,
-        "جميع الإجابات صحيحة والخطوط مرسومة بشكل صحيح!"
+    
+    ctx.stroke();
+    
+    // رسم نقاط التحكم
+    path.forEach((p, i) => {
+      const actualX = p.x * rect.width;
+      const actualY = p.y * rect.height;
+      
+      ctx.beginPath();
+      ctx.fillStyle = i === 0 ? "#4caf50" : 
+                     i === path.length - 1 ? "#f44336" : 
+                     "#ff9800";
+      ctx.arc(actualX, actualY, 8, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // تسمية النقاط
+      ctx.fillStyle = "#000";
+      ctx.font = "bold 14px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(
+        i === 0 ? "DÉBUT" : i === path.length - 1 ? "FIN" : `ÉTAPE ${i}`,
+        actualX,
+        actualY - 20
       );
-    } else if (correctCount === 0) {
-      ValidationAlert.info(
-        `جميع الإجابات غير صحيحة (${correctCount}/${total})`,
-        "حاول مرة أخرى!"
-      );
-    } else {
-      ValidationAlert.error(
-        `لديك ${correctCount} إجابة صحيحة من أصل ${total}`,
-        "تقريباً!"
-      );
-    }
+    });
   };
 
   const showAnswerFunc = () => {
-    setInputs(correctAnswers);
-    
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    const img = new Image();
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      
-      CORRECT_LINES.forEach(line => {
-        if (line.length > 1) {
-          ctx.beginPath();
-          ctx.moveTo(line[0].x, line[0].y);
-          ctx.lineTo(line[1].x, line[1].y);
-          ctx.strokeStyle = '#00FF00';
-          ctx.lineWidth = 4;
-          ctx.lineCap = 'round';
-          ctx.stroke();
-        }
-      });
-    };
-    img.src = background;
+    drawCorrectPath("left", canvasLeftRef, correctPaths.left);
+    drawCorrectPath("right", canvasRightRef, correctPaths.right);
   };
 
   const resetExercise = () => {
-    setInputs({});
+    [canvasLeftRef, canvasRightRef].forEach((ref) => {
+      const canvas = ref.current;
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      setupCanvas(canvas);
+    });
+    
+    setPaths({ left: [], right: [] });
+    setDebugPoints({ left: [], right: [] });
     setScore(null);
-    clearLines();
   };
 
+  // إعداد Canvas عند التحميل
+  useEffect(() => {
+    if (canvasLeftRef.current && canvasRightRef.current) {
+      setupCanvas(canvasLeftRef.current);
+      setupCanvas(canvasRightRef.current);
+    }
+  }, [canvasSize]);
+
+  // 🎯 عرض نقاط التصحيح إذا كان الوضع فعالاً
+  useEffect(() => {
+    if (CHECK_CONFIG.DEBUG_MODE) {
+      console.log("نقاط التصحيح - اليسار:", debugPoints.left);
+      console.log("نقاط التصحيح - اليمين:", debugPoints.right);
+    }
+  }, [debugPoints]);
+
   return (
-    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-      {/* Header */}
-      <header
+    <div className="page-wrapper1 flex flex-col items-center gap-6 p-6">
+      {score && <ScoreCardEnhanced score={score} />}
+
+      {/* 🎯 التعليمات المفصلة */}
+        <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
         <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">D</span>
-        <span style={{ color: "black" }} className="number-of-q">3</span>
-        Écoute et écris l'information manquante.
-      </header>
+        <span style={{ color: "black" }} className="number-of-q">4</span>
+Réécoute l’exercice 3 et dessine le chemin.      </header>
 
-      {/* Audio Player */}
-      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <div className="audio-popup-read" style={{ width: "30%" }}>
-          <div className="audio-inner player-ui">
-            <audio
-              ref={audioRef}
-              src={CD6_Pg8_Instruction1_AdultLady}
-              onTimeUpdate={(e) => {
-                const time = e.target.currentTime;
-                setCurrent(time);
-                updateCaption(time);
-              }}
-              onLoadedMetadata={(e) => setDuration(e.target.duration)}
-            />
-            <div className="top-row">
-              <span className="audio-time">
-                {new Date(current * 1000).toISOString().substring(14, 19)}
-              </span>
-              <input
-                type="range"
-                className="audio-slider"
-                min="0"
-                max={duration}
-                value={current}
-                onChange={(e) => {
-                  audioRef.current.currentTime = e.target.value;
-                  updateCaption(Number(e.target.value));
-                }}
-                style={{
-                  background: `linear-gradient(to right, #430f68 ${
-                    (current / duration) * 100
-                  }%, #d9d9d9ff ${(current / duration) * 100}%)`,
-                }}
-              />
-              <span className="audio-time">
-                {new Date(duration * 1000).toISOString().substring(14, 19)}
-              </span>
-            </div>
+      {/* 🖼️ الصور */}
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+        {/* LEFT */}
+        <div className="relative">
+          <img 
+            src={img1} 
+            alt="map1" 
+            className="w-full max-w-[500px]" 
+            style={{ width: canvasSize.width, height: canvasSize.height }}
+          />
+          <canvas
+            ref={canvasLeftRef}
+            width={canvasSize.width}
+            height={canvasSize.height}
+            className="absolute top-0 left-0 w-full h-full"
+            onMouseDown={(e) => startDraw("left", e)}
+            onMouseMove={(e) => draw("left", e)}
+            onMouseUp={endDraw}
+            onMouseLeave={endDraw}
+            onTouchStart={(e) => startDraw("left", e)}
+            onTouchMove={(e) => draw("left", e)}
+            onTouchEnd={endDraw}
+            style={{
+              touchAction: 'none',
+              cursor: 'crosshair'
+            }}
+          />
+        </div>
 
-            <div className="bottom-row flex justify-between items-center">
-              <div
-                className={`round-btn ${showCaption ? "active" : ""}`}
-                style={{ position: "relative" }}
-                onClick={() => setShowCaption(!showCaption)}
-              >
-                <TbMessageCircle size={36} />
-                <div
-                  className={`caption-inPopup ${showCaption ? "show" : ""}`}
-                  style={{ top: "100%", left: "10%" }}
-                >
-                  {captions.map((cap, i) => (
-                    <p
-                      key={i}
-                      id={`caption-${i}`}
-                      className={`caption-inPopup-line2 ${
-                        activeIndex === i ? "active" : ""
-                      }`}
-                    >
-                      {cap.text}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              <button className="play-btn2" onClick={togglePlay}>
-                {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
-              </button>
-
-              <div className="settings-wrapper">
-                <button
-                  className={`round-btn ${showSettings ? "active" : ""}`}
-                  onClick={() => setShowSettings(!showSettings)}
-                >
-                  <IoMdSettings size={36} />
-                </button>
-                {showSettings && (
-                  <div className="settings-popup">
-                    <label>Volume</label>
-                    <input
-                      id="V"
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.05"
-                      value={volume}
-                      onChange={(e) => {
-                        setVolume(e.target.value);
-                        audioRef.current.volume = e.target.value;
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+        {/* RIGHT */}
+        <div className="relative">
+          <img 
+            src={img2} 
+            alt="map2" 
+            className="w-full max-w-[500px]" 
+            style={{ width: canvasSize.width, height: canvasSize.height }}
+          />
+          <canvas
+            ref={canvasRightRef}
+            width={canvasSize.width}
+            height={canvasSize.height}
+            className="absolute top-0 left-0 w-full h-full"
+            onMouseDown={(e) => startDraw("right", e)}
+            onMouseMove={(e) => draw("right", e)}
+            onMouseUp={endDraw}
+            onMouseLeave={endDraw}
+            onTouchStart={(e) => startDraw("right", e)}
+            onTouchMove={(e) => draw("right", e)}
+            onTouchEnd={endDraw}
+            style={{
+              touchAction: 'none',
+              cursor: 'crosshair'
+            }}
+          />
         </div>
       </div>
-
-      {score && <ScoreCardEnhanced score={score} />}
-
-      {/* Canvas Drawing Area */}
-      <div ref={containerRef} className="canvas-container" style={{ margin: "20px 0", width: "100%" }}>
-        <div style={{ 
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}>
-          <div style={{ 
-            border: '3px solid #666',
-            borderRadius: '10px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            marginBottom: '15px'
-          }}>
-            <canvas
-              ref={canvasRef}
-              onMouseDown={startDrawing}
-              onMouseMove={draw}
-              onMouseUp={stopDrawing}
-              onMouseLeave={stopDrawing}
-              style={{
-                cursor: 'crosshair',
-                display: 'block',
-                width: `${imageSize.width}px`,
-                height: `${imageSize.height}px`,
-                maxWidth: '90vw',
-                maxHeight: '70vh',
-                backgroundColor: '#f5f5f5'
-              }}
-            />
-          </div>
-          
-          {lineError && (
-            <div style={{
-              backgroundColor: '#ffebee',
-              color: '#c62828',
-              padding: '10px 15px',
-              borderRadius: '5px',
-              marginBottom: '10px',
-              border: '1px solid #ffcdd2',
-              textAlign: 'center',
-              fontSize: '16px',
-              fontWeight: 'bold'
-            }}>
-              {lineError}
-            </div>
-          )}
-          
-          <div style={{ 
-            textAlign: 'center',
-            marginTop: '15px',
-            fontSize: '14px',
-            color: '#555',
-            backgroundColor: '#f8f9fa',
-            padding: '10px',
-            borderRadius: '5px',
-            border: '1px solid #dee2e6'
-          }}>
-            <p><strong>التعليمات:</strong></p>
-            <p>1. قم برسم خطين مستقيمين على الصورة حسب ما تسمعه</p>
-            <p>2. املأ الفراغات بالنصوص المطلوبة</p>
-            <p>3. استخدم زر "التحقق من الإجابة" للتحقق من كل شيء معاً</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="spaces"></div>
-
-      {/* Buttons */}
-      <div className="action-buttons-container flex gap-4">
-        <button onClick={resetExercise} className="try-again-button">
-          ↻ إعادة التمرين
+<div className="spaces"></div>
+      {/* 🔘 الأزرار */}
+      <div className="action-buttons-container flex flex-wrap gap-4 mt-6 justify-center">
+        <button onClick={resetExercise} className="try-again-button px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+          Recommencer ↻
         </button>
-        <button onClick={showAnswerFunc} className="show-answer-btn">
-          عرض الإجابة والخطوط الصحيحة
+        <button onClick={showAnswerFunc} className="show-answer-btn px-6 py-2 bg-blue-100 rounded-lg hover:bg-blue-200">
+          Voir les zones ✓
         </button>
-        <button onClick={checkAnswer} className="check-button2">
-          ✓ التحقق من الإجابة
+        <button onClick={checkAnswer} className="check-button2 px-6 py-2 bg-green-100 rounded-lg hover:bg-green-200">
+          Vérifier ✓
         </button>
       </div>
+
+   
     </div>
   );
 };

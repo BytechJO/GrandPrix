@@ -65,6 +65,16 @@
   position: relative; 
   margin-top: 0%;
 }
+.inputs110 {
+  width: 1000px;  
+  height: 500px;
+  background-image: url('../../../assets/unite5pages/SVG/P110Q3.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin-top: 0%;
+}
 .inputsp14 input{
 width: 40%;
 padding: 6px;
@@ -292,5 +302,75 @@ font-size: 25px;
   width: 300px;
   height: 50px;
 font-size: 25px;
+
+}
+.inputpage1101{
+ position: absolute;
+  top: 42%;
+  left: 40%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1102{
+ position: absolute;
+  top: 42%;
+  left: 67%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1103{
+ position: absolute;
+  top: 46%;
+  left: 6%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1104{
+ position: absolute;
+  top: 46%;
+  left: 59%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1105{
+ position: absolute;
+  top: 45.5%;
+  left: 80%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1106{
+ position: absolute;
+  top: 53.5%;
+  left: 6%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
+
+}
+.inputpage1107{
+ position: absolute;
+  top: 51%;
+  left: 67%;
+  width: 12%;
+  height: 5%;
+
+border-bottom: 2px solid black;
 
 }

@@ -1,6 +1,6 @@
 import React, { useState,useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import img1 from "../../../assets/unite4pages/SVG/P75EXE1.png";
+import img1 from "../../../assets/unite4pages/SVG/P75Q1.svg";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
 import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U4Audio/U4SBQ1.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";

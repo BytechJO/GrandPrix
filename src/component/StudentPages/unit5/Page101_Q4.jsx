@@ -1,211 +1,177 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/U1SAQ5.mp3";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
+import flag1 from "../../../assets/unite5pages/SVG/P101Q4-1.svg";
+import flag2 from "../../../assets/unite5pages/SVG/P101Q4-2.svg";
+import flag3 from "../../../assets/unite5pages/SVG/P101Q4-3.svg";
+import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/workpages/svg/291.svg";
-import img2 from "../../../assets/workpages/svg/292.svg";
-import img3 from "../../../assets/workpages/svg/293.svg";
 
-const Page28Q1 = () => {
-  // ✅ الإجابات الصحيحة
-  const correctAnswers = {
-    a: {
-      answer: `Il y a de la limonade.
-Il y a du beurre.
-Il y a de la salade de fruits.
-Il y a du fromage.
-Il y a du pain.`,
-      type: "phrase"
-    },
-    b: {
-      answer: `Il y a du lait.
-Il y a du beurre.
-Il y a du miel.
-Il y a de la confiture.
-Il y a du pain.
-Il y a du thé.
-Il y a des croissants.
-Il y a des céréales.`,
-      type: "phrase"
-    },
-    c: {
-      answer: `Il y a de l’eau minérale.
-Il y a du poulet.
-Il y a de la salade.
-Il y a du riz.`,
-      type: "phrase"
-    }
-  };
+const Page5_Q1_CleanAudio = () => {
+  const audioRef = useRef(null);
+const [wrongIndexes, setWrongIndexes] = useState([]);
 
-  const words = Object.keys(correctAnswers);
   const [score, setScore] = useState(null);
-  const [answers, setAnswers] = useState(
-    Object.fromEntries(
-      words.map(w => [w, correctAnswers[w].answer.split("\n").map(() => "")])
-    )
-  );
-  const [answerStatus, setAnswerStatus] = useState({});
+  const [answers, setAnswers] = useState(["", "", "", "", "","",""]);
 
-  const handleChange = (word, index, value) => {
-    const updated = [...answers[word]];
-    updated[index] = value;
-    setAnswers({ ...answers, [word]: updated });
-  };
+  const correctAnswers = [
+    "200 g de beurre",
+    "4 oeufs",
+    "500g de farine",
+  ];
 
-  const checkAnswer = () => {
-    const newStatus = {};
-    let correctCount = 0;
-    let totalCount = 0;
-    let incomplete = false;
+const checkAnswer = () => {
+  let correctCount = 0;
+  let wrongs = [];
 
-    words.forEach((w) => {
-      newStatus[w] = [];
-      const correctLines = correctAnswers[w].answer.split("\n");
-
-      correctLines.forEach((line, i) => {
-        totalCount++;
-        const val = answers[w][i]?.trim() || "";
-        if (!val) incomplete = true;
-
-        const isCorrect =
-          val.toLowerCase().replace(/[.,]/g, "").trim() ===
-          line.toLowerCase().replace(/[.,]/g, "").trim();
-
-        if (isCorrect) correctCount++;
-        newStatus[w][i] = isCorrect ? "correct" : "wrong";
-      });
-    });
-
-    setAnswerStatus(newStatus);
-    setScore({ correct: correctCount, total: totalCount });
-
-    if (incomplete) {
-      ValidationAlert.error(
-        "Incomplet",
-        "Veuillez remplir tous les champs.",
-        `${correctCount}/${totalCount}`
-      );
-    } else if (correctCount === totalCount) {
-      ValidationAlert.success(
-        "Excellent!",
-        "Vous avez toutes les bonnes réponses!",
-        `${correctCount}/${totalCount}`
-      );
+  answers.forEach((ans, i) => {
+    if (ans.trim() === correctAnswers[i]) {
+      correctCount++;
     } else {
-      ValidationAlert.error(
-        "Presque!",
-        `Vous avez ${correctCount} sur ${totalCount} correct.`,
-        `${correctCount}/${totalCount}`
-      );
+      wrongs.push(i);
     }
-  };
+  });
 
-  const showAnswers = () => {
-    const filled = {};
-    const status = {};
-    words.forEach((w) => {
-      filled[w] = correctAnswers[w].answer.split("\n");
-      status[w] = filled[w].map(() => "correct");
-    });
-    setAnswers(filled);
-    setAnswerStatus(status);
-    setScore({
-      correct: Object.values(filled).reduce((acc, arr) => acc + arr.length, 0),
-      total: Object.values(filled).reduce((acc, arr) => acc + arr.length, 0)
-    });
+  setWrongIndexes(wrongs);
+  setScore({ correct: correctCount, total: correctAnswers.length });
+
+  if (correctCount === correctAnswers.length) {
     ValidationAlert.success(
-      "Réponses affichées",
-      "Toutes les bonnes réponses ont été remplies.",
-      `${Object.values(filled).reduce((acc, arr) => acc + arr.length, 0)}/${
-        Object.values(filled).reduce((acc, arr) => acc + arr.length, 0)
-      }`
+      `Excellent! (${correctCount}/${correctAnswers.length})`,
+      "All answers are correct!"
+    );
+  } else {
+    ValidationAlert.error(
+      `You got ${correctCount} out of ${correctAnswers.length}`,
+      "Try again!"
+    );
+  }
+};
+
+
+  const showAnswerFunc = () => {
+    setAnswers([...correctAnswers]);
+    setScore({ correct: correctAnswers.length, total: correctAnswers.length });
+    ValidationAlert.success(
+      "Answers shown",
+      "The correct answers have been placed.",
+      `${correctAnswers.length}/${correctAnswers.length}`
     );
   };
 
-  const reset = () => {
-    setAnswers(
-      Object.fromEntries(
-        words.map(w => [w, correctAnswers[w].answer.split("\n").map(() => "")])
-      )
-    );
-    setAnswerStatus({});
+  const resetExercise = () => {
+    setAnswers(["", "", "", "", "","","",""]);
     setScore(null);
   };
 
-  // الكروت
-  const cards = [
-    { id: "a", title: "goûter ?", image: img3 },
-    { id: "b", title: "petit-déjeuner ?", image: img2 },
-    { id: "c", title: "dîner ?", image: img1 }
-  ];
+  const handleInputChange = (index, value) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
+  };
 
   return (
-    <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
+    <div className="page-wrapper4 flex flex-col items-center justify-start gap-8 p-4">
+
+      {/* العنوان */}
+         <header
+className="header-title-page1 w-full text-left mb-4"
+  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>5</span>
-        <span className="number-of-q">3</span>{" "}
-        Qu'est-ce qu'il y a pour le :
+        <span style={{backgroundColor:"#de4484"}} className="ex-A">2</span> <span style={{color:"black"}} className="number-of-q">11</span>
+
+Écris l’heure
+
       </header>
 
-      {score && <ScoreCardEnhanced score={score} />}
+      {/* الأسئلة */}
+      <div className="questions-container40">
+     {[
+  { label: "a", flag: flag1 },
+  { label: "b", flag: flag2 },
+  { label: "c", flag: flag3 },
+ 
 
-      <div className="w-full max-w-6xl flex flex-col gap-8">
-        {cards.map((card) => (
-          <div key={card.id} className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <div className="flex flex-row items-start gap-8">
-              {/* الصورة */}
-              <div className="flex-1 flex justify-center items-center">
-                <div className="bg-gray-100 rounded-xl p-4 w-full h-64 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={card.image} 
-                    alt={card.title}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
+].map((item, index) => (
+  <div
+    key={index}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: "0px",
+      width: "100%",
+      marginBottom: "20px"
+    }}
+  >
+    {/* 🟢 الصورة على اليسار */}
+    <img
+      src={item.flag}
+      alt="flag"
+      style={{
+        width: "45%",
+        height: "auto",
+        flexShrink: 0
+      }}
+    />
 
-              {/* السؤال + inputs */}
-              <div className="flex-1 space-y-4">
-                <h3 className="text-lg font-bold text-gray-800">{card.title}</h3>
+    {/* 🔵 الانبوت على اليمين */}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        width: "55%"
+      }}
+    >
+      <span style={{ fontWeight: "bold" }}>{item.label}</span>
 
-                {correctAnswers[card.id].answer.split("\n").map((_, index) => (
-                  <input
-                    key={index}
-                    type="text"
-                    style={{borderBottom:"2px solid black", flexDirection:"column", display:"flex", width:"100%"}}
-                    value={answers[card.id][index]}
-                    onChange={(e) => handleChange(card.id, index, e.target.value)}
-                    className={`   text-lg ${
-                      answerStatus[card.id]?.[index] === "correct"
-                        ? "border-green-500 bg-green-50"
-                        : answerStatus[card.id]?.[index] === "wrong"
-                        ? "border-red-500 bg-red-50"
-                        : "border-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+    <input
+  value={answers[index]}
+  onChange={(e) => handleInputChange(index, e.target.value)}
+  rows={1} // يجعلها سطرين
+  
+  style={{
+  
+    width: "100%", // ممتد بعرض الحاوية
+    padding: "8px 12px",
+    borderRadius: "6px",
+    border: wrongIndexes.includes(index)
+      ? "2px solid #e74c3c"
+      : "1px solid #ccc",
+    backgroundColor: wrongIndexes.includes(index)
+      ? "#fdecea"
+      : "#fff",
+    resize: "none", // لمنع تغيير الحجم من قبل المستخدم
+    fontSize: "16px",
+   
+  }}
+/>
+
+    </div>
+  </div>
+))}
+
       </div>
 <div className="spaces"></div>
+      {score && <ScoreCardEnhanced score={score} />}
+
       {/* الأزرار */}
       <div className="action-buttons-container">
-        <button onClick={reset} className="try-again-button">Recommencer ↻</button>
-        <button onClick={showAnswers} className="show-answer-btn">Afficher la réponse</button>
-        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse ✓</button>
+        <button onClick={resetExercise} className="try-again-button">
+          Recommencer ↻
+        </button>
+        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">
+          Afficher la réponse
+        </button>
+        <button onClick={checkAnswer} className="check-button2">
+          Vérifier la réponse✓
+        </button>
       </div>
     </div>
   );
 };
 
-export default Page28Q1;
+export default Page5_Q1_CleanAudio;

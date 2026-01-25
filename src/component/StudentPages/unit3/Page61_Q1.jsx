@@ -1,38 +1,86 @@
 import React, { useState, useRef } from "react";
-import ValidationAlert from "../../Popup/ValidationAlert";
-import ScoreCardEnhanced from "../../Popup/ScoreCard"; 
-import img1 from "../../../assets/unite3pages/svg/page54Q4.png";
-
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3ScQ1.mp3";
+import imgBackground from "../../../assets/unite3pages/svg/P61Q1.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
+import ValidationAlert from "../../Popup/ValidationAlert";
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
+import "../unit1/Page17_Q1.css"
+/* 🔴 القائمة */
+const numbersList = [
+  { id: "a", label: "Sur" },
+  { id: "b", label: "Dans" },
+  { id: "c", label: "Sous" },
+  { id: "d", label: "Devant" },
+  { id: "e", label: "Derrière" },
+  { id: "f", label: "Entre" },
+
+];
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
-  0: "Comment ça va",
-  1: "Ça va bien",
-  2: "l’école",
-  3: "as-tu",
-  4: "crayons de couleur",
-  5: "un cahier.",
-  6: "un stylo",
-  7: "compaset d’une trousse"
+  0: "a",
+  1: "e",
+  2: "b",
+  3: "c",
+  4: "d",
+  5: "f",
+
+
 };
 
-const Page5_Q1_CleanAudio = () => {
+/* 🔴 مواقع الـ inputs */
+const inputPositions = [
+  { id: 0, className: "input-page61Q1-0" },
+  { id: 1, className: "input-page61Q1-1" },
+  { id: 2, className: "input-page61Q1-2" },
+  { id: 3, className: "input-page61Q1-3" },
+  { id: 4, className: "input-page61Q1-4" },
+  { id: 5, className: "input-page61Q1-5" },
+
+
+];
+
+/* 🔴 الكابتشن */
+const captions = [
+    { start:5.47 , end: 6.61, text: "Rempris à 1," },
+  { start:7.13 , end: 8.0, text: "unité 3," },
+  { start:8.5 , end: 9.5, text: "sous le même toit" },
+  { start:10.2 , end: 10.9, text: "Section C," },
+  { start:11.5 , end: 12.1, text: "ma maison." },
+  { start:13.15 , end: 14.4, text: "Exercice 1." },
+  { start:15.4 , end: 17.8, text: "Écoute et écris la lettre correspondante." },
+  { start:20.3 , end: 21.9, text: "La maison de la famille Dupont." },
+  { start:22.9, end: 23.0, text: "Le salon." },
+  { start:25.7 , end: 26.6, text: "La salle à manger." },
+  { start:28.8 , end: 29.5, text: "La cuisine." },
+  { start:31.8 , end: 32.7, text: "La salle de bain." },
+  { start:34.7 , end: 35.55, text: "Le jardin," },
+  { start:37.67 , end: 38.5, text: "le garage," },
+  { start:40.6 , end: 42.8, text: "la chambre de Monsieur et Madame Dupont," },
+  { start:44.8 , end: 46.5, text: "la chambre de Belle et Bête," },
+  { start:48.75 , end: 49.79, text: "la chambre de Ray," },
+  { start:49.79 , end: 52.55, text: "la chambre d'amis." },
+
+];
+
+const Page5_Q1_CleanAudio2 = () => {
   const audioRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const [showSettings, setShowSettings] = useState(false);
+
   const [showCaption, setShowCaption] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [volume, setVolume] = useState(1);
   const [activeIndex, setActiveIndex] = useState(null);
+
   const [inputs, setInputs] = useState({});
   const [score, setScore] = useState(null);
 
+  /* ▶️ تشغيل / إيقاف */
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -46,83 +94,37 @@ const Page5_Q1_CleanAudio = () => {
     }
   };
 
-  const captions = [
-   { start:5.2 , end: 6.5, text: "Grand Prix A1" },
-  { start:6.5 , end: 8.5, text: "Unité 2 À" },
-  { start:8.5 , end: 10.3, text: "l'école Section" },
-  { start:10.3 , end: 12.1, text: "A Se préparer" },
-  { start:12.1 , end: 13.4, text: "Exercice" },
-  { start:13.4 , end: 14.8, text: "4 Écoute" },
-  { start:14.8 , end: 15.8, text: "et écris" },
-  { start:15.8 , end: 16.5, text: "l'information" },
-  { start:16.5 , end: 17.3, text: "manquante." },
-  { start:19.0 , end: 20.8, text: "Salut ma chérie," },
-  { start:20.8 , end: 22.6, text: "comment ça va ?" },
-  { start:22.6 , end: 23.7, text: "Bonjour maman," },
-  { start:23.7 , end: 24.4, text: "ça va bien." },
-  { start:25.4 , end: 25.9, text: "Tu es prête" },
-  { start:25.9 , end: 27.7, text: "pour l'école ?" },
-  { start:27.7 , end: 28.6, text: "Oui, mais j'ai" },
-  { start:28.6 , end: 29.1, text: "besoin de" },
-  { start:29.1 , end: 29.4, text: "quelques" },
-  { start:29.4 , end: 29.9, text: "fournitures" },
-  { start:29.9 , end: 30.5, text: "scolaires." },
-  { start:31.6 , end: 32.3, text: "Bon, allons" },
-  { start:32.3 , end: 32.9, text: "au magasin." },
-  { start:35.0 , end: 35.8, text: "Alors, de quoi" },
-  { start:35.8 , end: 37.7, text: "as-tu besoin ?" },
-  { start:37.7 , end: 38.4, text: "J'ai besoin" },
-  { start:38.4 , end: 39.0, text: "de crayons" },
-  { start:39.0 , end: 39.7, text: "de couleurs." },
-  { start:40.5 , end: 42.0, text: "Et ?" },
-  { start:42.0 , end: 42.8, text: "J'ai besoin" },
-  { start:42.8 , end: 43.6, text: "d'un cahier." },
-  { start:44.2 , end: 45.4, text: "As-tu besoin" },
-  { start:45.4 , end: 47.1, text: "d'un stylo ?" },
-  { start:47.1 , end: 48.3, text: "Non, j'ai déjà" },
-  { start:48.3 , end: 49.5, text: "un stylo, mais" },
-  { start:49.5 , end: 50.2, text: "j'ai besoin d'un" },
-  { start:50.2 , end: 51.1, text: "compas et d'une" },
-  { start:51.1 , end: 51.6, text: "trousse." },
-  { start:52.8 , end: 54.5, text: "C'est tout ?" },
-  { start:54.5 , end: 55.4, text: "Oui, c'est tout" },
-  { start:55.4 , end: 55.9, text: "ce dont j'ai" },
-  { start:55.9 , end: 56.5, text: "besoin pour" },
-  { start:56.5 , end: 56.9, text: "le moment." },
-  ];
+  /* 🔁 إعادة الصوت */
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
+  };
 
-  const updateCaption = (time) => {
+  /* 📝 إدخال الإجابة */
+  const handleInputChange = (index, value) => {
+    if (/^[a-ka-k]?$/.test(value)) {
+      setInputs({ ...inputs, [index]: value.toLowerCase() });
+    }
+  };
+
+  /* 🧠 تحديث الكابتشن */
+  const updateCaption = (currentTime) => {
     const index = captions.findIndex(
-      (cap) => time >= cap.start && time <= cap.end
+      (cap) => currentTime >= cap.start && currentTime <= cap.end
     );
     setActiveIndex(index !== -1 ? index : null);
   };
 
-  const handleInputChange = (index, value) => {
-    setInputs({
-      ...inputs,
-      [index]: value
-    });
-  };
-
-  const normalizeString = (str) => {
-    return str
-      .toLowerCase()
-      .trim()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, ""); // لإزالة الـ accents
-  };
-
+  /* ✅ تحقق */
   const checkAnswer = () => {
     let correctCount = 0;
 
-    Object.keys(correctAnswers).forEach(key => {
-      const userAnswer = inputs[key] ? normalizeString(inputs[key]) : "";
-      const correctAnswer = normalizeString(correctAnswers[key]);
-
-      if (userAnswer === correctAnswer) {
-        correctCount++;
-      }
+    Object.keys(correctAnswers).forEach((key) => {
+      if (inputs[key] === correctAnswers[key]) correctCount++;
     });
 
     const total = Object.keys(correctAnswers).length;
@@ -131,31 +133,37 @@ const Page5_Q1_CleanAudio = () => {
     if (correctCount === total) {
       ValidationAlert.success(
         `Excellent! (${correctCount}/${total})`,
-        "Toutes les réponses sont correctes!"
+        "All answers correct!"
       );
     } else if (correctCount === 0) {
-      ValidationAlert.info(
-        `Toutes les réponses sont incorrectes (${correctCount}/${total})`,
-        "Essayez encore!"
+      ValidationAlert.error(
+        `All answers incorrect (${correctCount}/${total})`,
+        "Try again!"
       );
     } else {
       ValidationAlert.error(
-        `Vous avez ${correctCount} sur ${total} corrects.`,
-        "Presque!"
+        `You got ${correctCount} out of ${total} correct.`,
+        "Almost there!"
       );
     }
   };
 
-  const showAnswerFunc = () => setInputs(correctAnswers);
+  /* 👀 إظهار الحل */
+  const showAnswerFunc = () => {
+    setInputs(correctAnswers);
+  };
+
+  /* 🔄 إعادة التمرين */
   const resetExercise = () => {
     setInputs({});
     setScore(null);
+    resetAudio();
   };
 
   return (
-    <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
+      <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-      <header
+        <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -165,122 +173,165 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">4</span>{" "}
-        Écoute et écris l'information manquante.
+        <span className="ex-A" style={{ backgroundColor: "#73C8D2" }}>D</span>{" "}
+        <span className="number-of-q">1</span>{" "}
+        Écoute, répète et place dans l’ordre.
       </header>
-
-      {/* Audio Player */}
-      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <div className="audio-popup-read" style={{ width: "30%" }}>
-          <div className="audio-inner player-ui">
-            <audio
-              ref={audioRef}
-              src={CD6_Pg8_Instruction1_AdultLady}
-              onTimeUpdate={(e) => {
-                const time = e.target.currentTime;
-                setCurrent(time);
-                updateCaption(time);
-              }}
-              onLoadedMetadata={(e) => setDuration(e.target.duration)}
-            />
-            <div className="top-row">
-              <span className="audio-time">
-                {new Date(current * 1000).toISOString().substring(14, 19)}
-              </span>
-              <input
-                type="range"
-                className="audio-slider"
-                min="0"
-                max={duration}
-                value={current}
-                onChange={(e) => {
-                  audioRef.current.currentTime = e.target.value;
-                  updateCaption(Number(e.target.value));
-                }}
-                style={{
-                  background: `linear-gradient(to right, #430f68 ${(current / duration) * 100}%, #d9d9d9ff ${(current / duration) * 100}%)`,
-                }}
-              />
-              <span className="audio-time">
-                {new Date(duration * 1000).toISOString().substring(14, 19)}
-              </span>
-            </div>
-
-            <div className="bottom-row flex justify-between items-center">
-              {/* Captions */}
-              <div
-                className={`round-btn ${showCaption ? "active" : ""}`}
-                style={{ position: "relative" }}
-                onClick={() => setShowCaption(!showCaption)}
-              >
-                <TbMessageCircle size={36} />
-                <div
-                  className={`caption-inPopup ${showCaption ? "show" : ""}`}
-                  style={{ top: "100%", left: "10%" }}
-                >
-                  {captions.map((cap, i) => (
-                    <p
-                      key={i}
-                      id={`caption-${i}`}
-                      className={`caption-inPopup-line2 ${activeIndex === i ? "active" : ""}`}
-                    >
-                      {cap.text}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Play/Pause */}
-              <button className="play-btn2" onClick={togglePlay}>
-                {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
-              </button>
-
-              {/* Settings */}
-              <div className="settings-wrapper">
-                <button
-                  className={`round-btn ${showSettings ? "active" : ""}`}
-                  onClick={() => setShowSettings(!showSettings)}
-                >
-                  <IoMdSettings size={36} />
-                </button>
-                {showSettings && (
-                  <div className="settings-popup">
-                    <label>Volume</label>
-                    <input
-                      id="V"
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.05"
-                      value={volume}
-                      onChange={(e) => {
-                        setVolume(e.target.value);
-                        audioRef.current.volume = e.target.value;
-                      }}
-                    />
+      {/* 🔊 AUDIO PLAYER */}
+      {/* AUDIO PLAYER */}
+            <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+                  <div className="audio-popup-read" style={{ width: "30%" }}>
+                    <div className="audio-inner player-ui">
+                      <audio
+                        ref={audioRef}
+                        src={CD6_Pg8_Instruction1_AdultLady}
+                        onTimeUpdate={(e) => {
+                          const time = e.target.currentTime;
+                          setCurrent(time);
+                          updateCaption(time);
+                        }}
+                        onLoadedMetadata={(e) => setDuration(e.target.duration)}
+                      />
+          
+                      {/* Time & Slider */}
+                      <div className="top-row">
+                        <span className="audio-time">
+                          {new Date(current * 1000).toISOString().substring(14, 19)}
+                        </span>
+          
+                        <input
+                          type="range"
+                          className="audio-slider"
+                          min="0"
+                          max={duration}
+                          value={current}
+                          onChange={(e) => {
+                            audioRef.current.currentTime = e.target.value;
+                            updateCaption(Number(e.target.value));
+                          }}
+                          style={{
+                            background: `linear-gradient(to right, #430f68 ${
+                              (current / duration) * 100
+                            }%, #d9d9d9ff ${(current / duration) * 100}%)`,
+                          }}
+                        />
+          
+                        <span className="audio-time">
+                          {new Date(duration * 1000).toISOString().substring(14, 19)}
+                        </span>
+                      </div>
+          
+                      {/* Controls */}
+                      <div className="bottom-row flex justify-between items-center">
+                        {/* Captions */}
+                        <div
+                          className={`round-btn ${showCaption ? "active" : ""}`}
+                          style={{ position: "relative" }}
+                          onClick={() => setShowCaption(!showCaption)}
+                        >
+                          <TbMessageCircle size={36} />
+                          <div
+                            className={`caption-inPopup ${showCaption ? "show" : ""}`}
+                            style={{ top: "100%", left: "10%" }}
+                          >
+                            {captions.map((cap, i) => (
+                              <p
+                                key={i}
+                                id={`caption-${i}`}
+                                className={`caption-inPopup-line2 ${
+                                  activeIndex === i ? "active" : ""
+                                }`}
+                              >
+                                {cap.text}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+          
+                        {/* Play/Pause */}
+                        <button className="play-btn2" onClick={togglePlay}>
+                          {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
+                        </button>
+          
+                        {/* Settings */}
+                        <div className="settings-wrapper">
+                          <button
+                            className={`round-btn ${showSettings ? "active" : ""}`}
+                            onClick={() => setShowSettings(!showSettings)}
+                          >
+                            <IoMdSettings size={36} />
+                          </button>
+                          {showSettings && (
+                            <div className="settings-popup">
+                              <label>Volume</label>
+                              <input
+                                id="V"
+                                type="range"
+                                min="0"
+                                max="1"
+                                step="0.05"
+                                value={volume}
+                                onChange={(e) => {
+                                  setVolume(e.target.value);
+                                  audioRef.current.volume = e.target.value;
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </div>
 
       {score && <ScoreCardEnhanced score={score} />}
 
-     
+      {/* 🧩 التمرين */}
+      <div className="exercise-container">
+        <div className="numbers-list">
+          <ul>
+            {numbersList.map((item) => {
+              const isUsed = Object.values(inputs).includes(item.id);
+              return (
+                <li key={item.id} className={isUsed ? "used" : ""}>
+                  <span className="itemId">{item.id}.</span>
+                  <span className="itemText">{item.label}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-      <div className="spaces">ts</div>
+        <div className="image-container31">
+          <img src={imgBackground} alt="Exercise" />
+          {inputPositions.map((pos) => (
+            <input
+              key={pos.id}
+              type="text"
+              maxLength="1"
+              value={inputs[pos.id] || ""}
+              onChange={(e) => handleInputChange(pos.id, e.target.value)}
+              className={`input-pos ${pos.className}`}
+              style={{ width: "4%", height: "4%", backgroundColor: "white" }}
+            />
+          ))}
+        </div>
+      </div>
 
-      {/* Buttons */}
-      <div className="action-buttons-container flex gap-4">
-        <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
-        <button onClick={showAnswerFunc} className="show-answer-btn">Afficher la réponse</button>
-        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
+      {/* 🔘 أزرار */}
+      <div className="action-buttons-container">
+        <button onClick={resetExercise} className="try-again-button">
+          Recommencer ↻
+        </button>
+        <button onClick={showAnswerFunc} className="show-answer-btn">
+          Afficher la réponse
+        </button>
+        <button onClick={checkAnswer} className="check-button2">
+          Vérifier la réponse✓
+        </button>
       </div>
     </div>
   );
 };
 
-export default Page5_Q1_CleanAudio;
+export default Page5_Q1_CleanAudio2;

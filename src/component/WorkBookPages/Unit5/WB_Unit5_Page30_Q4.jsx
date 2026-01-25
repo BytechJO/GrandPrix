@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/workpages/svg/291.svg";
-import img2 from "../../../assets/workpages/svg/292.svg";
-import img3 from "../../../assets/workpages/svg/293.svg";
+import img3 from "../../../assets/workpages/svg/WBP30Q4-1.svg";
+import img2 from "../../../assets/workpages/svg/WBP30Q4-2.svg";
+import img1 from "../../../assets/workpages/svg/WBP30Q4-3.svg";
 
 const Page28Q1 = () => {
   // ✅ الإجابات الصحيحة

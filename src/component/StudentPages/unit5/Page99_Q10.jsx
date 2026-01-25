@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import "./Page99_Q10.css"
-import img1 from "../../../assets/unite5pages/SVG/Asset 89.svg"
+import img1 from "../../../assets/unite5pages/SVG/P99Q10-1.svg"
+import img2 from "../../../assets/unite5pages/SVG/P99Q10-2.svg"
+import img3 from "../../../assets/unite5pages/SVG/P99Q10-3.svg"
 /* 🔴 الإجابات الصحيحة للتمرين الجديد */
 const correctAnswers = {
   a: "manges",               // Dis-moi ce que tu manges
@@ -300,7 +302,7 @@ const Page_Exercise = () => {
         <div className="images-section flex flex-row gap-4 justify-center items-stretch">
           {/* الصورة الأولى - طبق الخضار والفواكه */}
           <div className="image-container flex-1 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 rounded-lg w-full h-full flex items-center justify-center">
+            <div className="p-4 rounded-lg w-full h-full flex items-center justify-center">
               <div className="text-center">
                 <div className="text-gray-600"><img src={img1} alt="" /></div>
               </div>
@@ -309,18 +311,18 @@ const Page_Exercise = () => {
           
           {/* الصورة الثانية */}
            <div className="image-container flex-1 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 rounded-lg w-full h-full flex items-center justify-center">
+            <div className=" p-4 rounded-lg w-full h-full flex items-center justify-center">
               <div className="text-center">
-                <div className="text-gray-600"><img src={img1} alt="" /></div>
+                <div className="text-gray-600"><img src={img2} alt="" /></div>
               </div>
             </div>
           </div>
           
           {/* الصورة الثالثة */}
             <div className="image-container flex-1 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 rounded-lg w-full h-full flex items-center justify-center">
+            <div className=" p-4 rounded-lg w-full h-full flex items-center justify-center">
               <div className="text-center">
-                <div className="text-gray-600"><img src={img1} alt="" /></div>
+                <div className="text-gray-600"><img src={img3} alt="" /></div>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import page_1 from "../../../assets/unite4pages/76.png"
+import page_1 from "../../../assets/unite4pages/77.png"
 import page5_CD2 from "../../../assets/unit1/SoundU1/1.mp3";
 import AudioWithCaption from "../../AudioWithCaption";
 

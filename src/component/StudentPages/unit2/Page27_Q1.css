@@ -86,6 +86,19 @@
   outline: none;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+.inputPos2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #f48684;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 /* Absolute positions for each input */
 .input1 { top:70%; left:15%; }
@@ -116,3 +129,18 @@
   .imageContainer { width:100%; min-height:400px; }
   .inputPos { width:30px; height:30px; font-size:14px; }
 }
+
+.inputs971 { top:30%; left:20%; }
+.inputs972 { top:33%; left:30%; }
+.inputs973 { top:35%; left:35%; }
+.inputs974 { top:32%; left:40%; }
+.inputs975 { top:48%; left:40%; }
+.inputs976 { top:51%; left:20%; }
+.inputs977 { top:51%; left:30%; }
+.inputs978 { top:20%; left:60%; }
+.inputs979 { top:40%; left:60%; }
+.inputs9710 { top:44%; left:70%; }
+.inputs9711 { top:22%; left:67%; }
+.inputs9712 { top:22%; left:75%; }
+.inputs9713 { top:25%; left:80%; }
+.inputs9714 { top:45%; left:80%; }
