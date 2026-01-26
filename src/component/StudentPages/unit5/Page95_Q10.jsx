@@ -7,16 +7,16 @@ const Page5_Q1_CleanAudio = () => {
   const [current, setCurrent] = useState(0);
 
 const sentences = [
-  { id: "a", text: "Les Français mangent beaucoup au petit-déjeuner." },
+  { id: "a", text: (<>Les Français mangent beaucoup <br /> au petit-déjeuner.</>) },
 
   { id: "b", text: "Les adultes prennent du café." },
 
   { id: "c", text: "Les enfants prennent du chocolat chaud." },
 
-  { id: "d", text: "Les Français mangent des croissants chaque jour." },
+  { id: "d", text: (<>Les Français mangent des <br /> croissants chaque jour. </> )},
 
   { id: "e", text: "Ils ne mangent pas de fruits." },
-  { id: "f", text: "Les Français mangent beaucoup de choses salées." },
+  { id: "f", text: (<>Les Français mangent beaucoup <br /> de choses salées. </>) },
 ];
 
 
@@ -109,7 +109,7 @@ const sentences = [
   return (
   <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* العنوان الرئيسي */}
-          <header
+                 <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -119,9 +119,9 @@ const sentences = [
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">8</span>{" "}
-       Vrai (✔️ ) ou faux ( ✖️) ?
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
+        <span className="number-of-q">10</span>{" "}
+   Vrai (✔️ ) ou faux ( ✖️) ?
       </header>
 
       {/* ✅ QUESTIONS LIST - تخطيط شبكي */}

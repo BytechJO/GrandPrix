@@ -103,7 +103,7 @@ const Page_Exercise = () => {
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       {/* العنوان الرئيسي - بدون تغيير */}
-      <header
+     <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -113,9 +113,9 @@ const Page_Exercise = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>D</span>
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>B</span>
         <span className="number-of-q">10</span>{" "}
-        Complète les phrases.
+      Complète les phrases.
       </header>
 
       {score && <ScoreCardEnhanced score={score} />}

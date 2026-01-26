@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U2Audio/U2SdQ4.mp3";
+import page5_CD2 from "../../../assets/U5Audio/u5saq2.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -30,31 +30,37 @@ const Page5_Q1_CleanAudio = () => {
 
   // الترجمة الجديدة للتمرين الجديد
   const captions = [
-    { start: 5.1, end: 7.9, text: "Grand Prix A1, Unité 2," },
-    { start: 7.9, end: 9.2, text: "À l'école," },
-    { start: 9.2, end: 10.6, text: "Section D," },
-    { start: 10.6, end: 12.0, text: "Un rendez-vous," },
-    { start: 12.0, end: 13.6, text: "Exercice 3," },
-    { start: 13.9, end: 15.5, text: "Écoute les personnages qui" },
-    { start: 15.5, end: 17.7, text: "décrivent leur petit-déjeuner." },
-    { start: 17.7, end: 19.4, text: "Coche la case correspondante." },
-    { start: 21.7, end: 23.0, text: "Claire:" },
-    { start: 23.0, end: 24.0, text: "Pour le petit-déjeuner," },
-    { start: 24.0, end: 25.7, text: "je prends toujours un café" },
-    { start: 25.7, end: 26.7, text: "et des tartines avec" },
-    { start: 26.7, end: 27.8, text: "du beurre et de la confiture." },
-    { start: 28.8, end: 29.9, text: "Maxime:" },
-    { start: 29.9, end: 31.1, text: "Moi, je préfère les céréales" },
-    { start: 31.1, end: 31.9, text: "avec du lait et un jus" },
-    { start: 31.9, end: 32.7, text: "d'orange frais." },
-    { start: 32.7, end: 34.5, text: "Marie et Antoine:" },
-    { start: 34.5, end: 35.8, text: "Nous prenons des croissants" },
-    { start: 35.8, end: 37.7, text: "et du café le matin." },
-    { start: 37.7, end: 39.2, text: "Parfois aussi un œuf à la coque." },
-    { start: 39.2, end: 40.3, text: "La famille de Léo:" },
-    { start: 40.3, end: 41.3, text: "Chez nous, on boit du lait" },
-    { start: 41.3, end: 42.8, text: "et on mange des céréales" },
-    { start: 42.8, end: 44.7, text: "ou des tartines avec du beurre." },
+  { start:5.21, end: 8.8, text: "Grand prix A1, unité 5" },
+  { start:8.8, end: 9.3, text: "les repas" },
+  { start:9.3, end: 11.4, text: "Section A" },
+  { start:11.4, end: 14.9, text: "le petit déjeuner. Exercice 3" },
+  { start:14.99, end: 16.6, text: "écoute les personnages qui" },
+  { start:16.6, end: 18.7, text: "décrivent leur petit déjeuner." },
+  { start:18.78, end: 20.9, text: "Coche la case correspondante" },
+  { start:23.0, end: 23.8, text: "Bonjour à tous," },
+  { start:23.8, end: 25.5, text: "je m'appelle Claire. Pour moi," },
+  { start:25.5, end: 26.8, text: "le petit déjeuner est le plus" },
+  { start:26.8, end: 28.5, text: "important repas de la journée." },
+  { start:28.5, end: 29.8, text: "C'est pourquoi je prends" },
+  { start:29.8, end: 30.8, text: "des céréales" },
+  { start:30.8, end: 32.4, text: "du lait et un croissant avec" },
+  { start:32.4, end: 33.4, text: "une tasse de café." },
+  { start:35.75, end: 37.3, text: "Moi, je suis Maxime." },
+  { start:37.3, end: 38.5, text: "Mon petit déjeuner" },
+  { start:38.55, end: 39.4, text: "est très simple." },
+  { start:39.4, end: 40.9, text: "Je prends du café" },
+  { start:40.9, end: 41.7, text: "et des tartines." },
+  { start:43.8, end: 45.14, text: "Je m'appelle Marie et pour" },
+  { start:45.150, end: 46.129, text: "mon petit-déjeuner" },
+  { start:46.129, end: 47.460, text: "je prends souvent des croissants" },
+  { start:47.460, end: 49.4, text: "avec du jus d'orange et mon ami" },
+  { start:49.4, end: 51.0, text: "Antoine prend la même chose." },
+  { start:53.0, end: 55.0, text: "Nous sommes la famille de Léo et" },
+  { start:55.0, end: 57.14, text: "pour notre petit-déjeuner..." },
+  { start:57.150, end: 58.720, text: "Nous prenons des céréales" },
+  { start:58.720, end: 60.0, text: "du lait, des croissants" },
+  { start:60., end: 61.5, text: "du beurre..." },
+  { start:61.5, end: 63.18, text: "Des œufs à la coque et du café." },
   ];
 
   const updateCaption = (time) => {
@@ -174,7 +180,7 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+              <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -184,9 +190,10 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>D</span>
-        <span className="number-of-q">3</span>
-        Écoute les personnages qui décrivent leur petit-déjeuner. Coche la case correspondante.
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
+        <span className="number-of-q">3</span>{" "}
+     Écoute les personnages qui décrivent leur
+petit-déjeuner. <br /> Coche la case correspondante.
       </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>

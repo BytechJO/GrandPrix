@@ -119,9 +119,9 @@ const Page5_Q2_SAppeler = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>5</span>
-        <span className="number-of-q">10</span>{" "}
-       Complète les phrases avec un adverbe de quantité.
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
+        <span className="number-of-q">4</span>{" "}
+      Complète les phrases.
       </header>
 
       {/* ================= QUESTIONS ================= */}

@@ -5,7 +5,7 @@ import img1 from "../../../assets/unite5pages/SVG/page102.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U5Audio/u5sce5.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -47,48 +47,48 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-    { start: 5.2, end: 6.5, text: "Grand Prix A1" },
-    { start: 6.5, end: 8.5, text: "Unité 2 À" },
-    { start: 8.5, end: 10.3, text: "l'école Section" },
-    { start: 10.3, end: 12.1, text: "A Se préparer" },
-    { start: 12.1, end: 13.4, text: "Exercice" },
-    { start: 13.4, end: 14.8, text: "4 Écoute" },
-    { start: 14.8, end: 15.8, text: "et écris" },
-    { start: 15.8, end: 16.5, text: "l'information" },
-    { start: 16.5, end: 17.3, text: "manquante." },
-    { start: 19.0, end: 20.8, text: "Salut ma chérie," },
-    { start: 20.8, end: 22.6, text: "comment ça va ?" },
-    { start: 22.6, end: 23.7, text: "Bonjour maman," },
-    { start: 23.7, end: 24.4, text: "ça va bien." },
-    { start: 25.4, end: 25.9, text: "Tu es prête" },
-    { start: 25.9, end: 27.7, text: "pour l'école ?" },
-    { start: 27.7, end: 28.6, text: "Oui, mais j'ai" },
-    { start: 28.6, end: 29.1, text: "besoin de" },
-    { start: 29.1, end: 29.4, text: "quelques" },
-    { start: 29.4, end: 29.9, text: "fournitures" },
-    { start: 29.9, end: 30.5, text: "scolaires." },
-    { start: 31.6, end: 32.3, text: "Bon, allons" },
-    { start: 32.3, end: 32.9, text: "au magasin." },
-    { start: 35.0, end: 35.8, text: "Alors, de quoi" },
-    { start: 35.8, end: 37.7, text: "as-tu besoin ?" },
-    { start: 37.7, end: 38.4, text: "J'ai besoin" },
-    { start: 38.4, end: 39.0, text: "de crayons" },
-    { start: 39.0, end: 39.7, text: "de couleurs." },
-    { start: 40.5, end: 42.0, text: "Et ?" },
-    { start: 42.0, end: 42.8, text: "J'ai besoin" },
-    { start: 42.8, end: 43.6, text: "d'un cahier." },
-    { start: 44.2, end: 45.4, text: "As-tu besoin" },
-    { start: 45.4, end: 47.1, text: "d'un stylo ?" },
-    { start: 47.1, end: 48.3, text: "Non, j'ai déjà" },
-    { start: 48.3, end: 49.5, text: "un stylo, mais" },
-    { start: 49.5, end: 50.2, text: "j'ai besoin d'un" },
-    { start: 50.2, end: 51.1, text: "compas et d'une" },
-    { start: 51.1, end: 51.6, text: "trousse." },
-    { start: 52.8, end: 54.5, text: "C'est tout ?" },
-    { start: 54.5, end: 55.4, text: "Oui, c'est tout" },
-    { start: 55.4, end: 55.9, text: "ce dont j'ai" },
-    { start: 55.9, end: 56.5, text: "besoin pour" },
-    { start: 56.5, end: 56.9, text: "le moment." },
+   { start:5.3 , end: 6.8, text: "Grand Prix A1" },
+  { start:6.8 , end: 10.2, text: "Unité 5, Les repas" },
+  { start:10.2 , end: 12.0, text: "Section C," },
+  { start:12.0 , end: 14.0, text: "Les repas en famille" },
+  { start:14.0 , end: 16.1, text: "Exercice 5," },
+  { start:16.1 , end: 18.6, text: "Écoute et écris l'information" },
+  { start:18.7 , end: 19.3, text: "manquante." },
+  { start:21.5 , end: 24.1, text: "Bonsoir Antoine, Comment ça va ?" },
+  { start:24.1 , end: 25.9, text: "Bonjour monsieur Jacques," },
+  { start:25.9 , end: 27.8, text: "Ça va bien et vous ?" },
+  { start:27.8 , end: 29.8, text: "Très bien, merci." },
+  { start:29.8 , end: 31.0, text: "Allons à table." },
+  { start:31.0 , end: 32.4, text: "Salut Antoine," },
+  { start:32.4 , end: 33.5, text: "assieds-toi là à côté" },
+  { start:33.5 , end: 34.7, text: "de Camille." },
+  { start:34.7 , end: 36.7, text: "Oui, madame." },
+  { start:36.7 , end: 38.2, text: "Qu'est-ce que tu prends comme" },
+  { start:38.2 , end: 40.2, text: "boisson Il y a du jus d'orange" },
+  { start:40.2 , end: 41.9, text: "et de l'eau minérale." },
+  { start:41.9 , end: 43.5, text: "De l'eau minérale," },
+  { start:43.5 , end: 44.8, text: "s'il vous plaît." },
+  { start:44.8 , end: 46.3, text: "Pour commencer," },
+  { start:46.3 , end: 48.6, text: "il y a de la soupe à la tomate." },
+  { start:48.6 , end: 52.2, text: "Bon appétit tout le monde." },
+  { start:52.2 , end: 54.6, text: "Hmmm, c'est délicieux." },
+  { start:54.6 , end: 56.1, text: "Rose" },
+  { start:56.1 , end: 57.2, text: "qu'est-ce que nous avons" },
+  { start:57.2 , end: 59.0, text: "comme plat principal ?" },
+  { start:59.0 , end: 60.8, text: "Il y a du poisson ou de la" },
+  { start:60.8 , end: 62.2, text: "viande et comme légume," },
+  { start:62.2 , end: 64.6, text: "il y a des pommes de terre." },
+  { start:64.6 , end: 66.9, text: "Bon donne-moi de la viande." },
+  { start:66.9 , end: 67.8, text: "Qu'est-ce que tu préfères" },
+  { start:67.8 , end: 69.6, text: "Antoine ?" },
+  { start:69.6 , end: 71.5, text: "Je préfère le poisson." },
+  { start:71.5 , end: 73.6, text: "Tu en veux encore ?" },
+  { start:73.6 , end: 76.7, text: "Non merci, j'ai assez mangé." },
+  { start:76.7 , end:78.4, text: "Comme dessert," },
+  { start:78.4 , end: 79.4, text: "il y a des fruits." },
+  { start:79.4 , end: 81.2, text: "Qu'est-ce que tu veux ?" },
+  { start:81.2 , end: 83.14, text: "Je voudrais des fraises" },
+  { start:83.15 , end: 84.2, text: "s'il te plaît." },
   ];
 
   const updateCaption = (time) => {
@@ -96,6 +96,14 @@ const Page5_Q1_CleanAudio = () => {
       (cap) => time >= cap.start && time <= cap.end,
     );
     setActiveIndex(index !== -1 ? index : null);
+  };
+   const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
   };
 
   const handleInputChange = (index, value) => {
@@ -150,12 +158,13 @@ const Page5_Q1_CleanAudio = () => {
   const resetExercise = () => {
     setInputs({});
     setScore(null);
+    resetAudio();
   };
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-      <header
+     <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -165,12 +174,9 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>
-          A
-        </span>
-        <span className="number-of-q">4</span> Écoute et écris l'information
-        manquante.
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>C</span>
+        <span className="number-of-q">5</span>{" "}
+Écoute et écris l’information manquante.    </header>
 
       {/* Audio Player */}
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>

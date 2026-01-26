@@ -163,7 +163,7 @@ const Page5_Q1_CleanAudio2 = () => {
   return (
       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-        <header
+      <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -173,9 +173,9 @@ const Page5_Q1_CleanAudio2 = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#73C8D2" }}>D</span>{" "}
+        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>D</span>
         <span className="number-of-q">1</span>{" "}
-        Écoute, répète et place dans l’ordre.
+        Écoute et écris la lettre correspondante.
       </header>
       {/* 🔊 AUDIO PLAYER */}
       {/* AUDIO PLAYER */}

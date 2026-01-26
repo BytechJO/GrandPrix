@@ -112,7 +112,7 @@ const Page17Q4 = () => {
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-   <header
+          <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -122,9 +122,10 @@ const Page17Q4 = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
-        <span className="number-of-q">4</span>
-        Souligne les mots féminins.
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
+        <span className="number-of-q">2</span>{" "}
+      Regarde l'image et trouve tous les mots qui désignent
+des boissons.
       </header>
 
       <div style={{ fontSize: "18px", color: "#333", marginBottom: "20px", textAlign: "center" }}>

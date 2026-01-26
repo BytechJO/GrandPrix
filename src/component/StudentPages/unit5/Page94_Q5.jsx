@@ -4,6 +4,7 @@ import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import img1 from "../../../assets/unite5pages/SVG/img1page94.svg";
 import img2 from "../../../assets/unite5pages/SVG/img2page94.svg";
 
+
 const Page5_Q2_SAppeler = () => {
   // ================= STATE =================
   const [answers, setAnswers] = useState({

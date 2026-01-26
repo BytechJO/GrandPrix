@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U4Audio/U4SDQ2.mp3";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+import { TbMessageCircle } from "react-icons/tb";
 import img1 from "../../../assets/unite4pages/SVG/P83-2.svg"
 const Page5_Q2_SAppeler = () => {
   // ================= STATE =================
@@ -18,7 +22,62 @@ const Page5_Q2_SAppeler = () => {
 
   const [answerStatus, setAnswerStatus] = useState({});
   const [score, setScore] = useState(null);
+/* 🔴 الكابتشن */
+const captions = [
+{ start:5.18 , end: 6.36, text: "Rempris A1," },
+  { start:6.85 , end: 8.02, text: "unité 4," },
+  { start:8.40 , end: 8.82, text: "en ville." },
+  { start:9.36 , end: 10.28, text: "Section D." },
+  { start:11.13 , end: 11.36, text: "Cannes," },
+  { start:11.98 , end: 13.18, text: "une ville de cinéma." },
+  { start:13.98 , end: 15.02, text: "Exercice 2." },
+  { start:15.45 , end: 17.04, text: "Écoute et écris." },
+  { start:19.14 , end: 20.74, text: "Ella est au poste de police." },
+  { start:21.21 , end: 22.71, text: "Elle veut aller au supermarché." },
+  { start:23.74 , end: 26.40, text: "Marc est au parc et il veut aller au restaurant." },
 
+];
+const audioRef = useRef(null);
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const [showCaption, setShowCaption] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+
+    /* ▶️ تشغيل / إيقاف */
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+ /* 🧠 تحديث الكابتشن */
+  const updateCaption = (currentTime) => {
+    const index = captions.findIndex(
+      (cap) => currentTime >= cap.start && currentTime <= cap.end
+    );
+    setActiveIndex(index !== -1 ? index : null);
+  };
+  /* 🔁 إعادة الصوت */
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
+  };
   // ================= CORRECT ANSWERS =================
   const correctAnswers = {
     a1: "poste de police.",
@@ -114,7 +173,110 @@ const Page5_Q2_SAppeler = () => {
         <span style={{ color: "black" }} className="number-of-q">2</span>
    Écoute et écris.
       </header>
-
+   <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+                  <div className="audio-popup-read" style={{ width: "30%" }}>
+                    <div className="audio-inner player-ui">
+                      <audio
+                        ref={audioRef}
+                        src={CD6_Pg8_Instruction1_AdultLady}
+                        onTimeUpdate={(e) => {
+                          const time = e.target.currentTime;
+                          setCurrent(time);
+                          updateCaption(time);
+                        }}
+                        onLoadedMetadata={(e) => setDuration(e.target.duration)}
+                      />
+          
+                      {/* Time & Slider */}
+                      <div className="top-row">
+                        <span className="audio-time">
+                          {new Date(current * 1000).toISOString().substring(14, 19)}
+                        </span>
+          
+                        <input
+                          type="range"
+                          className="audio-slider"
+                          min="0"
+                          max={duration}
+                          value={current}
+                          onChange={(e) => {
+                            audioRef.current.currentTime = e.target.value;
+                            updateCaption(Number(e.target.value));
+                          }}
+                          style={{
+                            background: `linear-gradient(to right, #430f68 ${
+                              (current / duration) * 100
+                            }%, #d9d9d9ff ${(current / duration) * 100}%)`,
+                          }}
+                        />
+          
+                        <span className="audio-time">
+                          {new Date(duration * 1000).toISOString().substring(14, 19)}
+                        </span>
+                      </div>
+          
+                      {/* Controls */}
+                      <div className="bottom-row flex justify-between items-center">
+                        {/* Captions */}
+                        <div
+                          className={`round-btn ${showCaption ? "active" : ""}`}
+                          style={{ position: "relative" }}
+                          onClick={() => setShowCaption(!showCaption)}
+                        >
+                          <TbMessageCircle size={36} />
+                          <div
+                            className={`caption-inPopup ${showCaption ? "show" : ""}`}
+                            style={{ top: "100%", left: "10%" }}
+                          >
+                            {captions.map((cap, i) => (
+                              <p
+                                key={i}
+                                id={`caption-${i}`}
+                                className={`caption-inPopup-line2 ${
+                                  activeIndex === i ? "active" : ""
+                                }`}
+                              >
+                                {cap.text}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+          
+                        {/* Play/Pause */}
+                        <button className="play-btn2" onClick={togglePlay}>
+                          {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
+                        </button>
+          
+                        {/* Settings */}
+                        <div className="settings-wrapper">
+                          <button
+                            className={`round-btn ${showSettings ? "active" : ""}`}
+                            onClick={() => setShowSettings(!showSettings)}
+                          >
+                            <IoMdSettings size={36} />
+                          </button>
+                          {showSettings && (
+                            <div className="settings-popup">
+                              <label>Volume</label>
+                              <input
+                                id="V"
+                                type="range"
+                                min="0"
+                                max="1"
+                                step="0.05"
+                                value={volume}
+                                onChange={(e) => {
+                                  setVolume(e.target.value);
+                                  audioRef.current.volume = e.target.value;
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
       {/* ================= QUESTIONS ================= */}
       <div className="page22Q1" style={{marginLeft:"0%"}}>
         <div className="inputs-column">

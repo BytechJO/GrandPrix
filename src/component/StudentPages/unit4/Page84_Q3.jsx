@@ -6,7 +6,7 @@ import img2 from "../../../assets/unite4pages/SVG/P84-b.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2Q4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U4Audio/U4SDQ3.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -47,48 +47,36 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-    { start: 5.2, end: 6.5, text: "Grand Prix A1" },
-    { start: 6.5, end: 8.5, text: "Unité 2 À" },
-    { start: 8.5, end: 10.3, text: "l'école Section" },
-    { start: 10.3, end: 12.1, text: "A Se préparer" },
-    { start: 12.1, end: 13.4, text: "Exercice" },
-    { start: 13.4, end: 14.8, text: "4 Écoute" },
-    { start: 14.8, end: 15.8, text: "et écris" },
-    { start: 15.8, end: 16.5, text: "l'information" },
-    { start: 16.5, end: 17.3, text: "manquante." },
-    { start: 19.0, end: 20.8, text: "Salut ma chérie," },
-    { start: 20.8, end: 22.6, text: "comment ça va ?" },
-    { start: 22.6, end: 23.7, text: "Bonjour maman," },
-    { start: 23.7, end: 24.4, text: "ça va bien." },
-    { start: 25.4, end: 25.9, text: "Tu es prête" },
-    { start: 25.9, end: 27.7, text: "pour l'école ?" },
-    { start: 27.7, end: 28.6, text: "Oui, mais j'ai" },
-    { start: 28.6, end: 29.1, text: "besoin de" },
-    { start: 29.1, end: 29.4, text: "quelques" },
-    { start: 29.4, end: 29.9, text: "fournitures" },
-    { start: 29.9, end: 30.5, text: "scolaires." },
-    { start: 31.6, end: 32.3, text: "Bon, allons" },
-    { start: 32.3, end: 32.9, text: "au magasin." },
-    { start: 35.0, end: 35.8, text: "Alors, de quoi" },
-    { start: 35.8, end: 37.7, text: "as-tu besoin ?" },
-    { start: 37.7, end: 38.4, text: "J'ai besoin" },
-    { start: 38.4, end: 39.0, text: "de crayons" },
-    { start: 39.0, end: 39.7, text: "de couleurs." },
-    { start: 40.5, end: 42.0, text: "Et ?" },
-    { start: 42.0, end: 42.8, text: "J'ai besoin" },
-    { start: 42.8, end: 43.6, text: "d'un cahier." },
-    { start: 44.2, end: 45.4, text: "As-tu besoin" },
-    { start: 45.4, end: 47.1, text: "d'un stylo ?" },
-    { start: 47.1, end: 48.3, text: "Non, j'ai déjà" },
-    { start: 48.3, end: 49.5, text: "un stylo, mais" },
-    { start: 49.5, end: 50.2, text: "j'ai besoin d'un" },
-    { start: 50.2, end: 51.1, text: "compas et d'une" },
-    { start: 51.1, end: 51.6, text: "trousse." },
-    { start: 52.8, end: 54.5, text: "C'est tout ?" },
-    { start: 54.5, end: 55.4, text: "Oui, c'est tout" },
-    { start: 55.4, end: 55.9, text: "ce dont j'ai" },
-    { start: 55.9, end: 56.5, text: "besoin pour" },
-    { start: 56.5, end: 56.9, text: "le moment." },
+  { start:5.18 , end: 6.36, text: "Rempris A1," },
+  { start:6.85 , end: 8.0, text: "unité 4," },
+  { start:8.38 , end: 8.80, text: "en ville." },
+  { start:9.63 , end: 10.28, text: "Section D." },
+  { start:11.13 , end: 11.34, text: "Cannes," },
+  { start:11.97 , end: 13.32, text: "une ville de cinéma." },
+  { start:13.89 , end: 15.06, text: "Exercice 3." },
+  { start:15.77 , end: 18.62, text: "Écoute et écris l'information manquante." },
+  { start:21.02 , end: 21.80, text: "Excusez-moi," },
+  { start:21.80 , end: 22.08, text: "monsieur." },
+  { start:23.16, end: 23.74, text: "Pas de problème." },
+  { start:25.02 , end: 27.00, text: "Je cherche le musée de la Castre." },
+  { start:28.34 , end: 29.62, text: "Vous devez aller tout droit," },
+  { start:29.62 , end: 31.12, text: "puis tourner à gauche," },
+  { start:31.55 , end: 34.66, text: "traverser la rue et le musée est au coin de la rue Rose." },
+  { start:35.18 , end: 37.34, text: "« Merci beaucoup pour votre aide." },
+  { start:38.66 , end: 39.00, text: "« De rien." },
+  { start:41.52 , end: 41.9, text: "« Bonjour," },
+  { start:41.9 , end: 42.68, text: "excusez-moi," },
+  { start:42.68 , end: 42.96, text: "monsieur." },
+  { start:44.30 , end: 44.86, text: "« Oui ?" },
+  { start:45.68 , end: 46.88, text: "« Je cherche la croisette." },
+  { start:48.30 , end: 48.34, text: "« Alors," },
+  { start:48.34 , end: 49.90, text: "vous devez tourner à droite," },
+  { start:50.40 , end: 51.64, text: "traverser la rue," },
+  { start:51.42 , end: 52.46, text: "puis aller tout droit." },
+  { start:53.42 , end: 54.48, text: "« Passez devant l'hôpital," },
+  { start:54.48 , end: 57.64, text: "puis traversez la rue rouge et la croisette est là" },
+  { start:58.84 , end: 59.30, text: "« Merci," },
+  { start:59.30 , end: 59.72, text: "monsieur." },
   ];
 
   const updateCaption = (time) => {
@@ -97,7 +85,14 @@ const Page5_Q1_CleanAudio = () => {
     );
     setActiveIndex(index !== -1 ? index : null);
   };
-
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
+  };
   const handleInputChange = (index, value) => {
     setInputs({
       ...inputs,
@@ -150,6 +145,8 @@ const Page5_Q1_CleanAudio = () => {
   const resetExercise = () => {
     setInputs({});
     setScore(null);
+    resetAudio();
+    
   };
 
   return (

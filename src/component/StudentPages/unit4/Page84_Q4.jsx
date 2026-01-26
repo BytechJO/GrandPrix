@@ -3,6 +3,10 @@ import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import img1 from "../../../assets/unite4pages/SVG/P84Q4-1.svg";
 import img2 from "../../../assets/unite4pages/SVG/P84Q4-2.svg";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+import { TbMessageCircle } from "react-icons/tb";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U4Audio/U4SDQ4.mp3";
 
 /* 🔴 المسارات الصحيحة مع منطقة مسموحة لكل نقطة */
 const correctPaths = {
@@ -484,7 +488,72 @@ const Page5_Q1_CleanAudio = () => {
       console.log("نقاط التصحيح - اليمين:", debugPoints.right);
     }
   }, [debugPoints]);
+  const audioRef = useRef(null);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showCaption, setShowCaption] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
+    const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
+   const captions = [
+  { start:5.18 , end: 6.36, text: "Rempris A1," },
+  { start:6.85 , end: 8.06, text: "unité 4," },
+  { start:8.98 , end: 8.78, text: "en ville." },
+  { start:9.63 , end: 10.30, text: "Section D." },
+  { start:11.13 , end: 11.46, text: "Cannes," },
+  { start:11.98 , end: 13.24, text: "une ville de cinéma." },
+  { start:14.24 , end: 15.40, text: "Exercice 4." },
+  { start:16.32 , end: 19.76, text: "Récoute l'exercice 3 et dessine le chemin." },
+  { start:21.84 , end: 22.60, text: "Excusez-moi," },
+  { start:22.60 , end: 22.88, text: "monsieur." },
+  { start:23.94 , end: 24.46, text: "Pas de problème." },
+  { start:25.86 , end: 27.76, text: "Je cherche le musée de la Castre." },
+  { start:29.16 , end: 30.48, text: "Vous devez aller tout droit," },
+  { start:30.66 , end: 31.96, text: "puis tourner à gauche" },
+  { start:32.35 , end: 35.47, text: "Traversez la rue et le musée est au coin de la rue Rose." },
+  { start:36.86 , end: 38.15, text: "Merci beaucoup pour votre aide." },
+  { start:39.37 , end: 39.81, text: "De rien." },
+  { start:42.01 , end: 42.49, text: "Bonjour," },
+  { start:42.81 , end: 43.51, text: "excusez-moi," },
+  { start:43.51 , end: 43.75, text: "monsieur." },
+  { start:44.99 , end: 45.27, text: "Oui ?" },
+  { start:46.29 , end: 47.67, text: "Je cherche la croisette." },
+  { start:48.83 , end: 50.65, text: "Alors vous devez tourner à droite," },
+  { start:51.19 , end: 52.25, text: "traverser la rue," },
+  { start:52.25 , end: 53.49, text: "puis aller tout droit." },
+  { start:54.03 , end: 55.27, text: "Passez devant l'hôpital," },
+  { start:55.27 , end: 58.45, text: "puis traversez la rue Rouge et la croisette est là." },
+  { start:59.67 , end: 60.13, text: "Merci," },
+  { start:60.13 , end: 60.51, text: "monsieur." },
+  ];
+    const updateCaption = (time) => {
+    const index = captions.findIndex(
+      (cap) => time >= cap.start && time <= cap.end
+    );
+    setActiveIndex(index !== -1 ? index : null);
+  };
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      setCurrent(0);
+    }
+  };
   return (
     <div className="page-wrapper1 flex flex-col items-center gap-6 p-6">
       {score && <ScoreCardEnhanced score={score} />}
@@ -497,7 +566,106 @@ const Page5_Q1_CleanAudio = () => {
         <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">D</span>
         <span style={{ color: "black" }} className="number-of-q">4</span>
 Réécoute l’exercice 3 et dessine le chemin.      </header>
+  {/* Audio Player */}
+      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <div className="audio-popup-read" style={{ width: "30%" }}>
+          <div className="audio-inner player-ui">
+            <audio
+              ref={audioRef}
+              src={CD6_Pg8_Instruction1_AdultLady}
+              onTimeUpdate={(e) => {
+                const time = e.target.currentTime;
+                setCurrent(time);
+                updateCaption(time);
+              }}
+              onLoadedMetadata={(e) => setDuration(e.target.duration)}
+            />
+            <div className="top-row">
+              <span className="audio-time">
+                {new Date(current * 1000).toISOString().substring(14, 19)}
+              </span>
+              <input
+                type="range"
+                className="audio-slider"
+                min="0"
+                max={duration}
+                value={current}
+                onChange={(e) => {
+                  audioRef.current.currentTime = e.target.value;
+                  updateCaption(Number(e.target.value));
+                }}
+                style={{
+                  background: `linear-gradient(to right, #430f68 ${
+                    (current / duration) * 100
+                  }%, #d9d9d9ff ${(current / duration) * 100}%)`,
+                }}
+              />
+              <span className="audio-time">
+                {new Date(duration * 1000).toISOString().substring(14, 19)}
+              </span>
+            </div>
 
+            <div className="bottom-row flex justify-between items-center">
+              {/* Captions */}
+              <div
+                className={`round-btn ${showCaption ? "active" : ""}`}
+                style={{ position: "relative" }}
+                onClick={() => setShowCaption(!showCaption)}
+              >
+                <TbMessageCircle size={36} />
+                <div
+                  className={`caption-inPopup ${showCaption ? "show" : ""}`}
+                  style={{ top: "100%", left: "10%" }}
+                >
+                  {captions.map((cap, i) => (
+                    <p
+                      key={i}
+                      id={`caption-${i}`}
+                      className={`caption-inPopup-line2 ${
+                        activeIndex === i ? "active" : ""
+                      }`}
+                    >
+                      {cap.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Play/Pause */}
+              <button className="play-btn2" onClick={togglePlay}>
+                {isPlaying ? <FaPause size={26} /> : <FaPlay size={26} />}
+              </button>
+
+              {/* Settings */}
+              <div className="settings-wrapper">
+                <button
+                  className={`round-btn ${showSettings ? "active" : ""}`}
+                  onClick={() => setShowSettings(!showSettings)}
+                >
+                  <IoMdSettings size={36} />
+                </button>
+                {showSettings && (
+                  <div className="settings-popup">
+                    <label>Volume</label>
+                    <input
+                      id="V"
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.05"
+                      value={volume}
+                      onChange={(e) => {
+                        setVolume(e.target.value);
+                        audioRef.current.volume = e.target.value;
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* 🖼️ الصور */}
       <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
         {/* LEFT */}

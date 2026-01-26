@@ -7,11 +7,11 @@ const Page5_Q1_CleanAudio = () => {
   const [current, setCurrent] = useState(0);
 
 const sentences = [
-  { id: "a", text: "Il y a 120 ans, Cannes était un village de pêcheurs." },
-  { id: "b", text: "L’autre nom de cette ville est « la soeur de Beverly Hills »." },
-  { id: "c", text: "La Croisette est l’endroit où vous pouvez voir tout Cannes." },
-  { id: "d", text: "Un festival de jazz est organisé dans le Palais des Festivals." },
-  { id: "e", text: "Le marché Foville est un marché des produits de la ferme." },
+  { id: "a", text: (<> Il y a 120 ans, Cannes était <br /> un village de pêcheurs.</>) },
+  { id: "b", text: (<>L’autre nom de cette ville est <br />« la soeur de Beverly Hills ».</>) },
+  { id: "c", text: (<> La Croisette est l’endroit <br /> où vous pouvez voir tout Cannes.</>) },
+  { id: "d", text: (<> Un festival de jazz est organisé <br /> dans le Palais des Festivals.</>)  },
+  { id: "e", text: (<> Le marché Foville est un marché <br /> des produits de la ferme.</>) },
   { id: "f", text: "La ratatouille est un plat de poisson." },
 
 ];

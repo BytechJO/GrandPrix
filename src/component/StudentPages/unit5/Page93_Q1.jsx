@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/P17Q1.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U5Audio/u5saq1.mp3";
 import imgBackground from "../../../assets/unite5pages/SVG/page93Q1.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
@@ -70,46 +70,31 @@ const inputPositions = [
 
 /* 🔴 الكابتشن */
 const captions = [
-   { start:4.9, end: 6.6, text: "Grand Prix A1" },
-  { start:6.6, end: 8.0, text: "Unité 1" },
-  { start:8.0, end: 8.9, text: "Se présenter" },
-  { start:9.7, end: 10.5, text: "Section D" },
-  { start:11.2, end: 12.2, text: "Ma nationalité" },
-  { start:13.2, end: 14.3, text: "Exercice 1" },
-  { start:15.0, end: 16.5, text: "Écoute, répète" },
-  { start:16.5, end: 17.6, text: "et place" },
-  { start:17.6, end: 18.2, text: "dans l'ordre." },
-  { start:20.2, end: 20.7, text: "A." },
-  { start:20.7, end: 21.4, text: "Je suis" },
-  { start:21.4, end: 22.3, text: "Sud-Africain." },
-  { start:23.0, end: 23.9, text: "Sud-Africaine." },
-  { start:25.8, end: 26.6, text: "B" },
-  { start:26.6, end: 28.3, text: "Je suis Canadien." },
-  { start:28.3, end: 29.0, text: "Canadienne." },
-  { start:30.4, end: 32.0, text: "C" },
-  { start:32.0, end: 33.2, text: "Je suis Indien." },
-  { start:33.7, end: 34.3, text: "Indienne." },
-  { start:36.6, end: 37.3, text: "D." },
-  { start:37.3, end: 37.9, text: "Je suis" },
-  { start:37.9, end: 38.6, text: "Américain," },
-  { start:39.2, end: 40.1, text: "Américaine" },
-  { start:41.1, end: 42.7, text: "E" },
-  { start:42.7, end: 43.4, text: "Je suis" },
-  { start:43.4, end: 44.0, text: "Finlandais," },
-  { start:44.8, end: 45.6, text: "Finlandaise." },
-  { start:46.9, end: 48.5, text: "F" },
-  { start:48.5, end: 48.9, text: "Je suis" },
-  { start:48.9, end: 49.6, text: "Australien" },
-  { start:50.1, end: 50.9, text: "Australienne." },
-  { start:52.5, end: 53.9, text: "G." },
-  { start:53.9, end: 54.8, text: "Je suis Français" },
-  { start:55.5, end: 56.3, text: "Française." },
-  { start:58.5, end: 59.1, text: "H" },
-  { start:59.1, end: 59.1, text: "Je suis" },
-  { start:60.9, end: 61.7, text: "Brésilien" },
-  { start:63.2, end: 64.5, text: "I." },
-  { start:64.5, end: 68.2, text: "Je suis Russe" },
-  { start:68.2, end: 69.4, text: "Je suis Chinoise." },
+  { start:5.1 , end: 6.7, text: "Grand prix A1" },
+  { start:6.7 , end: 9.8, text: "unité 5, les repas" },
+  { start:9.8 , end: 11.3, text: "section A" },
+  { start:11.3 , end: 13.25, text: "le petit-déjeuner" },
+  { start:13.25 , end: 15.14, text: "Exercice 1" },
+  { start:15.14 , end: 16.30, text: "Écoute" },
+  { start:16.30 , end: 18.7, text: "répète et écris le numéro" },
+  { start:18.7 , end: 19.6, text: "correspondant." },
+  { start:21.1 , end: 22.8, text: "A. Du café." },
+  { start:24.48 , end: 26.282, text: "B. Du beurre." },
+  { start:27.8 , end: 29.6, text: "C. Du jus d'orange" },
+  { start:31.6 , end: 32.7, text: "D. Du lait." },
+  { start:34.8 , end: 35.9, text: "E. Du pain." },
+  { start:37.5 , end: 39.9, text: "F. Du sucre." },
+  { start:39.9 , end: 42.8, text: "G. Du chocolat chaud." },
+  { start:44.3 , end: 46.3, text: "H. Du miel." },
+  { start:48.21 , end: 50.11, text: "I. Des céréales." },
+  { start:52.15 , end: 53.47, text: "J. Des croissants." },
+  { start:55.078 , end: 56.658, text: "K. Des fruits." },
+  { start:58.29 , end: 60.0, text: "L. Des toasts." },
+  { start:60.0 , end: 63.4, text: "M. Des tartines." },
+  { start:65.6 , end: 67.0, text: "N, du thé." },
+  { start:68.6 , end: 71.3, text: "O, un œuf à la coque." },
+  { start:71.3 , end: 74.2, text: "P, de la confiture." },
+
 
 ];
 
@@ -213,7 +198,7 @@ const handleInputChange = (index, value) => {
   return (
       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-        <header
+           <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -223,9 +208,9 @@ const handleInputChange = (index, value) => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#73C8D2" }}>D</span>{" "}
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
         <span className="number-of-q">1</span>{" "}
-        Écoute, répète et place dans l’ordre.
+      Écoute, répète et écris le numéro correspondant.
       </header>
       {/* 🔊 AUDIO PLAYER */}
       {/* AUDIO PLAYER */}

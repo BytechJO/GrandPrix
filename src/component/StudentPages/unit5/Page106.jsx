@@ -1,6 +1,7 @@
 import React from "react";
 import page_1 from "../../../assets/unite5pages/106.png"
-import page5_CD2 from "../../../assets/unit1/SoundU1/1.mp3";
+import page5_CD2 from "../../../assets/U5Audio/u5sde3.mp3";
+import page5_CD22 from "../../../assets/U5Audio/u5sdq4.mp3";
 import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
@@ -32,7 +33,44 @@ const Page5 = ({ openPopup }) => {
       <img src={page_1} alt="Page 5" style={{ display: "block", width: "100%" }} />
 
       {/* زر الصوت الأول */}
+                <div
+        id="CD-1-page5"
+        className="headset-icon-CD-page5 hover:scale-110 transition"
+        style={{
+          position: "absolute",
+          top: "5%", // عدّل حسب مكان الزر
+          left: "2%", // عدّل حسب مكان الزر
+          cursor: "pointer",
+          width: "50px", height: "50px",
+      
+        }}
+        onClick={() =>
+          openPopup(
+            "audio",
+            <AudioWithCaption src={page5_CD2}  captions={captionsExample} />
+          )
+        }
+      >
+      </div>
+                <div
+        id="CD-1-page5"
+        className="headset-icon-CD-page5 hover:scale-110 transition"
+        style={{
+          position: "absolute",
+          top: "58%", // عدّل حسب مكان الزر
+          left: "2%", // عدّل حسب مكان الزر
+          cursor: "pointer",
+          width: "50px", height: "50px",
      
+        }}
+        onClick={() =>
+          openPopup(
+            "audio",
+            <AudioWithCaption src={page5_CD22}  captions={captionsExample} />
+          )
+        }
+      >
+      </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
               style={{ overflow: "visible" , position:"absolute",top:"6.9%",left:"70.5%"  }}

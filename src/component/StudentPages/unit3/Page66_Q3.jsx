@@ -114,12 +114,10 @@ const labels = [
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
     <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
       >
-        <span style={{ backgroundColor: "#eaaa52", color: "#3fadb7" }} className="ex-A">Grammaire </span>
-        <span style={{ color: "black" }} className="number-of-q">3</span>
-       Écris l’âge de chaque personne. Utilise le verbe « avoir »
-      </header>
+        <span  style={{ backgroundColor: "#a4dce7", color:"#5e74b7" }} className="ex-A">Grammaire</span> <span style={{color:"black"}} className="number-of-q">3</span>Écris la profession des personnages.</header>
+    
 
    
       {score && <ScoreCardEnhanced score={score} />}
