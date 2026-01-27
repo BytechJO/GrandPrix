@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import img1 from "../../../assets/unite4pages/SVG/P81.svg";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
+
 const Page5_Q1_CleanAudio = () => {
   // === STATE ===
   const [answers, setAnswers] = useState({
-  a: "",
+    a: "",
     b: "",
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
   const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
@@ -25,39 +21,35 @@ const Page5_Q1_CleanAudio = () => {
     c: "",
     d: "",
     e: "",
-    f: "",
-    g: "",
-    h: "",
-    i: ""
-
+    f: ""
   });
 
   // === الإجابات النموذجية ===
-const correctAnswers = {
-    a: "Briançon est la plus haute ville d’Europe.",
-    b: "L’autre nom de Briançon est la « ville d’art et d’histoire ».",
-    c: "On la nomme ainsi parce que cette ville n’a pas changé depuis le 18e siècle.",
-    d: "Il le dit parce qu’on peut voir divers monuments et bâtiments historiques.",
-    e: "La cuisine est très connue et réputée pour son élégance et son goût raffiné.",
-    f: "C’est un steak avec une sauce rouge.",
-    g: "Le championn est un ingrédient principal de la salade panicaut.",
-    h: "La « foie gras » est le foie de l’oie.",
-    i: "Le « reblochon » est un fromage typique de la région.",
-};
+  const correctAnswers = {
+    a: "juin",
+    b: "automne",
+    c: "avril",
+    d: "novembre",
+    e: "vent",
+    f: "été",
+    g: "mai",
+    h: "décembre",
+
+  };
 
   // === النصوص الأصلية للأسئلة ===
-const questions = {
-  a: "Quelle est la plus haute ville de l’Europe ?",
-  b: "Quel est l’autre nom de Briançon ?",
-  c: "Pourquoi on nomme Briançon la « ville d’art et d’histoire » ?",
-  d: "Pourquoi l’auteur dit de faire une longue promenade ?",
-  e:"Qu’est-ce que tu peux dire à propos de la cuisine de Briançon ?",
-  f:"Qu’est-ce que « le boeuf à la gordienne » ?",
-  g:"Quel est l’ingrédient principal de la salade panicaut ?",
-  h:"Qu’est-ce que le « foie gras » ?",
-  i:"Qu’est-ce que le « reblochon » ?",
-};
+  const questions = {
+    a: "Deux mois de l’été qui commencent par « j ».",
+    b: "Une saison qui commence par « a ».",
+    c: "Un mois du printemps qui commence par « a ».",
+    d: "Un mois de l’automne qui commence par « n ».",
+    e: "Un mot qui décrit une condition métrologique et qui commence par « v ». ",
+    f: "Une saison qui commence par « é ».",
+    g: "Un mois qui se compose de trois lettres.",
+    h: "Un mois de l’hiver qui commence par « d ».",
+ 
 
+  };
 
   // ✅ HANDLE CHANGE
   const handleChange = (key, value) => {
@@ -163,38 +155,33 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-       <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-      >
-        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">C</span>
-        <span style={{ color: "black" }} className="number-of-q">9</span>
- Réponds aux questions.
-      </header>
-<div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>
-      {/* ✅ QUESTIONS */}
-     <div className="page5Q3">
-  {Object.keys(questions).map((key, index) => (
-  <div className="input-group" key={key}>
-    <label style={{ whiteSpace: "pre-line" }}>
-      <strong style={{ fontSize: "25px" }}>
-        {String.fromCharCode(97 + index)}{" "}
-      </strong>
-      {questions[key]}
-    </label>
+      <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#ca366b", color: "#white" }} className="ex-A">6</span>
+                <span style={{ color: "black" }} className="number-of-q">5</span>
+               Complète avec les mots qui conviennent.
+            </header>
 
-      <input
-        type="text"
-        value={answers[key]}
-        onChange={(e) => handleChange(key, e.target.value)}
-style={{ ...getInputStyle(key), width: "50%" }}
-        
-      />
-    </div>
-  ))}
-</div>
-<div className="spaces"></div>
+      {/* ✅ QUESTIONS */}
+      <div className="page5Q3" style={{marginLeft:"43%"}}>
+        {Object.keys(questions).map((key, index) => (
+          <div className="input-group" key={key}>
+            <label>
+              <strong style={{fontSize:"20px"}}>{String.fromCharCode(97 + index)} </strong>{questions[key]}
+            </label>
+            <input
+              type="text"
+              value={answers[key]}
+              onChange={(e) => handleChange(key, e.target.value)}
+              style={getInputStyle(key)}
+            />
+          </div>
+        ))}
+      </div>
    {score && <ScoreCardEnhanced score={score} />}
+   <div className="spaces"></div>
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>

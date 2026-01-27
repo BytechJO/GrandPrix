@@ -121,9 +121,9 @@ const sentences = [
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>A</span>
-        <span className="number-of-q">8</span>{" "}
-       Vrai (✔️ ) ou faux ( ✖️) ?
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>D</span>
+        <span className="number-of-q">4</span>
+        Vrai (✔️ ) ou faux ( ✖️) ?
       </header>
 
       {/* ✅ QUESTIONS LIST - تخطيط شبكي */}

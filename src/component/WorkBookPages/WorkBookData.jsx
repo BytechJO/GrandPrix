@@ -66,6 +66,20 @@ import WB_Unit5_Page32_Q8 from "./Unit5/WB_Unit5_Page32_Q8";
 import WB_Unit5_Page32_Q9 from "./Unit5/WB_Unit5_Page32_Q9";
 import WB_Unit5_Page33_Q10 from "./Unit5/WB_Unit5_Page33_Q10";
 import WB_Unit5_Page33_Q11 from "./Unit5/WB_Unit5_Page33_Q11";
+import WB_Unit6_Page34_Q1 from "./Unit6/WB_Unit6_Page34_Q1";
+import WB_Unit6_Page34_Q2 from "./Unit6/WB_Unit6_Page34_Q2";
+import WB_Unit6_Page34_Q3 from "./Unit6/WB_Unit6_Page34_Q3";
+import WB_Unit6_Page35_Q4 from "./Unit6/WB_Unit6_Page35_Q4";
+import WB_Unit6_Page35_Q5 from "./Unit6/WB_Unit6_Page35_Q5";
+import WB_Unit6_Page36_Q6 from "./Unit6/WB_Unit6_Page36_Q6";
+import WB_Unit6_Page36_Q7 from "./Unit6/WB_Unit6_Page36_Q7";
+import WB_Unit6_Page36_Q8 from "./Unit6/WB_Unit6_Page36_Q8";
+import WB_Unit6_Page37_Q9 from "./Unit6/WB_Unit6_Page37_Q9";
+import WB_Unit6_Page37_Q10 from "./Unit6/WB_Unit6_Page37_Q10";
+import WB_Unit6_Page38_Q11 from "./Unit6/WB_Unit6_Page38_Q11";
+import WB_Unit6_Page38_Q12 from "./Unit6/WB_Unit6_Page38_Q12";
+import WB_Unit6_Page39_Q13 from "./Unit6/WB_Unit6_Page39_Q13";
+import WB_Unit6_Page39_Q14 from "./Unit6/WB_Unit6_Page39_Q14";
 
 
 // import WB_Unit1_Page3_Q2 from "./Unit1/WB_Unit1_Page3_Q2";
@@ -149,6 +163,22 @@ export const workBookData = [
   { component: WB_Unit5_Page32_Q9, unit: 1 }, //0
   { component: WB_Unit5_Page33_Q10, unit: 1 }, //0
   { component: WB_Unit5_Page33_Q11, unit: 1 }, //0
+  { component: WB_Unit6_Page34_Q1, unit: 1 }, //0
+  { component: WB_Unit6_Page34_Q2, unit: 1 }, //0
+  { component: WB_Unit6_Page34_Q3, unit: 1 }, //0
+  { component: WB_Unit6_Page35_Q4, unit: 1 }, //0
+  { component: WB_Unit6_Page35_Q5, unit: 1 }, //0
+  { component: WB_Unit6_Page36_Q6, unit: 1 }, //0
+  { component: WB_Unit6_Page36_Q7, unit: 1 }, //0
+  { component: WB_Unit6_Page36_Q8, unit: 1 }, //0
+  { component: WB_Unit6_Page37_Q9, unit: 1 }, //0
+  { component: WB_Unit6_Page37_Q10, unit: 1 }, //0
+  { component: WB_Unit6_Page38_Q11, unit: 1 }, //0
+  { component: WB_Unit6_Page38_Q12, unit: 1 }, //0
+  { component: WB_Unit6_Page39_Q13, unit: 1 }, //0
+  { component: WB_Unit6_Page39_Q14, unit: 1 }, //0
+
+
 
 
 //   { component: WB_Unit1_Page3_Q2, unit: 1 }, //1

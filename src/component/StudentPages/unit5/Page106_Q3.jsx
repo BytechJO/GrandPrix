@@ -3,7 +3,7 @@ import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
 import img1 from "../../../assets/unite5pages/SVG/page106.svg";
 import "../unit1/CSSPAGE/Q11.css";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2ScQ3.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U5Audio/u5sde3.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -31,82 +31,79 @@ const Page5_Q1_CleanAudio = () => {
     }
   };
   const captions = [
-    { start: 5.2, end: 6.9, text: "Grand prix A1," },
-    { start: 6.9, end: 8.0, text: "unité 2," },
-    { start: 8.5, end: 9.3, text: "à l'école," },
-    { start: 10.1, end: 10.9, text: "section C." },
-    { start: 11.8, end: 13.0, text: "Lundi, c'est" },
-    { start: 13.0, end: 14.6, text: "exercice 3." },
-    { start: 15.4, end: 16.0, text: "Écoute la" },
-    { start: 16.0, end: 16.6, text: "conversation" },
-    { start: 16.6, end: 17.7, text: "entre Carole" },
-    { start: 17.7, end: 18.2, text: "et Jenna." },
-    { start: 19.1, end: 19.9, text: "Complète le" },
-    { start: 19.9, end: 20.8, text: "dialogue en" },
-    { start: 20.8, end: 21.7, text: "utilisant les" },
-    { start: 21.7, end: 23.4, text: "mots proposés." },
-    { start: 24.4, end: 26.6, text: "Bonjour Jenna," },
-    { start: 26.6, end: 28.2, text: "comment ça va ?" },
-    { start: 28.2, end: 29.6, text: "Salut Carole," },
-    { start: 29.6, end: 30.3, text: "ça va bien ?" },
-    { start: 30.3, end: 31.7, text: "Merci, et toi ?" },
-    { start: 31.7, end: 33.8, text: "Bien, tu as vu" },
-    { start: 33.8, end: 34.4, text: "notre emploi" },
-    { start: 34.4, end: 35.1, text: "du temps ?" },
-    { start: 35.9, end: 36.4, text: "Non, on peut" },
-    { start: 36.4, end: 36.8, text: "aller voir." },
-    { start: 38.0, end: 38.6, text: "Oui, bien sûr." },
-    { start: 40.1, end: 40.8, text: "Nous n'avons" },
-    { start: 40.8, end: 41.2, text: "pas beaucoup" },
-    { start: 41.2, end: 41.8, text: "de leçons de" },
-    { start: 41.8, end: 42.3, text: "technologie." },
-    { start: 42.9, end: 43.4, text: "J'aime beaucoup" },
-    { start: 43.4, end: 44.1, text: "le prof." },
-    { start: 44.1, end: 46.0, text: "Oui, c'est vrai." },
-    { start: 46.0, end: 46.4, text: "Nous avons" },
-    { start: 46.4, end: 47.0, text: "maths chaque" },
-    { start: 47.0, end: 47.6, text: "jour, sauf" },
-    { start: 47.6, end: 48.8, text: "le mercredi." },
-    { start: 48.8, end: 49.5, text: "Le prof de maths" },
-    { start: 49.5, end: 50.2, text: "pose beaucoup" },
-    { start: 50.2, end: 51.1, text: "de questions." },
-    { start: 51.1, end: 51.5, text: "J'aime ça." },
-    { start: 53.0, end: 53.6, text: "Mon Dieu," },
-    { start: 53.6, end: 54.0, text: "combien de cours" },
-    { start: 54.0, end: 55.2, text: "d'anglais ?" },
-    { start: 55.2, end: 56.6, text: "Un, deux, trois." },
-    { start: 56.6, end: 57.4, text: "Magnifique," },
-    { start: 57.4, end: 58.0, text: "c'est ma matière" },
-    { start: 58.0, end: 59.0, text: "préférée." },
-    { start: 59.0, end: 59.3, text: "Quelle est" },
-    { start: 59.3, end: 59.6, text: "ta matière" },
-    { start: 59.6, end: 60.4, text: "préférée ?" },
-    { start: 61.1, end: 61.7, text: "Ma matière" },
-    { start: 61.7, end: 62.5, text: "préférée," },
-    { start: 62.5, end: 62.9, text: "c'est l'art." },
-    { start: 63.5, end: 63.7, text: "Mais" },
-    { start: 63.7, end: 64.7, text: "malheureusement," },
-    { start: 64.7, end: 65.0, text: "nous n'avons" },
-    { start: 65.0, end: 65.5, text: "pas beaucoup" },
-    { start: 65.5, end: 66.0, text: "de cours." },
-    { start: 67.1, end: 67.8, text: "Nous avons aussi" },
-    { start: 67.8, end: 68.2, text: "des cours de" },
-    { start: 68.2, end: 68.7, text: "physique," },
-    { start: 68.7, end: 70.0, text: "d'EPS et de SVT." },
-    { start: 70.0, end: 70.2, text: "Qu'est-ce que" },
-    { start: 70.2, end: 72.6, text: "c'est la SVT ?" },
-    { start: 72.6, end: 73.8, text: "SVT, ça veut" },
-    { start: 73.8, end: 74.4, text: "dire Science" },
-    { start: 74.4, end: 75.2, text: "de la Vie et" },
-    { start: 75.2, end: 75.8, text: "de la Terre." },
-    { start: 77.1, end: 78.1, text: "Mon Dieu !" },
-    { start: 78.1, end: 78.7, text: "Nous avons les" },
-    { start: 78.7, end: 79.2, text: "nouvelles leçons" },
-    { start: 79.2, end: 81.1, text: "d'espagnol !" },
-    { start: 81.1, end: 82.1, text: "Oui, je sais," },
-    { start: 82.1, end: 82.4, text: "le prof" },
-    { start: 82.4, end: 83.4, text: "n'est pas bon." },
-    { start: 83.4, end: 84.2, text: "Il est exigeant." },
+    { start: 5.44, end: 6.40, text: "Rempris à un," },
+  { start: 7.07, end: 8.44, text: "unité 5," },
+  { start: 8.80, end: 9.44, text: "les repas." },
+
+  { start: 10.91, end: 11.48, text: "Section D," },
+  { start: 12.29, end: 12.96, text: "au restaurant." },
+  { start: 14.24, end: 15.32, text: "Exercice 3." },
+
+  { start: 15.87, end: 16.94, text: "Écoute et" },
+  { start: 17.04, end: 18.56, text: "complète le dialogue en" },
+  { start: 18.56, end: 20.16, text: "utilisant les mots proposés." },
+
+  { start: 22.27, end: 23.02, text: "Bonjour mesdames," },
+  { start: 23.36, end: 24.28, text: "bienvenue à Dupois." },
+
+  { start: 25.84, end: 26.06, text: "Bonjour," },
+  { start: 26.30, end: 27.80, text: "pouvez-vous nous apporter le menu ?" },
+
+  { start: 29.18, end: 29.96, text: "Avez-vous choisi ?" },
+
+  { start: 31.06, end: 31.26, text: "Oui," },
+  { start: 31.54, end: 32.06, text: "comme entrée," },
+  { start: 32.06, end: 33.38, text: "je voudrais une salade verte." },
+
+  { start: 33.76, end: 34.12, text: "Et toi," },
+  { start: 34.12, end: 34.78, text: "Nicolette ?" },
+
+  { start: 35.82, end: 37.04, text: "Je ne mange pas assez de légumes," },
+  { start: 37.04, end: 37.70, text: "alors je voudrais une" },
+  { start: 37.70, end: 38.78, text: "salade de chèvre chaud." },
+
+  { start: 39.97, end: 40.52, text: "Bien sûr." },
+
+  { start: 40.93, end: 41.60, text: "Qu'est-ce que vous voulez" },
+  { start: 41.60, end: 42.58, text: "comme plat principal ?" },
+
+  { start: 42.58, end: 44.64, text: "Je ne mange pas" },
+  { start: 44.64, end: 45.38, text: "beaucoup de poissons," },
+  { start: 45.64, end: 46.60, text: "donc je voudrais le poisson." },
+
+  { start: 48.16, end: 49.58, text: "Moi, j'ai mangé trop de poissons hier," },
+  { start: 49.58, end: 50.92, text: "donc je voudrais la viande." },
+
+  { start: 52.10, end: 52.66, text: "La viande," },
+  { start: 52.66, end: 52.73, text: "oui." },
+
+  { start: 53.58, end: 55.16, text: "Voulez-vous boire quelque chose ?" },
+
+  { start: 55.16, end: 57.22, text: "De l'eau minérale," },
+  { start: 57.22, end: 57.82, text: "s'il vous plaît." },
+
+  { start: 58.88, end: 59.98, text: "Je préfère un jus d'orange." },
+
+  { start: 61.24, end: 61.52, text: "C'est tout ?" },
+  { start: 62.64, end: 63.20, text: "Oui, merci." },
+
+  { start: 63.68, end: 64.00, text: "C'est tout." },
+
+  { start: 64.83, end: 65.49, text: "Qu'est-ce" },
+  { start: 65.51, end: 66.67, text: "que vous voulez comme dessert ?" },
+
+  { start: 68.03, end: 68.79, text: "Je voudrais un peu de" },
+  { start: 68.79, end: 69.69, text: "glace à la vanille." },
+
+  { start: 70.81, end: 71.03, text: "Moi," },
+  { start: 71.03, end: 71.87, text: "je voudrais une mousse au" },
+  { start: 71.87, end: 72.75, text: "chocolat et un café." },
+
+  { start: 73.89, end: 74.43, text: "L'addition," },
+  { start: 74.43, end: 74.97, text: "s'il vous plaît." },
+
+  { start: 76.00, end: 76.23, text: "Oui," },
+  { start: 76.23, end: 76.85, text: "tout de suite." }
   ];
   const updateCaption = (time) => {
     const index = captions.findIndex(
@@ -256,7 +253,7 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+       <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -266,15 +263,10 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span style={{ backgroundColor: "#df4f89" }} className="ex-A">
-          C
-        </span>{" "}
-        <span style={{ color: "black" }} className="number-of-q">
-          3
-        </span>
-        Écoute la conversation entre Carole et Jenna. Complète le dialogue{" "}
-        <br /> en utilisant lesmots proposés.
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>D</span>
+        <span className="number-of-q">3</span>{" "}
+      Écoute et complète le dialogue en utilisant les mots proposés.
+    </header>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">
