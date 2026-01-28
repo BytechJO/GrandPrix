@@ -38,6 +38,18 @@ import WB_Unit6_Page36 from "../WorkBookPages/Unit6/WB_Unit6_Page36";
 import WB_Unit6_Page37 from "../WorkBookPages/Unit6/WB_Unit6_Page37";
 import WB_Unit6_Page38 from "../WorkBookPages/Unit6/WB_Unit6_Page38";
 import WB_Unit6_Page39 from "../WorkBookPages/Unit6/WB_Unit6_Page39";
+import WB_Unit6_Page40 from "../WorkBookPages/Unit7/WB_Unit7_Page40";
+import WB_Unit6_Page41 from "../WorkBookPages/Unit7/WB_Unit7_Page41";
+import WB_Unit6_Page42 from "../WorkBookPages/Unit7/WB_Unit7_Page42";
+import WB_Unit6_Page43 from "../WorkBookPages/Unit7/WB_Unit7_Page43";
+import WB_Unit6_Page44 from "../WorkBookPages/Unit7/WB_Unit7_Page44";
+import WB_Unit6_Page45 from "../WorkBookPages/Unit7/WB_Unit7_Page45";
+import WB_Unit6_Page46 from "../WorkBookPages/Unit7/WB_Unit7_Page46";
+import WB_Unit6_Page47 from "../WorkBookPages/Unit7/WB_Unit7_Page47";
+import WB_Unit6_Page48 from "../WorkBookPages/Unit7/WB_Unit7_Page48";
+import WB_Unit6_Page49 from "../WorkBookPages/Unit7/WB_Unit7_Page49";
+import WB_Unit6_Page50 from "../WorkBookPages/Unit7/WB_Unit7_Page50";
+import WB_Unit6_Page51 from "../WorkBookPages/Unit7/WB_Unit7_Page51";
 
 
 export const workbookPages = (openPopup) => [
@@ -81,6 +93,18 @@ export const workbookPages = (openPopup) => [
   <WB_Unit6_Page37 openPopup={openPopup} />,
   <WB_Unit6_Page38 openPopup={openPopup} />,
   <WB_Unit6_Page39 openPopup={openPopup} />,
+  <WB_Unit6_Page40 openPopup={openPopup} />,
+  <WB_Unit6_Page41 openPopup={openPopup} />,
+  <WB_Unit6_Page42 openPopup={openPopup} />,
+  <WB_Unit6_Page43 openPopup={openPopup} />,
+  <WB_Unit6_Page44 openPopup={openPopup} />,
+  <WB_Unit6_Page45 openPopup={openPopup} />,
+  <WB_Unit6_Page46 openPopup={openPopup} />,
+  <WB_Unit6_Page47 openPopup={openPopup} />,
+  <WB_Unit6_Page48 openPopup={openPopup} />,
+  <WB_Unit6_Page49 openPopup={openPopup} />,
+  <WB_Unit6_Page50 openPopup={openPopup} />,
+  <WB_Unit6_Page51 openPopup={openPopup} />,
 
 
  

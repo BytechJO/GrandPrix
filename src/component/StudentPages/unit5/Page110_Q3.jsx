@@ -168,12 +168,17 @@ const Page5_Q1_CleanAudio = () => {
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
       <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span style={{ backgroundColor: "#73C8D2" }} className="ex-A">C</span>{" "}
-        <span style={{ color: "black" }} className="number-of-q">5</span>
-        Écoute encore une fois. Note les informations correctes (✔️).
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
+        <span className="number-of-q">3</span>
+Complète la lettre.</header>
 
      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                 <div className="audio-popup-read" style={{ width: "30%" }}>

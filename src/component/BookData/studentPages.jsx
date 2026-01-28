@@ -130,7 +130,31 @@ import Page110 from "../StudentPages/unit5/Page110"
 import Page111 from "../StudentPages/unit5/Page111"
 import Page112 from "../StudentPages/unit5/Page112"
 import Page113 from "../StudentPages/unit5/Page113"
-
+// ========================================================================
+//                             unit6
+// ======================================================================== 
+import Page114 from "../StudentPages/unit6/Page114"
+import Page115 from "../StudentPages/unit6/Page115"
+import Page116 from "../StudentPages/unit6/Page116"
+import Page117 from "../StudentPages/unit6/Page117"
+import Page118 from "../StudentPages/unit6/Page118"
+import Page119 from "../StudentPages/unit6/Page119"
+import Page120 from "../StudentPages/unit6/Page120"
+import Page121 from "../StudentPages/unit6/Page121"
+import Page122 from "../StudentPages/unit6/Page122"
+import Page123 from "../StudentPages/unit6/Page123"
+import Page124 from "../StudentPages/unit6/Page124"
+import Page125 from "../StudentPages/unit6/Page125"
+import Page126 from "../StudentPages/unit6/Page126"
+import Page127 from "../StudentPages/unit6/Page127"
+import Page128 from "../StudentPages/unit6/Page128"
+import Page129 from "../StudentPages/unit6/Page129"
+import Page130 from "../StudentPages/unit6/Page130"
+import Page131 from "../StudentPages/unit6/Page131"
+import Page132 from "../StudentPages/unit6/Page132"
+import Page133 from "../StudentPages/unit6/Page133"
+import Page134 from "../StudentPages/unit6/Page134"
+import Page135 from "../StudentPages/unit6/Page135"
 
 export const studentPages = (openPopup, goToUnit) =>  [
   <Page1 />,
@@ -246,7 +270,29 @@ export const studentPages = (openPopup, goToUnit) =>  [
   <Page111 openPopup={openPopup}/>,
   <Page112 openPopup={openPopup}/>,
   <Page113 openPopup={openPopup}/>,
- 
+  <Page114 openPopup={openPopup}/>,
+  <Page115 openPopup={openPopup}/>,
+  <Page116 openPopup={openPopup}/>,
+  <Page117 openPopup={openPopup}/>,
+  <Page118 openPopup={openPopup}/>,
+  <Page119 openPopup={openPopup}/>,
+  <Page120 openPopup={openPopup}/>,
+  <Page121 openPopup={openPopup}/>,
+  <Page122 openPopup={openPopup}/>,
+  <Page123 openPopup={openPopup}/>,
+  <Page124 openPopup={openPopup}/>,
+  <Page125 openPopup={openPopup}/>,
+  <Page126 openPopup={openPopup}/>,
+  <Page127 openPopup={openPopup}/>,
+  <Page128 openPopup={openPopup}/>,
+  <Page129 openPopup={openPopup}/>,
+  <Page130 openPopup={openPopup}/>,
+  <Page131 openPopup={openPopup}/>,
+  <Page132 openPopup={openPopup}/>,
+  <Page133 openPopup={openPopup}/>,
+  <Page134 openPopup={openPopup}/>,
+  <Page135 openPopup={openPopup}/>,
+
 
 
 

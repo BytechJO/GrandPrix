@@ -126,12 +126,19 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-         <header
+      <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span  style={{ backgroundColor: "#a4dce7", color:"#5e74b7" }} className="ex-A">DELF</span> <span style={{color:"black"}} className="number-of-q">1</span> Écoute le message et réponds aux questions. Coche la bonne réponse. <br />
-Chaque réponse correcte vaut 2,4 points.</header>
+        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>DELF</span>
+        <span className="number-of-q">5</span>
+COMPRÉHENSION DE L’ORAL      </header>
     
       
 

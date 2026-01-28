@@ -264,12 +264,20 @@ const resetExercise = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+ <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span  style={{ backgroundColor: "#5e74b7" }} className="ex-A">A</span> <span style={{color:"black"}} className="number-of-q">6</span> Écoute la présentation de la
-famille de Ray. Complète le texte.</header>
+        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
+        <span className="number-of-q">2</span>
+      Écris les verbes au présent.
+      </header>
  <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">

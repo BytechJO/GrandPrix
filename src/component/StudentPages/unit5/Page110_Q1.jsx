@@ -153,13 +153,19 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+         <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span style={{backgroundColor:"#de4484"}} className="ex-A">2</span> <span style={{color:"black"}} className="number-of-q">9</span>
-
-Complète les phrases.
+        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
+        <span className="number-of-q">1</span>
+       Réponds aux questions par des phrases complètes. <br /> Utilise « Il y a » ou « Il n’y a pas ».
       </header>
 
       {/* ✅ QUESTIONS */}
