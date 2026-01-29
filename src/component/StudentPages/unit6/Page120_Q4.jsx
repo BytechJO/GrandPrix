@@ -141,13 +141,19 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
      <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+         <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color:"black", marginTop:"5%", fontSize:"25px", fontWeight:"bold" }}
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span style={{backgroundColor:"#73C8D2"}} className="ex-A">4</span> 
-        <span style={{color:"black"}} className="number-of-q">Écoute et entoure la bonne réponse.</span>
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>B</span>
+        <span className="number-of-q">4</span>{" "}
+Écoute et entoure la bonne réponse.    </header>
 
       {/* ================= حوار التمرين ================= */}
       <div className="dialogue-exercise w-full max-w-3xl bg-white p-6 rounded-lg shadow-lg">

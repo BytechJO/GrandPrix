@@ -14,7 +14,7 @@ const WB_Unit1_Page1 = ({openPopup}) => {
  {/* زر التمرين 2 */}
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"6.7%",left:"36%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"6.7%",left:"53%"  }}
       >
         <svg
           width="22"
@@ -36,7 +36,29 @@ const WB_Unit1_Page1 = ({openPopup}) => {
       </div>
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"53.5%",left:"27.5%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"33.5%",left:"28.5%"  }}
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 90 90"
+          onClick={() => openPopup("exercise", { startIndex: 81})}
+          style={{ overflow: "visible" }}
+        >
+          <image
+            className="svg-img"
+            href={arrowBtn}
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid meet"
+          />
+        </svg>
+      </div>
+      <div
+        className="wb-unit1-p3-q2 hover:scale-110 transition"
+      style={{ overflow: "visible" , position:"absolute",top:"62.5%",left:"37.5%"  }}
       >
         <svg
           width="22"

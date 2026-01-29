@@ -14,7 +14,7 @@ const WB_Unit1_Page1 = ({openPopup}) => {
  {/* زر التمرين 2 */}
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"6.7%",left:"36%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"6.7%",left:"52.5%"  }}
       >
         <svg
           width="22"
@@ -36,7 +36,7 @@ const WB_Unit1_Page1 = ({openPopup}) => {
       </div>
       <div
         className="wb-unit1-p3-q2 hover:scale-110 transition"
-      style={{ overflow: "visible" , position:"absolute",top:"53.5%",left:"27.5%"  }}
+      style={{ overflow: "visible" , position:"absolute",top:"48.5%",left:"38.5%"  }}
       >
         <svg
           width="22"

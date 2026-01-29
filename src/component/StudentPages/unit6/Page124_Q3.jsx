@@ -138,20 +138,18 @@ const Page5_Q1_CleanAudio = () => {
         <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
             {/* Header */}
             <header
-                className="header-title-page1 w-full text-left mb-4"
-                style={{
-                    marginLeft: "42%",
-                    color: "black",
-                    marginTop: "5%",
-                    fontSize: "25px",
-                    fontWeight: "bold",
-                }}
-            >
-                <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>D</span>
-                <span className="number-of-q">4</span>
-                Écoute et écris l’information
-                manquante.
-            </header>
+        className="header-title-page1 w-full text-left mb-4"
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
+      >
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>c</span>
+        <span className="number-of-q">3</span>{" "}
+Écoute le dialogue et écris l’information manquante.  </header>
 
             {/* Audio Player */}
             <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>

@@ -117,10 +117,9 @@ const Page5_Q2_SAppeler = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>A</span>
-        <span className="number-of-q">4</span>{" "}
-      Complète les phrases.
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>B</span>
+        <span className="number-of-q">5</span>{" "}
+Écoute le reste de la conversation et complète les phrases.   </header>
 
       {/* ================= QUESTIONS ================= */}
       <div className="page22Q1" style={{marginLeft:"0%"}}>

@@ -122,7 +122,7 @@ const sentences = [
   return (
   <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* العنوان الرئيسي */}
-        <header
+         <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -132,11 +132,9 @@ const sentences = [
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>C</span>
-        <span className="number-of-q">6</span>{" "}
-          Vrai (✔️ ) ou faux ( ✖️) ?
-    </header>
-
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>B</span>
+        <span className="number-of-q">8</span>{" "}
+  Vrai (✔️ ) ou faux ( ✖️) ?   </header>
       {/* ✅ QUESTIONS LIST - تخطيط شبكي */}
       <div className="page50Q5-questions-grid">
         {sentences.map((sentence) => {

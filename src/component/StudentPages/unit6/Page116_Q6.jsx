@@ -249,7 +249,7 @@ const Page5_Q1_CleanAudio = () => {
   /* ================= JSX ================= */
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+         <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -259,10 +259,9 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#f38180" }}>D</span>
-        <span className="number-of-q">4</span>
-        Écoute et écris la bonne réponse.
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>A</span>
+        <span className="number-of-q">6</span>{" "}
+Écoute et écris la bonne réponse.    </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
