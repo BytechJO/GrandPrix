@@ -157,13 +157,13 @@ const resetExercise = () => {
 
   return (
  <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-     <header
+      <header
                 className="header-title-page1 w-full text-left mb-4"
                 style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
             >
-                <span style={{ backgroundColor: "#ca366b", color: "#white" }} className="ex-A">6</span>
-                <span style={{ color: "black" }} className="number-of-q">11</span>
-             Complète les phrases avec les verbes entre parenthèses.
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">7</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+             Complète les phrases.
             </header>
 
       {/* ✅ QUESTIONS */}

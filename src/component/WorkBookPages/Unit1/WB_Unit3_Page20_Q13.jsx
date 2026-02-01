@@ -167,7 +167,7 @@ const resetExercise = () => {
         }}
       >
         <span className="ex-A" style={{ backgroundColor: "#5e74b7" }}>3</span>
-        <span className="number-of-q">1</span>
+        <span className="number-of-q">13</span>
        Écris les phrases en utilisant le verbe « être ». Réfléchis si tu as le besoin de <br />
 l’article ou non.
       </header>

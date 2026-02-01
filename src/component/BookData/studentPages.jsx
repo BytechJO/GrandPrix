@@ -156,6 +156,34 @@ import Page133 from "../StudentPages/unit6/Page133"
 import Page134 from "../StudentPages/unit6/Page134"
 import Page135 from "../StudentPages/unit6/Page135"
 
+
+// ========================================================================
+//                             unit7
+// ======================================================================== 
+import Page136 from "../StudentPages/unit7/Page136"
+import Page137 from "../StudentPages/unit7/Page137"
+import Page138 from "../StudentPages/unit7/Page138"
+import Page139 from "../StudentPages/unit7/Page139"
+import Page140 from "../StudentPages/unit7/Page140"
+import Page141 from "../StudentPages/unit7/Page141"
+import Page142 from "../StudentPages/unit7/Page142"
+import Page143 from "../StudentPages/unit7/Page143"
+import Page144 from "../StudentPages/unit7/Page144"
+import Page145 from "../StudentPages/unit7/Page145"
+import Page146 from "../StudentPages/unit7/Page146"
+import Page147 from "../StudentPages/unit7/Page147"
+import Page148 from "../StudentPages/unit7/Page148"
+import Page149 from "../StudentPages/unit7/Page149"
+import Page150 from "../StudentPages/unit7/Page150"
+import Page151 from "../StudentPages/unit7/Page151"
+import Page152 from "../StudentPages/unit7/Page152"
+import Page153 from "../StudentPages/unit7/Page153"
+import Page154 from "../StudentPages/unit7/Page154"
+import Page155 from "../StudentPages/unit7/Page155"
+import Page156 from "../StudentPages/unit7/Page156"
+import Page157 from "../StudentPages/unit7/Page157"
+
+
 export const studentPages = (openPopup, goToUnit) =>  [
   <Page1 />,
   <Page2 goToUnit={goToUnit} />,
@@ -292,6 +320,28 @@ export const studentPages = (openPopup, goToUnit) =>  [
   <Page133 openPopup={openPopup}/>,
   <Page134 openPopup={openPopup}/>,
   <Page135 openPopup={openPopup}/>,
+  <Page136 openPopup={openPopup}/>,
+  <Page137 openPopup={openPopup}/>,
+  <Page138 openPopup={openPopup}/>,
+  <Page139 openPopup={openPopup}/>,
+  <Page140 openPopup={openPopup}/>,
+  <Page141 openPopup={openPopup}/>,
+  <Page142 openPopup={openPopup}/>,
+  <Page143 openPopup={openPopup}/>,
+  <Page144 openPopup={openPopup}/>,
+  <Page145 openPopup={openPopup}/>,
+  <Page146 openPopup={openPopup}/>,
+  <Page147 openPopup={openPopup}/>,
+  <Page148 openPopup={openPopup}/>,
+  <Page149 openPopup={openPopup}/>,
+  <Page150 openPopup={openPopup}/>,
+  <Page151 openPopup={openPopup}/>,
+  <Page152 openPopup={openPopup}/>,
+  <Page153 openPopup={openPopup}/>,
+  <Page154 openPopup={openPopup}/>,
+  <Page155 openPopup={openPopup}/>,
+  <Page156 openPopup={openPopup}/>,
+  <Page157 openPopup={openPopup}/>,
 
 
 

@@ -271,18 +271,11 @@ const MatchingWithCanvas = () => {
     >
       <header
         className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold"
-        }}
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{ backgroundColor: "#ce5b66" }} className="ex-A">6</span>
-        <span className="number-of-q">14</span>
-        Trouve les paires.
-      </header>
+        <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">7</span>
+        <span style={{ color: "black" }} className="number-of-q">3</span>
+        Trouve les paires.            </header>
 
       <div className="matching-columns" style={{ display: "flex", gap: "220px" }}>
         <div className="left-column" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
@@ -291,11 +284,10 @@ const MatchingWithCanvas = () => {
               key={item}
               ref={(el) => (leftRefs.current[i] = el)}
               onMouseDown={handleMouseDown("left", i)}
-              className={`item-box ${
-                checkedConnections?.some(
-                  (c) => c.fromIndex === i && !c.isCorrect
-                ) ? "wrong-box" : ""
-              }`}
+              className={`item-box ${checkedConnections?.some(
+                (c) => c.fromIndex === i && !c.isCorrect
+              ) ? "wrong-box" : ""
+                }`}
             >
               {item}
             </div>
@@ -315,11 +307,10 @@ const MatchingWithCanvas = () => {
               key={item}
               ref={(el) => (rightRefs.current[i] = el)}
               onMouseUp={handleMouseUp("right", i)}
-              className={`item-box ${
-                checkedConnections?.some(
-                  (c) => c.toIndex === i && !c.isCorrect
-                ) ? "wrong-box" : ""
-              }`}
+              className={`item-box ${checkedConnections?.some(
+                (c) => c.toIndex === i && !c.isCorrect
+              ) ? "wrong-box" : ""
+                }`}
             >
               {item}
             </div>
@@ -328,7 +319,7 @@ const MatchingWithCanvas = () => {
       </div>
 
       {score && <ScoreCardEnhanced score={score} />}
-<div className="spaces"></div>
+      <div className="spaces"></div>
       <div className="action-buttons-container" style={{ marginTop: "30px" }}>
         <button onClick={resetExercise} className="try-again-button">
           Recommencer ↻
