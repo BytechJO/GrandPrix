@@ -1,5 +1,5 @@
 import React, { useState,useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SAQ1.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U7Audio/u7saq4.mp3";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
 import { FaPlay, FaPause } from "react-icons/fa";
@@ -30,67 +30,39 @@ const Page5_Q2_SAppeler = () => {
   });
   const [score, setScore] = useState(null);
  const captions = [
-   { start:5.4 , end: 6.2, text: "Grand prix" },
-  { start:6.2 , end: 8.4, text: "A1, unité 3." },
-  { start:8.4 , end: 8.9, text: "Sous le" },
-  { start:8.9 , end: 9.6, text: "même toit." },
-  { start:10.2 , end: 11.1, text: "Section A." },
-  { start:11.7 , end: 12.5, text: "Ma famille." },
-  { start:13.1 , end: 14.5, text: "Exercice 6." },
-  { start:15.1 , end: 15.7, text: "Écoute la" },
-  { start:15.7 , end: 16.6, text: "présentation" },
-  { start:16.6 , end: 16.8, text: "de la" },
-  { start:16.8 , end: 17.8, text: "famille de Rey." },
-  { start:18.3 , end: 18.8, text: "Complète" },
-  { start:18.8 , end: 19.4, text: "le texte." },
-  { start:21.7 , end: 22.4, text: "Salut à tous," },
-  { start:23.0 , end: 23.4, text: "c'est mon" },
-  { start:23.4 , end: 24.1, text: "ami Daniel." },
-  { start:25.5 , end: 26.2, text: "Bonjour." },
-  { start:27.1 , end: 27.6, text: "Je veux te" },
-  { start:27.6 , end: 28.1, text: "présenter" },
-  { start:28.1 , end: 28.7, text: "ma famille." },
-  { start:29.5 , end: 30.1, text: "Tu connais déjà" },
-  { start:30.1 , end: 31.3, text: "mon père ?" },
-  { start:31.3 , end: 32.2, text: "C'est ma mèr" },
-  { start:32.2 , end: 35.5, text: "Michelle." },
-  { start:35.5 , end: 34.0, text: "Voici mon" },
-  { start:34.0 , end: 34.9, text: "grand-père," },
-  { start:34.9 , end: 35.5, text: "Pascal." },
-  { start:36.7 , end: 37.3, text: "Ma grand-mère" },
-  { start:37.3 , end: 37.7, text: "s'appelle" },
-  { start:37.7 , end: 38.8, text: "Viviane." },
-  { start:38.8 , end: 39.2, text: "Où est ma" },
-  { start:39.2 , end: 39.8, text: "grand-mère ?" },
-  { start:41.0 , end: 41.5, text: "Ta grand-mère" },
-  { start:41.5 , end: 42.1, text: "est allée à la" },
-  { start:42.1 , end: 42.7, text: "pâtisserie." },
-  { start:42.7 , end: 43.2, text: "Elle voulait" },
-  { start:43.2 , end: 43.5, text: "acheter" },
-  { start:43.5 , end: 44.2, text: "quelque chose." },
-  { start:45.5 , end: 47.0, text: "Bon, j'ai aussi" },
-  { start:47.0 , end: 47.9, text: "deux sœurs." },
-  { start:47.9 , end: 48.6, text: "Elles s'appellent" },
-  { start:48.6 , end: 49.8, text: "Belle et Bête." },
-  { start:50.4 , end: 50.9, text: "Elles sont" },
-  { start:50.9 , end: 52.1, text: "jumelles." },
-  { start:52.1 , end: 52.5, text: "Elles sont" },
-  { start:52.5 , end: 52.9, text: "peut-être à" },
-  { start:52.9 , end: 53.4, text: "leur club." },
-  { start:54.2 , end: 54.9, text: "Belle aime la" },
-  { start:54.9 , end: 56.0, text: "natation et" },
-  { start:56.0 , end: 56.9, text: "Bête aime la" },
-  { start:56.9 , end: 57.5, text: "sculpture" },
-  { start:58.0 , end: 58.3, text: "Tu les" },
-  { start:58.3 , end: 58.9, text: "rencontreras" },
-  { start:58.9 , end: 60.5, text: "plus tard." },
-  { start:60.5 , end: 61.4, text: "Bien sûr, ça" },
-  { start:61.4 , end: 62.2, text: "me fait plaisir" },
-  { start:62.2 , end: 62.5, text: "de tous" },
-  { start:62.5 , end: 63.2, text: "vous connaître." },
-  { start:64.4 , end: 65.3, text: "Allons-y, je" },
-  { start:65.3 , end: 65.9, text: "vais te montrer" },
-  { start:65.9 , end: 66.5, text: "ta chambre." },
+  { start: 5.50, end: 6.64, text: "Grand Prix A1," },
+  { start: 7.10, end: 8.10, text: "unité 7," },
+  { start: 8.42, end: 8.90, text: "les loisirs." },
+  { start: 9.76, end: 10.54, text: "Section A," },
+  { start: 11.20, end: 11.90, text: "mes loisirs." },
+
+  { start: 12.99, end: 13.86, text: "Exercice 4." },
+  { start: 14.59, end: 15.93, text: "Écoute encore une fois" },
+  { start: 16.32, end: 17.48, text: "et complète les phrases." },
+
+  { start: 19.68, end: 21.32, text: "Il y a beaucoup de choses que j'aime faire," },
+  { start: 21.60, end: 23.54, text: "mais mon loisir préféré," },
+  { start: 23.90, end: 24.60, text: "c'est la lecture." },
+  { start: 25.38, end: 26.00, text: "J'adore lire," },
+  { start: 26.66, end: 28.42, text: "découvrir des histoires intéressantes" },
+  { start: 28.46, end: 29.08, text: "à chaque page." },
+  { start: 29.98, end: 31.48, text: "Je lis chaque jour pendant deux heures." },
+  { start: 32.26, end: 34.68, text: "C'est un loisir qui peut se pratiquer à l'intérieur" },
+  { start: 35.04, end: 38.26, text: "ou en plein air ?" },
+
+  { start: 38.26, end: 39.68, text: "Moi, j'aime bien être en plein air" },
+  { start: 39.68, end: 41.32, text: "et découvrir des choses nouvelles." },
+  { start: 41.80, end: 44.44, text: "Voilà pourquoi mon loisir préféré est la randonnée." },
+  { start: 45.15, end: 47.76, text: "Je peux voir la beauté de la nature et des animaux." },
+  { start: 48.03, end: 50.60, text: "Je fais de la randonnée le samedi avec mes amis." },
+
+  { start: 52.54, end: 53.06, text: "J'adore l'eau." },
+  { start: 53.78, end: 54.86, text: "J'aime la natation," },
+  { start: 55.26, end: 56.44, text: "mais je préfère la pêche." },
+  { start: 56.86, end: 58.04, text: "C'est mon loisir préféré." },
+  { start: 58.88, end: 61.06, text: "J'aime le calme de l'eau et la nature." },
+  { start: 61.58, end: 62.88, text: "J'aime attendre les poissons." },
+  { start: 63.61, end: 65.83, text: "Je pêche toujours le dimanche avec mes frères." },
   ];
   
 
@@ -262,20 +234,14 @@ const resetExercise = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
- <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
-        <span className="number-of-q">2</span>
-      Écris les verbes au présent.
-      </header>
+     <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">Aِ</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+          Écoute encore une fois et complète les phrases.
+            </header>
  <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">

@@ -302,7 +302,11 @@ const bookInfoSelector = {
         )}
 
         {/* SINGLE OR SPREAD VIEW */}
-        {isMobile || viewMode === "single" || pageIndex === 0 ? (
+      {isMobile ||
+ viewMode === "single" ||
+ pageIndex === 0 ||
+ pageIndex === pages.length - 1 ? (
+
           <div
             className="bg-white rounded-2xl shadow-2xl border flex items-center justify-center overflow-hidden self-end"
             style={{

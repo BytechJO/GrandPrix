@@ -195,19 +195,13 @@ const Page5_Q2_SAppeler = () => {
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
-        <span className="number-of-q">2</span>
-        Complète les phrases avec les verbes de l'exercice 1.
-      </header>
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">D</span>
+                <span style={{ color: "black" }} className="number-of-q">2</span>
+          Complète les phrases avec les verbes de l’exercice 1.
+            </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>

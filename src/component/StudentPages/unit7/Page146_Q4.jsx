@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U5Audio/u5sdq4.mp3";
+import page5_CD2 from "../../../assets/U7Audio/u7scq4.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -29,28 +29,37 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-    { start: 5.44, end: 6.52, text: "Rempris à 1," },
-    { start: 7.07, end: 8.50, text: "unité 5," },
-    { start: 8.80, end: 9.42, text: "les repas." },
-    { start: 10.81, end: 11.35, text: "Section D," },
-    { start: 12.20, end: 12.86, text: "au restaurant." },
-    { start: 14.14, end: 15.06, text: "Exercice 4." },
-    { start: 15.65, end: 17.90, text: "Écoute et écris la bonne réponse." },
-    { start: 20.36, end: 22.06, text: "Je voudrais des pâtes avec" },
-    { start: 22.10, end: 22.90, text: "du jus d'orange." },
-    { start: 25.05, end: 25.60, text: "Comme entrée," },
-    { start: 25.60, end: 26.62, text: "je voudrais des rouleaux" },
-    { start: 26.62, end: 27.24, text: "de fruits de mer" },
-    { start: 27.54, end: 28.28, text: "et comme boisson," },
-    { start: 31.00, end: 32.92, text: "Je voudrais une salade verte" },
-    { start: 33.19, end: 34.33, text: "puis de la ratatouille" },
-    { start: 34.39, end: 35.35, text: "avec du jus de raisin." },
-    { start: 36.00, end: 36.71, text: "Comme dessert," },
-    { start: 37.07, end: 38.43, text: "je voudrais une tarte aux" },
-    { start: 38.43, end: 39.93, text: "pommes avec un café noir." },
-    { start: 41.99, end: 43.43, text: "Je voudrais une crème brûlée" },
-    { start: 43.43, end: 44.45, text: "avec un café au lait." },
-    { start: 44.45, end: 45.20, text: "de l'eau minérale." }
+ { start: 5.379, end: 8.619, text: "Grand prix A1, unité sept," },
+  { start: 8.619, end: 9.839, text: "les loisirs." },
+  { start: 9.839, end: 12.749, text: "Section C, mes vacances." },
+
+  { start: 12.750, end: 14.989, text: "Exercice quatre," },
+  { start: 14.989, end: 16.389, text: "écoute le reste de la" },
+  { start: 16.389, end: 18.269, text: "conversation et complète" },
+  { start: 18.269, end: 20.319, text: "le tableau." },
+
+  { start: 20.320, end: 21.599, text: "Ah," },
+  { start: 21.599, end: 23.240, text: "je suis allé en Espagne dans une" },
+  { start: 23.240, end: 24.099, text: "ville magnifique qui" },
+  { start: 24.099, end: 25.729, text: "s'appelle Valencia." },
+
+  { start: 25.730, end: 27.009, text: "J'y suis allé avec" },
+  { start: 27.009, end: 28.530, text: "mon frère Alex." },
+
+  { start: 28.530, end: 30.639, text: "Nous avons logé avec des amis." },
+  { start: 30.639, end: 31.829, text: "Nous avons fait beaucoup" },
+  { start: 31.830, end: 32.870, text: "de choses." },
+
+  { start: 32.870, end: 34.799, text: "Nous avons nagé dans la mer et" },
+  { start: 34.799, end: 36.150, text: "nous avons visité beaucoup" },
+  { start: 36.150, end: 37.580, text: "de sites historiques." },
+
+  { start: 37.580, end: 39.139, text: "Nous avons aussi mangé de la" },
+  { start: 39.139, end: 40.999, text: "paella, leur spécialité." },
+
+  { start: 41.000, end: 41.759, text: "Puis," },
+  { start: 41.760, end: 43.400, text: "mon frère et moi avons regardé" },
+  { start: 43.400, end: 44.819, text: "un match de football." },
   ];
 
   const updateCaption = (time) => {
@@ -226,19 +235,14 @@ const Page5_Q1_CleanAudio = () => {
   /* ================= JSX ================= */
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-       <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>D</span>
-        <span className="number-of-q">5</span>{" "}
-Écoute le reste de la conversation et complète le tableau.   </header>
+ <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">C</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+          coute le reste de la conversation et complète le tableau.
+            </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U5Audio/u5sdq4.mp3"; // استبدل هذا الملف إذا كان هناك ملف صوتي آخر للتمرين الجديد
+import page5_CD2 from "../../../assets/U7Audio/u7saq3.mp3"; // استبدل هذا الملف إذا كان هناك ملف صوتي آخر للتمرين الجديد
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -29,7 +29,37 @@ const Page5_Q1_CleanAudio = () => {
 
   // قد تحتاج إلى تحديث التسميات التوضيحية بناءً على الملف الصوتي الجديد
   const captions = [
-    { start: 0, end: 5, text: "مثال: Écoute le dialogue et complète le tableau." },
+     { start: 5.50, end: 6.64, text: "Grand prix A1," },
+  { start: 7.10, end: 8.12, text: "unité 7," },
+  { start: 8.44, end: 8.94, text: "les loisirs." },
+  { start: 9.76, end: 10.52, text: "Section A," },
+  { start: 11.20, end: 11.86, text: "mes loisirs." },
+  { start: 12.61, end: 13.54, text: "Exercice 3." },
+  { start: 14.30, end: 16.42, text: "Écoute et complète le tableau." },
+
+  { start: 18.70, end: 20.38, text: "Il y a beaucoup de choses que j'aime faire," },
+  { start: 20.61, end: 22.58, text: "mais mon loisir préféré," },
+  { start: 23.02, end: 23.38, text: "c'est la lecture." },
+  { start: 24.36, end: 24.92, text: "J'adore lire," },
+  { start: 25.66, end: 27.50, text: "découvrir des histoires intéressantes" },
+  { start: 27.50, end: 28.10, text: "à chaque page." },
+  { start: 28.98, end: 30.50, text: "Je lis chaque jour pendant deux heures." },
+  { start: 31.26, end: 33.66, text: "C'est un loisir qui peut se pratiquer à l'intérieur" },
+  { start: 34.08, end: 34.70, text: "ou en plein air." },
+
+  { start: 36.99, end: 38.22, text: "Moi, j'aime bien être en" },
+  { start: 38.22, end: 40.28, text: "plein air et découvrir des choses nouvelles." },
+  { start: 40.80, end: 43.42, text: "Voilà pourquoi mon loisir préféré est la randonnée." },
+  { start: 44.16, end: 46.74, text: "Je peux voir la beauté de la nature et des animaux." },
+  { start: 47.07, end: 49.62, text: "Je fais de la randonnée le samedi avec mes amis." },
+
+  { start: 51.54, end: 52.14, text: "J'adore l'eau." },
+  { start: 52.86, end: 53.84, text: "J'aime la natation," },
+  { start: 54.28, end: 55.44, text: "mais je préfère la pêche." },
+  { start: 55.90, end: 57.00, text: "C'est mon loisir préféré." },
+  { start: 57.90, end: 60.06, text: "J'aime le calme de l'eau et la nature." },
+  { start: 60.60, end: 61.88, text: "J'aime attendre les poissons." },
+  { start: 61.88, end: 64.98, text: "Je pêche toujours le dimanche avec mes frères." },
     // أضف بقية التسميات التوضيحية هنا حسب الملف الصوتي الفعلي
   ];
 
@@ -219,18 +249,13 @@ const Page5_Q1_CleanAudio = () => {
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
        <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>D</span>
-        <span className="number-of-q">5</span>{" "}
-Écoute et complète le tableau.   </header>
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">Aِ</span>
+                <span style={{ color: "black" }} className="number-of-q">3</span>
+           Écoute et complète le tableau.
+            </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>

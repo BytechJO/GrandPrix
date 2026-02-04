@@ -4,7 +4,7 @@ import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار 
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U2Audio/U2ScQ4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U7Audio/u7sdq4.mp3";
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
@@ -29,52 +29,30 @@ const Page5_Q1_CleanAudio = () => {
     }
   };
   const captions = [
-    { start: 5.2, end: 8.3, text: "Grand prix A1, unité 2," },
-    { start: 8.3, end: 9.7, text: "à l'école," },
-    { start: 9.7, end: 11.4, text: "section C." },
-    { start: 11.4, end: 15.4, text: "Lundi, c'est exercice 4." },
-    { start: 15.4, end: 17.5, text: "Écoute encore une fois et" },
-    { start: 17.5, end: 19.3, text: "réponds aux questions." },
-    { start: 19.3, end: 21.6, text: "Bonjour Jenna," },
-    { start: 21.6, end: 23.4, text: "comment ça va ?" },
-    { start: 23.4, end: 25.4, text: "Salut Carole, ça va bien ?" },
-    { start: 25.4, end: 26.1, text: "Merci," },
-    { start: 26.1, end: 28.5, text: "et toi ? Bien." },
-    { start: 28.5, end: 29.5, text: "Tu as vu notre emploi" },
-    { start: 29.5, end: 31.3, text: "du temps ? Non," },
-    { start: 31.3, end: 33.1, text: "on peut aller voir ?" },
-    { start: 33.1, end: 33.9, text: "Oui, bien sûr." },
-    { start: 35.6, end: 36.3, text: "Nous n'avons pas beaucoup" },
-    { start: 36.3, end: 37.8, text: "de leçons de technologie." },
-    { start: 37.8, end: 39.0, text: "J'aime beaucoup le prof." },
-    { start: 39.0, end: 41.0, text: "Oui, c'est vrai." },
-    { start: 41.0, end: 42.2, text: "Nous avons maths chaque" },
-    { start: 42.2, end: 43.7, text: "jour, sauf le mercredi." },
-    { start: 43.7, end: 45.0, text: "Le prof de maths pose" },
-    { start: 45.0, end: 46.1, text: "beaucoup de questions." },
-    { start: 46.1, end: 47.2, text: "J'aime ça." },
-    { start: 47.2, end: 48.7, text: "Ah mon Dieu," },
-    { start: 48.7, end: 49.5, text: "combien de cours d'anglais" },
-    { start: 49.5, end: 51.5, text: "? Un, deux, trois." },
-    { start: 51.5, end: 52.5, text: "Magnifique," },
-    { start: 52.5, end: 53.8, text: "c'est ma matière préférée." },
-    { start: 53.8, end: 54.8, text: "Quelle est ta matière" },
-    { start: 54.8, end: 55.8, text: "préférée ?" },
-    { start: 55.8, end: 57.5, text: "Ma matière préférée," },
-    { start: 57.5, end: 58.4, text: "c'est l'art." },
-    { start: 58.4, end: 59.7, text: "Mais malheureusement," },
-    { start: 59.7, end: 60.0, text: "nous n'avons pas beaucoup" },
-    { start: 60.0, end: 61.0, text: "de cours." },
-    { start: 61.0, end: 63.0, text: "Nous avons aussi des." },
-    { start: 63.0, end: 63.8, text: "Cours de physique." },
-    { start: 63.8, end: 65.1, text: "D'Eps et de SVT." },
-    { start: 65.1, end: 66.1, text: "Qu'est-ce que c'est" },
-    { start: 66.1, end: 68.5, text: "l'SVT ? SVT," },
-    { start: 68.5, end: 69.7, text: "ça veut dire Science de" },
-    { start: 69.7, end: 71.3, text: "la Vie et de la Terre." },
-    { start: 71.3, end: 73.3, text: "Ah mon Dieu !" },
-    { start: 73.3, end: 74.1, text: "Nous avons les nouvelles" },
-    { start: 74.1, end: 76.5, text: "leçons d'espagnol ! Oui." },
+    { start: 5.339, end: 8.349, text: "Grand prix A1, unité 7." },
+  { start: 8.350, end: 10.659, text: "Les loisirs. Section D." },
+  { start: 10.660, end: 12.110, text: "Autour du monde." },
+
+  { start: 12.110, end: 13.809, text: "Exercice 4." },
+  { start: 13.809, end: 15.329, text: "Écoute le reste de la" },
+  { start: 15.330, end: 17.190, text: "conversation et réponds" },
+  { start: 17.190, end: 19.109, text: "aux questions." },
+
+  { start: 19.109, end: 20.289, text: "Et toi," },
+  { start: 20.290, end: 21.929, text: "qu'est-ce que tu as fait hier ?" },
+
+  { start: 21.929, end: 23.660, text: "Mes grands-parents sont venus" },
+  { start: 23.660, end: 24.729, text: "nous rendre visite." },
+  { start: 24.729, end: 26.359, text: "Nous avons dîné ensemble." },
+  { start: 26.359, end: 28.220, text: "Et puis j'ai fait mes devoirs." },
+
+  { start: 28.220, end: 30.839, text: "Qu'est-ce que tu as mangé ?" },
+  { start: 30.839, end: 32.560, text: "Nous avons mangé du riz avec de" },
+  { start: 32.560, end: 34.599, text: "la viande et de la salade." },
+
+  { start: 34.600, end: 35.740, text: "Et à quelle heure tu" },
+  { start: 35.740, end: 36.909, text: "t'es couchée ?" },
+  { start: 36.910, end: 38.759, text: "Vers dix heures trente." },
   ];
   const updateCaption = (time) => {
     const index = captions.findIndex(
@@ -239,24 +217,14 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span style={{ backgroundColor: "#df4f89" }} className="ex-A">
-          C
-        </span>{" "}
-        <span style={{ color: "black" }} className="number-of-q">
-          4
-        </span>
-        Écoute encore une fois et réponds aux questions.{" "}
-      </header>
+     <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">D</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+          Écoute le reste de la conversation et réponds aux questions.
+            </header>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">

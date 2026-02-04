@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SAQ4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U7Audio/u7sdq3.mp3";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import img1 from "../../../assets/unite3pages/svg/Page50Q4.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
@@ -61,32 +61,45 @@ const Page5_Q1_CleanAudio = () => {
         resetAudio();
     };
     const captions = [
-        { start: 5.5, end: 6.7, text: "Rempris A1" },
-        { start: 6.7, end: 7.9, text: "unité3" },
-        { start: 7.9, end: 9.5, text: "sous le même 0toit" },
-        { start: 10.14, end: 11.0, text: "SectionA." },
-        { start: 11.6, end: 12.2, text: "Ma famille." },
-        { start: 13.3, end: 14.47, text: "Exercice 4." },
-        { start: 14.8, end: 16.9, text: "Écoute et entoure la bonne réponse" },
-        { start: 21.2, end: 21.7, text: "Salut Ray," },
-        { start: 21.7, end: 22.6, text: "comment ça va ?" },
-        { start: 23.7, end: 25.9, text: "Je suis très heureux parce qu'aujourd'hui," },
-        { start: 26.3, end: 27.7, text: "mon ami arrive à Marseille." },
-        { start: 29.0, end: 29.5, text: "C'est vrai ?" },
-        { start: 29.7, end: 30.75, text: "À quelle heure est son train ?" },
-        { start: 32.0, end: 33.6, text: "À 5h15 de l'après-midi." },
-        { start: 36.54, end: 37.23, text: "Salut Daniel," },
-        { start: 37.5, end: 39.4, text: "comment ça va ?" },
-        { start: 39.5, end: 39.9, text: "Salut Ray," },
-        { start: 40.2, end: 40.9, text: "ça va très bien." },
-        { start: 42.2, end: 43.5, text: "Je suis très heureux de te voir." },
-        { start: 44.7, end: 45.3, text: "Moi aussi." },
-        { start: 47.5, end: 48.8, text: "Je veux te présenter mon père." },
-        { start: 49.3, end: 50.9, text: "Il s'appelle Gérard Dupont." },
-        { start: 52.3, end: 53.6, text: "Enchanté Monsieur Dupont." },
-        { start: 54.8, end: 56.6, text: "C'est un plaisir de te rencontrer Daniel." },
-        { start: 57.5, end: 57.9, text: "Alors," },
-        { start: 58.3, end: 59.5, text: "allons à la maison." },
+         { start: 5.339, end: 8.339, text: "Grand Prix A1, unité sept," },
+  { start: 8.340, end: 10.880, text: "les loisirs, section D," },
+  { start: 10.880, end: 14.049, text: "autour du monde. Exercice trois." },
+
+  { start: 14.049, end: 16.259, text: "Écoute le dialogue et entoure" },
+  { start: 16.259, end: 17.260, text: "la bonne réponse." },
+
+  { start: 19.319, end: 20.939, text: "Salut, comment ça va ?" },
+  { start: 20.940, end: 22.839, text: "Très bien, merci." },
+
+  { start: 22.840, end: 24.599, text: "Je t'ai téléphoné hier," },
+  { start: 24.599, end: 26.449, text: "mais personne n'a répondu." },
+
+  { start: 26.450, end: 27.749, text: "Avec ma famille," },
+  { start: 27.750, end: 29.589, text: "nous sommes allés à un festival." },
+
+  { start: 29.590, end: 31.729, text: "Quel festival ?" },
+  { start: 31.730, end: 33.439, text: "Un festival du chocolat qui" },
+  { start: 33.440, end: 35.359, text: "s'appelle le Salon du chocolat." },
+
+  { start: 35.359, end: 36.269, text: "Bon," },
+  { start: 36.269, end: 37.360, text: "dis-moi quelque chose sur" },
+  { start: 37.360, end: 39.550, text: "ce festival. Alors," },
+
+  { start: 39.550, end: 40.640, text: "il a commencé à six heures" },
+  { start: 40.640, end: 42.020, text: "avec un défilé de mode." },
+
+  { start: 42.020, end: 43.099, text: "Les mannequins portent des" },
+  { start: 43.099, end: 44.620, text: "vêtements en chocolat." },
+
+  { start: 44.620, end: 46.939, text: "Des vêtements en chocolat ?" },
+  { start: 46.939, end: 47.839, text: "Oui," },
+  { start: 47.840, end: 49.569, text: "des vêtements faits en chocolat." },
+
+  { start: 49.569, end: 49.809, text: "Et puis," },
+  { start: 49.809, end: 50.690, text: "nous avons goûté beaucoup" },
+  { start: 50.690, end: 52.140, text: "de chocolats différents." },
+
+  { start: 52.140, end: 53.419, text: "C'est bien." },
     ];
     const togglePlay = () => {
         const audio = audioRef.current;

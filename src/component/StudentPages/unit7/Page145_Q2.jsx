@@ -263,19 +263,13 @@ const resetExercise = () => {
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
  <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#afdbbc" }}>Grammaire</span>
-        <span className="number-of-q">2</span>
-      Écris les verbes au présent.
-      </header>
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">C</span>
+                <span style={{ color: "black" }} className="number-of-q">2</span>
+           Écris les verbes au passé composé.
+            </header>
  <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>
           <div className="audio-inner player-ui">

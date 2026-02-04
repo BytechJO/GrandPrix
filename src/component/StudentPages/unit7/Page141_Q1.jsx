@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U4Audio/U4SCQ1.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U7Audio/u7sbq1.mp3";
 import imgBackground from "../../../assets/unite7pages/SVG/page141.svg";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
@@ -85,44 +85,51 @@ const Page5_Q1_CleanAudio2 = () => {
   };
   const captions = [
 
-  { start:5.60 , end: 6.72, text: "Rempris A1," },
-  { start:7.0 , end: 8.0, text: "unité 4," },
-  { start:8.35 , end: 8.72, text: "en ville." },
-  { start:9.63 , end: 10.08, text: "Section C." },
-  { start:11.13 , end: 11.72, text: "Briançon," },
-  { start:12.10 , end: 13.76, text: "une ville d'art et d'histoire." },
-  { start:14.94 , end: 15.99, text: "Exercice 1." },
-  { start:16.7 , end: 17.10, text: "Écoute," },
-  { start:17.85 , end: 19.74, text: "répète et place dans l'ordre." },
-  { start:20.34 , end: 20.36, text: "A." },
-  { start:22.62 , end: 23.26, text: "Restaurant." },
-  { start:23.26 , end: 23.32, text: "B" },
-  { start:26.11 , end: 26.64, text: "Hôpital." },
-  { start:26.64 , end: 26.82, text: "c" },
-  { start:29.58 , end: 30.28, text: "Supermarché." },
-  { start:32.26 , end: 32.52, text: "D." },
-  { start:32.9 , end: 33.6, text: "Station-service." },
-  { start:35.8 , end: 36.0, text: "E." },
-  { start:36.64 , end: 36.9, text: "Banque." },
-  { start:39.10 , end: 39.3, text: "F" },
-  { start:39.7 , end: 40.28, text: "École." },
-  { start:42.40 , end: 42.7, text: "G." },
-  { start:43.28 , end: 43.7, text: "Cinéma." },
-  { start:45.9 , end: 46.24, text: "H" },
-  { start:46.78 , end: 47.20, text: "Stade." },
-  { start:47.20 , end: 47.29, text: "I" },
-  { start:50.0 , end: 50.9, text: "Poste de police." },
-  { start:53.0 , end: 53.4, text: "J." },
-  { start:53.9 , end: 55.22, text: "Magasin de chaussures." },
-  { start:55.22 , end: 55.3, text: "k" },
-  { start:57.7 , end: 58.9, text: "Magasin de vêtements." },
-  { start:61.0 , end: 61.3, text: "L" },
-  { start:61.3 , end: 62.24, text: "Bijouterie." },
-  { start:64.35 , end: 64.68, text: "M." },
-  { start:65.09 , end: 65.40, text: "Parc." },
-  { start:67.77 , end: 68.12, text: "N" },
-  { start:68.12 , end: 69.08, text: "Hôtel" },
+  { start: 5.63, end: 6.75, text: "Rempris A1," },
+  { start: 7.07, end: 8.01, text: "unité 7," },
+  { start: 8.29, end: 8.95, text: "les loisirs." },
+  { start: 9.89, end: 10.71, text: "Section B," },
+  { start: 11.01, end: 11.59, text: "ma journée." },
 
+  { start: 12.51, end: 13.56, text: "Exercice 1." },
+  { start: 14.14, end: 14.51, text: "Écoute," },
+  { start: 15.09, end: 17.09, text: "répète et place dans l'ordre." },
+
+  { start: 17.87, end: 17.89, text: "A." },
+  { start: 20.49, end: 21.07, text: "Se lever." },
+
+  { start: 21.07, end: 21.11, text: "B." },
+  { start: 23.75, end: 24.67, text: "Se brosser les dents." },
+
+  { start: 24.85, end: 24.87, text: "C." },
+  { start: 27.33, end: 28.53, text: "Prendre le petit-déjeuner." },
+
+  { start: 28.53, end: 28.60, text: "D." },
+  { start: 31.23, end: 31.67, text: "S'habiller." },
+
+  { start: 31.67, end: 31.79, text: "E." },
+  { start: 34.31, end: 35.01, text: "Aller à l'école." },
+
+  { start: 37.28, end: 37.51, text: "F." },
+  { start: 37.91, end: 39.05, text: "Rentrer à la maison." },
+
+  { start: 41.31, end: 41.61, text: "G." },
+  { start: 42.33, end: 43.53, text: "Faire ses devoirs." },
+
+  { start: 45.61, end: 45.81, text: "H." },
+  { start: 46.27, end: 47.69, text: "Dîner avec sa famille." },
+
+  { start: 49.85, end: 50.07, text: "I." },
+  { start: 50.49, end: 51.99, text: "Bavarder avec ses amis." },
+
+  { start: 54.05, end: 54.35, text: "J." },
+  { start: 54.88, end: 55.73, text: "Faire du sport." },
+
+  { start: 57.69, end: 57.87, text: "K." },
+  { start: 58.37, end: 59.87, text: "Aller sur les réseaux sociaux." },
+
+  { start: 61.79, end: 62.19, text: "L." },
+  { start: 62.45, end: 63.03, text: "Se coucher." },
 
   ];
     const updateCaption = (time) => {
@@ -175,14 +182,14 @@ const Page5_Q1_CleanAudio2 = () => {
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
       {/* Header */}
-  <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-      >
-        <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">C</span>
-        <span style={{ color: "black" }} className="number-of-q">1</span>
-    Écoute, répète et place dans l’ordre.
-      </header>
+    <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">B</span>
+                <span style={{ color: "black" }} className="number-of-q">1</span>
+        Écoute, répète et place dans l’ordre.
+            </header>
 
      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <div className="audio-popup-read" style={{ width: "30%" }}>

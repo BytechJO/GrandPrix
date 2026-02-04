@@ -212,6 +212,28 @@ import Page149_Q2 from "./unit7/Page149_Q2";
 import Page150_Q3 from "./unit7/Page150_Q3"; 
 import Page150_Q4 from "./unit7/Page150_Q4"; 
 import Page151_Q8 from "./unit7/Page151_Q8"; 
+import Page154_Q1 from "./unit7/Page154_Q1"; 
+import Page154_Q2 from "./unit7/Page154_Q2"; 
+import Page154_Q3 from "./unit7/Page154_Q3"; 
+import Page155_Q1 from "./unit7/Page155_Q1"; 
+import Page155_Q2 from "./unit7/Page155_Q2"; 
+import Page155_Q3 from "./unit7/Page155_Q3"; 
+import Page155_Q4 from "./unit7/Page155_Q4"; 
+import Page155_Q5 from "./unit7/Page155_Q5"; 
+import Page156_Q1 from "./unit7/Page156_Q1"; 
+import Page156_Q2 from "./unit7/Page156_Q2"; 
+import Page156_Q3 from "./unit7/Page156_Q3"; 
+import Page156_Q4 from "./unit7/Page156_Q4"; 
+import Page156_Q5 from "./unit7/Page156_Q5"; 
+import Page159_Q1 from "./unit8/Page159_Q1"; 
+import Page160_Q3 from "./unit8/Page160_Q3"; 
+import Page160_Q4 from "./unit8/Page160_Q4"; 
+import Page161_Q8 from "./unit8/Page161_Q8"; 
+import Page163_Q1 from "./unit8/Page163_Q1"; 
+import Page164_Q3 from "./unit8/Page164_Q3"; 
+import Page164_Q4 from "./unit8/Page164_Q4"; 
+import Page165_Q8 from "./unit8/Page165_Q8"; 
+import Page167_Q1 from "./unit8/Page167_Q1"; 
 
 
 export const lessons = [
@@ -425,6 +447,28 @@ export const lessons = [
  { component: Page150_Q3, unit: 3 },
  { component: Page150_Q4, unit: 3 },
  { component: Page151_Q8, unit: 3 },
+ { component: Page154_Q1, unit: 3 },
+ { component: Page154_Q2, unit: 3 },
+ { component: Page154_Q3, unit: 3 },
+ { component: Page155_Q1, unit: 3 },
+ { component: Page155_Q2, unit: 3 },
+ { component: Page155_Q3, unit: 3 },
+ { component: Page155_Q4, unit: 3 },
+ { component: Page155_Q5, unit: 3 },
+ { component: Page156_Q1, unit: 3 },
+ { component: Page156_Q2, unit: 3 },
+ { component: Page156_Q3, unit: 3 },
+ { component: Page156_Q4, unit: 3 },
+ { component: Page156_Q5, unit: 3 },
+ { component: Page159_Q1, unit: 3 },
+ { component: Page160_Q3, unit: 3 },
+ { component: Page160_Q4, unit: 3 },
+ { component: Page161_Q8, unit: 3 },
+ { component: Page163_Q1, unit: 3 },
+ { component: Page164_Q3, unit: 3 },
+ { component: Page164_Q4, unit: 3 },
+ { component: Page165_Q8, unit: 3 },
+ { component: Page167_Q1, unit: 3 },
 
 
  

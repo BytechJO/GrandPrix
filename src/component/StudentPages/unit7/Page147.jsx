@@ -33,7 +33,27 @@ const Page5 = ({ openPopup }) => {
 
       {/* زر الصوت الأول */}
      
-      
+                    <div
+        id="CD-1-page5"
+        className="headset-icon-CD-page5 hover:scale-110 transition"
+        style={{
+          position: "absolute",
+          top: "6%", // عدّل حسب مكان الزر
+          left: "2%", // عدّل حسب مكان الزر
+          cursor: "pointer",
+          width: "50px", height: "50px",
+         
+    
+       
+        }}
+        onClick={() =>
+          openPopup(
+            "audio",
+            <AudioWithCaption src={page5_CD2}  captions={captionsExample} />
+          )
+        }
+      >
+      </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
               style={{ overflow: "visible" , position:"absolute",top:"58.0%",left:"38.0%"  }}

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U5Audio/u5sdq4.mp3";
+import page5_CD2 from "../../../assets/U7Audio/u7sbq3.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -174,20 +174,14 @@ const Page5_Q1_CleanAudio = () => {
   /* ================= JSX ================= */
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{
-          marginLeft: "42%",
-          color: "black",
-          marginTop: "5%",
-          fontSize: "25px",
-          fontWeight: "bold",
-        }}
-      >
-        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>D</span>
-        <span className="number-of-q">5</span>{" "}
-        Écoute Charles qui parle de sa journée. Écris l'heure de chaque activité.
-      </header>
+       <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">B</span>
+                <span style={{ color: "black" }} className="number-of-q">3</span>
+           Écoute Charles qui parle de sa journée. Écris l’heure de chaque activité.
+            </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>

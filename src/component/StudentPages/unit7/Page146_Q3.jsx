@@ -5,7 +5,7 @@ import img1 from "../../../assets/unite6pages/SVG/page124.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SdQ4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U7Audio/u7scq3.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -46,32 +46,49 @@ const Page5_Q1_CleanAudio = () => {
     };
 
     const captions = [
-        { start: 5.47, end: 6.6, text: "GrandPrixA1" },
-        { start: 7.7, end: 8.2, text: "unité 3," },
-        { start: 8.45, end: 9.53, text: "sous le même toit," },
-        { start: 10.17, end: 11.0, text: "section D," },
-        { start: 11.5, end: 13.5, text: "où ?" },
-        { start: 13.5, end: 14.5, text: "Exercice 4." },
-        { start: 15.0, end: 17.9, text: "Écoute et écris l'information manquante." },
-        {
-            start: 20.3,
-            end: 23.9,
-            text: "Ray est en retard à son cours de football et il ne trouve pas ses affaires.",
-        },
-        { start: 26.13, end: 26.49, text: "Maman," },
-        { start: 26.49, end: 28.49, text: "je suis en retard et je ne trouve rien." },
-        { start: 28.8, end: 30.2, text: "Est-ce que tu as rangé ma chambre ?" },
-        { start: 31.5, end: 31.7, text: "Oui," },
-        { start: 31.7, end: 33.5, text: "parce que ta chambre était en désordre." },
-        { start: 34.9, end: 36.3, text: "Je ne trouve pas mes chaussures." },
-        { start: 37.4, end: 38.6, text: "Elles sont sous ton lit." },
-        { start: 39.7, end: 41.8, text: "Et mes chaussettes ?" },
-        { start: 41.8, end: 43.0, text: "Elles sont dans ton tiroir." },
-        { start: 44.3, end: 44.5, text: "Bon" },
-        { start: 44.8, end: 46.0, text: "je ne trouve pas mon maillot." },
-        { start: 47.13, end: 48.4, text: "Il est dans ton armoire." },
-        { start: 48.4, end: 49.9, text: "Merci," },
-        { start: 49.9, end: 50.8, text: "à plus tard !" },
+      { start: 5.359, end: 8.409, text: "Grand Prix A1, Unité 7," },
+  { start: 8.409, end: 11.159, text: "Les loisirs. Section C," },
+  { start: 11.160, end: 12.689, text: "Mes vacances." },
+
+  { start: 12.689, end: 14.809, text: "Exercice 3." },
+  { start: 14.809, end: 17.259, text: "Écoute et écris l'information" },
+  { start: 17.259, end: 18.600, text: "manquante." },
+
+  { start: 20.600, end: 22.739, text: "Salut Ruby, comment ça va ?" },
+  { start: 22.739, end: 25.439, text: "Salut, ça va bien, merci." },
+
+  { start: 25.439, end: 27.140, text: "Où est-ce que tu es allé" },
+  { start: 27.140, end: 28.679, text: "pendant tes vacances ?" },
+
+  { start: 28.679, end: 31.819, text: "Je suis allé en Islande." },
+  { start: 31.820, end: 32.889, text: "Ah bon ?" },
+  { start: 32.889, end: 35.620, text: "J'y suis allée avec ma famille." },
+
+  { start: 35.620, end: 36.789, text: "Qu'est-ce que tu as" },
+  { start: 36.789, end: 37.979, text: "fait là-bas ?" },
+
+  { start: 37.979, end: 39.730, text: "Nous avons logé dans un" },
+  { start: 39.730, end: 41.159, text: "hôtel formidable." },
+
+  { start: 41.160, end: 42.339, text: "J'ai vu beaucoup de choses" },
+  { start: 42.340, end: 43.389, text: "intéressantes." },
+
+  { start: 43.389, end: 44.550, text: "Nous avons exploré" },
+  { start: 44.550, end: 45.959, text: "un parc national." },
+
+  { start: 45.959, end: 47.169, text: "Nous avons visité une" },
+  { start: 47.170, end: 48.589, text: "chute d'eau. Puis," },
+
+  { start: 48.589, end: 49.890, text: "nous sommes allés observer les" },
+  { start: 49.890, end: 51.890, text: "baleines et ma mère et moi avons" },
+  { start: 51.890, end: 53.659, text: "nagé dans le lagon bleu." },
+
+  { start: 53.659, end: 55.050, text: "Est-ce que tu as vu une" },
+  { start: 55.050, end: 56.529, text: "aurore boréale ?" },
+
+  { start: 56.529, end: 59.030, text: "Oui, c'est magnifique. Et toi," },
+  { start: 59.030, end: 59.809, text: "qu'est-ce que tu as fait" },
+  { start: 59.810, end: 60.859, text: "pendant tes vacances ?" },
     ];
 
     const updateCaption = (time) => {
@@ -138,19 +155,14 @@ const Page5_Q1_CleanAudio = () => {
     return (
         <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
             {/* Header */}
-            <header
+     <header
                 className="header-title-page1 w-full text-left mb-4"
-                style={{
-                    marginLeft: "42%",
-                    color: "black",
-                    marginTop: "5%",
-                    fontSize: "25px",
-                    fontWeight: "bold",
-                }}
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
             >
-                <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>c</span>
-                <span className="number-of-q">3</span>{" "}
-                Écoute le dialogue et écris l’information manquante.  </header>
+                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">C</span>
+                <span style={{ color: "black" }} className="number-of-q">3</span>
+           Écoute et écris l'information manquante.
+            </header>
 
             {/* Audio Player */}
             <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>

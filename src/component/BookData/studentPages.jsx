@@ -182,8 +182,44 @@ import Page154 from "../StudentPages/unit7/Page154"
 import Page155 from "../StudentPages/unit7/Page155"
 import Page156 from "../StudentPages/unit7/Page156"
 import Page157 from "../StudentPages/unit7/Page157"
-
-
+// ========================================================================
+//                             unit8
+// ======================================================================== 
+import Page158 from "../StudentPages/unit8/Page158"
+import Page159 from "../StudentPages/unit8/Page159"
+import Page160 from "../StudentPages/unit8/Page160"
+import Page161 from "../StudentPages/unit8/Page161"
+import Page162 from "../StudentPages/unit8/Page162"
+import Page163 from "../StudentPages/unit8/Page163"
+import Page164 from "../StudentPages/unit8/Page164"
+import Page165 from "../StudentPages/unit8/Page165"
+import Page166 from "../StudentPages/unit8/Page166"
+import Page167 from "../StudentPages/unit8/Page167"
+import Page168 from "../StudentPages/unit8/Page168"
+import Page169 from "../StudentPages/unit8/Page169"
+import Page170 from "../StudentPages/unit8/Page170"
+import Page171 from "../StudentPages/unit8/Page171"
+import Page172 from "../StudentPages/unit8/Page172"
+import Page173 from "../StudentPages/unit8/Page173"
+import Page174 from "../StudentPages/unit8/Page174"
+import Page175 from "../StudentPages/unit8/Page175"
+import Page176 from "../StudentPages/unit8/Page176"
+import Page177 from "../StudentPages/unit8/Page177"
+import Page178 from "../StudentPages/unit8/Page178"
+import Page179 from "../StudentPages/unit8/Page179"
+import Page180 from "../StudentPages/unit8/Page180"
+import Page181 from "../StudentPages/unit8/Page181"
+import Page182 from "../StudentPages/unit8/Page182"
+import Page183 from "../StudentPages/unit8/Page183"
+import Page184 from "../StudentPages/unit8/Page184"
+import Page185 from "../StudentPages/unit8/Page185"
+import Page186 from "../StudentPages/unit8/Page186"
+import Page187 from "../StudentPages/unit8/Page187"
+import Page188 from "../StudentPages/unit8/Page188"
+import Page189 from "../StudentPages/unit8/Page189"
+import Page190 from "../StudentPages/unit8/Page190"
+import Page191 from "../StudentPages/unit8/Page191"
+import Page192 from "../StudentPages/unit8/Page192"
 export const studentPages = (openPopup, goToUnit) =>  [
   <Page1 />,
   <Page2 goToUnit={goToUnit} />,
@@ -342,6 +378,41 @@ export const studentPages = (openPopup, goToUnit) =>  [
   <Page155 openPopup={openPopup}/>,
   <Page156 openPopup={openPopup}/>,
   <Page157 openPopup={openPopup}/>,
+  <Page158 openPopup={openPopup}/>,
+  <Page159 openPopup={openPopup}/>,
+  <Page160 openPopup={openPopup}/>,
+  <Page161 openPopup={openPopup}/>,
+  <Page162 openPopup={openPopup}/>,
+  <Page163 openPopup={openPopup}/>,
+  <Page164 openPopup={openPopup}/>,
+  <Page165 openPopup={openPopup}/>,
+  <Page166 openPopup={openPopup}/>,
+  <Page167 openPopup={openPopup}/>,
+  <Page168 openPopup={openPopup}/>,
+  <Page169 openPopup={openPopup}/>,
+  <Page170 openPopup={openPopup}/>,
+  <Page171 openPopup={openPopup}/>,
+  <Page172 openPopup={openPopup}/>,
+  <Page173 openPopup={openPopup}/>,
+  <Page174 openPopup={openPopup}/>,
+  <Page175 openPopup={openPopup}/>,
+  <Page176 openPopup={openPopup}/>,
+  <Page177 openPopup={openPopup}/>,
+  <Page178 openPopup={openPopup}/>,
+  <Page179 openPopup={openPopup}/>,
+  <Page180 openPopup={openPopup}/>,
+  <Page181 openPopup={openPopup}/>,
+  <Page182 openPopup={openPopup}/>,
+  <Page183 openPopup={openPopup}/>,
+  <Page184 openPopup={openPopup}/>,
+  <Page185 openPopup={openPopup}/>,
+  <Page186 openPopup={openPopup}/>,
+  <Page187 openPopup={openPopup}/>,
+  <Page188 openPopup={openPopup}/>,
+  <Page189 openPopup={openPopup}/>,
+  <Page190 openPopup={openPopup}/>,
+  <Page191 openPopup={openPopup}/>,
+  <Page192 openPopup={openPopup}/>,
 
 
 
