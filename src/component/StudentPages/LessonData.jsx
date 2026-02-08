@@ -234,6 +234,13 @@ import Page164_Q3 from "./unit8/Page164_Q3";
 import Page164_Q4 from "./unit8/Page164_Q4"; 
 import Page165_Q8 from "./unit8/Page165_Q8"; 
 import Page167_Q1 from "./unit8/Page167_Q1"; 
+import Page168_Q3_A from "./unit8/Page168_Q3_A"; 
+import Page168_Q3_B from "./unit8/Page168_Q3_B"; 
+import Page168_Q3_C from "./unit8/Page168_Q3_C"; 
+import Page168_Q3_D from "./unit8/Page168_Q3_D"; 
+import Page168_Q3_E from "./unit8/Page168_Q3_E"; 
+import Page169_Q7 from "./unit8/Page169_Q7"; 
+import Page171_Q1 from "./unit8/Page171_Q1"; 
 
 
 export const lessons = [
@@ -469,6 +476,13 @@ export const lessons = [
  { component: Page164_Q4, unit: 3 },
  { component: Page165_Q8, unit: 3 },
  { component: Page167_Q1, unit: 3 },
+ { component: Page168_Q3_A, unit: 3 },
+ { component: Page168_Q3_B, unit: 3 },
+ { component: Page168_Q3_C, unit: 3 },
+ { component: Page168_Q3_D, unit: 3 },
+ { component: Page168_Q3_E, unit: 3 },
+ { component: Page169_Q7, unit: 3 },
+ { component: Page171_Q1, unit: 3 },
 
 
  
