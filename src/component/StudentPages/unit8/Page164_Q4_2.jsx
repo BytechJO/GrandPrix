@@ -18,7 +18,7 @@ const Page5_Q1_CleanAudio = () => {
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
 
   // الإجابة الصحيحة
-  const correctAnswer = "pierre";
+  const correctAnswer = "pol";
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -140,7 +140,7 @@ COMPRÉHENSION DE L’ORAL.     </header>
 
       <div className="qcm-container">
         <div className="qcm-column">
-          <p className="question-title">a-Qui a habité près de chez Léo ?</p>
+          <p className="question-title">b-Où est-il maintenant ?</p>
           <label className={getLabelClass("patric")}>
             <input
               type="radio"
@@ -150,7 +150,7 @@ COMPRÉHENSION DE L’ORAL.     </header>
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-          Mark Berge
+          en Italie
           </label>
           <label className={getLabelClass("pierre")}>
             <input
@@ -161,7 +161,7 @@ COMPRÉHENSION DE L’ORAL.     </header>
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-          Marc Berger
+         au Japon
           </label>
           <label className={getLabelClass("pol")}>
             <input
@@ -172,7 +172,7 @@ COMPRÉHENSION DE L’ORAL.     </header>
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-            Merk Berger
+           en Chine
           </label>
         </div>
       </div>

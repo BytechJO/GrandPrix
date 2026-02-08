@@ -36,7 +36,7 @@ const Page5 = ({ openPopup }) => {
       
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"12.5%",left:"7.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"12.9%",left:"6.5%"  }}
             >
               <svg
                 width="20"
@@ -65,7 +65,7 @@ const Page5 = ({ openPopup }) => {
    
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"19.0%",left:"7.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"18.6%",left:"6.5%"  }}
             >
               <svg
                 width="20"
@@ -88,7 +88,7 @@ const Page5 = ({ openPopup }) => {
             </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"24.0%",left:"7.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"23.5%",left:"6.5%"  }}
             >
               <svg
                 width="20"
@@ -111,7 +111,7 @@ const Page5 = ({ openPopup }) => {
             </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"28.0%",left:"7.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"27.5%",left:"6.5%"  }}
             >
               <svg
                 width="20"
@@ -134,7 +134,7 @@ const Page5 = ({ openPopup }) => {
             </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
-              style={{ overflow: "visible" , position:"absolute",top:"33.0%",left:"7.5%"  }}
+              style={{ overflow: "visible" , position:"absolute",top:"32.0%",left:"6.5%"  }}
             >
               <svg
                 width="20"
