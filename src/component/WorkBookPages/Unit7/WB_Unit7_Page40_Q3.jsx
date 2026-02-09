@@ -32,14 +32,14 @@ const MatchingWithCanvas = () => {
 
   // ✔ نفس الإجابات (لم تُحذف)
   const correctAnswers = {
-    A: "5",
-    B: "4",
-    C: "1",
-    D: "9",
-    e: "3",
-    f: "3",
-    g: "6",
-    h: "2",
+    0: "5",
+    1: "4",
+    2: "1",
+    3: "9",
+    4: "3",
+    5: "8",
+    6: "6",
+    7: "2",
   };
 
   const canvasRef = useRef(null);
@@ -51,13 +51,16 @@ const MatchingWithCanvas = () => {
   const [checkedConnections, setCheckedConnections] = useState(null);
   const [score, setScore] = useState(null);
 
-  // ✅ ضروري مع canvas
   useLayoutEffect(() => {
+    if (!canvasRef.current) return;
+    const canvas = canvasRef.current;
+    const parent = canvas.parentElement;
+    canvas.width = parent.offsetWidth;
+    canvas.height = parent.offsetHeight;
     drawLines();
   }, [connections, currentLine, checkedConnections]);
 
   const getCanvasPos = (e) => {
-    if (!canvasRef.current) return { x: 0, y: 0 };
     const rect = canvasRef.current.getBoundingClientRect();
     return {
       x: e.clientX - rect.left,
@@ -70,8 +73,6 @@ const MatchingWithCanvas = () => {
       side === "left"
         ? leftRefs.current[index]
         : rightRefs.current[index];
-
-    if (!element || !canvasRef.current) return;
 
     const rect = element.getBoundingClientRect();
     const canvasRect = canvasRef.current.getBoundingClientRect();
@@ -96,7 +97,7 @@ const MatchingWithCanvas = () => {
   const handleMouseMove = (e) => {
     if (!currentLine) return;
     const pos = getCanvasPos(e);
-    setCurrentLine((prev) => ({
+    setCurrentLine(prev => ({
       ...prev,
       x2: pos.x,
       y2: pos.y
@@ -119,9 +120,9 @@ const MatchingWithCanvas = () => {
       return;
     }
 
-    setConnections((prev) => {
+    setConnections(prev => {
       const filtered = prev.filter(
-        (c) => c.fromIndex !== fromIndex && c.toIndex !== toIndex
+        c => c.fromIndex !== fromIndex && c.toIndex !== toIndex
       );
       return [...filtered, { fromIndex, toIndex }];
     });
@@ -131,8 +132,6 @@ const MatchingWithCanvas = () => {
   };
 
   const drawLines = () => {
-    if (!canvasRef.current) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -142,7 +141,6 @@ const MatchingWithCanvas = () => {
     connections.forEach(({ fromIndex, toIndex }) => {
       const leftEl = leftRefs.current[fromIndex];
       const rightEl = rightRefs.current[toIndex];
-
       if (!leftEl || !rightEl) return;
 
       const leftRect = leftEl.getBoundingClientRect();
@@ -150,15 +148,13 @@ const MatchingWithCanvas = () => {
 
       const x1 = leftRect.right - canvasRect.left;
       const y1 = leftRect.top + leftRect.height / 2 - canvasRect.top;
-
       const x2 = rightRect.left - canvasRect.left;
       const y2 = rightRect.top + rightRect.height / 2 - canvasRect.top;
 
       let strokeColor = "orange";
-
       if (checkedConnections) {
         const result = checkedConnections.find(
-          (r) => r.fromIndex === fromIndex && r.toIndex === toIndex
+          r => r.fromIndex === fromIndex && r.toIndex === toIndex
         );
         if (result) strokeColor = result.isCorrect ? "green" : "red";
       }
@@ -181,7 +177,6 @@ const MatchingWithCanvas = () => {
     }
   };
 
-  // ✅ RESET
   const resetExercise = () => {
     setConnections([]);
     setCurrentLine(null);
@@ -189,50 +184,33 @@ const MatchingWithCanvas = () => {
     setScore(null);
   };
 
-  // ✅ SHOW ANSWER (مصَحّحة بدون حذف)
   const showAnswerFunc = () => {
-    const mapping = {
-      0: 3,
-      1: 0,
-      2: 4,
-      3: 6,
-      4: 2,
-      5: 1,
-      5: 1,
-      5: 1,
-    };
-
-    const newConnections = Object.entries(mapping).map(
-      ([fromIndex, toIndex]) => ({
-        fromIndex: Number(fromIndex),
-        toIndex
-      })
+    const newConnections = Object.entries(correctAnswers).map(
+      ([fromIndex, rightNumber]) => {
+        const toIndex = rightItems.findIndex(
+          item => item.startsWith(rightNumber + "-")
+        );
+        return { fromIndex: Number(fromIndex), toIndex };
+      }
     );
 
     setConnections(newConnections);
 
     const total = Object.keys(correctAnswers).length;
-    const correctCount = total;
-
-    setCheckedConnections(
-      newConnections.map(c => ({ ...c, isCorrect: true }))
-    );
-
-    setScore({ correct: correctCount, total });
+    setCheckedConnections(newConnections.map(c => ({ ...c, isCorrect: true })));
+    setScore({ correct: total, total });
 
     ValidationAlert.success(
       "Answers shown",
       "All correct connections have been placed.",
-      `${correctCount}/${total}`
+      `${total}/${total}`
     );
   };
 
-  // ✅ CHECK ANSWER (لم يُحذف)
   const checkAnswer = () => {
     const results = connections.map(({ fromIndex, toIndex }) => {
-      const leftKey = ["A", "B", "C", "D", "e", "f"][fromIndex];
       const rightKey = rightItems[toIndex][0];
-      const isCorrect = correctAnswers[leftKey] === rightKey;
+      const isCorrect = correctAnswers[fromIndex] === rightKey;
       return { fromIndex, toIndex, isCorrect };
     });
 
@@ -240,27 +218,14 @@ const MatchingWithCanvas = () => {
 
     const correctCount = results.filter(r => r.isCorrect).length;
     const total = Object.keys(correctAnswers).length;
-
     setScore({ correct: correctCount, total });
 
     if (correctCount === total) {
-      ValidationAlert.success(
-        "Excellent!",
-        "You got all answers right!",
-        `${correctCount}/${total}`
-      );
+      ValidationAlert.success("Excellent!", "You got all answers right!", `${correctCount}/${total}`);
     } else if (correctCount === 0) {
-      ValidationAlert.info(
-        "Try Again!",
-        "All answers are incorrect.",
-        `${correctCount}/${total}`
-      );
+      ValidationAlert.info("Try Again!", "All answers are incorrect.", `${correctCount}/${total}`);
     } else {
-      ValidationAlert.error(
-        "Almost there!",
-        `You got ${correctCount} out of ${total} correct.`,
-        `${correctCount}/${total}`
-      );
+      ValidationAlert.error("Almost there!", `You got ${correctCount} out of ${total} correct.`, `${correctCount}/${total}`);
     }
   };
 
@@ -273,21 +238,23 @@ const MatchingWithCanvas = () => {
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
-        <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">7</span>
-        <span style={{ color: "black" }} className="number-of-q">3</span>
-        Trouve les paires.            </header>
+        <span style={{ backgroundColor: "#cf7230" }} className="ex-A">7</span>
+        <span className="number-of-q">11</span>
+        Trouve les paires.
+      </header>
 
-      <div className="matching-columns" style={{ display: "flex", gap: "220px" }}>
+      <div
+        className="matching-columns"
+        style={{ display: "flex", gap: "220px", position: "relative" }}
+      >
         <div className="left-column" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
           {leftItems.map((item, i) => (
             <div
               key={item}
-              ref={(el) => (leftRefs.current[i] = el)}
+              ref={el => (leftRefs.current[i] = el)}
               onMouseDown={handleMouseDown("left", i)}
-              className={`item-box ${checkedConnections?.some(
-                (c) => c.fromIndex === i && !c.isCorrect
-              ) ? "wrong-box" : ""
-                }`}
+              onMouseUp={handleMouseUp("left", i)}
+              className="item-box"
             >
               {item}
             </div>
@@ -296,21 +263,22 @@ const MatchingWithCanvas = () => {
 
         <canvas
           ref={canvasRef}
-          width={900}
-          height={600}
-          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 1,
+            pointerEvents: "none"
+          }}
         />
 
         <div className="right-column" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
           {rightItems.map((item, i) => (
             <div
               key={item}
-              ref={(el) => (rightRefs.current[i] = el)}
+              ref={el => (rightRefs.current[i] = el)}
               onMouseUp={handleMouseUp("right", i)}
-              className={`item-box ${checkedConnections?.some(
-                (c) => c.toIndex === i && !c.isCorrect
-              ) ? "wrong-box" : ""
-                }`}
+              className="item-box"
             >
               {item}
             </div>
@@ -319,17 +287,11 @@ const MatchingWithCanvas = () => {
       </div>
 
       {score && <ScoreCardEnhanced score={score} />}
-      <div className="spaces"></div>
+ <div className="spaces"></div>
       <div className="action-buttons-container" style={{ marginTop: "30px" }}>
-        <button onClick={resetExercise} className="try-again-button">
-          Recommencer ↻
-        </button>
-        <button onClick={showAnswerFunc} className="show-answer-btn">
-          Afficher la réponse
-        </button>
-        <button onClick={checkAnswer} className="check-button2">
-          Vérifier la réponse ✓
-        </button>
+        <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
+        <button onClick={showAnswerFunc} className="show-answer-btn">Afficher la réponse</button>
+        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse ✓</button>
       </div>
     </div>
   );

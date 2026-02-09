@@ -78,22 +78,22 @@ const Page5_Q1_CleanAudio = () => {
   });
 
   /* ================= CORRECT ANSWERS ================= */
- const correctAnswers = {
-  /* ===== ROW 1 ===== */
-  row1_col2: "au magasin d’électronique",
-  row1_col3: "drone",
-  row1_col4: "400",
-  row1_col5: "une carte 3D du parc",
+  const correctAnswers = {
+    /* ===== ROW 1 ===== */
+    row1_col2: "au magasin d’électronique",
+    row1_col3: "drone",
+    row1_col4: "400",
+    row1_col5: "une carte 3D du parc",
 
-  /* ===== ROW 2 ===== */
-  row2_col1: "Rien de nouveau",
-  row2_col2: "acheté",
+    /* ===== ROW 2 ===== */
+    row2_col1: "Rien de nouveau",
+    row2_col2: "acheté",
 
-  /* ===== ROW 3 ===== */
+    /* ===== ROW 3 ===== */
 
-  row3_col2b: "j’ai pris quelques photos",
+    row3_col2b: "j’ai pris quelques photos",
 
-};
+  };
 
 
 
@@ -104,8 +104,8 @@ const Page5_Q1_CleanAudio = () => {
       col2: (
         <div>
           <span>Je suis allé </span>
-            <input
-        style={{borderBottom:"solid black 2px",color:"red"}}
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
             className="table-input"
             value={inputs.row1_col2}
             onChange={(e) =>
@@ -117,9 +117,9 @@ const Page5_Q1_CleanAudio = () => {
       col3: (
         <div>
           <span>Un </span>
-            <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
+
             className="table-input"
             value={inputs.row1_col3}
             onChange={(e) =>
@@ -132,9 +132,9 @@ const Page5_Q1_CleanAudio = () => {
         <div>
           <span>Avec la promotion,</span>
           <br />
-            <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
+
             className="table-input"
             value={inputs.row1_col4}
             onChange={(e) =>
@@ -147,9 +147,9 @@ const Page5_Q1_CleanAudio = () => {
         <div>
           <span>Je veux faire</span>
           <br />
-            <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
+
             className="table-input"
             value={inputs.row1_col5}
             onChange={(e) =>
@@ -161,9 +161,9 @@ const Page5_Q1_CleanAudio = () => {
     },
     {
       col1: (
-          <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+        <input
+          style={{ borderBottom: "solid black 2px", color: "red" }}
+
           className="table-input"
           value={inputs.row2_col1}
           onChange={(e) =>
@@ -174,9 +174,9 @@ const Page5_Q1_CleanAudio = () => {
       col2: (
         <div>
           <span>et j'ai </span>
-            <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
+
             className="table-input"
             value={inputs.row2_col2}
             onChange={(e) =>
@@ -186,20 +186,20 @@ const Page5_Q1_CleanAudio = () => {
         </div>
       ),
 
-    
-   
+
+
     },
     {
-    
+
       col2: (
         <div>
           <span>Je suis allé au parc </span>
-      
+
           <br />
           <span>et </span>
-            <input
-         style={{borderBottom:"solid black 2px",color:"red"}}
-     
+          <input
+            style={{ borderBottom: "solid black 2px", color: "red" }}
+
             className="table-input"
             value={inputs.row3_col2b}
             onChange={(e) =>
@@ -208,40 +208,40 @@ const Page5_Q1_CleanAudio = () => {
           />
         </div>
       ),
- 
-    
+
+
     }
   ];
 
   /* ================= CHECK ANSWER ================= */
-const checkAnswer = () => {
-  let correctCount = 0;
-  const total = Object.keys(correctAnswers).length;
+  const checkAnswer = () => {
+    let correctCount = 0;
+    const total = Object.keys(correctAnswers).length;
 
-  Object.keys(correctAnswers).forEach((key) => {
-    if (
-      inputs[key] &&
-      inputs[key].trim().toLowerCase() ===
+    Object.keys(correctAnswers).forEach((key) => {
+      if (
+        inputs[key] &&
+        inputs[key].trim().toLowerCase() ===
         correctAnswers[key].trim().toLowerCase()
-    ) {
-      correctCount++;
+      ) {
+        correctCount++;
+      }
+    });
+
+    const isCorrect = correctCount === total;
+
+    if (isCorrect) {
+      ValidationAlert.success(
+        `Excellent! (${correctCount}/${total})`,
+        "Toutes les réponses sont correctes."
+      );
+    } else {
+      ValidationAlert.error(
+        `Résultat : ${correctCount}/${total}`,
+        "Écoute encore et réessaie."
+      );
     }
-  });
-
-  const isCorrect = correctCount === total;
-
-  if (isCorrect) {
-    ValidationAlert.success(
-      `Excellent! (${correctCount}/${total})`,
-      "Toutes les réponses sont correctes."
-    );
-  } else {
-    ValidationAlert.error(
-      `Résultat : ${correctCount}/${total}`,
-      "Écoute encore et réessaie."
-    );
-  }
-};
+  };
 
 
   const showAnswerFunc = () => {
@@ -271,15 +271,13 @@ const checkAnswer = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-         <header
-                className="header-title-page1 w-full text-left mb-4"
-                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-            >
-                <span style={{ backgroundColor: "#cf7230", color: "#white" }} className="ex-A">DELF</span>
-                <span style={{ color: "black" }} className="number-of-q">1</span>
-        COMPRÉHENSION DES ÉCRITS.
-
-            </header>
+      <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+      >
+        <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">A</span>
+        <span style={{ color: "black" }} className="number-of-q">4</span>
+        Écoute le reste de la conversation et écris la bonne réponse.            </header>
       <div className="nationality-table-container" style={{ width: "80%" }}>
         <table className="nationality-table">
           <thead>

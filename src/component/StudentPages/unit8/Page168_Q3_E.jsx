@@ -235,13 +235,14 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-           <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-      >
-        <span style={{ backgroundColor: "#d7a965", color: "#white" }} className="ex-A">DELF</span>
-        <span style={{ color: "black" }} className="number-of-q">c</span>
-COMPRÉHENSION DES ÉCRITS.      </header>
+       <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">C</span>
+                <span style={{ color: "black" }} className="number-of-q">3</span>
+           Écoute le dialogue et réponds aux questions.
+            </header>
       {/* ✅ QUESTIONS */}
       <div className="page5Q3" style={{ marginLeft: "43%" }}>
         {Object.keys(questions).map((key, index) => (

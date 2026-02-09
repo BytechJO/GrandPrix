@@ -204,14 +204,14 @@ const Page5_Q1_CleanAudio = () => {
   /* ================= JSX ================= */
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-      <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-      >
-        <span style={{ backgroundColor: "#cf7230", color: "white" }} className="ex-A">C</span>
-        <span style={{ color: "black" }} className="number-of-q">4</span>
-        écoute le reste de la conversation et complète le tableau.
-      </header>
+   <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">D</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+           Fais la comparaison.
+            </header>
 
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <div className="audio-popup-read" style={{ width: "30%" }}>

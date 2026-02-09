@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import ScoreCardEnhanced from "../../Popup/ScoreCard"; // عدّل المسار حسب مكانه
+import ScoreCardEnhanced from "../../Popup/ScoreCard";
 
 const MatchingWithCanvas = () => {
   const leftItems = [
@@ -8,10 +8,8 @@ const MatchingWithCanvas = () => {
     "B-J’",
     "C-Où",
     "D-Nous",
-    "e-Est-ce que vous",
-
+    "E-Est-ce que vous",
   ];
-  const [score, setScore] = useState(null); // لتخزين عدد الإجابات الصحيحة وإجمالي الأسئلة
 
   const rightItems = [
     "1-habite dans un village.",
@@ -22,14 +20,16 @@ const MatchingWithCanvas = () => {
     "6-habitons dans un appartement en ville.",
   ];
 
-  // ✔ الإجابات الصحيحة
+  // ✔ الإجابات الصحيحة (مطابقة 100%)
   const correctAnswers = {
+    A: "1",
     B: "5",
     C: "4",
-    D: "2",
-    e: "2",
-    f: "2",
+    D: "6",
+    E: "3",
   };
+
+  const [score, setScore] = useState(null);
 
   const canvasRef = useRef(null);
   const leftRefs = useRef([]);
@@ -47,7 +47,7 @@ const MatchingWithCanvas = () => {
     const rect = canvasRef.current.getBoundingClientRect();
     return {
       x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      y: e.clientY - rect.top,
     };
   };
 
@@ -73,7 +73,7 @@ const MatchingWithCanvas = () => {
       x1: x,
       y1: y,
       x2: x,
-      y2: y
+      y2: y,
     });
   };
 
@@ -83,7 +83,7 @@ const MatchingWithCanvas = () => {
     setCurrentLine((prev) => ({
       ...prev,
       x2: pos.x,
-      y2: pos.y
+      y2: pos.y,
     }));
   };
 
@@ -103,7 +103,6 @@ const MatchingWithCanvas = () => {
       return;
     }
 
-    // 🔒 نقطة واحدة = وصلة واحدة
     setConnections((prev) => {
       const filtered = prev.filter(
         (c) => c.fromIndex !== fromIndex && c.toIndex !== toIndex
@@ -112,7 +111,7 @@ const MatchingWithCanvas = () => {
     });
 
     setCurrentLine(null);
-    setCheckedConnections(null); // إعادة التحقق عند أي تعديل
+    setCheckedConnections(null);
   };
 
   const drawLines = () => {
@@ -159,58 +158,52 @@ const MatchingWithCanvas = () => {
     }
   };
 
-// ✅ RESET
-const resetExercise = () => {
-  setConnections([]);
-  setCurrentLine(null);
-  setCheckedConnections(null);
-  setScore(null); // إعادة تعيين ScoreCard
-};
+  const resetExercise = () => {
+    setConnections([]);
+    setCurrentLine(null);
+    setCheckedConnections(null);
+    setScore(null);
+  };
 
-// ✅ SHOW ANSWER
-const showAnswerFunc = () => {
-  const newConnections = Object.keys(correctAnswers).map((key) => ({
-    fromIndex: leftItems.findIndex((item) => item.startsWith(key)),
-    toIndex: rightItems.findIndex(
-      (item) => item.startsWith(correctAnswers[key])
-    )
-  }));
-  setConnections(newConnections);
+  const showAnswerFunc = () => {
+    const newConnections = Object.keys(correctAnswers).map((key) => ({
+      fromIndex: leftItems.findIndex(
+        (item) => item.split("-")[0] === key
+      ),
+      toIndex: rightItems.findIndex(
+        (item) => item.startsWith(correctAnswers[key])
+      ),
+    }));
 
-  const total = Object.keys(correctAnswers).length;
-  const correctCount = total;
+    const total = Object.keys(correctAnswers).length;
 
-  setCheckedConnections(
-    newConnections.map(c => ({ ...c, isCorrect: true }))
-  );
+    setConnections(newConnections);
+    setCheckedConnections(
+      newConnections.map((c) => ({ ...c, isCorrect: true }))
+    );
 
-  // تحديث ScoreCard
-  setScore({ correct: correctCount, total });
+    setScore({ correct: total, total });
 
-  ValidationAlert.success(
-    "Answers shown",
-    "All correct connections have been placed.",
-    `${correctCount}/${total}`
-  );
-};
+    ValidationAlert.success(
+      "Answers shown",
+      "All correct connections have been placed.",
+      `${total}/${total}`
+    );
+  };
 
-// ✅ CHECK ANSWER
-const checkAnswer = () => {
-  const results = connections.map(({ fromIndex, toIndex }) => {
-    const leftKey = leftItems[fromIndex][0];
-    const rightKey = rightItems[toIndex][0];
-    const isCorrect = correctAnswers[leftKey] === rightKey;
-    return { fromIndex, toIndex, isCorrect };
-  });
+  const checkAnswer = () => {
+    const results = connections.map(({ fromIndex, toIndex }) => {
+      const leftKey = leftItems[fromIndex].split("-")[0];
+      const rightKey = rightItems[toIndex][0];
+      const isCorrect = correctAnswers[leftKey] === rightKey;
+      return { fromIndex, toIndex, isCorrect };
+    });
 
-  setCheckedConnections(results);
+    const correctCount = results.filter((r) => r.isCorrect).length;
+    const total = Object.keys(correctAnswers).length;
 
-  const correctCount = results.filter(r => r.isCorrect).length;
-  const total = Object.keys(correctAnswers).length;
-
-  // تحديث ScoreCard
-  setScore({ correct: correctCount, total });
-
+    setCheckedConnections(results);
+    setScore({ correct: correctCount, total });
 
     if (correctCount === total) {
       ValidationAlert.success(
@@ -231,20 +224,31 @@ const checkAnswer = () => {
         `${correctCount}/${total}`
       );
     }
-};
-
+  };
 
   return (
- 
-
-    
-   
-       <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-  <header
-className="header-title-page1 w-full text-left mb-4"
-  style={{ marginLeft: "42%", color:"black",marginTop:"5%",fontSize:"25px", fontWeight:"bold" }}
+    <div
+      className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4"
+      onMouseMove={handleMouseMove}
+      style={{ position: "relative" }}
+    >
+      <header
+        className="header-title-page1 w-full text-left mb-4"
+        style={{
+          marginLeft: "42%",
+          color: "black",
+          marginTop: "5%",
+          fontSize: "25px",
+          fontWeight: "bold",
+        }}
       >
-        <span style={{backgroundColor:"#ce5b66"}} className="ex-A">4</span> <span style={{color:"black"}} className="number-of-q">1</span>Trouve les paires.
+        <span style={{ backgroundColor: "#ce5b66" }} className="ex-A">
+          4
+        </span>{" "}
+        <span style={{ color: "black" }} className="number-of-q">
+          1
+        </span>
+        Trouve les paires.
       </header>
 
       <div className="matching-columns" style={{ display: "flex", gap: "220px" }}>
@@ -293,9 +297,9 @@ className="header-title-page1 w-full text-left mb-4"
           ))}
         </div>
       </div>
-     {score && <ScoreCardEnhanced score={score} />}
+
+      {score && <ScoreCardEnhanced score={score} />}
 <div className="spaces"></div>
-      {/* 🔘 Action Buttons */}
       <div className="action-buttons-container" style={{ marginTop: "30px" }}>
         <button onClick={resetExercise} className="try-again-button">
           Recommencer ↻
@@ -308,7 +312,6 @@ className="header-title-page1 w-full text-left mb-4"
         </button>
       </div>
     </div>
-  
   );
 };
 

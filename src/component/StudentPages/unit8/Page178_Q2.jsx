@@ -118,14 +118,14 @@ const Page5_Q1_CleanAudio = () => {
     
   // === الإجابات النموذجية ===
   const correctAnswers = {
-       a: "Elle n’aime pas les publicités, parce qu’elles apparaissent tout à coup, et elles ne contiennent pas d’information utiles.",
+       a: "Il été fondé en 2004",
  
 
   };
 
   // === النصوص الأصلية للأسئلة ===
   const questions = {
-     a: "c- À ton avis, est-ce que Marc va accepter la demande d’ami de Léo ? Pourquoi ?",
+     a: "b- Quand a-t-il été fondé ?",
  
    
 
@@ -235,14 +235,13 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-   <header
+        <header
                 className="header-title-page1 w-full text-left mb-4"
                 style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
             >
-                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">B</span>
-                <span style={{ color: "black" }} className="number-of-q">4</span>
-            Réponds aux questions.
-            </header>
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">DELF</span>
+                <span style={{ color: "black" }} className="number-of-q">1</span>
+COMPRÉHENSION DES ÉCRITS.    </header>
       {/* ✅ QUESTIONS */}
       <div className="page5Q3" style={{ marginLeft: "43%" }}>
         {Object.keys(questions).map((key, index) => (
@@ -267,18 +266,10 @@ const Page5_Q1_CleanAudio = () => {
       {score && <ScoreCardEnhanced score={score} />}
       <div className="spaces"></div>
       {/* Action Buttons */}
-      <div className="action-buttons-container">
-        <button  className="try-again-button">
-          Recommencer ↻
-        </button>
-        <button
-          className="show-answer-btn swal-continue"
-        >
-          Afficher la réponse
-        </button>
-        <button  className="check-button2">
-          Vérifier la réponse✓
-        </button>
+        <div className="action-buttons-container">
+        <button onClick={resetExercise} className="try-again-button">Recommencer ↻</button>
+        <button onClick={showAnswerFunc} className="show-answer-btn swal-continue">Afficher la réponse</button>
+        <button onClick={checkAnswer} className="check-button2">Vérifier la réponse✓</button>
       </div>
     </div>
   );

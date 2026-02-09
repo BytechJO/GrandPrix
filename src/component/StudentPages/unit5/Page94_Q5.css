@@ -104,7 +104,7 @@
 }
 
 .exercise-input-page99 {
-  width: 70px;
+  width: 100px;
   border: none;
   border-bottom: 2px solid #333;
   background: transparent;
@@ -126,15 +126,18 @@
 }
 
 .dialog-bubble-page99.input-page99-2 {
-  background-color: #ffffff;
+  background-color: #f8c1d9;
 }
 
 .dialog-bubble-page99.input-page99-3 {
-  background-color: #bfe3c6;
+  background-color: #f8c1d9;
 }
 
 .dialog-bubble-page99.input-page99-4 {
-  background-color: #f3b6c2;
+  background-color: #fddecd;
+}
+.dialog-bubble-page99.input-page99-5 {
+  background-color: #fddecd;
 }
 
 /* =========================
@@ -146,23 +149,27 @@
 }
 
 .input-page99-1 {
-  top: 30%;
-  right: 10%;
+  top: 10%;
+  left: 27%;
 }
 
 .input-page99-2 {
   top: 48%;
-  left: 14%;
+  left: 40%;
 }
 
 .input-page99-3 {
   top: 66%;
-  right: 14%;
+  left: 40%;
 }
 
 .input-page99-4 {
-  top: 80%;
-  left: 22%;
+  top: 30%;
+  left:95%;
+}
+.input-page99-5 {
+  top: 60%;
+  left:95%;
 }
 
 /* =========================
@@ -173,17 +180,22 @@
   left: -10%;
   background-color: #bae4e9;
 }
+.dialog-page99-01 {
+  top: 50%;
+  left: 15%;
+  background-color: #bae4e9;
+}
 
 .dialog-page99-1 {
-  top: 16%;
-  left: 23%;
+  top: 40%;
+  left: 27%;
   background-color: #bfe3c6;
 }
 
 .dialog-page99-2 {
-  top: 28%;
-  left: 26%;
-  background-color: #bfe3c6;
+  top: 15%;
+  right:5%;
+  background-color: #fddecd;
 }
 
 .dialog-page99-3 {

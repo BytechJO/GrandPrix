@@ -18,7 +18,7 @@ const Page5_Q1_CleanAudio = () => {
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
 
   // الإجابة الصحيحة
-  const correctAnswer = "pierre";
+  const correctAnswer = "patric";
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -126,14 +126,13 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-     <header
+       <header
                 className="header-title-page1 w-full text-left mb-4"
                 style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
             >
-                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">B</span>
-                <span style={{ color: "black" }} className="number-of-q">4</span>
-            Réponds aux questions.
-            </header>
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">DELF</span>
+                <span style={{ color: "black" }} className="number-of-q">1</span>
+COMPRÉHENSION DE L’ORAL.    </header>
     
       
 
@@ -141,7 +140,7 @@ const Page5_Q1_CleanAudio = () => {
 
       <div className="qcm-container">
         <div className="qcm-column">
-          <p className="question-title">a-Qui a habité près de chez Léo ?</p>
+          <p className="question-title">e- Qu’est-ce qu’ils ont fait dimanche ?</p>
           <label className={getLabelClass("patric")}>
             <input
               type="radio"
@@ -151,7 +150,7 @@ const Page5_Q1_CleanAudio = () => {
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-          Mark Berge
+          Ils ont pique-niqué.
           </label>
           <label className={getLabelClass("pierre")}>
             <input
@@ -162,7 +161,7 @@ const Page5_Q1_CleanAudio = () => {
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-          Marc Berger
+         Ils sont allés à la pêche.
           </label>
           <label className={getLabelClass("pol")}>
             <input
@@ -173,7 +172,7 @@ const Page5_Q1_CleanAudio = () => {
               onChange={(e) => setAnswer(e.target.value)}
               disabled={!!score}
             />
-            Merk Berger
+            Ils ont fait des vidéos.
           </label>
         </div>
       </div>

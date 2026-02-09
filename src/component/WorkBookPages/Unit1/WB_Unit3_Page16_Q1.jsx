@@ -1,7 +1,7 @@
 import React, { useState,useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/unite2pages/svg/page32Q4.svg";
+import img1 from "../../../assets/unite2pages/svg/P16Q1.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";

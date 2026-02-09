@@ -1,28 +1,49 @@
 import React from "react";
 import page_1 from "../../../assets/unite8pages/168.png"
-import page5_CD2 from "../../../assets/unit1/SoundU1/1.mp3";
+import page5_CD2 from "../../../assets/U8Audio/u8scq3.mp3";
 import AudioWithCaption from "../../AudioWithCaption";
 
 import arrowBtn from "../../../assets/unit1/imgs/Page 01/Arrow.svg";
 const captionsExample = [
-  { start:5.0 , end: 7.0, text: "GrandPrixA1" },
-  { start: 7.3, end: 8.3, text: "unité 1," },
-  { start: 8.3, end: 9.6, text: " seprésenter. " },
-  { start: 10.2, end: 11.2, text: " SectionA " },
-  { start: 13.1, end: 14.2, text: " Exercice1 " },
-  { start: 14.8, end: 15.3, text: " Écoute " },
-  { start: 15.8, end: 17.9, text: " répète et place dans l'ordre. " },
-  { start: 20.4, end: 21.2, text: " Bonjour Loïc." },
-  { start: 22.7, end: 23.5, text: " Bonjour Théo." },
-  { start: 25.5, end: 26.3, text: "Salut Amélie" },
-  { start: 27.8, end: 28.1, text: "Salut Emma" },
-  { start: 30.4, end: 31.5, text: "Bonjour Madame Rose" },
-  { start: 32.8, end: 33.7, text: "Bonjour Madame Lucas." },
-  { start: 35.4, end: 36.1, text: "Bonjour Monsieur Henry." },
-  { start: 38.7, end: 39.4, text: "Au revoir Tom" },
-  { start: 40.7, end: 41.4, text: "Au revoir Adam." },
-  
+  { start: 5.33, end: 9.85, text: "Grand Prix A1, unité 8, la technologie." },
+  { start: 10.09, end: 14.75, text: "Section C, l'Internet. Exercice 3." },
+  { start: 14.79, end: 17.07, text: "Écoute le dialogue et réponds" },
+  { start: 17.07, end: 18.57, text: "aux questions." },
+
+  { start: 19.69, end: 21.65, text: "Bonjour, je fais une enquête" },
+  { start: 21.65, end: 23.99, text: "sur Internet pour le journal Mon âge." },
+  { start: 23.99, end: 25.27, text: "Est-ce que vous pouvez" },
+  { start: 25.27, end: 26.71, text: "répondre à quelques questions," },
+  { start: 26.71, end: 29.47, text: "s'il vous plaît? Euh, d'accord." },
+
+  { start: 29.53, end: 31.59, text: "Comment vous appelez-vous?" },
+  { start: 31.79, end: 33.53, text: "Je m'appelle Monique." },
+
+  { start: 33.53, end: 36.27, text: "Est-ce que vous avez un ordinateur?" },
+  { start: 36.27, end: 38.77, text: "Non, mais j'ai une tablette." },
+
+  { start: 38.93, end: 40.73, text: "Et est-ce que vous allez" },
+  { start: 40.73, end: 42.23, text: "souvent sur Internet?" },
+
+  { start: 42.37, end: 44.33, text: "Ah, entre deux heures et" },
+  { start: 44.33, end: 45.83, text: "trois heures par jour." },
+
+  { start: 46.17, end: 48.03, text: "Que faites-vous sur Internet?" },
+  { start: 48.15, end: 50.09, text: "J'écoute de la musique, je" },
+  { start: 50.09, end: 51.83, text: "regarde des films, je chatte" },
+  { start: 51.83, end: 53.47, text: "avec mes amis, je télécharge" },
+  { start: 53.47, end: 54.85, text: "des documents." },
+
+  { start: 54.85, end: 57.21, text: "Bon, est-ce que vous aimez" },
+  { start: 57.21, end: 58.49, text: "les publicités?" },
+
+  { start: 58.49, end: 60.47, text: "Non, elles apparaissent tout à" },
+  { start: 60.47, end: 61.55, text: "coup et elles ne contiennent" },
+  { start: 61.55, end: 62.73, text: "pas d'informations utiles." },
+
+  { start: 62.73, end: 64.23, text: "Sous-titrage Société Radio-Canada" },
 ];
+
 
 const Page5 = ({ openPopup }) => {
 
@@ -33,7 +54,24 @@ const Page5 = ({ openPopup }) => {
 
       {/* زر الصوت الأول */}
      
-      
+                        <div
+        id="CD-1-page5"
+        className="headset-icon-CD-page5 hover:scale-110 transition"
+        style={{
+          position: "absolute",
+          top: "6%", // عدّل حسب مكان الزر
+          left: "2%", // عدّل حسب مكان الزر
+          cursor: "pointer",
+          width: "50px", height: "50px",
+        }}
+        onClick={() =>
+          openPopup(
+            "audio",
+            <AudioWithCaption src={page5_CD2}  captions={captionsExample} />
+          )
+        }
+      >
+      </div>
         <div
             className="Click -icon-CD-page5 hover:scale-110 transition"
               style={{ overflow: "visible" , position:"absolute",top:"11.5%",left:"7.5%"  }}

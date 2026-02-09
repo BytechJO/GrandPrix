@@ -126,13 +126,14 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-     <header
-        className="header-title-page1 w-full text-left mb-4"
-        style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
-      >
-        <span style={{ backgroundColor: "#d7a965", color: "#white" }} className="ex-A">DELF</span>
-        <span style={{ color: "black" }} className="number-of-q">b</span>
-COMPRÉHENSION DE L’ORAL.     </header>
+   <header
+                className="header-title-page1 w-full text-left mb-4"
+                style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
+            >
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">B</span>
+                <span style={{ color: "black" }} className="number-of-q">4</span>
+            Réponds aux questions.
+            </header>
     
       
 

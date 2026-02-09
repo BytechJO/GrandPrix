@@ -5,16 +5,16 @@ import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/unite8pages/svg/1681.svg"
-import img2 from "../../../assets/unite8pages/svg/1682.svg"
-import img3 from "../../../assets/unite8pages/svg/1683.svg"
+import img3 from "../../../assets/unite8pages/svg/Asset70.svg"
+import img2 from "../../../assets/unite8pages/svg/Asset71.svg"
+import img1 from "../../../assets/unite8pages/svg/Asset72.svg"
 
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
   const [score, setScore] = useState(null);
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
-  const correctAnswer = "pol";
+  const correctAnswer = "patric";
 
   const checkAnswer = () => {
     if (!answer) {
@@ -73,14 +73,13 @@ const Page5_Q1_CleanAudio = () => {
 
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-     <header
+       <header
                 className="header-title-page1 w-full text-left mb-4"
                 style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
             >
-                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">C</span>
-                <span style={{ color: "black" }} className="number-of-q">3</span>
-           Écoute le dialogue et réponds aux questions.
-            </header>
+                <span style={{ backgroundColor: "#7cd0f5", color: "#white" }} className="ex-A">DELF</span>
+                <span style={{ color: "black" }} className="number-of-q">1</span>
+COMPRÉHENSION DE L’ORAL.    </header>
 
       {score && <ScoreCardEnhanced score={score} />}
 
