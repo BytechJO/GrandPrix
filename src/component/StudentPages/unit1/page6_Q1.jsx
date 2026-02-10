@@ -136,7 +136,7 @@ const showCorrectDragAnswer = () => {
   const correctCount = total; // جميعها صحيحة بعد العرض
   setScore({ correct: correctCount, total });
 
-  ValidationAlert.info(
+  ValidationAlert.success(
     "Answers shown",
     "Correct letters have been placed.",
     `${correctCount}/${total}`
@@ -149,6 +149,7 @@ const showCorrectDragAnswer = () => {
   setDroppedLetters(initialDroppedState);
   setShuffledPairs(getShuffledPairs());
   setScore(null); // إعادة تعيين ScoreCard
+  resetAudio();
 
   if (ValidationAlert && typeof ValidationAlert.close === 'function') {
     ValidationAlert.close();

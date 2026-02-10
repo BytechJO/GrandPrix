@@ -258,6 +258,8 @@ import Page178_Q2 from "./unit8/Page178_Q2";
 import Page178_Q3 from "./unit8/Page178_Q3"; 
 import Page178_Q4 from "./unit8/Page178_Q4"; 
 import Page178_Q5 from "./unit8/Page178_Q5"; 
+import Page123_Q1 from "./unit6/Page123_Q1"; 
+import Page123_Q2 from "./unit6/Page123_Q2"; 
 
 
 export const lessons = [
@@ -517,6 +519,8 @@ export const lessons = [
  { component: Page178_Q3, unit: 3 },
  { component: Page178_Q4, unit: 3 },
  { component: Page178_Q5, unit: 3 },
+ { component: Page123_Q1, unit: 3 },
+ { component: Page123_Q2, unit: 3 },
 
 
  

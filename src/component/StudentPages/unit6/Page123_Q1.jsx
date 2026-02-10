@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import CD6_Pg8_Instruction1_AdultLady from "../../../assets/unit1/SoundU1/P17Q1.mp3";
-import imgBackground from "../../../assets/unit1/sectionD/P145 1.svg";
+import imgBackground from "../../../assets/unit1/sectionD/P123Q1.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -10,37 +10,40 @@ import "../unit1/Page17_Q1.css";
 
 /* 🔴 القائمة */
 const numbersList = [
-  { id: "a", label: "Loger à l’hôtel" },
-  { id: "b", label: "Voir une aurore boréale" },
-  { id: "c", label: "Nager dans le Lagon Bleu" },
-  { id: "d", label: "Visiter une chute d’eau" },
-  { id: "e", label: "Aller observer les baleines" },
-  { id: "f", label: "Explorer un parc national" },
-
+  { id: "a", label: "Le golf" },
+  { id: "b", label: "Le hockey sur glace" },
+  { id: "c", label: "Le football" },
+  { id: "d", label: "Le volley" },
+  { id: "e", label: "Le basket" },
+  { id: "f", label: "Le judo" },
+  { id: "g", label: "Le tennis" },
+  { id: "h", label: "Le ski" },
  
 ];
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
-  0: "d",
-  1: "c",
-  2: "b",
-  3: "e",
-  4: "f",
-  5: "a",
-
+  0: "e",
+  1: "g",
+  2: "c",
+  3: "h",
+  4: "a",
+  5: "b",
+  6: "f",
+  7: "d",
 
 };
 
 /* 🔴 مواقع الـ inputs */
 const inputPositions = [
-  { id: 0, className: "input-page145-0" },
-  { id: 1, className: "input-page145-1" },
-  { id: 2, className: "input-page145-2" },
-  { id: 3, className: "input-page145-3" },
-  { id: 4, className: "input-page145-4" },
-  { id: 5, className: "input-page145-5" },
-
+  { id: 0, className: "input-page123-0" },
+  { id: 1, className: "input-page123-1" },
+  { id: 2, className: "input-page123-2" },
+  { id: 3, className: "input-page123-3" },
+  { id: 4, className: "input-page123-4" },
+  { id: 5, className: "input-page123-5" },
+  { id: 6, className: "input-page123-6" },
+  { id: 7, className: "input-page123-7" },
 
 ];
 
@@ -336,7 +339,7 @@ const Page5_Q1_CleanAudio2 = () => {
               value={inputs[pos.id] || ""}
               onChange={(e) => handleInputChange(pos.id, e.target.value)}
               className={`input-pos ${pos.className}`}
-              style={{ width: "5%", height: "7%", backgroundColor: "white", border:"pink solid 2px" }}
+              style={{ width: "5%", height: "5%", backgroundColor: "white", border:"pink solid 2px" }}
             />
           ))}
         </div>

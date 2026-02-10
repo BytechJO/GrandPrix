@@ -5,41 +5,14 @@ import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-
+import img1 from "../../../assets/unite4pages/SVG/P90QD1.svg"
+import img2 from "../../../assets/unite4pages/SVG/P90QD2.svg"
+import img3 from "../../../assets/unite4pages/SVG/P90QD3.svg"
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [showSettings, setShowSettings] = useState(false);
-  const [volume, setVolume] = useState(1);
   const [score, setScore] = useState(null);
-
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
-
-  // الإجابة الصحيحة
-  const correctAnswer = "pol";
-
-  const togglePlay = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (audio.paused) {
-      audio.play();
-      setIsPlaying(true);
-    } else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const resetAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.pause();
-      setIsPlaying(false);
-      setCurrent(0);
-    }
-  };
+  const correctAnswer = "pierre";
 
   const checkAnswer = () => {
     if (!answer) {
@@ -68,7 +41,6 @@ const Page5_Q1_CleanAudio = () => {
   const showAnswerFunc = () => {
     setAnswer(correctAnswer);
     setScore({ correct: 1, total: 1 });
-
     ValidationAlert.success(
       "Réponse affichée",
       "La bonne réponse est entourée."
@@ -78,42 +50,7 @@ const Page5_Q1_CleanAudio = () => {
   const resetExercise = () => {
     setAnswer("");
     setScore(null);
-    resetAudio();
-  };
-
-  const [showCaption, setShowCaption] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const captions = [
-    { start: 4.9, end: 6.6, text: "Grand Prix A1," },
-    { start: 6.6, end: 8.0, text: "Unité 1" },
-    { start: 8.0, end: 8.9, text: "Se présenter" },
-    { start: 9.7, end: 10.5, text: "Section D" },
-    { start: 11.1, end: 12.2, text: "Ma nationalité" },
-    { start: 13.0, end: 14.0, text: "Exercice 6" },
-    { start: 15.0, end: 16.5, text: "Écoute et trouve" },
-    { start: 16.5, end: 17.6, text: "la nationalité" },
-    { start: 17.6, end: 18.1, text: "de chaque" },
-    { start: 18.1, end: 18.7, text: "personne." },
-    { start: 20.5, end: 21.8, text: "Les personnages" },
-    { start: 21.8, end: 22.0, text: "sont" },
-    { start: 22.0, end: 23.1, text: "dans le bus." },
-    { start: 23.1, end: 23.4, text: "Ils se" },
-    { start: 23.4, end: 24.5, text: "présentent." },
-    { start: 24.5, end: 25.6, text: "Sophia et Alison" },
-    { start: 25.6, end: 26.6, text: "sont Suisses" },
-    { start: 27.2, end: 28.4, text: "Boris est Russe." },
-    { start: 28.9, end: 29.6, text: "Paul et Thomas" },
-    { start: 29.6, end: 30.4, text: "sont Anglais" },
-    { start: 30.4, end: 31.3, text: "et Annabelle" },
-    { start: 31.3, end: 32.0, text: "est Allemande." },
-  ];
-
-  const updateCaption = (currentTime) => {
-    const index = captions.findIndex(
-      (cap) => currentTime >= cap.start && currentTime <= cap.end
-    );
-    setActiveIndex(index !== -1 ? index : null);
+   
   };
 
   // دالة لتحديد الكلاس الأخضر أو الأحمر
@@ -124,57 +61,61 @@ const Page5_Q1_CleanAudio = () => {
     return "";
   };
 
+  // بيانات الصور للخيارات
+  const options = [
+    { value: "patric",image: img1 },
+    { value: "pierre",  image: img2 },
+    { value: "pol", image: img3 },
+  
+  ];
+
   return (
     <div className="page-wrapper1 flex flex-col items-center justify-start gap-8 p-4">
-      <header
+   <header
         className="header-title-page1 w-full text-left mb-4"
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
         <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">DELF</span>
-        <span style={{ color: "black" }} className="number-of-q">4</span>
-   COMPRÉHENSION DES ÉCRITS
+        <span style={{ color: "black" }} className="number-of-q">2</span>
+    COMPRÉHENSION DE L’ORAL
       </header>
-    
-      
 
       {score && <ScoreCardEnhanced score={score} />}
 
       <div className="qcm-container">
         <div className="qcm-column">
-          <p className="question-title">c-En face de quoi se situe ce magasin?</p>
-          <label className={getLabelClass("patric")}>
-            <input
-              type="radio"
-              name="answer"
-              value="patric"
-              checked={answer === "patric"}
-              onChange={(e) => setAnswer(e.target.value)}
-              disabled={!!score}
-            />
-           1- Du restaurant « Jaques »
-          </label>
-          <label className={getLabelClass("pierre")}>
-            <input
-              type="radio"
-              name="answer"
-              value="pierre"
-              checked={answer === "pierre"}
-              onChange={(e) => setAnswer(e.target.value)}
-              disabled={!!score}
-            />
-          2-Du bistro
-          </label>
-          <label className={getLabelClass("pol")}>
-            <input
-              type="radio"
-              name="answer"
-              value="pol"
-              checked={answer === "pol"}
-              onChange={(e) => setAnswer(e.target.value)}
-              disabled={!!score}
-            />
-           3- De la librairie
-          </label>
+          <p className="question-title">d- Quelle carte est correcte ? </p>
+          
+          <div className="image-options-container flex gap-6 mt-6">
+            {options.map((option) => (
+              <div key={option.value} className="image-option-wrapper flex flex-col items-center">
+                <label 
+                  className={`image-option1 ${getLabelClass(option.value)} cursor-pointer`}
+                >
+                  <input
+                    type="radio"
+                    name="answer"
+                    value={option.value}
+                    checked={answer === option.value}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    disabled={!!score}
+                    className="hidden"
+                  />
+                  <div className="image-container relative">
+                    <img 
+                      src={option.image} 
+                      alt={option.label}
+                      className="option-image w-32 h-32 object-cover rounded-lg border-2 border-gray-300 hover:border-blue-400 transition-all duration-200"
+                    />
+                    {answer === option.value && (
+                      <div className="selection-indicator absolute inset-0 border-4 border-blue-500 rounded-lg pointer-events-none"></div>
+                    )}
+                  </div>
+                </label>
+                <span className="option-label mt-2 font-medium">{option.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

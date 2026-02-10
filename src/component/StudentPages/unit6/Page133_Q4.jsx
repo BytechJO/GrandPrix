@@ -5,16 +5,16 @@ import { IoMdSettings } from "react-icons/io";
 import ValidationAlert from "../../Popup/ValidationAlert";
 import { TbMessageCircle } from "react-icons/tb";
 import ScoreCardEnhanced from "../../Popup/ScoreCard";
-import img1 from "../../../assets/unite6pages/SVG/133-4.svg"
-import img2 from "../../../assets/unite6pages/SVG/133-3.svg"
-import img3 from "../../../assets/unite6pages/SVG/133-2.svg"
+import img1 from "../../../assets/unite6pages/SVG/P133Qd-1.svg"
+import img2 from "../../../assets/unite6pages/SVG/P133Qd-2.svg"
+import img3 from "../../../assets/unite6pages/SVG/P133Qd-3.svg"
 import img4 from "../../../assets/unite6pages/SVG/133-1.svg"
 
 const Page5_Q1_CleanAudio = () => {
   const audioRef = useRef(null);
   const [score, setScore] = useState(null);
   const [answer, setAnswer] = useState(""); // الإجابة المختارة
-  const correctAnswer = "patric";
+  const correctAnswer = "pierre";
 
   const checkAnswer = () => {
     if (!answer) {
@@ -68,7 +68,6 @@ const Page5_Q1_CleanAudio = () => {
     { value: "patric",image: img1 },
     { value: "pierre",  image: img2 },
     { value: "pol", image: img3 },
-    { value: "pol2", image: img4 },
   
   ];
 
@@ -86,7 +85,7 @@ COMPRÉHENSION DE L’ORAL.     </header>
 
       <div className="qcm-container">
         <div className="qcm-column">
-          <p className="question-title">b- Où habite Luc ?</p>
+          <p className="question-title">d- Qu’est-ce que Luc porte ?</p>
           
           <div className="image-options-container flex gap-6 mt-6">
             {options.map((option) => (

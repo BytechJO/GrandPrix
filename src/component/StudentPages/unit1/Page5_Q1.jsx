@@ -104,7 +104,7 @@ const Page5_Q1_CleanAudio = () => {
         `${correctCount}/${total}`
       );
     } else if (correctCount === 0) {
-      ValidationAlert.info(`All answers are incorrect. Try again.`, "تحذير ⚠️");
+      ValidationAlert.error(`All answers are incorrect. Try again.`, "تحذير ⚠️");
     } else {
       ValidationAlert.error(
         `You answered ${correctCount} out of ${total} correctly.`,
