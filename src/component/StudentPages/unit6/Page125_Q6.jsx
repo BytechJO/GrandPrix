@@ -159,7 +159,7 @@ const resetExercise = () => {
 
   return (
        <div className="page-wrapper2 flex flex-col items-center justify-start gap-8 p-4">
-    <header
+      <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -169,10 +169,9 @@ const resetExercise = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#df4f89" }}>D</span>
-        <span className="number-of-q">6</span>
-    Réponds aux questions suivantes.
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>c</span>
+        <span className="number-of-q">6</span>{" "}
+Réponds aux questions.  </header>
 <div style={{width:"60%"}} > <img style={{width:"100%", height:"50%", marginTop:"0%"}} src={img1} alt="" /></div>
       {/* ✅ QUESTIONS */}
      <div className="page5Q3">

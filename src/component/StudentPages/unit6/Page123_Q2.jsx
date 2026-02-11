@@ -87,7 +87,7 @@ const Page5_Q1_CleanAudio = () => {
     <div className="page-wrapper4 flex flex-col items-center justify-start gap-8 p-4">
 
       {/* العنوان */}
-      <header
+     <header
         className="header-title-page1 w-full text-left mb-4"
         style={{
           marginLeft: "42%",
@@ -97,14 +97,9 @@ const Page5_Q1_CleanAudio = () => {
           fontWeight: "bold",
         }}
       >
-        <span style={{ backgroundColor: "#de4484" }} className="ex-A">
-          2
-        </span>{" "}
-        <span style={{ color: "black" }} className="number-of-q">
-          11
-        </span>
-        Écris l’heure
-      </header>
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>c</span>
+        <span className="number-of-q">2</span>{" "}
+Complète et dis les phrases.  </header>
 
       {/* الأسئلة */}
       <div className="questions-container4">

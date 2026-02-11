@@ -122,7 +122,7 @@ const sentences = [
         }}
       >
         <span className="ex-A" style={{ backgroundColor: "#f38180" }}>D</span>
-        <span className="number-of-q">4</span>
+        <span className="number-of-q">7</span>
         Vrai (✔️ ) ou faux ( ✖️) ?
       </header>
 

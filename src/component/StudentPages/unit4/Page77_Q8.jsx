@@ -124,7 +124,7 @@ const sentences = [
         style={{ marginLeft: "42%", color: "black", marginTop: "5%", fontSize: "25px", fontWeight: "bold" }}
       >
         <span style={{ backgroundColor: "#d47176", color: "#white" }} className="ex-A">B</span>
-        <span style={{ color: "black" }} className="number-of-q">5</span>
+        <span style={{ color: "black" }} className="number-of-q">8</span>
  Vrai (✔️ ) ou faux ( ✖️) ?
       </header>
 

@@ -5,7 +5,7 @@ import img1 from "../../../assets/unite6pages/SVG/page124.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U3Audio/U3SdQ4.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U6Audio/u6sbq4.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -45,32 +45,21 @@ const Page5_Q1_CleanAudio = () => {
     };
 
     const captions = [
-        { start: 5.47, end: 6.6, text: "GrandPrixA1" },
-        { start: 7.7, end: 8.2, text: "unité 3," },
-        { start: 8.45, end: 9.53, text: "sous le même toit," },
-        { start: 10.17, end: 11.0, text: "section D," },
-        { start: 11.5, end: 13.5, text: "où ?" },
-        { start: 13.5, end: 14.5, text: "Exercice 4." },
-        { start: 15.0, end: 17.9, text: "Écoute et écris l'information manquante." },
-        {
-            start: 20.3,
-            end: 23.9,
-            text: "Ray est en retard à son cours de football et il ne trouve pas ses affaires.",
-        },
-        { start: 26.13, end: 26.49, text: "Maman," },
-        { start: 26.49, end: 28.49, text: "je suis en retard et je ne trouve rien." },
-        { start: 28.8, end: 30.2, text: "Est-ce que tu as rangé ma chambre ?" },
-        { start: 31.5, end: 31.7, text: "Oui," },
-        { start: 31.7, end: 33.5, text: "parce que ta chambre était en désordre." },
-        { start: 34.9, end: 36.3, text: "Je ne trouve pas mes chaussures." },
-        { start: 37.4, end: 38.6, text: "Elles sont sous ton lit." },
-        { start: 39.7, end: 41.8, text: "Et mes chaussettes ?" },
-        { start: 41.8, end: 43.0, text: "Elles sont dans ton tiroir." },
-        { start: 44.3, end: 44.5, text: "Bon" },
-        { start: 44.8, end: 46.0, text: "je ne trouve pas mon maillot." },
-        { start: 47.13, end: 48.4, text: "Il est dans ton armoire." },
-        { start: 48.4, end: 49.9, text: "Merci," },
-        { start: 49.9, end: 50.8, text: "à plus tard !" },
+        { start: 5.47, end: 6.43, text: "Rempris A1," },
+  { start: 6.78, end: 7.73, text: "unité 6," },
+  { start: 8.01, end: 8.47, text: "le temps." },
+  { start: 9.44, end: 10.11, text: "Section D," },
+  { start: 10.49, end: 10.87, text: "la mode." },
+  { start: 11.68, end: 12.57, text: "Exercice 4." },
+  { start: 13.37, end: 17.07, text: "Écoute la conversation et écris l'information manquante." },
+
+  { start: 19.58, end: 21.34, text: "Bonjour madame, puis-je vous aider ?" },
+  { start: 22.47, end: 24.25, text: "Oui, avez-vous cette jupe en bleu ?" },
+  { start: 25.33, end: 25.81, text: "Bien sûr." },
+  { start: 26.99, end: 27.87, text: "Je peux l'essayer ?" },
+  { start: 28.95, end: 29.41, text: "Bien sûr," },
+  { start: 29.59, end: 31.77, text: "vous avez une cabine d'essayage derrière vous." },
+  { start: 31.77, end: 33.25, text: "Merci." }
     ];
 
     const updateCaption = (time) => {

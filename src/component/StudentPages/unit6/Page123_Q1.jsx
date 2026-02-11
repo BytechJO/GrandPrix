@@ -200,10 +200,9 @@ const Page5_Q1_CleanAudio2 = () => {
           fontWeight: "bold",
         }}
       >
-        <span className="ex-A" style={{ backgroundColor: "#73C8D2" }}>D</span>{" "}
+        <span className="ex-A" style={{ backgroundColor: "#d7a965" }}>c</span>
         <span className="number-of-q">1</span>{" "}
-        Écoute, répète et place dans l’ordre.
-      </header>
+Écoute et associe l’activité au dessin qui correspond.  </header>
       {/* 🔊 AUDIO PLAYER */}
       {/* AUDIO PLAYER */}
             <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U5Audio/u5sdq4.mp3";
+import page5_CD2 from "../../../assets/U6Audio/u6saq6.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -32,38 +32,37 @@ const Page5_Q1_CleanAudio = () => {
   };
 
  const captions = [
-  { start: 5.44, end: 6.52, text: "Rempris à 1," },
+ { start: 5.53, end: 6.57, text: "Rempris A1," },
+  { start: 6.94, end: 7.97, text: "unité 6," },
+  { start: 8.45, end: 8.87, text: "le temps." },
+  { start: 9.57, end: 10.30, text: "Section A." },
+  { start: 11.07, end: 12.19, text: "Quel temps fait-il ?" },
+  { start: 12.95, end: 13.95, text: "Exercice 6." },
+  { start: 14.33, end: 16.55, text: "Écoute et écris la bonne réponse." },
 
-  { start: 7.07, end: 8.50, text: "unité 5," },
-  { start: 8.80, end: 9.42, text: "les repas." },
+  { start: 19.04, end: 19.65, text: "Aujourd'hui," },
+  { start: 19.83, end: 20.77, text: "c'est le 16 avril." },
 
-  { start: 10.81, end: 11.35, text: "Section D," },
-  { start: 12.20, end: 12.86, text: "au restaurant." },
+  { start: 21.05, end: 22.85, text: "Mauvais temps dans l'est de la France" },
+  { start: 22.95, end: 24.45, text: "avec de la pluie à Lyon," },
+  { start: 24.91, end: 26.29, text: "de la neige à Grenoble" },
+  { start: 26.29, end: 27.59, text: "et du vent à Strasbourg." },
+  { start: 28.61, end: 31.25, text: "La température dans cette région est de 10 degrés." },
 
-  { start: 14.14, end: 15.06, text: "Exercice 4." },
+  { start: 31.95, end: 32.53, text: "Dans l'ouest," },
+  { start: 32.69, end: 33.31, text: "à Bordeaux," },
+  { start: 33.31, end: 34.39, text: "il y a du soleil." },
+  { start: 34.62, end: 35.87, text: "Il fait 28 degrés." },
 
-  { start: 15.65, end: 17.90, text: "Écoute et écris la bonne réponse." },
+  { start: 36.29, end: 37.53, text: "Dans le sud de la France," },
+  { start: 37.59, end: 38.39, text: "il fait chaud," },
+  { start: 38.39, end: 39.53, text: "surtout à Toulouse." },
+  { start: 39.77, end: 41.13, text: "Il fait 27 degrés." },
 
-  { start: 20.36, end: 22.06, text: "Je voudrais des pâtes avec" },
-  { start: 22.10, end: 22.90, text: "du jus d'orange." },
-
-  { start: 25.05, end: 25.60, text: "Comme entrée," },
-  { start: 25.60, end: 26.62, text: "je voudrais des rouleaux" },
-  { start: 26.62, end: 27.24, text: "de fruits de mer" },
-  { start: 27.54, end: 28.28, text: "et comme boisson," },
-
-  { start: 31.00, end: 32.92, text: "Je voudrais une salade verte" },
-  { start: 33.19, end: 34.33, text: "puis de la ratatouille" },
-  { start: 34.39, end: 35.35, text: "avec du jus de raisin." },
-
-  { start: 36.00, end: 36.71, text: "Comme dessert," },
-  { start: 37.07, end: 38.43, text: "je voudrais une tarte aux" },
-  { start: 38.43, end: 39.93, text: "pommes avec un café noir." },
-
-  { start: 41.99, end: 43.43, text: "Je voudrais une crème brûlée" },
-  { start: 43.43, end: 44.45, text: "avec un café au lait." },
-
-  { start: 44.45, end: 45.20, text: "de l'eau minérale." }
+  { start: 41.75, end: 42.39, text: "Dans le nord," },
+  { start: 42.39, end: 44.03, text: "le temps est mauvais" },
+  { start: 44.03, end: 45.27, text: "et il y a de la neige à Roubaix." },
+  { start: 45.27, end: 46.69, text: "Il fait moins 5 degrés." }
 ];
 
   const updateCaption = (time) => {

@@ -5,7 +5,7 @@ import img1 from "../../../assets/unite5pages/SVG/page102.svg";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
-import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U5Audio/u5sce5.mp3";
+import CD6_Pg8_Instruction1_AdultLady from "../../../assets/U6Audio/u6saq5.mp3";
 
 /* 🔴 الإجابات الصحيحة */
 const correctAnswers = {
@@ -45,48 +45,34 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-   { start:5.3 , end: 6.8, text: "Grand Prix A1" },
-  { start:6.8 , end: 10.2, text: "Unité 5, Les repas" },
-  { start:10.2 , end: 12.0, text: "Section C," },
-  { start:12.0 , end: 14.0, text: "Les repas en famille" },
-  { start:14.0 , end: 16.1, text: "Exercice 5," },
-  { start:16.1 , end: 18.6, text: "Écoute et écris l'information" },
-  { start:18.7 , end: 19.3, text: "manquante." },
-  { start:21.5 , end: 24.1, text: "Bonsoir Antoine, Comment ça va ?" },
-  { start:24.1 , end: 25.9, text: "Bonjour monsieur Jacques," },
-  { start:25.9 , end: 27.8, text: "Ça va bien et vous ?" },
-  { start:27.8 , end: 29.8, text: "Très bien, merci." },
-  { start:29.8 , end: 31.0, text: "Allons à table." },
-  { start:31.0 , end: 32.4, text: "Salut Antoine," },
-  { start:32.4 , end: 33.5, text: "assieds-toi là à côté" },
-  { start:33.5 , end: 34.7, text: "de Camille." },
-  { start:34.7 , end: 36.7, text: "Oui, madame." },
-  { start:36.7 , end: 38.2, text: "Qu'est-ce que tu prends comme" },
-  { start:38.2 , end: 40.2, text: "boisson Il y a du jus d'orange" },
-  { start:40.2 , end: 41.9, text: "et de l'eau minérale." },
-  { start:41.9 , end: 43.5, text: "De l'eau minérale," },
-  { start:43.5 , end: 44.8, text: "s'il vous plaît." },
-  { start:44.8 , end: 46.3, text: "Pour commencer," },
-  { start:46.3 , end: 48.6, text: "il y a de la soupe à la tomate." },
-  { start:48.6 , end: 52.2, text: "Bon appétit tout le monde." },
-  { start:52.2 , end: 54.6, text: "Hmmm, c'est délicieux." },
-  { start:54.6 , end: 56.1, text: "Rose" },
-  { start:56.1 , end: 57.2, text: "qu'est-ce que nous avons" },
-  { start:57.2 , end: 59.0, text: "comme plat principal ?" },
-  { start:59.0 , end: 60.8, text: "Il y a du poisson ou de la" },
-  { start:60.8 , end: 62.2, text: "viande et comme légume," },
-  { start:62.2 , end: 64.6, text: "il y a des pommes de terre." },
-  { start:64.6 , end: 66.9, text: "Bon donne-moi de la viande." },
-  { start:66.9 , end: 67.8, text: "Qu'est-ce que tu préfères" },
-  { start:67.8 , end: 69.6, text: "Antoine ?" },
-  { start:69.6 , end: 71.5, text: "Je préfère le poisson." },
-  { start:71.5 , end: 73.6, text: "Tu en veux encore ?" },
-  { start:73.6 , end: 76.7, text: "Non merci, j'ai assez mangé." },
-  { start:76.7 , end:78.4, text: "Comme dessert," },
-  { start:78.4 , end: 79.4, text: "il y a des fruits." },
-  { start:79.4 , end: 81.2, text: "Qu'est-ce que tu veux ?" },
-  { start:81.2 , end: 83.14, text: "Je voudrais des fraises" },
-  { start:83.15 , end: 84.2, text: "s'il te plaît." },
+ { start: 5.53, end: 6.55, text: "Rempris A1," },
+  { start: 6.94, end: 7.89, text: "unité 6," },
+  { start: 8.45, end: 8.83, text: "le temps," },
+  { start: 9.57, end: 10.23, text: "section A." },
+  { start: 11.07, end: 13.09, text: "Quel temps fait-il ?" },
+  { start: 13.09, end: 14.20, text: "Exercice 5." },
+  { start: 14.56, end: 16.97, text: "Écoute le dialogue et écris" },
+  { start: 16.97, end: 17.93, text: "l'information manquante." },
+
+  { start: 22.81, end: 23.55, text: "Bonjour Claire," },
+  { start: 23.87, end: 24.47, text: "comment ça va ?" },
+  { start: 25.65, end: 26.37, text: "Salut Antoine," },
+  { start: 26.37, end: 27.55, text: "ça va bien et toi ?" },
+  { start: 28.93, end: 29.15, text: "Bien," },
+  { start: 29.15, end: 29.63, text: "merci." },
+  { start: 30.15, end: 31.85, text: "Je vais à la gare pour aller à Paris." },
+  { start: 33.98, end: 34.11, text: "Ah," },
+  { start: 34.11, end: 35.19, text: "c'est formidable !" },
+  { start: 35.19, end: 36.06, text: "À quelle heure est ton train ?" },
+  { start: 37.13, end: 37.65, text: "À 9h." },
+  { start: 38.27, end: 39.79, text: "Et j'arrive à Paris à midi." },
+  { start: 41.25, end: 41.39, text: "Bon," },
+  { start: 41.39, end: 42.65, text: "mais il pleut aujourd'hui." },
+  { start: 42.65, end: 43.89, text: "N'oublie pas ton parapluie." },
+  { start: 43.95, end: 45.71, text: "Pfff !" },
+  { start: 45.71, end: 47.35, text: "Il fait beau à Marseille aujourd'hui." },
+  { start: 48.61, end: 50.25, text: "À bientôt !" },
+  { start: 50.25, end: 50.77, text: "À plus !" }
   ];
 
   const updateCaption = (time) => {

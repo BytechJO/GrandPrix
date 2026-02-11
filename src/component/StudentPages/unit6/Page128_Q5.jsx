@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import ValidationAlert from "../../Popup/ValidationAlert";
-import page5_CD2 from "../../../assets/U5Audio/u5sdq4.mp3";
+import page5_CD2 from "../../../assets/U6Audio/u6sdq5.mp3";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbMessageCircle } from "react-icons/tb";
@@ -29,28 +29,26 @@ const Page5_Q1_CleanAudio = () => {
   };
 
   const captions = [
-    { start: 5.44, end: 6.52, text: "Rempris à 1," },
-    { start: 7.07, end: 8.50, text: "unité 5," },
-    { start: 8.80, end: 9.42, text: "les repas." },
-    { start: 10.81, end: 11.35, text: "Section D," },
-    { start: 12.20, end: 12.86, text: "au restaurant." },
-    { start: 14.14, end: 15.06, text: "Exercice 4." },
-    { start: 15.65, end: 17.90, text: "Écoute et écris la bonne réponse." },
-    { start: 20.36, end: 22.06, text: "Je voudrais des pâtes avec" },
-    { start: 22.10, end: 22.90, text: "du jus d'orange." },
-    { start: 25.05, end: 25.60, text: "Comme entrée," },
-    { start: 25.60, end: 26.62, text: "je voudrais des rouleaux" },
-    { start: 26.62, end: 27.24, text: "de fruits de mer" },
-    { start: 27.54, end: 28.28, text: "et comme boisson," },
-    { start: 31.00, end: 32.92, text: "Je voudrais une salade verte" },
-    { start: 33.19, end: 34.33, text: "puis de la ratatouille" },
-    { start: 34.39, end: 35.35, text: "avec du jus de raisin." },
-    { start: 36.00, end: 36.71, text: "Comme dessert," },
-    { start: 37.07, end: 38.43, text: "je voudrais une tarte aux" },
-    { start: 38.43, end: 39.93, text: "pommes avec un café noir." },
-    { start: 41.99, end: 43.43, text: "Je voudrais une crème brûlée" },
-    { start: 43.43, end: 44.45, text: "avec un café au lait." },
-    { start: 44.45, end: 45.20, text: "de l'eau minérale." }
+    { start: 5.47, end: 6.47, text: "Rempris A1," },
+  { start: 6.78, end: 7.65, text: "unité 6," },
+  { start: 8.01, end: 8.47, text: "le temps." },
+  { start: 9.44, end: 10.09, text: "Section D," },
+  { start: 10.53, end: 10.91, text: "la mode." },
+  { start: 11.61, end: 12.59, text: "Exercice 5." },
+  { start: 13.47, end: 17.23, text: "Écoute le reste de la conversation et complète le tableau." },
+
+  { start: 19.42, end: 21.27, text: "Alors, madame, la taille vous convient ?" },
+  { start: 22.47, end: 24.07, text: "Hum, la jupe est trop petite." },
+  { start: 24.31, end: 25.24, text: "Vous l'avez en plus grand ?" },
+  { start: 26.49, end: 27.97, text: "Bien sûr, juste une seconde." },
+  { start: 28.39, end: 28.61, text: "Tenez." },
+  { start: 29.79, end: 30.20, text: "Alors ?" },
+  { start: 31.41, end: 32.73, text: "C'est ma taille. Je la prends." },
+  { start: 33.67, end: 34.55, text: "Combien elle coûte ?" },
+  { start: 35.77, end: 36.44, text: "50 euros." },
+  { start: 37.52, end: 39.18, text: "Est-ce que vous acceptez la carte de crédit ?" },
+  { start: 40.45, end: 43.28, text: "Oui, tenez, votre jupe et votre carte de crédit." },
+  { start: 44.30, end: 45.32, text: "Merci, au revoir." }
   ];
 
   const updateCaption = (time) => {
